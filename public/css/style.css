@@ -1,1 +1,5 @@
-body { padding-top:30px; }
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+.navbar {
+  border-radius: 0;
+}
