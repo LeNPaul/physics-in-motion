@@ -9,12 +9,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		})
 
 		.when('/curriculum', {
-			templateUrl: 'views/nerd.html',
+			templateUrl: 'views/curriculum.html',
 			controller: 'NerdController'
 		})
 
+		.when('/curriculum/motion-in-one-dimension', {
+			templateUrl: 'views/motion-in-one-dimension.html',
+		})
+
 		.when('/resources', {
-			templateUrl: 'views/geek.html',
+			templateUrl: 'views/resources.html',
 			controller: 'GeekController'
 		})
 
