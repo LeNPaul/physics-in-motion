@@ -14,7 +14,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		})
 
 		.when('/curriculum/motion-in-one-dimension', {
-			templateUrl: 'views/motion-in-one-dimension.html',
+			templateUrl: 'views/curriculum/motion-in-one-dimension.html',
 		})
 
 		.when('/resources', {
