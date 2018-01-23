@@ -17,6 +17,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/motion-in-one-dimension.html',
 		})
 
+		.when('/curriculum/simple-motion-in-one-dimension', {
+			templateUrl: 'views/curriculum/simple-motion-in-one-dimension.html',
+		})
+
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
 			controller: 'GeekController'
