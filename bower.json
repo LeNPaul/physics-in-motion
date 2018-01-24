@@ -4,7 +4,6 @@
   "dependencies": {
     "bootstrap": "^4.0.0",
     "angular": "^1.6.8",
-    "angular-route": "^1.6.8",
-    "MathJax": "^2.7.2"
+    "angular-route": "^1.6.8"
   }
 }
