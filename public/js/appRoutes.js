@@ -22,6 +22,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/simple-motion-in-one-dimension.html',
 		})
 
+		.when('/curriculum/simple-motion-in-two-dimensions', {
+			templateUrl: 'views/curriculum/simple-motion-in-two-dimensions.html',
+		})
+
+		.when('/curriculum/motion-in-two-dimensions', {
+			templateUrl: 'views/curriculum/motion-in-two-dimensions.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
