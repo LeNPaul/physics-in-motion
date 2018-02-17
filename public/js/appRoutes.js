@@ -64,6 +64,20 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/explosions.html',
 		})
 
+		// Simple harmonic motion
+		.when('/curriculum/dynamics-simple-harmonic-motion', {
+			templateUrl: 'views/curriculum/dynamics-simple-harmonic-motion.html',
+		})
+		.when('/curriculum/the-pendulum', {
+			templateUrl: 'views/curriculum/the-pendulum.html',
+		})
+		.when('/curriculum/damped-harmonic-motion', {
+			templateUrl: 'views/curriculum/damped-harmonic-motion.html',
+		})
+		.when('/curriculum/driven-oscillations', {
+			templateUrl: 'views/curriculum/driven-oscillations.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
