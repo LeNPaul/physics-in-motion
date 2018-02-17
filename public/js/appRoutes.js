@@ -109,6 +109,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/fluid-dynamics.html',
 		})
 
+		// Mathematics
+		.when('/curriculum/mathematics-calculus', {
+			templateUrl: 'views/curriculum/mathematics-calculus.html',
+		})
+		.when('/curriculum/mathematics-trigonometry', {
+			templateUrl: 'views/curriculum/mathematics-trigonometry.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
