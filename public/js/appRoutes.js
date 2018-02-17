@@ -89,6 +89,26 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/interference.html',
 		})
 
+		// Fluids
+		.when('/curriculum/pressure', {
+			templateUrl: 'views/curriculum/pressure.html',
+		})
+		.when('/curriculum/incompressible-fluids', {
+			templateUrl: 'views/curriculum/incompressible-fluids.html',
+		})
+		.when('/curriculum/buoyancy', {
+			templateUrl: 'views/curriculum/buoyancy.html',
+		})
+		.when('/curriculum/continuity', {
+			templateUrl: 'views/curriculum/continuity.html',
+		})
+		.when('/curriculum/fluid-statics', {
+			templateUrl: 'views/curriculum/fluid-statics.html',
+		})
+		.when('/curriculum/fluid-dynamics', {
+			templateUrl: 'views/curriculum/fluid-dynamics.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
