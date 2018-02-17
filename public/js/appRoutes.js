@@ -32,6 +32,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/curriculum/newtons-laws', {
 			templateUrl: 'views/curriculum/newtons-laws.html',
 		})
+		.when('/curriculum/simple-forces', {
+			templateUrl: 'views/curriculum/simple-forces.html',
+		})
 
 		// Other pages
 		.when('/resources', {
