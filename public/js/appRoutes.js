@@ -78,6 +78,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/driven-oscillations.html',
 		})
 
+		// Waves
+		.when('/curriculum/characteristics-waves', {
+			templateUrl: 'views/curriculum/characteristics-waves.html',
+		})
+		.when('/curriculum/superposition-of-waves', {
+			templateUrl: 'views/curriculum/superposition-of-waves.html',
+		})
+		.when('/curriculum/interference', {
+			templateUrl: 'views/curriculum/interference.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
