@@ -53,6 +53,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/power.html',
 		})
 
+		// Momentum
+		.when('/curriculum/momentum-conservation', {
+			templateUrl: 'views/curriculum/momentum-conservation.html',
+		})
+		.when('/curriculum/elastic-collisions', {
+			templateUrl: 'views/curriculum/elastic-collisions.html',
+		})
+		.when('/curriculum/explosions', {
+			templateUrl: 'views/curriculum/explosions.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
