@@ -14,20 +14,23 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'NerdController'
 		})
 
+		// Kinematics
 		.when('/curriculum/motion-in-one-dimension', {
 			templateUrl: 'views/curriculum/motion-in-one-dimension.html',
 		})
-
 		.when('/curriculum/simple-motion-in-one-dimension', {
 			templateUrl: 'views/curriculum/simple-motion-in-one-dimension.html',
 		})
-
 		.when('/curriculum/simple-motion-in-two-dimensions', {
 			templateUrl: 'views/curriculum/simple-motion-in-two-dimensions.html',
 		})
-
 		.when('/curriculum/motion-in-two-dimensions', {
 			templateUrl: 'views/curriculum/motion-in-two-dimensions.html',
+		})
+
+		// Forces
+		.when('/curriculum/newtons-laws', {
+			templateUrl: 'views/curriculum/newtons-laws.html',
 		})
 
 		// Other pages
