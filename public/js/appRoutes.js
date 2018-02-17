@@ -39,6 +39,20 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/curriculum/friction-drag.html',
 		})
 
+		// Energy
+		.when('/curriculum/conservative-forces', {
+			templateUrl: 'views/curriculum/conservative-forces.html',
+		})
+		.when('/curriculum/energy-conservation-work', {
+			templateUrl: 'views/curriculum/energy-conservation-work.html',
+		})
+		.when('/curriculum/work-potential-energy', {
+			templateUrl: 'views/curriculum/work-potential-energy.html',
+		})
+		.when('/curriculum/power', {
+			templateUrl: 'views/curriculum/power.html',
+		})
+
 		// Other pages
 		.when('/resources', {
 			templateUrl: 'views/resources.html',
