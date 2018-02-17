@@ -35,6 +35,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/curriculum/simple-forces', {
 			templateUrl: 'views/curriculum/simple-forces.html',
 		})
+		.when('/curriculum/friction-drag', {
+			templateUrl: 'views/curriculum/friction-drag.html',
+		})
 
 		// Other pages
 		.when('/resources', {
