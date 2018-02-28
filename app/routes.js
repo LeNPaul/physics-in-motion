@@ -14,6 +14,8 @@ module.exports = function(app) {
 		res.sendfile('./public/login.html');
 	});
 
-	// Set '*' so that it goes to 404 page otherwise
+	app.get('/content', function(req, res) {
+		res.sendfile('./public/content.html');
+	});
 
 };

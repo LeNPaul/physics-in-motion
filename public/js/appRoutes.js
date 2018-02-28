@@ -2,17 +2,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
 	$routeProvider
 
-		// Home page
-		.when('/', {
-			templateUrl: 'views/home.html',
+		 Home page
+		.when('/home', {
+			templateUrl: '/views/home.html',
 			controller: 'MainController'
 		})
 
 		// Curriculum pages
-		.when('/curriculum', {
-			templateUrl: 'views/curriculum.html',
-			controller: 'NerdController'
-		})
+		//.when('/curriculum', {
+		//	templateUrl: 'views/curriculum.html',
+		//	controller: 'NerdController'
+		//})
 
 		// Kinematics
 		.when('/curriculum/motion-in-one-dimension', {
