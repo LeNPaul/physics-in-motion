@@ -10,6 +10,10 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
+	app.get('/login', function(req, res) {
+		res.sendfile('./public/login.html');
+	});
+
 	// Set '*' so that it goes to 404 page otherwise
 
 };

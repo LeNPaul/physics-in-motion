@@ -2,14 +2,12 @@
   border-color: white;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */
-
-.navbar {
-  border-radius: 0;
+.action-call h1 {
+  margin: 100px 0px;
 }
 
-.vcenter {
-  margin-top: 25vh;
+.action-call button {
+  margin-bottom: 100px;
 }
 
 /* Pendulum shown on home page */
