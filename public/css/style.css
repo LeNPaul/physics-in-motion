@@ -1,3 +1,7 @@
+.home-divider {
+  border-color: white;
+}
+
 /* Remove the navbar's default margin-bottom and rounded borders */
 
 .navbar {
