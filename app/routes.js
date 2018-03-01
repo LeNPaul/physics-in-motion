@@ -14,6 +14,10 @@ module.exports = function(app) {
 		res.sendfile('./public/login.html');
 	});
 
+	app.get('/signup', function(req, res) {
+		res.sendfile('./public/signup.html');
+	});
+
 	app.get('/content', function(req, res) {
 		res.sendfile('./public/content.html');
 	});
