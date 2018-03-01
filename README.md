@@ -1,6 +1,6 @@
 # Physics in Motion Development
 
-This is a repo for developing the Physics in Motion fullstack web application.
+This is a repo for developing the Physics in Motion full stack web application.
 
 ## Installation
 1. Download the repository
