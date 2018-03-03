@@ -15,9 +15,9 @@ var port = process.env.PORT || 8080; // set our port
 // Connect to our mongoDB database
 mongoose.connect(db.url, function (err, db) {
     if (!err) {
-        console.log("We are connected to Mongo database");
+        console.log('We are connected to Mongo database');
     } else {
-        console.log("Connection to Mongo database failed");
+        console.log('Connection to Mongo database failed');
     }
 })
 
