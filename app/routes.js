@@ -9,7 +9,9 @@ module.exports = function(app) {
 		// Read in credentials
 		var email = req.body.email;
 		var password = req.body.password;
-		var password2 = req.body.password;
+		var password2 = req.body.password2;
+
+		console.log(email);
 
 	});
 
