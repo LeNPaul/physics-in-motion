@@ -10,8 +10,8 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
-	app.get('/login', function(req, res) {
-		res.sendfile('./public/login.html');
+	app.get('/signin', function(req, res) {
+		res.sendfile('./public/signin.html');
 	});
 
 	app.get('/signup', function(req, res) {

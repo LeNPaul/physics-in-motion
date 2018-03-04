@@ -18,20 +18,25 @@
   </head>
 
   <body>
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="/signup">
       <div class="text-center mb-4">
         <a href="/"><img class="mb-4" src="img/rocket.png" alt="" width="72" height="72"></a>
         <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       </div>
 
       <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
         <label for="inputEmail">Your Email Address</label>
       </div>
 
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
         <label for="inputPassword">Create a Password</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="confirmPassword" class="form-control" placeholder="Password" name="password2" required>
+        <label for="confirmPassword">Confirm Password</label>
       </div>
 
       <div class="checkbox mb-3">
@@ -41,7 +46,7 @@
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
       <div class="text-center mb-4">
-        <a href="/login" class="nav-link">Already have an account?</a>
+        <a href="/signin" class="nav-link">Already have an account?</a>
       </div>
     </form>
   </body>
