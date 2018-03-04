@@ -13,13 +13,17 @@ var db = require('./config/db');
 var port = process.env.PORT || 8080; // set our port
 
 // Connect to our mongoDB database
-mongoose.connect(db.url, function (err, db) {
-    if (!err) {
-        console.log('We are connected to Mongo database');
-    } else {
-        console.log('Connection to Mongo database failed');
-    }
-})
+mongoose.connect(db.url)
+
+mongoose.connection.on('connected', function() {
+  console.log('Mongoose connected to ' + db.url);
+});
+mongoose.connection.on('error', function(err) {
+  console.log('Mongoose connection error: ' + err);
+});
+mongoose.connection.on('disconnected', function() {
+  console.log('Mongoose disconnected');
+});
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json
