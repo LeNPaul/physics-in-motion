@@ -8,3 +8,10 @@ This is a repo for developing the Physics in Motion full stack web application.
 3. Install bower dependencies `bower install`
 4. Start up the server: `npm start`
 5. View in browser at http://localhost:8080
+
+## Technology Stack
+
+* MongoDB
+* Node.js
+* Express.js
+* AngularJS
