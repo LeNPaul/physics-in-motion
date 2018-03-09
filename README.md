@@ -19,4 +19,6 @@ This is a repository for developing the Physics in Motion full stack web applica
 
 ## Project Timeline
 
-* Phase 1: implement account creation and user sign-in.
+* Phase 1: 
+  * Implement account creation and user sign-in.
+  * Migrate old course content from current placeholder site to new site.
