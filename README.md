@@ -22,3 +22,6 @@ This is a repository for developing the Physics in Motion full stack web applica
 * Phase 1: 
   * Implement account creation and user sign-in.
   * Migrate old course content from current placeholder site to new site.
+
+* Phase 2:
+  * Create animations to demonstrate concepts and ideas.
