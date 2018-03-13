@@ -48,6 +48,10 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
+	app.get('/about', function(req, res) {
+		res.sendfile('./public/about.html');
+	});
+
 	app.get('/signin', function(req, res) {
 		res.sendfile('./public/signin.html');
 	});
