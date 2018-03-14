@@ -28,6 +28,7 @@ module.exports = function(app) {
 		var password = req.body.password;
 
 		console.log(email);
+		console.log(password);
 
 	});
 
@@ -39,6 +40,7 @@ module.exports = function(app) {
 		var password2 = req.body.password2;
 
 		console.log(email);
+		console.log(password);
 
 	});
 
