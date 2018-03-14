@@ -25,3 +25,6 @@ This is a repository for developing the Physics in Motion full stack web applica
 
 * Phase 2:
   * Create animations to demonstrate concepts and ideas.
+
+* Phase 3:
+  * Develop interactive modules to demonstrate concepts and ideas.
