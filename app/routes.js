@@ -1,3 +1,7 @@
+var express = require('express');
+var passport = require('passport');
+var Account = require('../app/models/account');
+
 module.exports = function(app) {
 
 	// server routes ===========================================================
@@ -16,15 +20,15 @@ module.exports = function(app) {
 	});
 
 	app.post('/signup', function(req, res) {
+	    Account.register(new Account({ username : req.body.email }), req.body.password, function(err, account) {
+	        if (err) {
+	            return res.sendfile('./public/signin.html');
+	        }
 
-		// Read in credentials
-		var email = req.body.email;
-		var password = req.body.password;
-		var password2 = req.body.password2;
-
-		console.log(email);
-		console.log(password);
-
+	        passport.authenticate('local')(req, res, function () {
+	            res.redirect('/');
+	        });
+	    });
 	});
 
 	// frontend routes =========================================================
