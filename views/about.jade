@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='img/rocket.png')
+    title Physics in Motion
+    // Bootstrap core CSS
+    link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Font Awesome
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+        .container
+          a.navbar-brand(href='/')
+            i.fa.fa-rocket(aria-hidden='true')
+            |  Physics in Motion
+          button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarResponsive.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link(href='about') What We Do
+              li.nav-item.dropdown
+                a#navbarDropdownBlog.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Explore
+                .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownBlog')
+                  a.dropdown-item(href='curriculum.html') Curriculum
+                  a.dropdown-item(href='resources.html') Resources
+              li.nav-item
+                button.btn.btn-primary(type='button', onclick="location.href = '/signup';") Sign Up
+              li.nav-item
+                a.nav-link(href='/signin') Sign In
+    main(role='main')
+      //
+        Marketing messaging and featurettes
+        ==================================================
+      // Wrap the rest of the page in another container to center all the content.
+      .container.marketing
+        // START THE FEATURETTES
+        .row.featurette
+          .col-md-7
+            h2.featurette-heading About Us
+            p
+              | Education is not something that you can ever finish, and should never stop once you complete school. Unfortunately, traditional school values have raised people to view learning as a chore, something that you only do a means to end. Many can’t wait until they finish school so that they can stop studying for school and start working at a job.
+            p
+              | My goal is to change this, and to demonstrate that learning is something that should be done for its own sake. In particular, the study of physics often gets a bad reputation for being a difficult and even boring subject to study (it isn’t!). A big part of why this is the case is due to how physics is taught. Physics, by its very nature, is the study of motion, and yet when it is taught in school, we typically see static drawings instead of dynamic demonstrations.
+            p
+              | Physics in Motion is a free online resource for learning physics, whether you are a student learning physics in school, or an enthusiast looking to learn something new, this site offers a comprehensive resource for learning physics how it was meant to be taught.
+        hr.featurette-divider
+        // /END THE FEATURETTES
+      // /.container
+      // FOOTER
+      footer.container
+        p.float-right
+          a(href='#') Back to top
+        p
+          | © 2017-2018 Physics in Motion · 
+          a(href='#') Privacy
+          |  · 
+          a(href='#') Terms
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    script(src='https://getbootstrap.com/assets/js/vendor/popper.min.js')
+    script(src='https://getbootstrap.com/dist/js/bootstrap.min.js')
+    // Just to make our placeholder images work. Don't actually copy the next line!
+    script(src='https://getbootstrap.com/assets/js/vendor/holder.min.js')

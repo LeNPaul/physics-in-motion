@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
     res.render('index', { user : req.user });
 });
 
+router.get('/about', (req, res) => {
+    res.render('about', {});
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
