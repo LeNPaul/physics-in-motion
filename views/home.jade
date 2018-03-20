@@ -1,0 +1,102 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='img/rocket.png')
+    title Physics in Motion
+    // Bootstrap core CSS
+    link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Font Awesome
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+        .container
+          a.navbar-brand(href='/')
+            i.fa.fa-rocket(aria-hidden='true')
+            |  Physics in Motion
+          button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarResponsive.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link(href='about') What We Do
+              li.nav-item.dropdown
+                a#navbarDropdownBlog.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Explore
+                .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownBlog')
+                  a.dropdown-item(href='curriculum.html') Curriculum
+                  a.dropdown-item(href='resources.html') Resources
+              li.nav-item
+                button.btn.btn-primary(type='button', onclick="location.href = '/register';") Register
+              li.nav-item
+                a.nav-link(href='/login') Login
+    main(role='main')
+      //
+        Marketing messaging and featurettes
+        ==================================================
+      // Wrap the rest of the page in another container to center all the content.
+      .container.marketing
+        // START THE FEATURETTES
+        hr.featurette-divider.home-divider
+        .row.featurette
+          .col-md-7
+            h2.featurette-heading How physics was meant to be taught.
+            p.lead
+              | Not through static diagrams, but dynamic physical simulations that allow you to build an intuition for physical systems.
+            button.btn.btn-lg.btn-primary(type='submit', onclick="location.href = '/register';") Get Started
+          .col-md-5
+            img.featurette-image.img-fluid.mx-auto(src='img/rocket.png', alt='Rocket', style='opacity:0.9;')
+        hr.featurette-divider.home-divider
+        .row.featurette
+          .col-md-7.order-md-2
+            h2.featurette-heading Improve your grades.
+            p.lead
+              | Rote memorization is overated. Build a genuine intuition for how complex physical systems behave, and learn to think critically and tackle problems effectively.
+          .col-md-5.order-md-1
+            img.featurette-image.img-fluid.mx-auto(src='img/light-bulb.png', alt='Light Bulb', style='opacity:0.9;')
+        hr.featurette-divider.home-divider
+        .row.featurette
+          .col-md-7
+            h2.featurette-heading And lastly, learn to enjoy physics.
+            p.lead
+              | Yes, physics can be a difficult subject, but that doesn't mean you need to hate it. Experience the true beauty of physics.
+          .col-md-5
+            img.featurette-image.img-fluid.mx-auto(src='img/astronaut.png', alt='Astronaut')
+        hr.featurette-divider.home-divider
+        .row.featurette.action-call
+          .col-md-2
+          .col-md-8.text-center
+            h1.featurette-heading Experience Physics in Motion.
+            button.btn.btn-lg.btn-primary(type='submit', onclick="location.href = '/register';") Get Started
+          .col-md-2
+        hr.featurette-divider
+        // /END THE FEATURETTES
+        // /.container
+        // FOOTER
+        footer.container
+          p.float-right
+            a(href='#') Back to top
+          p
+            | © 2017-2018 Physics in Motion · 
+            a(href='#') Privacy
+            |  · 
+            a(href='#') Terms
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    script(src='https://getbootstrap.com/assets/js/vendor/popper.min.js')
+    script(src='https://getbootstrap.com/dist/js/bootstrap.min.js')
+    // Just to make our placeholder images work. Don't actually copy the next line!
+    script(src='https://getbootstrap.com/assets/js/vendor/holder.min.js')

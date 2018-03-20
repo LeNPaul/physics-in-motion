@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Content
+    // Bootstrap core CSS
+    link(href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css', rel='stylesheet')
+    // AngularJS
+    // JS
+    script(src='libs/angular/angular.min.js')
+    script(src='libs/angular-route/angular-route.min.js')
+    // ANGULAR CUSTOM
+    script(src='js/controllers/MainCtrl.js')
+    script(src='js/controllers/NerdCtrl.js')
+    script(src='js/services/NerdService.js')
+    script(src='js/controllers/GeekCtrl.js')
+    script(src='js/services/GeekService.js')
+    script(src='js/appRoutes.js')
+    script(src='js/app.js')
+  body(ng-app='sampleApp', ng-controller='NerdController')
+    nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
+      button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      a.navbar-brand(href='/') #{user.username}
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/') Settings
+          li.nav-item
+            a.nav-link(href='/') Profile
+          li.nav-item
+            a.nav-link(href='/') Help
+          li.nav-item
+            a.nav-link(href='/logout') Logout
+    .container-fluid
+      .row
+        nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
+          ul.nav.nav-pills.flex-column
+            li.nav-item
+              a.nav-link.active(href='/curriculum/motion-in-one-dimension')
+                | Overview 
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='#') Reports
+            li.nav-item
+              a.nav-link(href='#') Analytics
+            li.nav-item
+              a.nav-link(href='#') Export
+          ul.nav.nav-pills.flex-column
+            li.nav-item
+              a.nav-link(href='#') Nav item
+            li.nav-item
+              a.nav-link(href='#') Nav item again
+            li.nav-item
+              a.nav-link(href='#') One more nav
+            li.nav-item
+              a.nav-link(href='#') Another nav item
+          ul.nav.nav-pills.flex-column
+            li.nav-item
+              a.nav-link(href='#') Nav item again
+            li.nav-item
+              a.nav-link(href='#') One more nav
+            li.nav-item
+              a.nav-link(href='#') Another nav item
+        main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
+          h1 Content
+          section.row.text-center.placeholders
+            // ANGULAR DYNAMIC CONTENT
+            div(ng-view='')
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
