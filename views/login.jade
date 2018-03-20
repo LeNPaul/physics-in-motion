@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='img/rocket.png')
+    title Welcome Back | Physics in Motion
+    // Bootstrap core CSS
+    link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://getbootstrap.com/docs/4.0/examples/floating-labels/floating-labels.css', rel='stylesheet')
+  body
+    form.form-signin(method='post', action='/login')
+      .text-center.mb-4
+        a(href='/')
+          img.mb-4(src='img/rocket.png', alt='', width='72', height='72')
+        h1.h3.mb-3.font-weight-normal Sign in
+      .form-label-group
+        input#inputEmail.form-control(type='email', placeholder='Email address', name='username', required='', autofocus='')
+        label(for='inputEmail') Email address
+      .form-label-group
+        input#inputPassword.form-control(type='password', placeholder='Password', name='password', required='')
+        label(for='inputPassword') Password
+      .checkbox.mb-3
+        label
+          input(type='checkbox', value='remember-me')
+          |  Remember me
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+      .text-center.mb-4
+        a.nav-link(href='/register') Don't have an account?
