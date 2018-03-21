@@ -1,5 +1,5 @@
 {
-  "name": "passport-local-express4",
+  "name": "physics-in-motion",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mjhea0/passport-local-express4.git"
+    "url": "https://github.com/LeNPaul/physics-in-motion-dev.git"
   },
-  "author": "Michael Herman <michael@mherman.org>",
+  "author": "Paul Le <l.nguyen.paul@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.10.2",
