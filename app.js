@@ -15,6 +15,11 @@ var users = require('./routes/users');
 
 var app = express();
 
+// Configuration ===========================================
+
+// Config files
+var db = require('./config/db');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -43,8 +48,20 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-// mongoose
-mongoose.connect('mongodb://localhost/pim-dev');
+// Connect to our mongoDB database
+mongoose.connect(db.url, {
+  useMongoClient: true,
+});
+
+mongoose.connection.on('connected', function() {
+  console.log('Mongoose connected to ' + db.url);
+});
+mongoose.connection.on('error', function(err) {
+  console.log('Mongoose connection error: ' + err);
+});
+mongoose.connection.on('disconnected', function() {
+  console.log('Mongoose disconnected');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
