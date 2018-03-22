@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/about', (req, res) => {
-    res.render('about', {});
+    res.render('home-page/about', {});
 });
 
 router.get('/register', (req, res) => {
@@ -55,10 +55,6 @@ router.get('/logout', (req, res, next) => {
         }
         res.redirect('/');
     });
-});
-
-router.get('/ping', (req, res) => {
-    res.status(200).send("pong!");
 });
 
 module.exports = router;
