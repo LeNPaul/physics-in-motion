@@ -20,12 +20,14 @@ var app = express();
 // Config files
 var db = require('./config/db');
 
-// view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+// Add HTTP request logging
 app.use(logger('dev'));
+
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
