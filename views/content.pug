@@ -16,6 +16,8 @@ html(lang='en',ng-app='scotchApp')
     // AngularJS
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js')
+    // MathJax
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML')
     // ANGULAR CUSTOM
     script(src='js/script.js')
     
@@ -42,53 +44,22 @@ html(lang='en',ng-app='scotchApp')
       .row
         nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
           ul.nav.nav-pills.flex-column
-            li.nav-item
+            //li.nav-item
               a.nav-link.active(href='/curriculum/motion-in-one-dimension')
                 | Overview 
                 span.sr-only (current)
             li.nav-item
-              a.nav-link(href='#') Reports
+              a.nav-link(href='#!motion-in-one-dimension') Motion in One Dimension
             li.nav-item
-              a.nav-link(href='#') Analytics
+              a.nav-link(href='#!simple-motion-in-one-dimension') Simple Motion in One Dimension
             li.nav-item
-              a.nav-link(href='#') Export
-          ul.nav.nav-pills.flex-column
-            li.nav-item
-              a.nav-link(href='#') Nav item
-            li.nav-item
-              a.nav-link(href='#') Nav item again
-            li.nav-item
-              a.nav-link(href='#') One more nav
-            li.nav-item
-              a.nav-link(href='#') Another nav item
-          ul.nav.nav-pills.flex-column
-            li.nav-item
-              a.nav-link(href='#') Nav item again
-            li.nav-item
-              a.nav-link(href='#') One more nav
-            li.nav-item
-              a.nav-link(href='#') Another nav item
+              a.nav-link(href='#!simple-motion-in-two-dimensions') Simple Motion in Two Dimensions
+              li.nav-item
+                a.nav-link(href='#!motion-in-two-dimensions') Motion in Two Dimensions
+              
         main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
-          h1 Content
-          section.row.text-center.placeholders
-            nav.navbar.navbar-default
-              .container
-                .navbar-header
-                  a.navbar-brand(href='/') Angular Routing Example
-                ul.nav.navbar-nav.navbar-right
-                  li
-                    a(href='#')
-                      i.fa.fa-home
-                      |  Home
-                  li
-                    a(href='#!about')
-                      i.fa.fa-shield
-                      |  About
-                  li
-                    a(href='#!contact')
-                      i.fa.fa-comment
-                      |  Contact
 
+          section.row.text-center.placeholders
 
           // ANGULAR DYNAMIC CONTENT
           div.ng-view

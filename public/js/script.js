@@ -5,33 +5,30 @@ var scotchApp = angular.module('scotchApp', ['ngRoute']);
 scotchApp.config(function($routeProvider) {
   $routeProvider
 
-    // route for the home page
-    .when('/', {
-      templateUrl : 'pages/home.html',
-      controller  : 'mainController'
-    })
+  .when('/motion-in-one-dimension', {
+    templateUrl: 'curriculum/motion-in-one-dimension.html',
+  })
+  .when('/simple-motion-in-one-dimension', {
+    templateUrl: 'curriculum/simple-motion-in-one-dimension.html',
+  })
+  .when('/simple-motion-in-two-dimensions', {
+    templateUrl: 'curriculum/simple-motion-in-two-dimensions.html',
+  })
+  .when('/motion-in-two-dimensions', {
+    templateUrl: 'curriculum/motion-in-two-dimensions.html',
+  })
 
-    // route for the about page
-    .when('/about', {
-      templateUrl : 'pages/about.html',
-      controller  : 'aboutController'
-    })
-
-    // route for the contact page
-    .when('/contact', {
-      templateUrl : 'pages/contact.html',
-      controller  : 'contactController'
-    });
 });
 
 // create the controller and inject Angular's $scope
 scotchApp.controller('mainController', function($scope) {
-  // create a message to display in our view
-  $scope.message = 'Everyone come and see how good I look!';
-});
 
-scotchApp.controller('aboutController', function($scope) {
-  $scope.message = 'Look! I am an about page.';
+  // Render LaTex when loading new view
+	$scope.$watch(function(){
+	  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	  return true;
+	});
+
 });
 
 scotchApp.controller('contactController', function($scope) {
