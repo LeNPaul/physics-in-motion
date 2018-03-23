@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en',ng-app='scotchApp')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
@@ -19,7 +19,7 @@ html(lang='en')
     // ANGULAR CUSTOM
     script(src='js/script.js')
     
-  body(ng-app='myApp')
+  body(ng-controller='mainController')
     nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
       button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
@@ -71,11 +71,27 @@ html(lang='en')
         main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
           h1 Content
           section.row.text-center.placeholders
-            a(href='#!banana') Banana
-            a(href='#!tomato') Tomato
+            nav.navbar.navbar-default
+              .container
+                .navbar-header
+                  a.navbar-brand(href='/') Angular Routing Example
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    a(href='#')
+                      i.fa.fa-home
+                      |  Home
+                  li
+                    a(href='#!about')
+                      i.fa.fa-shield
+                      |  About
+                  li
+                    a(href='#!contact')
+                      i.fa.fa-comment
+                      |  Contact
 
-            // ANGULAR DYNAMIC CONTENT
-            div.ng-view
+
+          // ANGULAR DYNAMIC CONTENT
+          div.ng-view
     //
       Bootstrap core JavaScript
       ==================================================
