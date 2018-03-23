@@ -9,35 +9,35 @@ html(lang='en')
     title Content
     // Bootstrap core CSS
     link(href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Font Awesome
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
     // Custom styles for this template
     link(href='https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css', rel='stylesheet')
     // AngularJS
-    // JS
-    //script(src='libs/angular/angular.min.js')
-    //script(src='libs/angular-route/angular-route.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js')
     // ANGULAR CUSTOM
-    //script(src='js/controllers/MainCtrl.js')
-    //script(src='js/controllers/NerdCtrl.js')
-    //script(src='js/services/NerdService.js')
-    //script(src='js/controllers/GeekCtrl.js')
-    //script(src='js/services/GeekService.js')
-    //script(src='js/appRoutes.js')
-    //script(src='js/app.js')
-  body(ng-app='sampleApp', ng-controller='NerdController')
+    script(src='js/script.js')
+    
+  body(ng-app='myApp')
     nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
       button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       a.navbar-brand(href='/') #{user.username}
-      #navbarsExampleDefault.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
           li.nav-item
-            a.nav-link(href='/') Settings
+            a.nav-link(href='/profile') Profile
           li.nav-item
-            a.nav-link(href='/') Profile
+            a.nav-link(href='/settings') Settings
           li.nav-item
-            a.nav-link(href='/') Help
+            a.nav-link(href='/help') Help
           li.nav-item
-            a.nav-link(href='/logout') Logout
+            a.nav-link(href='/logout')
+              i.fa.fa-sign-out(aria-hidden='true')
+              |  Logout
     .container-fluid
       .row
         nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
@@ -71,8 +71,11 @@ html(lang='en')
         main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
           h1 Content
           section.row.text-center.placeholders
+            a(href='#!banana') Banana
+            a(href='#!tomato') Tomato
+
             // ANGULAR DYNAMIC CONTENT
-            div(ng-view='')
+            div.ng-view
     //
       Bootstrap core JavaScript
       ==================================================
