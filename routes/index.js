@@ -12,6 +12,10 @@ router.get('/about', (req, res) => {
     res.render('home-page/about', {});
 });
 
+router.get('/classical-mechanics', (req, res) => {
+    res.render('classical-mechanics', {});
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
