@@ -16,6 +16,10 @@ router.get('/classical-mechanics', (req, res) => {
     res.render('classical-mechanics', {});
 });
 
+router.get('/kinematics', (req, res) => {
+    res.render('kinematics', {});
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });

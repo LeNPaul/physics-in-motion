@@ -1,0 +1,128 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../../../favicon.ico')
+    title Dashboard
+    // Font Awesome
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://getbootstrap.com/docs/4.0/examples/album/album.css', rel='stylesheet')
+    //link(href='https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css', rel='stylesheet')
+    
+  body
+    header
+      #navbarHeader.collapse.bg-dark
+        .container
+          .row
+            .col-sm-8.col-md-7.py-4
+              h4.text-white About
+              p.text-muted
+                | Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
+            .col-sm-4.offset-md-1.py-4
+              h4.text-white 
+                a.text-white(href='logout') Logout
+              //ul.list-unstyled
+                li
+                  a.text-white(href='logout') Logout
+      .navbar.navbar-dark.bg-dark.box-shadow
+        .container.d-flex.justify-content-between
+          a.navbar-brand(href='/')
+            i.fa.fa-rocket(aria-hidden='true')
+            |  Physics in Motion
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+            
+    //main.container(role='main')
+      .jumbotron
+        h1 Welcome (back)!
+        p Logged in as #{user.username}
+        
+        //p.lead
+          | This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
+        //a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning            
+  
+    main.container(role='main')
+      .my-3.p-3.bg-white.rounded.box-shadow
+        h2.border-bottom.border-gray.pb-2.mb-0 Welcome (back)!
+        p Logged in as #{user.username}
+      .my-3.p-3.bg-white.rounded.box-shadow
+        h6.border-bottom.border-gray.pb-2.mb-0 Curriculum
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Classical Mechanics
+              a(href='/classical-mechanics') Start Learning
+            span.d-block
+            | Start with the basics - the fundamentals of physics that all students of physics start with. Equivalent to an introductory course in physics.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          p.media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            strong.d-block.text-gray-dark Classical Mechanics
+            |             Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1', alt='')
+          p.media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            strong.d-block.text-gray-dark Thermodynamics
+            |             Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1', alt='')
+          p.media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            strong.d-block.text-gray-dark Quantum Mechanics
+            |             Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        small.d-block.text-right.mt-3
+          a(href='#') All updates
+      .my-3.p-3.bg-white.rounded.box-shadow
+        h6.border-bottom.border-gray.pb-2.mb-0 Suggestions
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Full Name
+              a(href='#') Follow
+            span.d-block @username
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Full Name
+              a(href='#') Follow
+            span.d-block @username
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Full Name
+              a(href='#') Follow
+            span.d-block @username
+        small.d-block.text-right.mt-3
+          a(href='#') All suggestions
+
+  
+    footer.text-muted
+      .container
+        p.float-right
+          a(href='#') Back to top
+        p Album example is © Bootstrap, but please download and customize it for yourself!
+        p
+          | New to Bootstrap? 
+          a(href='../../') Visit the homepage
+          |  or read our 
+          a(href='../../getting-started/') getting started guide
+          | .
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    script(src='https://getbootstrap.com/assets/js/vendor/popper.min.js')
+    script(src='https://getbootstrap.com/dist/js/bootstrap.min.js')
+    script(src='https://getbootstrap.com/assets/js/vendor/holder.min.js')
