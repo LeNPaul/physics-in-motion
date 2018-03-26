@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../../../favicon.ico')
+    title Classical Mechanics
+    // Font Awesome
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='https://getbootstrap.com/docs/4.0/examples/album/album.css', rel='stylesheet')
+  body
+    header
+      #navbarHeader.collapse.bg-dark
+        .container
+          .row
+            .col-sm-8.col-md-7.py-4
+              h4.text-white About
+              p.text-muted
+                | Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
+            .col-sm-4.offset-md-1.py-4
+              h4.text-white Contact
+              ul.list-unstyled
+                li
+                  a.text-white(href='#') Follow on Twitter
+                li
+                  a.text-white(href='#') Like on Facebook
+                li
+                  a.text-white(href='#') Email me
+      .navbar.navbar-dark.bg-dark.box-shadow
+        .container.d-flex.justify-content-between
+          a.navbar-brand(href='/')
+            i.fa.fa-rocket(aria-hidden='true')
+            |  Physics in Motion
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+    main(role='main')
+      
+      block content
+      
+    footer.text-muted
+      .container
+        p.float-right
+          a(href='#') Back to top
+        p Album example is © Bootstrap, but please download and customize it for yourself!
+        p
+          | New to Bootstrap? 
+          a(href='../../') Visit the homepage
+          |  or read our 
+          a(href='../../getting-started/') getting started guide
+          | .
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    script(src='https://getbootstrap.com/assets/js/vendor/popper.min.js')
+    script(src='https://getbootstrap.com/dist/js/bootstrap.min.js')
+    script(src='https://getbootstrap.com/assets/js/vendor/holder.min.js')

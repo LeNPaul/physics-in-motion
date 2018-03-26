@@ -13,7 +13,7 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/classical-mechanics', (req, res) => {
-    res.render('classical-mechanics', {});
+    res.render('classical-mechanics', { user : req.user });
 });
 
 router.get('/kinematics', (req, res) => {
