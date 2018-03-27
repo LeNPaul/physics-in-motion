@@ -3,18 +3,17 @@ header
     .container
       .row
         .col-sm-8.col-md-7.py-4
-          h4.text-white About
-          p.text-muted
-            | Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
+          h6.text-white
+            a.text-white(href='/') Dashboard
+          h6.text-white
+            a.text-white(href='#') Courses
         .col-sm-4.offset-md-1.py-4
-          h4.text-white Contact
-          ul.list-unstyled
-            li
-              a.text-white(href='#') Follow on Twitter
-            li
-              a.text-white(href='#') Like on Facebook
-            li
-              a.text-white(href='#') Email me
+          p.text-muted
+            | Logged in as #{user.username}
+          h6.text-white
+            a.text-white(href='logout')
+              i.fa.fa-sign-out(aria-hidden='true')
+              |  Logout
   .navbar.navbar-dark.bg-dark.box-shadow
     .container.d-flex.justify-content-between
       a.navbar-brand(href='/')

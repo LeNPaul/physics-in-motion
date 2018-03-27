@@ -16,27 +16,11 @@ html(lang='en')
     //link(href='https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css', rel='stylesheet')
     
   body
-    header
-      #navbarHeader.collapse.bg-dark
-        .container
-          .row
-            .col-sm-8.col-md-7.py-4
-              h4.text-white About
-              p.text-muted
-                | Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
-            .col-sm-4.offset-md-1.py-4
-              h4.text-white 
-                a.text-white(href='logout') Logout
-              //ul.list-unstyled
-                li
-                  a.text-white(href='logout') Logout
-      .navbar.navbar-dark.bg-dark.box-shadow
-        .container.d-flex.justify-content-between
-          a.navbar-brand(href='/')
-            i.fa.fa-rocket(aria-hidden='true')
-            |  Physics in Motion
-          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
+    if (!user)
+      include navbar/default-nav.pug
+
+    if (user)
+      include navbar/user-nav.pug
             
     //main.container(role='main')
       .jumbotron
