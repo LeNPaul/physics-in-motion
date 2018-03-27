@@ -14,12 +14,11 @@ html(lang='en')
     // Custom styles for this template
     link(href='https://getbootstrap.com/docs/4.0/examples/album/album.css', rel='stylesheet')
   body
-    header
-      if (!user)
-        include navbar/default-nav.pug
+    if (!user)
+      include navbar/default-nav.pug
 
-      if (user)
-        include navbar/user-nav.pug
+    if (user)
+      include navbar/user-nav.pug
     main(role='main')
       section.jumbotron.text-center
         .container
