@@ -12,6 +12,14 @@ router.get('/about', (req, res) => {
     res.render('home-page/about', {});
 });
 
+router.get('/privacy', (req, res) => {
+    res.render('home-page/privacy', {});
+});
+
+router.get('/terms', (req, res) => {
+    res.render('home-page/terms', {});
+});
+
 router.get('/classical-mechanics', (req, res) => {
     res.render('classical-mechanics', { user : req.user });
 });
