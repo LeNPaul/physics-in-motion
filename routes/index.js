@@ -3,21 +3,25 @@ const passport = require('passport');
 const Account = require('../models/account');
 const router = express.Router();
 
+router.get('/test', (req, res) => {
+    res.render('curriculum/classical-mechanics', { user : req.user });
+});
+
 
 router.get('/', (req, res) => {
     res.render('index', { user : req.user });
 });
 
 router.get('/about', (req, res) => {
-    res.render('home-page/about', {});
+    res.render('home/about', {});
 });
 
 router.get('/privacy', (req, res) => {
-    res.render('home-page/privacy', {});
+    res.render('home/privacy', {});
 });
 
 router.get('/terms', (req, res) => {
-    res.render('home-page/terms', {});
+    res.render('home/terms', {});
 });
 
 router.get('/classical-mechanics', (req, res) => {
