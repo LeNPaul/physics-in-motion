@@ -6,16 +6,26 @@ scotchApp.config(function($routeProvider) {
   $routeProvider
 
   .when('/motion-in-one-dimension', {
-    templateUrl: 'curriculum/motion-in-one-dimension.html',
+    templateUrl: 'curriculum/kinematics/motion-in-one-dimension.html',
   })
   .when('/simple-motion-in-one-dimension', {
-    templateUrl: 'curriculum/simple-motion-in-one-dimension.html',
+    templateUrl: 'curriculum/kinematics/simple-motion-in-one-dimension.html',
   })
   .when('/simple-motion-in-two-dimensions', {
-    templateUrl: 'curriculum/simple-motion-in-two-dimensions.html',
+    templateUrl: 'curriculum/kinematics/simple-motion-in-two-dimensions.html',
   })
   .when('/motion-in-two-dimensions', {
-    templateUrl: 'curriculum/motion-in-two-dimensions.html',
+    templateUrl: 'curriculum/kinematics/motion-in-two-dimensions.html',
+  })
+
+  .when('/newtons-laws', {
+    templateUrl: 'curriculum/forces/newtons-laws.html',
+  })
+  .when('/simple-forces', {
+    templateUrl: 'curriculum/forces/simple-forces.html',
+  })
+  .when('/friction-drag', {
+    templateUrl: 'curriculum/forces/friction-drag.html',
   })
 
 });
