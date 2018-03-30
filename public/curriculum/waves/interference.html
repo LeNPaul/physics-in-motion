@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <h1 class="page-header">Interference</h1>
+
+      <p>Let us now consider what happens when waves of the same frequency, but a different source, arrive at the same location. If the first wave travelled a distance \( d_1 \) from its source, and the second wave travelled a distance \( d_2 \), then we
+        have,
+      </p>
+
+      <p>$$ y(x,t) = y_1 (x,t) + y_2 (x,t) $$
+      </p>
+
+      <p>$$ y(x,t) = A \sin (k d_1 - \omega t + \phi_{01}) + A \sin (k d_2 - \omega t + \phi_{02}) $$
+      </p>
+
+      <p>$$ y(x,t) = A \sin (\phi_1 - \omega t) + A \sin (\phi_2 - \omega t) $$
+      </p>
+
+      <p>Where \( \phi_{01} \) and \( \phi_{02} \) are the initial phases of the two waves, and</p>
+
+      <p>$$ \phi_1 = k d_1 + \phi_{01} $$
+      </p>
+
+      <p>$$ \phi_2 = k d_2 + \phi_{02} $$
+      </p>
+
+      <p>can be thought of as the phases of the waves at this particular location. Using the properties of the sine function, you can convince yourself that the oscillations of the two components in the equations above exactly cancel each other if they are
+        out of phase. This is known as perfectly destructive interference and requires,</p>
+
+      <p>$$ \Delta \phi = \phi_1 - \phi_2 = (m + 1/2) \dot 2 \pi $$
+      </p>
+
+      <p>Where \( m = 0, \pm 2, \pm 2,... \) is an integer. On the other hand, the amplitudes of the two components add coherently to yield perfectly constructive interference if the oscillations are exactly in phase,</p>
+
+      <p>$$ \Delta \phi = \phi_1 - \phi_2 = 2 m \pi $$
+      </p>
+
+      <p>where again, \( m = 0, \pm 2, \pm 2,... \) is an integer. More generally, the interference results in an amplitude that depends on the phase shift. Using a trigonometric identity for expression the sum of two sine functions as the product of two
+        others, the wave form can be recast into,</p>
+
+      <p>$$ y(x,t) = A \sin (\phi_1 - \omega t) + A \sin (\phi_2 - \omega t) $$
+      </p>
+
+      <p>$$ y(x,t) = 2 A \cos \left( \frac{\Delta \phi}{2} \right) \times \sin \left( k \left( \frac{d_1 + d_2}{2} \right) + \left( \frac{\phi_{01} + \phi_{02}}{2} \right) - \omega t \right) $$
+      </p>
+
+      <p>When the variations in the average distance, \( (d_1 + d_2) / 2 \) are small compared with the wavelength, the amplitude of the wave can be thought of as the coefficient of the oscillating piece, namely,</p>
+
+      <p>$$ Amplitude = \left| 2 A \cos \left( \frac{\Delta \phi}{2} \right) \right| $$
+      </p>
+
+      <p>In many instances the initial phase of the two waves are equal since they emerge from the same source. In those cases, the conditions for interference can be stated as requirements on the path-length difference. From the relations between the phases
+        and distance travelled, we see that</p>
+
+      <p>$$ \Delta d = d_1 - d_2 = m \lambda $$
+      </p>
+
+      <p>(constructive interference)</p>
+
+      <p>$$ \Delta d = d_1 - d_2 = (m + 1/2) \lambda $$
+      </p>
+
+      <p>(destructive interference)</p>
+
+      <p>Here the relation between the wavenumber and the wavelength, \( k = 2 \pi / \lambda \)</p>
+
+      <h3>Young's Double Slit Experiment</h3>
+
+      <p>One of the vexing questions of classical physics was whether light is a wave of a particle. The beautiful experiment by Young seemed to have settled this question in favour of waves. Young considered a single light source impinging on a screen with
+        two slits separated by a distance \( D \). A second screen is placed a distance \( L \) behind the first. Using simple trigonometry, the distance of the upper light ray to a point on the second screen is given by,</p>
+
+      <p>$$ d_1 = \frac{L}{\cos \theta} $$
+      </p>
+
+      <p>Where the \( \theta \) is the angle of the light with the horizontal. Geometry then dictates that the distance of the lower light ray to that same point on the screen is,</p>
+
+      <p>$$ d_2 = \sqrt{L^2 + (D + L \tan \theta)^2} \approx \frac{L}{\cos \theta} + D \tan \theta $$
+      </p>
+
+      <p>Where the approximation holds when the distnace to the screen is much larger than the slits' separation, \( L >> D \). The difference in distance between the two rays, which is the relevant quantity for interference, is then</p>
+
+      <p>$$ \Delta d = d_2 - d_1 \approx D \tan \theta $$
+      </p>
+
+      <p>The vertical distance along the screen is usually also much smaller than the distance \( L \) and so the angle \( \theta \) is small, \( \theta << 1 \) and so,</p>
+
+      <p>
+        $$ \Delta d \approx D \theta \approx D \frac{y}{L} $$
+      </p>
+
+      <p>So far this is just geometry. But, now comes the crucial observation. If light is really a wave, then we expect to see bright fringes when the path difference satisfies the condition for constructive interference,</p>
+
+      <p>$$ \theta_m = m \frac{\lambda}{D} $$
+      </p>
+
+      <p>$$ y_m = m \frac{\lambda L}{D} $$
+      </p>
+
+      <p>Similarly, when the path difference satisfies the condition for destructive interference, we expect to see dark fringes</p>
+
+      <p>$$ \theta_m = \left( \frac{1}{2} + m \right) \frac{\lambda}{D} $$
+      </p>
+
+      <p>$$ y_m = \left( \frac{1}{2} + m \right) \frac{\lambda L}{D} $$
+      </p>
+
+      <p>This pattern of bright and dark fringes is precisely what was observed by Young. This experiment has conclusively determined the wave-like nature of light. "Light as a wave" stood as a paradigm for about a century until Einstein demonstrated that
+        the photoelectric effect can be understood by assuming light to be a particle nevertheless. The clear paradox that emerged from the two conflicting views of the nature of light foreshadowed the advent of quantum mechanics.</p>
+
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>

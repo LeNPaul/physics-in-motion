@@ -5,6 +5,7 @@ var scotchApp = angular.module('scotchApp', ['ngRoute']);
 scotchApp.config(function($routeProvider) {
   $routeProvider
 
+  // Kinematics
   .when('/motion-in-one-dimension', {
     templateUrl: 'curriculum/kinematics/motion-in-one-dimension.html',
   })
@@ -18,6 +19,7 @@ scotchApp.config(function($routeProvider) {
     templateUrl: 'curriculum/kinematics/motion-in-two-dimensions.html',
   })
 
+  //Forces
   .when('/newtons-laws', {
     templateUrl: 'curriculum/forces/newtons-laws.html',
   })
@@ -26,6 +28,76 @@ scotchApp.config(function($routeProvider) {
   })
   .when('/friction-drag', {
     templateUrl: 'curriculum/forces/friction-drag.html',
+  })
+
+  //Energy
+  .when('/conservative-forces', {
+    templateUrl: 'curriculum/energy/conservative-forces.html',
+  })
+  .when('/energy-conservation-work', {
+    templateUrl: 'curriculum/energy/energy-conservation-work.html',
+  })
+  .when('/work-potential-energy', {
+    templateUrl: 'curriculum/energy/work-potential-energy.html',
+  })
+  .when('/power', {
+    templateUrl: 'curriculum/energy/power.html',
+  })
+
+  // Momentum
+  .when('/momentum-conservation', {
+    templateUrl: 'curriculum/momentum/momentum-conservation.html',
+  })
+  .when('/elastic-collisions', {
+    templateUrl: 'curriculum/momentum/elastic-collisions.html',
+  })
+  .when('/explosions', {
+    templateUrl: 'curriculum/momentum/explosions.html',
+  })
+
+  // Simple Harmonic Motion
+  .when('/dynamics-simple-harmonic-motion', {
+    templateUrl: 'curriculum/simple-harmonic-motion/dynamics-simple-harmonic-motion.html',
+  })
+  .when('/elastic-collisions', {
+    templateUrl: 'curriculum/simple-harmonic-motion/elastic-collisions.html',
+  })
+  .when('/explosions', {
+    templateUrl: 'curriculum/simple-harmonic-motion/explosions.html',
+  })
+  .when('/driven-oscillations', {
+    templateUrl: 'curriculum/simple-harmonic-motion/driven-oscillations.html',
+  })
+
+  // Waves
+  .when('/characteristics-waves', {
+    templateUrl: 'curriculum/waves/characteristics-waves.html',
+  })
+ .when('/superposition-of-waves', {
+    templateUrl: 'curriculum/waves/superposition-of-waves.html',
+  })
+  .when('/interference', {
+    templateUrl: 'curriculum/waves/interference.html',
+  })
+
+  // Fluids
+  .when('/pressure', {
+    templateUrl: 'curriculum/fluids/characteristics-waves.html',
+  })
+  .when('/incompressible-fluids', {
+    templateUrl: 'curriculum/fluids/incompressible-fluids.html',
+  })
+  .when('/buoyancy', {
+    templateUrl: 'curriculum/fluids/buoyancy.html',
+  })
+  .when('/continuity', {
+    templateUrl: 'curriculum/fluids/continuity.html',
+  })
+  .when('/fluid-statics', {
+    templateUrl: 'curriculum/fluids/fluid-statics.html',
+  })
+  .when('/fluid-dynamics', {
+    templateUrl: 'curriculum/fluids/fluid-dynamics.html',
   })
 
 });
