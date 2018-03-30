@@ -32,6 +32,10 @@ router.get('/kinematics', (req, res) => {
     res.render('kinematics', {});
 });
 
+router.get('/forces', (req, res) => {
+    res.render('forces', {});
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
