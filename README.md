@@ -17,6 +17,8 @@ This is a repository for developing the Physics in Motion full stack web applica
 * Express.js
 * AngularJS
 * Pug
+* MathJax
+* Gulp
 
 ## Project Timeline
 
