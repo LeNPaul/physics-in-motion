@@ -43,19 +43,8 @@ html(lang='en',ng-app='scotchApp')
     .container-fluid
       .row
         nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
-          ul.nav.nav-pills.flex-column
-            //li.nav-item
-              a.nav-link.active(href='/curriculum/motion-in-one-dimension')
-                | Overview 
-                span.sr-only (current)
-            li.nav-item
-              a.nav-link(href='#!motion-in-one-dimension') Motion in One Dimension
-            li.nav-item
-              a.nav-link(href='#!simple-motion-in-one-dimension') Simple Motion in One Dimension
-            li.nav-item
-              a.nav-link(href='#!simple-motion-in-two-dimensions') Simple Motion in Two Dimensions
-            li.nav-item
-              a.nav-link(href='#!motion-in-two-dimensions') Motion in Two Dimensions
+          
+          block content
               
         main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
 

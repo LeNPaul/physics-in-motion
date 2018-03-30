@@ -3,11 +3,6 @@ const passport = require('passport');
 const Account = require('../models/account');
 const router = express.Router();
 
-router.get('/test', (req, res) => {
-    res.render('curriculum/classical-mechanics', { user : req.user });
-});
-
-
 router.get('/', (req, res) => {
     res.render('index', { user : req.user });
 });
@@ -25,35 +20,35 @@ router.get('/terms', (req, res) => {
 });
 
 router.get('/classical-mechanics', (req, res) => {
-    res.render('classical-mechanics', { user : req.user });
+    res.render('courses/classical-mechanics', { user : req.user });
 });
 
 router.get('/kinematics', (req, res) => {
-    res.render('kinematics', {});
+    res.render('lessons/kinematics', {});
 });
 
 router.get('/forces', (req, res) => {
-    res.render('forces', {});
+    res.render('lessons/forces', {});
 });
 
 router.get('/energy', (req, res) => {
-    res.render('energy', {});
+    res.render('lessons/energy', {});
 });
 
 router.get('/momentum', (req, res) => {
-    res.render('momentum', {});
+    res.render('lessons/momentum', {});
 });
 
 router.get('/simple-harmonic-motion', (req, res) => {
-    res.render('simple-harmonic-motion', {});
+    res.render('lessons/simple-harmonic-motion', {});
 });
 
 router.get('/waves', (req, res) => {
-    res.render('waves', {});
+    res.render('lessons/waves', {});
 });
 
 router.get('/fluids', (req, res) => {
-    res.render('fluids', {});
+    res.render('lessons/fluids', {});
 });
 
 router.get('/register', (req, res) => {
