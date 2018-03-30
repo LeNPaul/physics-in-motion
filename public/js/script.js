@@ -59,11 +59,11 @@ scotchApp.config(function($routeProvider) {
   .when('/dynamics-simple-harmonic-motion', {
     templateUrl: 'curriculum/simple-harmonic-motion/dynamics-simple-harmonic-motion.html',
   })
-  .when('/elastic-collisions', {
-    templateUrl: 'curriculum/simple-harmonic-motion/elastic-collisions.html',
+  .when('/the-pendulum', {
+    templateUrl: 'curriculum/simple-harmonic-motion/the-pendulum.html',
   })
-  .when('/explosions', {
-    templateUrl: 'curriculum/simple-harmonic-motion/explosions.html',
+  .when('/damped-harmonic-motion', {
+    templateUrl: 'curriculum/simple-harmonic-motion/damped-harmonic-motion.html',
   })
   .when('/driven-oscillations', {
     templateUrl: 'curriculum/simple-harmonic-motion/driven-oscillations.html',
@@ -82,7 +82,7 @@ scotchApp.config(function($routeProvider) {
 
   // Fluids
   .when('/pressure', {
-    templateUrl: 'curriculum/fluids/characteristics-waves.html',
+    templateUrl: 'curriculum/fluids/pressure.html',
   })
   .when('/incompressible-fluids', {
     templateUrl: 'curriculum/fluids/incompressible-fluids.html',
