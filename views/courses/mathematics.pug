@@ -1,0 +1,31 @@
+extends course-layout.pug
+
+block content
+  section.jumbotron.text-center
+    .container
+      h1.jumbotron-heading Mathematics
+      p.lead.text-muted
+        | Whether you need a refresher, or need to learn something that you did not know before, we have you covered with all of the mathematics that you need to know.
+  .album.py-5.bg-light
+    .container
+      .row
+        .col-md-4
+          .card.mb-4.box-shadow
+            .card-body
+              h3 Trigonometry
+              p.card-text
+                | All about triangles, and how to calculate distances and stuff with triangles and angles. 
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  button.btn.btn-sm.btn-outline-secondary(type='button', onclick="location.href = '/trigonometry';") Start
+                //small.text-muted 9 mins
+        .col-md-4
+          .card.mb-4.box-shadow
+            .card-body
+              h3 Calculus
+              p.card-text
+                | The mathematics of change, namely rates of change. This will give you the ability to calculate things that change. 
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  button.btn.btn-sm.btn-outline-secondary(type='button', onclick="location.href = '/calculus';") Start
+                //small.text-muted 9 mins

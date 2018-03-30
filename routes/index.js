@@ -19,6 +19,8 @@ router.get('/terms', (req, res) => {
     res.render('home/terms', {});
 });
 
+// Classical Mechanics
+
 router.get('/classical-mechanics', (req, res) => {
     res.render('courses/classical-mechanics', { user : req.user });
 });
@@ -49,6 +51,20 @@ router.get('/waves', (req, res) => {
 
 router.get('/fluids', (req, res) => {
     res.render('lessons/fluids', {});
+});
+
+// Mathematics
+
+router.get('/mathematics', (req, res) => {
+    res.render('courses/mathematics', { user : req.user });
+});
+
+router.get('/trigonometry', (req, res) => {
+    res.render('lessons/trigonometry', { user : req.user });
+});
+
+router.get('/calculus', (req, res) => {
+    res.render('lessons/calculus', { user : req.user });
 });
 
 router.get('/register', (req, res) => {

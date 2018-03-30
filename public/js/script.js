@@ -100,6 +100,14 @@ scotchApp.config(function($routeProvider) {
     templateUrl: 'curriculum/fluids/fluid-dynamics.html',
   })
 
+  // Mathematics
+  .when('/mathematics-trigonometry', {
+    templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
+  })
+  .when('/incompressible-fluids', {
+    templateUrl: 'curriculum/mathematics/mathematics-calculus.html',
+  })
+
 });
 
 // create the controller and inject Angular's $scope
