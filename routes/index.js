@@ -36,6 +36,26 @@ router.get('/forces', (req, res) => {
     res.render('forces', {});
 });
 
+router.get('/energy', (req, res) => {
+    res.render('energy', {});
+});
+
+router.get('/momentum', (req, res) => {
+    res.render('momentum', {});
+});
+
+router.get('/simple-harmonic-motion', (req, res) => {
+    res.render('simple-harmonic-motion', {});
+});
+
+router.get('/waves', (req, res) => {
+    res.render('waves', {});
+});
+
+router.get('/fluids', (req, res) => {
+    res.render('fluids', {});
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
@@ -56,7 +76,6 @@ router.post('/register', (req, res, next) => {
         });
     });
 });
-
 
 router.get('/login', (req, res) => {
     res.render('login', { user : req.user, error : req.flash('error')});
