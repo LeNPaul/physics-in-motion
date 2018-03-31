@@ -28,49 +28,75 @@ router.get('/courses', (req, res) => {
 // Classical Mechanics
 
 router.get('/classical-mechanics', (req, res) => {
-    res.render('courses/classical-mechanics', { user : req.user });
+    res.render('courses/classical-mechanics', {
+      user : req.user,
+      title : 'Classical Mechanics'
+    });
 });
 
 router.get('/kinematics', (req, res) => {
-    res.render('lessons/kinematics', {});
+    res.render('lessons/kinematics', {
+      title : 'Kinematics'
+    });
 });
 
 router.get('/forces', (req, res) => {
-    res.render('lessons/forces', {});
+    res.render('lessons/forces', {
+      title : 'Forces'
+    });
 });
 
 router.get('/energy', (req, res) => {
-    res.render('lessons/energy', {});
+    res.render('lessons/energy', {
+      title : 'Energy'
+    });
 });
 
 router.get('/momentum', (req, res) => {
-    res.render('lessons/momentum', {});
+    res.render('lessons/momentum', {
+      title : 'Momentum'
+    });
 });
 
 router.get('/simple-harmonic-motion', (req, res) => {
-    res.render('lessons/simple-harmonic-motion', {});
+    res.render('lessons/simple-harmonic-motion', {
+      title : 'Simple Harmonic Motion'
+    });
 });
 
 router.get('/waves', (req, res) => {
-    res.render('lessons/waves', {});
+    res.render('lessons/waves', {
+      title : 'Waves'
+    });
 });
 
 router.get('/fluids', (req, res) => {
-    res.render('lessons/fluids', {});
+    res.render('lessons/fluids', {
+      title : 'Fluids'
+    });
 });
 
 // Mathematics
 
 router.get('/mathematics', (req, res) => {
-    res.render('courses/mathematics', { user : req.user });
+    res.render('courses/mathematics', {
+      user : req.user,
+      title : 'Mathematics'
+     });
 });
 
 router.get('/trigonometry', (req, res) => {
-    res.render('lessons/trigonometry', { user : req.user });
+    res.render('lessons/trigonometry', {
+      user : req.user,
+      title : 'Trigonometry'
+     });
 });
 
 router.get('/calculus', (req, res) => {
-    res.render('lessons/calculus', { user : req.user });
+    res.render('lessons/calculus', {
+      user : req.user,
+      title : 'Calculus'
+     });
 });
 
 router.get('/register', (req, res) => {
