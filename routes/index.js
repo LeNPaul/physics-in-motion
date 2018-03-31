@@ -22,7 +22,9 @@ router.get('/terms', (req, res) => {
 // Curriculum
 
 router.get('/courses', (req, res) => {
-    res.render('courses/courses', { user : req.user });
+    res.render('courses/courses', {
+      user : req.user
+    });
 });
 
 // Classical Mechanics
@@ -36,42 +38,49 @@ router.get('/classical-mechanics', (req, res) => {
 
 router.get('/kinematics', (req, res) => {
     res.render('lessons/kinematics', {
+      user : req.user,
       title : 'Kinematics'
     });
 });
 
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
+      user : req.user,
       title : 'Forces'
     });
 });
 
 router.get('/energy', (req, res) => {
     res.render('lessons/energy', {
+      user : req.user,
       title : 'Energy'
     });
 });
 
 router.get('/momentum', (req, res) => {
     res.render('lessons/momentum', {
+      user : req.user,
       title : 'Momentum'
     });
 });
 
 router.get('/simple-harmonic-motion', (req, res) => {
     res.render('lessons/simple-harmonic-motion', {
+      user : req.user,
       title : 'Simple Harmonic Motion'
     });
 });
 
 router.get('/waves', (req, res) => {
     res.render('lessons/waves', {
+      user : req.user,
       title : 'Waves'
     });
 });
 
 router.get('/fluids', (req, res) => {
     res.render('lessons/fluids', {
+      user : req.user,
       title : 'Fluids'
     });
 });

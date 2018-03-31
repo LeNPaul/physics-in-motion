@@ -39,10 +39,11 @@ html(lang='en',ng-app='scotchApp')
             a.nav-link(href='/settings') Settings
           //li.nav-item
             a.nav-link(href='/help') Help
-          li.nav-item
-            a.nav-link(href='/logout')
-              i.fa.fa-sign-out(aria-hidden='true')
-              |  Logout
+          if (user)
+            li.nav-item
+              a.nav-link(href='/logout')
+                i.fa.fa-sign-out(aria-hidden='true')
+                |  Logout
     .container-fluid
       .row
         nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
