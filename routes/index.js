@@ -19,6 +19,12 @@ router.get('/terms', (req, res) => {
     res.render('home/terms', {});
 });
 
+// Curriculum
+
+router.get('/curriculum', (req, res) => {
+    res.render('courses/curriculum', { user : req.user });
+});
+
 // Classical Mechanics
 
 router.get('/classical-mechanics', (req, res) => {
