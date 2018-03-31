@@ -21,8 +21,8 @@ router.get('/terms', (req, res) => {
 
 // Curriculum
 
-router.get('/curriculum', (req, res) => {
-    res.render('courses/curriculum', { user : req.user });
+router.get('/courses', (req, res) => {
+    res.render('courses/courses', { user : req.user });
 });
 
 // Classical Mechanics
