@@ -11,6 +11,10 @@ router.get('/about', (req, res) => {
     res.render('home/about', {});
 });
 
+router.get('/contact', (req, res) => {
+    res.render('home/contact', {});
+});
+
 router.get('/privacy', (req, res) => {
     res.render('home/privacy', {});
 });
