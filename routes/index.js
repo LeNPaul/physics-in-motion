@@ -112,6 +112,15 @@ router.get('/calculus', (req, res) => {
      });
 });
 
+// Resources
+
+router.get('/resources', (req, res) => {
+    res.render('courses/resources', {
+      user : req.user,
+      title : 'Resources'
+     });
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
