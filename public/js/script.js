@@ -5,6 +5,11 @@ var scotchApp = angular.module('scotchApp', ['ngRoute']);
 scotchApp.config(function($routeProvider) {
   $routeProvider
 
+  // Initual page that is rendered when AngularJS route takes over
+  .when('/', {
+    templateUrl: 'curriculum/start.html',
+  })
+
   // Kinematics
   .when('/motion-in-one-dimension', {
     templateUrl: 'curriculum/kinematics/motion-in-one-dimension.html',
