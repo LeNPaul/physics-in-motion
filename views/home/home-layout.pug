@@ -53,48 +53,7 @@ html(lang='en')
         // /END THE FEATURETTES
         // /.container
         // FOOTER        
-        footer.pt-4.my-md-5.pt-md-5.border-top
-          .row
-            .col-12.col-md
-              h5 Physics in Motion
-              p.text-muted A free online resource for learning physics, whether you are a student in school, or an enthusiast looking to learn something new.
-            .col-6.col-md
-              h5 Courses
-              ul.list-unstyled.text-small
-                li
-                  a.text-muted(href='/courses') Everything
-                li
-                  a.text-muted(href='/classical-mechanics') Classical Mechanics
-                li
-                  a.text-muted(href='/mathematics') Mathematics
-                li
-                  a.text-muted(href='/resources') Resources
-            .col-6.col-md
-              h5 About
-              ul.list-unstyled.text-small
-                li
-                  a.text-muted(href='/about') What We Do
-                li
-                  a.text-muted(href='/register') Register
-                li
-                  a.text-muted(href='/login') Login
-            .col-6.col-md
-              h5 Pages
-              ul.list-unstyled.text-small
-                li
-                  a.text-muted(href='/contact') Contact
-                li
-                  a.text-muted(href='/privacy') Privacy
-                li
-                  a.text-muted(href='/terms') Terms
-        footer.container
-          p.float-right
-            a(href='#') Back to top
-          p
-            | © 2017-2018 Physics in Motion · 
-            a(href='/privacy') Privacy
-            |  · 
-            a(href='/terms') Terms          
+        include ../footer/home-footer.pug        
     //
       Bootstrap core JavaScript
       ==================================================
