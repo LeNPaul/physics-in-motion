@@ -4,23 +4,34 @@ const Account = require('../models/account');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('index', { user : req.user });
+    res.render('index', {
+      user : req.user,
+      title : 'Physics in Motion | How physics should be taught'
+     });
 });
 
 router.get('/about', (req, res) => {
-    res.render('home/about', {});
+    res.render('home/about', {
+      title : 'About Us | Physics in Motion'
+    });
 });
 
 router.get('/contact', (req, res) => {
-    res.render('home/contact', {});
+    res.render('home/contact', {
+      title : 'Contact | Physics in Motion'
+    });
 });
 
 router.get('/privacy', (req, res) => {
-    res.render('home/privacy', {});
+    res.render('home/privacy', {
+      title : 'Privacy | Physics in Motion'
+    });
 });
 
 router.get('/terms', (req, res) => {
-    res.render('home/terms', {});
+    res.render('home/terms', {
+      title : 'Terms | Physics in Motion'
+    });
 });
 
 // Curriculum
