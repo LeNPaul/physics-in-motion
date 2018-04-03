@@ -27,7 +27,8 @@ router.get('/terms', (req, res) => {
 
 router.get('/courses', (req, res) => {
     res.render('courses/courses', {
-      user : req.user
+      user : req.user,
+      title : 'Courses'
     });
 });
 

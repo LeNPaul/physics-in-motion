@@ -104,7 +104,7 @@ scotchApp.config(function($routeProvider) {
   .when('/mathematics-trigonometry', {
     templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
   })
-  .when('/incompressible-fluids', {
+  .when('/mathematics-calculus', {
     templateUrl: 'curriculum/mathematics/mathematics-calculus.html',
   })
 
