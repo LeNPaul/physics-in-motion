@@ -55,6 +55,8 @@ router.get('/classical-mechanics', (req, res) => {
 router.get('/kinematics', (req, res) => {
     res.render('lessons/kinematics', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Kinematics'
     });
 });
@@ -62,6 +64,8 @@ router.get('/kinematics', (req, res) => {
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Forces'
     });
 });
@@ -69,6 +73,8 @@ router.get('/forces', (req, res) => {
 router.get('/energy', (req, res) => {
     res.render('lessons/energy', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Energy'
     });
 });
@@ -76,6 +82,8 @@ router.get('/energy', (req, res) => {
 router.get('/momentum', (req, res) => {
     res.render('lessons/momentum', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Momentum'
     });
 });
@@ -83,6 +91,8 @@ router.get('/momentum', (req, res) => {
 router.get('/simple-harmonic-motion', (req, res) => {
     res.render('lessons/simple-harmonic-motion', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Simple Harmonic Motion'
     });
 });
@@ -90,6 +100,8 @@ router.get('/simple-harmonic-motion', (req, res) => {
 router.get('/waves', (req, res) => {
     res.render('lessons/waves', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Waves'
     });
 });
@@ -97,6 +109,8 @@ router.get('/waves', (req, res) => {
 router.get('/fluids', (req, res) => {
     res.render('lessons/fluids', {
       user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
       title : 'Fluids'
     });
 });
@@ -113,6 +127,8 @@ router.get('/mathematics', (req, res) => {
 router.get('/trigonometry', (req, res) => {
     res.render('lessons/trigonometry', {
       user : req.user,
+      course : 'Mathematics',
+      course_url : 'mathematics',
       title : 'Trigonometry'
      });
 });
@@ -120,6 +136,8 @@ router.get('/trigonometry', (req, res) => {
 router.get('/calculus', (req, res) => {
     res.render('lessons/calculus', {
       user : req.user,
+      course : 'Mathematics',
+      course_url : 'mathematics',
       title : 'Calculus'
      });
 });

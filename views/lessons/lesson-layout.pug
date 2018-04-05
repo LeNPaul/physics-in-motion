@@ -9,10 +9,9 @@ html(lang='en',ng-app='scotchApp')
     title #{ title } | Physics in Motion
     // Bootstrap core CSS
     link(href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Font Awesome
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
     // Custom styles for this template
     link(href='https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css', rel='stylesheet')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
     // AngularJS
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js')
@@ -25,7 +24,10 @@ html(lang='en',ng-app='scotchApp')
     nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
       button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      a.navbar-brand(href='/') #{ title }
+      a.navbar-brand(href=course_url) #{ course } 
+        i.fa.fa-angle-double-right(aria-hidden='true')
+      .text-white
+        | #{ title } 
       button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarResponsive.collapse.navbar-collapse
