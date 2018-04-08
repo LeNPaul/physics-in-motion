@@ -12,24 +12,28 @@ router.get('/', (req, res) => {
 
 router.get('/about', (req, res) => {
     res.render('home/about', {
+      user : req.user,
       title : 'About Us | Physics in Motion'
     });
 });
 
 router.get('/contact', (req, res) => {
     res.render('home/contact', {
+      user : req.user,
       title : 'Contact | Physics in Motion'
     });
 });
 
 router.get('/privacy', (req, res) => {
     res.render('home/privacy', {
+      user : req.user,
       title : 'Privacy | Physics in Motion'
     });
 });
 
 router.get('/terms', (req, res) => {
     res.render('home/terms', {
+      user : req.user,
       title : 'Terms | Physics in Motion'
     });
 });
