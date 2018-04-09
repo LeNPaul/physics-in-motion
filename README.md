@@ -1,4 +1,4 @@
-# Physics in Motion Development
+# Physics in Motion
 
 This is a repository for developing the Physics in Motion full stack web application.
 
@@ -22,7 +22,7 @@ This is a repository for developing the Physics in Motion full stack web applica
 
 ## Project Timeline
 
-* Phase 1: 
+* Phase 1 [done]: 
   * Implement account creation and user sign-in.
   * Migrate old course content from current placeholder site to new site.
 
