@@ -1,0 +1,9 @@
+{
+    "name": "physics-in-motion",
+    "version": "0.0.0",
+    "dependencies": {
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "angular": "latest"
+    }
+}
