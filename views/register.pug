@@ -5,7 +5,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='img/rocket.png')
+    link(rel='icon', href='assets/img/rocket.png')
     title Create An Account | Physics in Motion
     // Bootstrap core CSS
     link(href='https://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
@@ -15,7 +15,7 @@ html(lang='en')
     form.form-signin(method='post', action='/register')
       .text-center.mb-4
         a(href='/')
-          img.mb-4(src='img/rocket.png', alt='', width='72', height='72')
+          img.mb-4(src='assets/img/rocket.png', alt='', width='72', height='72')
         h1.h3.mb-3.font-weight-normal Create Account
       if (error && error.length > 0)
         .alert.alert-danger.text-center= error
