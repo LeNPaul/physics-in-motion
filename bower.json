@@ -5,6 +5,8 @@
         "bootstrap": "latest",
         "font-awesome": "latest",
         "angular": "latest",
-        "angular-route": "latest"
+        "angular-route": "latest",
+        "jquery": "latest",
+        "MathJax": "latest"
     }
 }
