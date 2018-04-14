@@ -11,8 +11,6 @@ html(lang='en',ng-app='scotchApp')
     link(href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
     // Custom styles for this template
     link(href='assets/css/lessons/dashboard.css', rel='stylesheet')
-    // Font Awesome
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
     // AngularJS
     script(src='assets/libs/angular/angular.min.js')
     script(src='assets/libs/angular-route/angular-route.min.js')
@@ -48,7 +46,7 @@ html(lang='en',ng-app='scotchApp')
           if (user)
             li.nav-item
               a.nav-link(href='/logout')
-                i.fa.fa-sign-out(aria-hidden='true')
+                i.fa.fa-sign-out-alt(aria-hidden='true')
                 |  Logout
     .container-fluid
       .row
@@ -73,3 +71,5 @@ html(lang='en',ng-app='scotchApp')
     script(src='https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js')
     // IE10 viewport hack for Surface/desktop Windows 8 bug
     script(src='https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
+    // Font Awesome
+    script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
