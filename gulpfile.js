@@ -12,7 +12,7 @@ gulp.task('nodemon', function (done) {
 gulp.task('browser-sync', function (done) {
   browserSync({
     proxy: 'localhost:8080',
-    files: ['public/*'],
+    files: ['public/*','views/*'],
     notify: false
   });
   done();
