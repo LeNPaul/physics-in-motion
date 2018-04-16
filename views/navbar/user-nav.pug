@@ -1,27 +1,26 @@
 header
-  #navbarHeader.collapse.bg-dark
+  // Navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     .container
-      .row
-        .col-sm-8.col-md-7.py-4
-          h6.text-white
-            a.text-white(href='/') Dashboard
-          h6.text-white
-            a.text-white(href='/courses') Courses
-          //h6.text-white
-            a.text-white(href='#') Settings
-          //h6.text-white
-            a.text-white(href='#') Help
-        .col-sm-4.offset-md-1.py-4
-          p.text-muted
-            | Logged in as #{user.username}
-          h6.text-white
-            a.text-white(href='logout')
-              i.fa.fa-sign-out-alt(aria-hidden='true')
-              |  Logout
-  .navbar.navbar-dark.bg-dark.box-shadow
-    .container.d-flex.justify-content-between
       a.navbar-brand(href='/')
         i.fa.fa-rocket(aria-hidden='true')
         |  Physics in Motion
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='false', aria-label='Toggle navigation')
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='/about') What We Do
+          li.nav-item
+            a.nav-link(href='/courses') Courses
+          li.nav-item
+            a.nav-link(href='/resources') Resources
+          li.nav-item.dropdown
+            a#navbarDropdownBlog.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Profile
+            .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownBlog')
+              a.dropdown-item(href='/') Dashboard
+              p.dropdown-item.text-muted
+                | Logged in as #{user.username}
+          li.nav-item
+            a.nav-link(href='/logout') Logout
