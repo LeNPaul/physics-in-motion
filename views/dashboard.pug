@@ -20,19 +20,27 @@ html(lang='en')
     if (user)
       include navbar/user-nav.pug
             
-    main.container(role='main')
-      //.jumbotron
+    //main.container(role='main')
+      .jumbotron
         h1 Welcome back!
         p Logged in as #{user.username}
         
-        //p.lead
+        p.lead
           | This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
-        //a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning            
+        a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning            
   
+    // Temporary fix for spacing issue below the navbar
+    hr.featurette-divider.home-divider
+    hr.featurette-divider.home-divider
+    hr.featurette-divider.home-divider
+    hr.featurette-divider.home-divider
+    
     main.container(role='main')
       .my-3.p-3.bg-white.rounded.box-shadow
         h2.border-bottom.border-gray.pb-2.mb-0 Welcome back!
-        p Logged in as #{user.username}
+        p.text-muted Logged in as #{user.username}
+        p This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
+        a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning 
       .my-3.p-3.bg-white.rounded.box-shadow
         h6.border-bottom.border-gray.pb-2.mb-0 Resume Learning
         .media.text-muted.pt-3

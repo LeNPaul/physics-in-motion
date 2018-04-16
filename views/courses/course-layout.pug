@@ -14,9 +14,12 @@ html(lang='en')
   body
     if (!user)
       include ../navbar/default-nav.pug
-
+      // Temporary fix for spacing issue below the navbar
+      hr.featurette-divider.home-divider
     if (user)
       include ../navbar/user-nav.pug
+      // Temporary fix for spacing issue below the navbar
+      hr.featurette-divider.home-divider
     main(role='main')
       
       block content
