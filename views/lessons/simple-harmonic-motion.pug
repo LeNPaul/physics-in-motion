@@ -1,16 +1,11 @@
 extends lesson-layout.pug
 
 block content
-  ul.nav.nav-pills.flex-column
-    //li.nav-item
-      a.nav-link.active(href='/curriculum/motion-in-one-dimension')
-        | Overview 
-        span.sr-only (current)
-    li.nav-item
-      a.nav-link(href='#!dynamics-simple-harmonic-motion') Dynamics 
-    li.nav-item
-      a.nav-link(href='#!the-pendulum') The Pendulum
-    li.nav-item
-      a.nav-link(href='#!damped-harmonic-motion') Damped Harmonic Motion
-    li.nav-item
-      a.nav-link(href='#!driven-oscillations') Driven Oscillations
+  li
+    a(href='#!dynamics-simple-harmonic-motion') Dynamics 
+  li
+    a(href='#!the-pendulum') The Pendulum
+  li
+    a(href='#!damped-harmonic-motion') Damped Harmonic Motion
+  li
+    a(href='#!driven-oscillations') Driven Oscillations
