@@ -2,74 +2,131 @@ doctype html
 html(lang='en',ng-app='scotchApp')
   head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='../../favicon.ico')
     title #{ title } | Physics in Motion
     // Bootstrap core CSS
-    link(href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='assets/css/lessons/dashboard.css', rel='stylesheet')
-    // AngularJS
-    script(src='assets/libs/angular/angular.min.js')
-    script(src='assets/libs/angular-route/angular-route.min.js')
-    // MathJax
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML')
-    // ANGULAR CUSTOM
-    script(src='assets/js/script.js')
+    link(href='https://blackrockdigital.github.io/startbootstrap-sb-admin/css/sb-admin.css', rel='stylesheet')
     
-  body(ng-controller='mainController')
-    nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
-      button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      a.navbar-brand(href=course_url) #{ course } 
-        i.fa.fa-angle-double-right(aria-hidden='true')
-      .text-white
-        | #{ title } 
+    // Font Awesome
+    link(href='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+     
+  body#page-top.fixed-nav.sticky-footer.bg-dark(ng-controller='mainController')
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      a.navbar-brand(href=course_url) #{ course }
       button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarResponsive.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
-          li.nav-item
-            if (!user)
-              a.nav-link(href='/') Home
-            if (user)
-              a.nav-link(href='/') Dashboard
-          li.nav-item
-            a.nav-link(href='/courses') Courses
-            //li.nav-item
-          //li.nav-item
-            a.nav-link(href='/settings') Settings
-          //li.nav-item
-            a.nav-link(href='/help') Help
+        ul#exampleAccordion.navbar-nav.navbar-sidenav
+          if (!user)
+            li.nav-item(data-toggle='tooltip', data-placement='right', title='Home')
+              a.nav-link(href='/')
+                i.fas.fa-fw.fa-home
+                span.nav-link-text Home
           if (user)
-            li.nav-item
-              a.nav-link(href='/logout')
-                i.fa.fa-sign-out-alt(aria-hidden='true')
-                |  Logout
-    .container-fluid
-      .row
-        nav.col-sm-3.col-md-2.hidden-xs-down.bg-faded.sidebar
+            li.nav-item(data-toggle='tooltip', data-placement='right', title='Dashboard')
+              a.nav-link(href='/')
+                i.fas.fa-fw.fa-tachometer-alt
+                span.nav-link-text Dashboard             
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Content')
+            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseComponents', data-parent='#exampleAccordion')
+              i.fas.fa-fw.fa-book
+              span.nav-link-text Content
+            ul#collapseComponents.sidenav-second-level.collapse
+              block content
+          //li.nav-item(data-toggle='tooltip', data-placement='right', title='Example Pages')
+            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseExamplePages', data-parent='#exampleAccordion')
+              i.fa.fa-fw.fa-file
+              span.nav-link-text Example Pages
+            ul#collapseExamplePages.sidenav-second-level.collapse
+              li
+                a(href='login.html') Login Page
+              li
+                a(href='register.html') Registration Page
+              li
+                a(href='forgot-password.html') Forgot Password Page
+              li
+                a(href='blank.html') Blank Page
+          //li.nav-item(data-toggle='tooltip', data-placement='right', title='Menu Levels')
+            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseMulti', data-parent='#exampleAccordion')
+              i.fa.fa-fw.fa-sitemap
+              span.nav-link-text Menu Levels
+            ul#collapseMulti.sidenav-second-level.collapse
+              li
+                a(href='#') Second Level Item
+              li
+                a(href='#') Second Level Item
+              li
+                a(href='#') Second Level Item
+              li
+                a.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseMulti2') Third Level
+                ul#collapseMulti2.sidenav-third-level.collapse
+                  li
+                    a(href='#') Third Level Item
+                  li
+                    a(href='#') Third Level Item
+                  li
+                    a(href='#') Third Level Item
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Logout')
+            a.nav-link(href='/logout')
+              i.fa.fa-fw.fa-sign-out-alt
+              span.nav-link-text Logout
+        ul.navbar-nav.sidenav-toggler
+          li.nav-item
+            a#sidenavToggler.nav-link.text-center
+              i.fa.fa-fw.fa-angle-left
+    .content-wrapper
+      .container-fluid
+        // Breadcrumbs
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href=course_url) #{ course }
+          li.breadcrumb-item.active #{ title }
+        .row
+          .col-12
+  
+            // ANGULAR DYNAMIC CONTENT
+            div.ng-view
           
-          block content
-              
-        main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
-
-          section.row.text-center.placeholders
-
-          // ANGULAR DYNAMIC CONTENT
-          div.ng-view
-    //
-      Bootstrap core JavaScript
-      ==================================================
-    // Placed at the end of the document so the pages load faster
-    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
-    script.
-      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
-    script(src='https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js')
-    // IE10 viewport hack for Surface/desktop Windows 8 bug
-    script(src='https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
-    // Font Awesome
-    script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
+      // /.container-fluid
+      // /.content-wrapper
+      footer.sticky-footer
+        .container
+          .text-center
+            small Copyright © Physics in Motion 2018
+      // Scroll to Top Button
+      a.scroll-to-top.rounded(href='#page-top')
+        i.fa.fa-angle-up
+      // Logout Modal
+      #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title Ready to Leave?
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body Select "Logout" below if you are ready to end your current session.
+            .modal-footer
+              button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+              a.btn.btn-primary(href='login.html') Logout
+      // Bootstrap core JavaScript
+      script(src='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/jquery/jquery.min.js')
+      script(src='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js')
+      // Core plugin JavaScript
+      script(src='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/jquery-easing/jquery.easing.min.js')
+      // Custom scripts for all pages
+      script(src='https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin.min.js')
+      // AngularJS
+      script(src='assets/libs/angular/angular.min.js')
+      script(src='assets/libs/angular-route/angular-route.min.js')
+      // MathJax
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML')
+      // ANGULAR CUSTOM
+      script(src='assets/js/script.js')    
+      // Font Awesome
+      script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
