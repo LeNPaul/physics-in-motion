@@ -6,6 +6,7 @@ html(lang='en',ng-app='scotchApp')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
     title #{ title } | Physics in Motion
     // Bootstrap core CSS
     link(href='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -72,6 +73,18 @@ html(lang='en',ng-app='scotchApp')
                     a(href='#') Third Level Item
                   li
                     a(href='#') Third Level Item
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Courses')
+            a.nav-link(href='/courses')
+              i.fa.fa-fw.fa-chess-rook
+              span.nav-link-text Courses
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='About')
+            a.nav-link(href='/about')
+              i.fa.fa-fw.fa-cog
+              span.nav-link-text About
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Contact')
+            a.nav-link(href='/contact')
+              i.fa.fa-fw.fa-headphones
+              span.nav-link-text Contact
           li.nav-item(data-toggle='tooltip', data-placement='right', title='Logout')
             a.nav-link(href='/logout')
               i.fa.fa-fw.fa-sign-out-alt
