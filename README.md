@@ -1,6 +1,6 @@
 # Physics in Motion
 
-This is a repository for developing the Physics in Motion full stack web application.
+This is a repository for developing the Physics in Motion full stack web application. The production website can be found [here](https://physicsinmotion.ca). The development website can be found [here](https://dev.physicsinmotion.ca), and contains the most recent commit to the Physics in Motion GitHub repository.
 
 ## Installation
 
@@ -20,9 +20,13 @@ This is a repository for developing the Physics in Motion full stack web applica
 * MathJax
 * Gulp
 
+## Development workflow
+
+This repository contains the code that is used in the current Physics in Motion website.
+
 ## Project Timeline
 
-* Phase 1 [done]: 
+* Phase 1 [done]:
   * Implement account creation and user sign-in.
   * Migrate old course content from current placeholder site to new site.
 
