@@ -12,10 +12,10 @@ html(lang='en',ng-app='scotchApp')
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
     // Custom styles for this template
     link(href='assets/css/lessons/sb-admin.css', rel='stylesheet')
-    
     // Font Awesome
     link(href='https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
-     
+    // Google Analytics
+    include ../google-analytics.pug     
   body#page-top.fixed-nav.sticky-footer.bg-dark(ng-controller='mainController')
     // Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
