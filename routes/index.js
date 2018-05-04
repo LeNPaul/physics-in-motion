@@ -128,12 +128,12 @@ router.get('/mathematics', (req, res) => {
      });
 });
 
-router.get('/mathematics-review', (req, res) => {
-    res.render('lessons/mathematics-review', {
+router.get('/algebra', (req, res) => {
+    res.render('lessons/algebra', {
       user : req.user,
       course : 'Mathematics',
-      course_url : 'mathematics-review',
-      title : 'Review'
+      course_url : 'mathematics',
+      title : 'Algebra'
      });
 });
 

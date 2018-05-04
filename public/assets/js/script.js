@@ -106,6 +106,9 @@ scotchApp.config(function($routeProvider) {
   })
 
   // Mathematics
+  .when('/symbols', {
+    templateUrl: 'curriculum/mathematics/symbols.html',
+  })
   .when('/mathematics-trigonometry', {
     templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
   })
