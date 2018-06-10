@@ -112,6 +112,9 @@ scotchApp.config(function($routeProvider) {
   .when('/scientific-notation', {
     templateUrl: 'curriculum/mathematics/scientific-notation.html',
   })
+  .when('/significant-digits', {
+    templateUrl: 'curriculum/mathematics/significant-digits.html',
+  })
   .when('/mathematics-trigonometry', {
     templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
   })
