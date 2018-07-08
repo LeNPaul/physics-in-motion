@@ -14,6 +14,14 @@ The goal for Physics in Motion is to create dynamics lessons that allow students
 4. Start up the server: `npm start`
 5. View in browser at http://localhost:8080
 
+## Deployment
+
+* Currently deployed on a Digital Ocean Droplet.
+
+* Web server is handled by nginx, with certificates from Let's Encrypt.
+
+* pm2 is used to deploy the node.js application and ensure that the application is running on the server.
+
 ## Technology Stack
 
 * MongoDB
