@@ -105,24 +105,28 @@ scotchApp.config(function($routeProvider) {
     templateUrl: 'curriculum/fluids/fluid-dynamics.html',
   })
 
-  // Mathematics
+  // Algebra
   .when('/symbols', {
-    templateUrl: 'curriculum/mathematics/symbols.html',
+    templateUrl: 'curriculum/algebra/symbols.html',
   })
   .when('/scientific-notation', {
-    templateUrl: 'curriculum/mathematics/scientific-notation.html',
+    templateUrl: 'curriculum/algebra/scientific-notation.html',
   })
   .when('/significant-digits', {
-    templateUrl: 'curriculum/mathematics/significant-digits.html',
+    templateUrl: 'curriculum/algebra/significant-digits.html',
   })
   .when('/basic-algebra', {
-    templateUrl: 'curriculum/mathematics/basic-algebra.html',
+    templateUrl: 'curriculum/algebra/basic-algebra.html',
   })
+
+  // Trigonometry
   .when('/mathematics-trigonometry', {
-    templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
+    templateUrl: 'curriculum/trigonometry/mathematics-trigonometry.html',
   })
+
+  // Calculus
   .when('/mathematics-calculus', {
-    templateUrl: 'curriculum/mathematics/mathematics-calculus.html',
+    templateUrl: 'curriculum/calculus/mathematics-calculus.html',
   })
 
 });
