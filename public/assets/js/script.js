@@ -115,6 +115,9 @@ scotchApp.config(function($routeProvider) {
   .when('/significant-digits', {
     templateUrl: 'curriculum/mathematics/significant-digits.html',
   })
+  .when('/basic-algebra', {
+    templateUrl: 'curriculum/mathematics/basic-algebra.html',
+  })
   .when('/mathematics-trigonometry', {
     templateUrl: 'curriculum/mathematics/mathematics-trigonometry.html',
   })
