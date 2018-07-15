@@ -120,8 +120,8 @@ scotchApp.config(function($routeProvider) {
   })
 
   // Trigonometry
-  .when('/mathematics-trigonometry', {
-    templateUrl: 'curriculum/trigonometry/mathematics-trigonometry.html',
+  .when('/useful-geometric-relations', {
+    templateUrl: 'curriculum/geometry-and-trigonometry/useful-geometric-relations.html',
   })
 
   // Calculus
