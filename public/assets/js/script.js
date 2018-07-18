@@ -121,7 +121,13 @@ scotchApp.config(function($routeProvider) {
 
   // Trigonometry
   .when('/useful-geometric-relations', {
-    templateUrl: 'curriculum/geometry-and-trigonometry/useful-geometric-relations.html',
+    templateUrl: 'curriculum/geometry/useful-geometric-relations.html',
+  })
+  .when('/pythagorean-theorem', {
+    templateUrl: 'curriculum/geometry/pythagorean-theorem.html',
+  })
+  .when('/useful-trigonometric-relations', {
+    templateUrl: 'curriculum/geometry/useful-trigonometric-relations.html',
   })
 
   // Calculus

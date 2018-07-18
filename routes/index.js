@@ -137,12 +137,12 @@ router.get('/algebra', (req, res) => {
      });
 });
 
-router.get('/trigonometry', (req, res) => {
-    res.render('lessons/trigonometry', {
+router.get('/geometry', (req, res) => {
+    res.render('lessons/geometry', {
       user : req.user,
       course : 'Mathematics',
       course_url : 'mathematics',
-      title : 'Trigonometry'
+      title : 'Geometry'
      });
 });
 
