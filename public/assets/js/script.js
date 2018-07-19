@@ -129,6 +129,9 @@ scotchApp.config(function($routeProvider) {
   .when('/useful-trigonometric-relations', {
     templateUrl: 'curriculum/geometry/useful-trigonometric-relations.html',
   })
+  .when('/vector-and-scalar-quantities', {
+    templateUrl: 'curriculum/geometry/vector-and-scalar-quantities.html',
+  })
 
   // Calculus
   .when('/mathematics-calculus', {
