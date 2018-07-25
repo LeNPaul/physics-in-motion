@@ -43,6 +43,7 @@ This repository contains the code that is used in the current Physics in Motion 
   * Migrate old course content from current placeholder site to new site.
 
 * Phase 2:
+  * Create simple quizzes for lessons to review lessons.
   * Create animations to demonstrate concepts and ideas.
 
 * Phase 3:
