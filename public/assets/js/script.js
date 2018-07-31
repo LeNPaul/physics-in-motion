@@ -132,6 +132,9 @@ scotchApp.config(function($routeProvider) {
   .when('/vector-and-scalar-quantities', {
     templateUrl: 'curriculum/geometry/vector-and-scalar-quantities.html',
   })
+  .when('/dot-and-cross-product', {
+    templateUrl: 'curriculum/geometry/dot-and-cross-product.html',
+  })
 
   // Calculus
   .when('/mathematics-calculus', {
