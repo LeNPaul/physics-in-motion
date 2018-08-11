@@ -11,6 +11,7 @@
     "url": "https://github.com/LeNPaul/physics-in-motion-dev.git"
   },
   "author": "Paul Le <l.nguyen.paul@gmail.com>",
+  "description": "Full stack web application for teaching people physics in an intuitive way",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
