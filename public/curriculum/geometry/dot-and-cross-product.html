@@ -38,7 +38,19 @@
 
       <p>For \(\vec{i},\vec{j},\vec{k}\), we have \(\vec{i} \times \vec{i} = \vec{j} \times \vec{j} = \vec{k} \times \vec{k} = 0\). In addition, we have \(\vec{i} \times \vec{j} = - \vec{j} \times \vec{i} = \vec{k}, \vec{j} \times \vec{k} = - \vec{k} \times \vec{j} = \vec{i}\), and \(\vec{k} \times \vec{i} = - \vec{i} \times \vec{k} = \vec{j}\). Using these relations, one can write \(\vec{C} = \vec{A} \times \vec{B}\):</p>
 
-      <p></p>
+      <p>$$\vec{C} = \vec{A} \times \vec{B} = (A_y B_x - A_z B_y) \vec{i} + (A_z B_x - A_x B_z) \vec{j} + (A_x B_y - A_y B_x) \vec{k}$$</p>
+
+      <p>\(\vec{A} \times \vec{B}\) can also be expressed as a determinant:</p>
+
+      <p>$$\vec{A} \times \vec{B} =  \begin{vmatrix}\vec{i} & \vec{j} & \vec{k} \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix}$$</p>
+
+      <p>To multiply this determinant, repeat the first two columns of the determinant. Now imaging three downward sloping arrows that cut diagonally starting from the unit vector:</p>
+
+      <p>$$\vec{C}_1 = A_y B_z \vec{i} + A_z B_x \vec{j} + A_x B_y \vec{k}$$</p>
+
+      <p>$$\vec{C}_2 = A_y B_x \vec{k} + A_z B_y \vec{i} + A_x B_z \vec{j}$$</p>
+
+      <p>$$\vec{C} = \vec{C}_1 - \vec{C}_2 = \vec{A} \times \vec{B}$$</p>
 
     </div>
     <div class="col-sm-2"></div>
