@@ -137,8 +137,14 @@ scotchApp.config(function($routeProvider) {
   })
 
   // Calculus
-  .when('/mathematics-calculus', {
-    templateUrl: 'curriculum/calculus/mathematics-calculus.html',
+  .when('/functions', {
+    templateUrl: 'curriculum/calculus/functions.html',
+  })
+  .when('/derivatives', {
+    templateUrl: 'curriculum/calculus/derivatives.html',
+  })
+  .when('/integrals', {
+    templateUrl: 'curriculum/calculus/integrals.html',
   })
 
 });
