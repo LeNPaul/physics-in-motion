@@ -85,10 +85,11 @@ html(lang='en',ng-app='scotchApp')
             a.nav-link(href='/contact')
               i.fa.fa-fw.fa-headphones
               span.nav-link-text Contact
-          li.nav-item(data-toggle='tooltip', data-placement='right', title='Logout')
-            a.nav-link(href='/logout')
-              i.fa.fa-fw.fa-sign-out-alt
-              span.nav-link-text Logout
+          if (user)
+            li.nav-item(data-toggle='tooltip', data-placement='right', title='Logout')
+              a.nav-link(href='/logout')
+                i.fa.fa-fw.fa-sign-out-alt
+                span.nav-link-text Logout
         ul.navbar-nav.sidenav-toggler
           li.nav-item
             a#sidenavToggler.nav-link.text-center
