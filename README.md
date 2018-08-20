@@ -5,6 +5,7 @@ The goal for Physics in Motion is to create dynamics lessons that allow students
 ## Table of Contents
 
 1. [Installation](#installation)
+2. [Deployment](#deployment)
 
 ## Installation
 
