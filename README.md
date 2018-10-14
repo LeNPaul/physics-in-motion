@@ -49,3 +49,23 @@ This repository contains the code that is used in the current Physics in Motion 
 * Phase 3:
   * Develop interactive modules to demonstrate concepts and ideas.
   * Increase audience range.
+
+## Server Setup
+
+The Physics in Motion web application is hosted on a Digitalocean server. The specifications and configurations for [creating the current server](https://www.digitalocean.com/docs/droplets/how-to/create/) as follows:
+
+1. Operating System: Ubuntu 18.04 x64
+2. System Specifications: Memory: 4 GB, vCPUs: 2 vCPUs, SSD Disk: 80 GB, Transfer: 4 TB, Price: $20 a month
+3. No backup or block storage added
+4. Datacenter Region: Toronto 1
+5. Additional Options: Private Networking, IPv6, and Monitoring are enabled
+
+Initial server setup based on [Digitalocean best practices for Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04).
+
+## Mongodb
+
+Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04).
+
+## Nodejs
+
+Set up Node.js using [Digitalocean's turotial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04).
