@@ -69,4 +69,12 @@ Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tu
 
 ## Nodejs
 
-Set up Node.js using [Digitalocean's turotial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04).
+Set up Node.js using [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04).
+
+## Nginx
+
+Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04).
+
+## Pm2
+
+Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04#step-3-%E2%80%94-installing-pm2).
