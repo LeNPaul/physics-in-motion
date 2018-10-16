@@ -78,3 +78,7 @@ Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tu
 ## Pm2
 
 Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04#step-3-%E2%80%94-installing-pm2).
+
+## Let's Encrypt
+
+Set up using a combination of [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04), as well as the [official documentation](https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx).
