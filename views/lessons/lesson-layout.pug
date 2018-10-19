@@ -20,131 +20,71 @@ html(lang='en',ng-app='scotchApp')
     // Custom styles for this template
     link(href='https://blackrockdigital.github.io/startbootstrap-shop-item/css/shop-item.css', rel='stylesheet')
        
-  body#page-top.fixed-nav.sticky-footer.bg-dark(ng-controller='mainController')
+  body(ng-controller='mainController')
     // Navigation
-    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-      a.navbar-brand(href=course_url) #{ course }
-      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarResponsive.collapse.navbar-collapse
-        ul#exampleAccordion.navbar-nav.navbar-sidenav
-          if (!user)
-            li.nav-item(data-toggle='tooltip', data-placement='right', title='Home')
-              a.nav-link(href='/')
-                i.fas.fa-fw.fa-home
-                span.nav-link-text Home
-          if (user)
-            li.nav-item(data-toggle='tooltip', data-placement='right', title='Dashboard')
-              a.nav-link(href='/')
-                i.fas.fa-fw.fa-tachometer-alt
-                span.nav-link-text Dashboard             
-          li.nav-item(data-toggle='tooltip', data-placement='right', title='Content')
-            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseComponents', data-parent='#exampleAccordion')
-              i.fas.fa-fw.fa-book
-              span.nav-link-text Content
-            ul#collapseComponents.sidenav-second-level.collapse
-              block content
-          //li.nav-item(data-toggle='tooltip', data-placement='right', title='Example Pages')
-            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseExamplePages', data-parent='#exampleAccordion')
-              i.fa.fa-fw.fa-file
-              span.nav-link-text Example Pages
-            ul#collapseExamplePages.sidenav-second-level.collapse
-              li
-                a(href='login.html') Login Page
-              li
-                a(href='register.html') Registration Page
-              li
-                a(href='forgot-password.html') Forgot Password Page
-              li
-                a(href='blank.html') Blank Page
-          //li.nav-item(data-toggle='tooltip', data-placement='right', title='Menu Levels')
-            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseMulti', data-parent='#exampleAccordion')
-              i.fa.fa-fw.fa-sitemap
-              span.nav-link-text Menu Levels
-            ul#collapseMulti.sidenav-second-level.collapse
-              li
-                a(href='#') Second Level Item
-              li
-                a(href='#') Second Level Item
-              li
-                a(href='#') Second Level Item
-              li
-                a.nav-link-collapse.collapsed(data-toggle='collapse', href='#collapseMulti2') Third Level
-                ul#collapseMulti2.sidenav-third-level.collapse
-                  li
-                    a(href='#') Third Level Item
-                  li
-                    a(href='#') Third Level Item
-                  li
-                    a(href='#') Third Level Item
-          li.nav-item(data-toggle='tooltip', data-placement='right', title='Courses')
-            a.nav-link(href='/courses')
-              i.fa.fa-fw.fa-chess-rook
-              span.nav-link-text Courses
-          li.nav-item(data-toggle='tooltip', data-placement='right', title='About')
-            a.nav-link(href='/about')
-              i.fa.fa-fw.fa-cog
-              span.nav-link-text About
-          li.nav-item(data-toggle='tooltip', data-placement='right', title='Contact')
-            a.nav-link(href='/contact')
-              i.fa.fa-fw.fa-headphones
-              span.nav-link-text Contact
-          if (user)
-            li.nav-item(data-toggle='tooltip', data-placement='right', title='Logout')
-              a.nav-link(href='/logout')
-                i.fa.fa-fw.fa-sign-out-alt
-                span.nav-link-text Logout
-        ul.navbar-nav.sidenav-toggler
-          li.nav-item
-            a#sidenavToggler.nav-link.text-center
-              i.fa.fa-fw.fa-angle-left
-    .content-wrapper
-      .container-fluid
-        // Breadcrumbs
-        ol.breadcrumb
-          li.breadcrumb-item
-            a(href=course_url) #{ course }
-          li.breadcrumb-item.active #{ title }
-        .row
-          .col-12
-  
-            // ANGULAR DYNAMIC CONTENT
-            div.ng-view
-          
-      // /.container-fluid
-      // /.content-wrapper
-      footer.sticky-footer
-        .container
-          .text-center
-            small Copyright © Physics in Motion 2018
-      // Scroll to Top Button
-      a.scroll-to-top.rounded(href='#page-top')
-        i.fa.fa-angle-up
-      // Logout Modal
-      #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-        .modal-dialog(role='document')
-          .modal-content
-            .modal-header
-              h5#exampleModalLabel.modal-title Ready to Leave?
-              button.close(type='button', data-dismiss='modal', aria-label='Close')
-                span(aria-hidden='true') ×
-            .modal-body Select "Logout" below if you are ready to end your current session.
-            .modal-footer
-              button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
-              a.btn.btn-primary(href='login.html') Logout
-      // Bootstrap core JavaScript
-      script(src='assets/libs/jquery/dist/jquery.min.js')
-      script(src='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
-      // Core plugin JavaScript
-      script(src='assets/libs/jquery-easing-original/jquery.easing.js')
-      // Custom scripts for all pages
-      script(src='assets/js/lessons/sb-admin.min.js')
-      // AngularJS
-      script(src='assets/libs/angular/angular.min.js')
-      script(src='assets/libs/angular-route/angular-route.min.js')
-      // MathJax
-      script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
-      // ANGULAR CUSTOM
-      script(src='assets/js/script.js')    
-      // Font Awesome
-      script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      .container
+        a.navbar-brand(href='#') Start Bootstrap
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='#')
+                | Home
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='#') About
+            li.nav-item
+              a.nav-link(href='#') Services
+            li.nav-item
+              a.nav-link(href='#') Contact
+    // Page Content
+    .container
+      .row
+        .col-lg-3
+          h1.my-4 Shop Name
+          .list-group
+            a.list-group-item.active(href='#') Category 1
+            a.list-group-item(href='#') Category 2
+            a.list-group-item(href='#') Category 3
+        // /.col-lg-3
+        .col-lg-9
+          .card.mt-4
+            img.card-img-top.img-fluid(src='http://placehold.it/900x400', alt='')
+            .card-body
+              h3.card-title Product Name
+              h4 $24.99
+              p.card-text
+                block content
+              span.text-warning ★ ★ ★ ★ ☆
+              |               4.0 stars
+          // /.card
+          .card.card-outline-secondary.my-4
+            .card-header
+              | Product Reviews
+            .card-body
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              a.btn.btn-success(href='#') Leave a Review
+          // /.card
+          // /.col-lg-9
+          // /.container
+          // Footer
+          footer.py-5.bg-dark
+            .container
+              p.m-0.text-center.text-white Copyright © Your Website 2017
+            // /.container
+            // Bootstrap core JavaScript
+            script(src='https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/jquery/jquery.min.js')
+            script(src='https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/js/bootstrap.bundle.min.js')
