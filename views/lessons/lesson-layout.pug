@@ -21,43 +21,28 @@ html(lang='en',ng-app='scotchApp')
     link(href='https://blackrockdigital.github.io/startbootstrap-shop-item/css/shop-item.css', rel='stylesheet')
        
   body(ng-controller='mainController')
-    // Navigation
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-      .container
-        a.navbar-brand(href='#') Start Bootstrap
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #navbarResponsive.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.active
-              a.nav-link(href='#')
-                | Home
-                span.sr-only (current)
-            li.nav-item
-              a.nav-link(href='#') About
-            li.nav-item
-              a.nav-link(href='#') Services
-            li.nav-item
-              a.nav-link(href='#') Contact
+    if (!user)
+      include ../navbar/default-nav.pug
+    if (user)
+      include ../navbar/user-nav.pug
     // Page Content
     .container
       .row
         .col-lg-3
-          h1.my-4 Shop Name
+          h4.my-4 #{ course }
           .list-group
             block content
         // /.col-lg-3
         .col-lg-9
           .card.mt-4
             .card-body
-              h3.card-title Product Name
-              h4 $24.99
+              h3.card-title #{ course }
+              h4 #{ title }
               p.card-text
-                block content
-              span.text-warning ★ ★ ★ ★ ☆
-              |               4.0 stars
+                // ANGULAR DYNAMIC CONTENT
+                div.ng-view
           // /.card
-          .card.card-outline-secondary.my-4
+          //.card.card-outline-secondary.my-4
             .card-header
               | Product Reviews
             .card-body
@@ -77,11 +62,16 @@ html(lang='en',ng-app='scotchApp')
           // /.card
           // /.col-lg-9
           // /.container
-          // Footer
-          footer.py-5.bg-dark
-            .container
-              p.m-0.text-center.text-white Copyright © Your Website 2017
+        // FOOTER        
+        include ../footer/home-footer.pug       
             // /.container
             // Bootstrap core JavaScript
             script(src='assets/libs/jquery/dist/jquery.min.js')
             script(src='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
+            // AngularJS
+            script(src='assets/libs/angular/angular.min.js')
+            script(src='assets/libs/angular-route/angular-route.min.js')
+            // ANGULAR CUSTOM
+            script(src='assets/js/script.js') 
+            // MathJax
+            script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
