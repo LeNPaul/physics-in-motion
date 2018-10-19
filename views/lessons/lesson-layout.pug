@@ -36,8 +36,6 @@ html(lang='en',ng-app='scotchApp')
         .col-lg-9
           .card.mt-4
             .card-body
-              h3.card-title #{ course }
-              h4 #{ title }
               p.card-text
                 // ANGULAR DYNAMIC CONTENT
                 div.ng-view
@@ -63,7 +61,8 @@ html(lang='en',ng-app='scotchApp')
           // /.col-lg-9
           // /.container
         // FOOTER        
-        include ../footer/home-footer.pug       
+        .container
+          include ../footer/home-footer.pug       
             // /.container
             // Bootstrap core JavaScript
             script(src='assets/libs/jquery/dist/jquery.min.js')
@@ -75,3 +74,5 @@ html(lang='en',ng-app='scotchApp')
             script(src='assets/js/script.js') 
             // MathJax
             script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
+            // Font Awesome
+            script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
