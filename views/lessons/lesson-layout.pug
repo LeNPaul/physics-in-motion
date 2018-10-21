@@ -10,11 +10,10 @@ html(lang='en',ng-app='scotchApp')
     title #{ title } | Physics in Motion
     // Bootstrap core CSS
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='assets/css/lessons/shop-item.css', rel='stylesheet')
     // Google Analytics
     include ../google-analytics.pug  
-    
-    // Custom styles for this template
-    link(href='https://blackrockdigital.github.io/startbootstrap-shop-item/css/shop-item.css', rel='stylesheet')
        
   body(ng-controller='mainController')
     if (!user)
@@ -56,19 +55,21 @@ html(lang='en',ng-app='scotchApp')
           // /.card
           // /.col-lg-9
           // /.container
-        // FOOTER        
-        .container
-          include ../footer/home-footer.pug       
-            // /.container
-            // Bootstrap core JavaScript
-            script(src='assets/libs/jquery/dist/jquery.min.js')
-            script(src='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
-            // AngularJS
-            script(src='assets/libs/angular/angular.min.js')
-            script(src='assets/libs/angular-route/angular-route.min.js')
-            // ANGULAR CUSTOM
-            script(src='assets/js/script.js') 
-            // MathJax
-            script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
-            // Font Awesome
-            script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
+    // FOOTER        
+    .container
+      include ../footer/home-footer.pug       
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='assets/libs/jquery/dist/jquery.min.js')
+    script(src='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
+    // AngularJS
+    script(src='assets/libs/angular/angular.min.js')
+    script(src='assets/libs/angular-route/angular-route.min.js')
+    // ANGULAR CUSTOM
+    script(src='assets/js/script.js') 
+    // MathJax
+    script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
+    // Font Awesome
+    script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
