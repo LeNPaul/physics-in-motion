@@ -13,8 +13,7 @@ html(lang='en',ng-app='scotchApp')
     // Custom styles for this template
     link(href='assets/css/lessons/shop-item.css', rel='stylesheet')
     // Google Analytics
-    include ../google-analytics.pug  
-       
+    include ../google-analytics.pug     
   body(ng-controller='mainController')
     if (!user)
       include ../navbar/default-nav.pug
@@ -24,7 +23,12 @@ html(lang='en',ng-app='scotchApp')
     .container
       .row
         .col-lg-3
-          h4.my-4 #{ title }
+          h4.my-4 
+            a(href=course_url) #{ course }  
+            i.fa.fa-arrow-right(aria-hidden='true')
+            |  #{ title }  
+            
+          
           .list-group
             block content
         // /.col-lg-3
@@ -67,9 +71,9 @@ html(lang='en',ng-app='scotchApp')
     // AngularJS
     script(src='assets/libs/angular/angular.min.js')
     script(src='assets/libs/angular-route/angular-route.min.js')
-    // ANGULAR CUSTOM
-    script(src='assets/js/script.js') 
     // MathJax
     script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
     // Font Awesome
     script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
+    // ANGULAR CUSTOM
+    script(src='assets/js/script.js') 
