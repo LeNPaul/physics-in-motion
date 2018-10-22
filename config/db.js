@@ -1,3 +1,3 @@
 module.exports = {
-	url : 'mongodb://localhost/pim-dev'
+	url : 'mongodb://localhost/physics_in_motion'
 }
