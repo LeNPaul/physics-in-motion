@@ -82,3 +82,7 @@ Set up using [Digitalocean's tutorial](https://www.digitalocean.com/community/tu
 ## Let's Encrypt
 
 Set up using a combination of [Digitalocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04), as well as the [official documentation](https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx).
+
+## Templates used
+
+The following are templates that were used as starting points for building the Physics in Motion web application.
