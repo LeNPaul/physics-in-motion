@@ -86,3 +86,7 @@ Set up using a combination of [Digitalocean's tutorial](https://www.digitalocean
 ## Templates used
 
 The following are templates that were used as starting points for building the Physics in Motion web application.
+
+### Bootstrap
+
+The Physics in Motion frontend is based heavily on Bootstrap templates.
