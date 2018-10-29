@@ -89,4 +89,10 @@ The following are templates that were used as starting points for building the P
 
 ### Bootstrap
 
-The Physics in Motion frontend is based heavily on Bootstrap templates.
+The Physics in Motion frontend is based heavily on Bootstrap templates:
+
+1. [Homepage](https://getbootstrap.com/docs/4.1/examples/carousel/)
+
+2. [Login and Registration pages](https://getbootstrap.com/docs/4.1/examples/floating-labels/)
+
+3. [Courses and Lessons pages](https://getbootstrap.com/docs/4.1/examples/album/)
