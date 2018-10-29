@@ -96,3 +96,12 @@ The Physics in Motion frontend is based heavily on Bootstrap templates:
 2. [Login and Registration pages](https://getbootstrap.com/docs/4.1/examples/floating-labels/)
 
 3. [Courses and Lessons pages](https://getbootstrap.com/docs/4.1/examples/album/)
+
+4. [Lessons Module pages](https://blackrockdigital.github.io/startbootstrap-shop-item/)
+
+5. [User Dashboard page](https://getbootstrap.com/docs/4.1/examples/offcanvas/)
+
+
+### MEAN Stack Starters
+
+The following are some tutorials that were used as the foundation for the Physics in Motion web application:
