@@ -105,3 +105,5 @@ The Physics in Motion frontend is based heavily on Bootstrap templates:
 ### MEAN Stack Starters
 
 The following are some tutorials that were used as the foundation for the Physics in Motion web application:
+
+1. [Foundation for user authentication](https://mherman.org/blog/local-authentication-with-passport-and-express-4/)
