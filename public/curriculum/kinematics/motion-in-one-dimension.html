@@ -6,7 +6,7 @@
 
 			<p>We can describe the motion of a particle in one dimension using a single function that we will call \(x(t)\). Here, \(t\) refers to time, and \(x\) refers to the position of the particle.</p>
 
-			<canvas id="position-line-chart" width="800" height="500"></canvas>
+			<canvas id="static-position-line-chart" width="800" height="500"></canvas>
 
 			<p>If we know what \(x(t)\) is, then we know everything we need to know about the motion of the particle.</p>
 
@@ -16,7 +16,7 @@
 
 			<p>This describes how fast something moves, and in which direction the particle is moving at any point in time.</p>
 
-			<canvas id="velocity-line-chart" width="800" height="500"></canvas>
+			<canvas id="static-velocity-line-chart" width="800" height="500"></canvas>
 
 			<p>We can also define the acceleration of the particle as the derivative of the velocity function:</p>
 
@@ -30,13 +30,25 @@
 
 			<p>$$ v(t) = \int a(t) dt . $$</p>
 
+			<h3>Building Intuition</h3>
+
+			<p>The charts below show how velocity changes depending on how the position looks. For example, particles that are stationary (position does not change as time increases) will have no velocity. These examples only show constant velocity, and so the acceleration will always be zero. Notice that for constant velocity, the position function will always look like a straight line.</p>
+
+			<canvas id="position-line-chart" width="800" height="500"></canvas>
+
+			<canvas id="velocity-line-chart" width="800" height="500"></canvas>
+
+			<button type="button" class="btn btn-secondary" onclick="randomPositionFunction()">Random</button>
+			<button type="button" class="btn btn-secondary" onclick="stationaryPositionFunction()">Stationary</button>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
 
 <script>
-	new Chart(document.getElementById("position-line-chart"), {
+
+	new Chart(document.getElementById("static-position-line-chart"), {
 		type: 'line',
 		data: {
 			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
@@ -82,7 +94,7 @@
 		}
 	});
 
-	new Chart(document.getElementById("velocity-line-chart"), {
+	new Chart(document.getElementById("static-velocity-line-chart"), {
 		type: 'line',
 		data: {
 			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
@@ -173,4 +185,138 @@
 			}
 		}
 	});
+
+	var positionChart = new Chart(document.getElementById("position-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			datasets: [{
+				data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Position of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Position (x)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+	var velocityChart = new Chart(document.getElementById("velocity-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			datasets: [{
+				data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Velocity of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Velocity (v)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+	function generateRandomNumber(min_value, max_value) {
+		let random_number = Math.random() * (max_value - min_value) + min_value;
+		return Math.floor(random_number);
+	}
+
+	function randomPositionFunction() {
+
+		// Update Position Chart
+		var startPosition = generateRandomNumber(-50, 100);
+		var randomNumber = generateRandomNumber(-10, 10);
+		for (i = 0; i < positionChart.data.datasets[0].data.length; i++) {
+			positionChart.data.datasets[0].data[i] = startPosition + i * randomNumber;
+		}
+		positionChart.update();
+
+		// Update Velocity chart
+		for (i = 0; i < velocityChart.data.datasets[0].data.length; i++) {
+			velocityChart.data.datasets[0].data[i] = randomNumber;
+		}
+		velocityChart.update();
+
+	}
+
+	function stationaryPositionFunction() {
+
+		// Update Position Chart
+		var startPosition = generateRandomNumber(-50, 100);
+		var randomNumber = generateRandomNumber(-10, 10);
+		for (i = 0; i < positionChart.data.datasets[0].data.length; i++) {
+			positionChart.data.datasets[0].data[i] = startPosition;
+		}
+		positionChart.update();
+
+		// Update Velocity chart
+		for (i = 0; i < velocityChart.data.datasets[0].data.length; i++) {
+			velocityChart.data.datasets[0].data[i] = 0;
+		}
+		velocityChart.update();
+
+	}
+
 </script>
