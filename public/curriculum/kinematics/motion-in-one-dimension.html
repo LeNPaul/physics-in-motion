@@ -6,7 +6,7 @@
 
 			<p>We can describe the motion of a particle in one dimension using a single function that we will call \(x(t)\). Here, \(t\) refers to time, and \(x\) refers to the position of the particle.</p>
 
-			<canvas id="line-chart" width="800" height="500"></canvas>
+			<canvas id="position-line-chart" width="800" height="500"></canvas>
 
 			<p>If we know what \(x(t)\) is, then we know everything we need to know about the motion of the particle.</p>
 
@@ -16,9 +16,13 @@
 
 			<p>This describes how fast something moves, and in which direction the particle is moving at any point in time.</p>
 
+			<canvas id="velocity-line-chart" width="800" height="500"></canvas>
+
 			<p>We can also define the acceleration of the particle as the derivative of the velocity function:</p>
 
 			<p>$$ a(t) = \frac{d v(t)}{dt} = \frac{d^2 x(t)}{dt^2} . $$</p>
+
+			<canvas id="acceleration-line-chart" width="800" height="500"></canvas>
 
 			<p>If we know what the acceleration or velocity functions are, we can work backwards and calculate the position function through integration:</p>
 
@@ -32,7 +36,7 @@
 </div>
 
 <script>
-	new Chart(document.getElementById("line-chart"), {
+	new Chart(document.getElementById("position-line-chart"), {
 		type: 'line',
 		data: {
 			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
@@ -50,6 +54,98 @@
 					scaleLabel: {
 						display: true,
 						labelString: 'Position (x)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+	new Chart(document.getElementById("velocity-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			datasets: [{
+				data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Velocity of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Velocity (v)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+	new Chart(document.getElementById("acceleration-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			datasets: [{
+				data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Acceleration of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Acceleration (a)'
 					}
 				}],
 				xAxes: [{
