@@ -1,12 +1,13 @@
 {
-    "name": "physics-in-motion",
-    "version": "0.0.0",
-    "dependencies": {
-        "bootstrap": "latest",
-        "font-awesome": "latest",
-        "angular": "latest",
-        "angular-route": "latest",
-        "jquery": "3.2.1",
-        "MathJax": "latest"
-    }
+  "name": "physics-in-motion",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "jquery": "3.2.1",
+    "MathJax": "latest",
+    "chart.js": "2.7.3"
+  }
 }
