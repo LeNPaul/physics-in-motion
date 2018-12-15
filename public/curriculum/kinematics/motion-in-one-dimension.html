@@ -6,6 +6,8 @@
 
 			<p>We can describe the motion of a particle in one dimension using a single function that we will call \(x(t)\). Here, \(t\) refers to time, and \(x\) refers to the position of the particle.</p>
 
+			<canvas id="line-chart" width="800" height="500"></canvas>
+
 			<p>If we know what \(x(t)\) is, then we know everything we need to know about the motion of the particle.</p>
 
 			<p>For example, the velocity of the particle is defined as the derivative of the position function:</p>
@@ -28,3 +30,51 @@
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+
+<script>
+	new Chart(document.getElementById("line-chart"), {
+		type: 'line',
+		data: {
+			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			datasets: [{
+				data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Position of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Position (x)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+</script>
