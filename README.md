@@ -38,20 +38,6 @@ The goal for Physics in Motion is to create dynamics lessons that allow students
 
 This repository contains the code that is used in the current Physics in Motion website.
 
-## Project Timeline
-
-* Phase 1 [done]:
-  * Implement account creation and user sign-in.
-  * Migrate old course content from current placeholder site to new site.
-
-* Phase 2:
-  * Create simple quizzes for lessons to review lessons.
-  * Create animations to demonstrate concepts and ideas.
-
-* Phase 3:
-  * Develop interactive modules to demonstrate concepts and ideas.
-  * Increase audience range.
-
 ## Server Setup
 
 The Physics in Motion web application is hosted on a Digitalocean server. The specifications and configurations for [creating the current server](https://www.digitalocean.com/docs/droplets/how-to/create/) as follows:
