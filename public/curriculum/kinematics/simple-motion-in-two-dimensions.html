@@ -34,6 +34,8 @@
 
       <p>where \( x_0 \) and \( y_0 \) are the initial positions of the object along the x and y axes respectively.</p>
 
+      <canvas id="parabolic-motion-position-line-chart" width="800" height="500"></canvas>
+
       <h3>Motion in a Circle</h3>
 
       <p>It is possible to describe the motion of a body in circular motion with constant speed, using the following equation:</p>
@@ -66,3 +68,53 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+
+<script>
+
+	new Chart(document.getElementById("parabolic-motion-position-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000],
+			datasets: [{
+				data: [0, 271, 488, 657, 784, 875, 936, 973, 992, 999, 1000, 999, 992, 973, 936, 875, 784, 657, 488, 271, 0],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Position of Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Position (m)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Time (t)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+</script>
