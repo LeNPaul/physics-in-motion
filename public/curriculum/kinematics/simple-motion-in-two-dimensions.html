@@ -74,9 +74,9 @@
 	new Chart(document.getElementById("parabolic-motion-position-line-chart"), {
 		type: 'line',
 		data: {
-			labels: [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000],
+			labels: [0, 0.5, 1, 1.5, 2, 2.5],
 			datasets: [{
-				data: [0, 271, 488, 657, 784, 875, 936, 973, 992, 999, 1000, 999, 992, 973, 936, 875, 784, 657, 488, 271, 0],
+				data: [4, 5.5, 6, 5.5, 4, 1.5],
 			}]
 		},
 		options: {
@@ -103,7 +103,7 @@
 			},
 			elements: {
 				line: {
-					tension: 0
+					tension: 0.4
 				}
 			},
 			layout: {
