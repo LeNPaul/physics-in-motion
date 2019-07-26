@@ -33,6 +33,8 @@
 			<p>Where \( x \) is the position away from equilibrium, and \( k \) is a constant known as the spring constant, with units \( N / m \). The negative sign in front of the spring constant denotes the fact that the restoring force opposes the displacing
 				force. If you pull a spring right, it will pull left, with the inverse being true.</p>
 
+			<canvas id="hookes-law-force-position-line-chart" width="800" height="500"></canvas>
+
 			<h3>Normal Forces</h3>
 
 			<p>When one object interacts with another object with a force, the other object will apply an equal but opposite force on the first. The direction of these interacting forces will be perpendicularly away from each object, as both objects are opposing
@@ -73,3 +75,53 @@
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+
+<script>
+
+	new Chart(document.getElementById("hookes-law-force-position-line-chart"), {
+		type: 'line',
+		data: {
+			labels: [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+			datasets: [{
+				data: [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Force on Particle as a Function of Time'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Force (N)'
+					}
+				}],
+				xAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Position (x)'
+					}
+				}]
+			},
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					tension: 0.4
+				}
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 20
+				}
+			}
+		}
+	});
+
+</script>
