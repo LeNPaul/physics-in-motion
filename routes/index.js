@@ -208,4 +208,26 @@ router.get('/logout', (req, res, next) => {
     });
 });
 
+// Test database connection
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/physics_in_motion');
+var db = mongoose.connection;
+
+var Schema = mongoose.Schema;
+
+var commentSchema = new Schema({
+    CommentBody: String,
+    UserName: String,
+    DatePosted: Date,
+});
+
+var Comment = mongoose.model('Comment', commentSchema);
+
+// Testing endpoint
+router.get('/test', (req, res) => {
+  Comment.find({UserName: 'Nick'}, function(error, comments) {
+      console.log(comments); //Display the comments returned by MongoDB, if any were found. Executes after the query is complete.
+  });
+});
+
 module.exports = router;
