@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const Account = require('../models/account');
-const Lesson = require('../models/lesson');
+const Lessons = require('../models/lessons');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -211,7 +211,7 @@ router.get('/logout', (req, res, next) => {
 
 // Testing endpoint
 
-var newLesson = new Lesson({
+var newLesson = new Lessons({
   username: 'Paul Le',
   kinematics:{
     motion_in_one_dimension: {
