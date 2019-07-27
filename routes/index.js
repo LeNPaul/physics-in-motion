@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const Account = require('../models/account');
+const Lesson = require('../models/lesson');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -208,23 +209,17 @@ router.get('/logout', (req, res, next) => {
     });
 });
 
-// Test database connection
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/physics_in_motion');
-var db = mongoose.connection;
-
-const Lesson = require('../models/lesson');
+// Testing endpoint
 
 var newLesson = new Lesson({
   username: 'Paul Le',
-  lesson: {
-    name: 'Kinematics',
-    status: 'true',
-    updated: '2002-12-09'
+  kinematics:{
+    motion_in_one_dimension: {
+      updated: Date.now()
+    }
   }
 })
 
-// Testing endpoint
 router.get('/test', (req, res) => {
 
   newLesson.save(function(error, data) {
@@ -235,9 +230,9 @@ router.get('/test', (req, res) => {
     }
   })
 
-  Lesson.find({username: 'Paul Le'}, function(error, lesson){
-    console.log(lesson[0].username)
-  });
+  //Lesson.find({username: 'Paul Le'}, function(error, lesson){
+  //  console.log(lesson[0])
+  //});
 
 });
 
