@@ -52,235 +52,103 @@
 
 <script>
 
-	new Chart(document.getElementById("static-position-line-chart"), {
-		type: 'line',
-		data: {
-			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			datasets: [{
-				data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-			}]
-		},
-		options: {
-			title: {
-				display: true,
-				text: 'Position of Particle as a Function of Time'
-			},
-			scales: {
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Position (x)'
-					}
-				}],
-				xAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Time (t)'
-					}
+	function chartConfig(chartTitle, xLabel, xData, yLabel, yData) {
+		return {
+			type: 'line',
+			data: {
+				labels: xData,
+				datasets: [{
+					data: yData,
 				}]
 			},
-			legend: {
-				display: false
-			},
-			elements: {
-				line: {
-					tension: 0
-				}
-			},
-			layout: {
-				padding: {
-					left: 0,
-					right: 0,
-					top: 0,
-					bottom: 20
+			options: {
+				title: {
+					display: true,
+					text: chartTitle
+				},
+				scales: {
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: yLabel
+						}
+					}],
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: xLabel
+						}
+					}]
+				},
+				legend: {
+					display: false
+				},
+				elements: {
+					line: {
+						tension: 0
+					}
+				},
+				layout: {
+					padding: {
+						left: 0,
+						right: 0,
+						top: 0,
+						bottom: 20
+					}
 				}
 			}
 		}
-	});
+	};
 
-	new Chart(document.getElementById("static-velocity-line-chart"), {
-		type: 'line',
-		data: {
-			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			datasets: [{
-				data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-			}]
-		},
-		options: {
-			title: {
-				display: true,
-				text: 'Velocity of Particle as a Function of Time'
-			},
-			scales: {
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Velocity (v)'
-					}
-				}],
-				xAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Time (t)'
-					}
-				}]
-			},
-			legend: {
-				display: false
-			},
-			elements: {
-				line: {
-					tension: 0
-				}
-			},
-			layout: {
-				padding: {
-					left: 0,
-					right: 0,
-					top: 0,
-					bottom: 20
-				}
-			}
-		}
-	});
+	new Chart(document.getElementById("static-position-line-chart"),
+		chartConfig(
+			'Position of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+		)
+	);
 
-	new Chart(document.getElementById("acceleration-line-chart"), {
-		type: 'line',
-		data: {
-			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			datasets: [{
-				data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			}]
-		},
-		options: {
-			title: {
-				display: true,
-				text: 'Acceleration of Particle as a Function of Time'
-			},
-			scales: {
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Acceleration (a)'
-					}
-				}],
-				xAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Time (t)'
-					}
-				}]
-			},
-			legend: {
-				display: false
-			},
-			elements: {
-				line: {
-					tension: 0
-				}
-			},
-			layout: {
-				padding: {
-					left: 0,
-					right: 0,
-					top: 0,
-					bottom: 20
-				}
-			}
-		}
-	});
+	new Chart(document.getElementById("static-velocity-line-chart"),
+		chartConfig(
+			'Velocity of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Velocity (v)',
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		)
+	);
 
-	var positionChart = new Chart(document.getElementById("position-line-chart"), {
-		type: 'line',
-		data: {
-			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			datasets: [{
-				data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-			}]
-		},
-		options: {
-			title: {
-				display: true,
-				text: 'Position of Particle as a Function of Time'
-			},
-			scales: {
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Position (x)'
-					}
-				}],
-				xAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Time (t)'
-					}
-				}]
-			},
-			legend: {
-				display: false
-			},
-			elements: {
-				line: {
-					tension: 0
-				}
-			},
-			layout: {
-				padding: {
-					left: 0,
-					right: 0,
-					top: 0,
-					bottom: 20
-				}
-			}
-		}
-	});
+	new Chart(document.getElementById("acceleration-line-chart"),
+		chartConfig(
+			'Acceleration of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Acceleration (a)',
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		)
+	);
 
-	var velocityChart = new Chart(document.getElementById("velocity-line-chart"), {
-		type: 'line',
-		data: {
-			labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			datasets: [{
-				data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-			}]
-		},
-		options: {
-			title: {
-				display: true,
-				text: 'Velocity of Particle as a Function of Time'
-			},
-			scales: {
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Velocity (v)'
-					}
-				}],
-				xAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'Time (t)'
-					}
-				}]
-			},
-			legend: {
-				display: false
-			},
-			elements: {
-				line: {
-					tension: 0
-				}
-			},
-			layout: {
-				padding: {
-					left: 0,
-					right: 0,
-					top: 0,
-					bottom: 20
-				}
-			}
-		}
-	});
+	var positionChart = new Chart(document.getElementById("position-line-chart"),
+		chartConfig(
+			'Position of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+		)
+	);
+
+	var velocityChart = new Chart(document.getElementById("velocity-line-chart"),
+		chartConfig(
+			'Velocity of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Velocity (v)',
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		)
+	);
 
 	function generateRandomNumber(min_value, max_value) {
 		let random_number = Math.random() * (max_value - min_value) + min_value;
