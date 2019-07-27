@@ -213,21 +213,32 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/physics_in_motion');
 var db = mongoose.connection;
 
-var Schema = mongoose.Schema;
+const Lesson = require('../models/lesson');
 
-var commentSchema = new Schema({
-    CommentBody: String,
-    UserName: String,
-    DatePosted: Date,
-});
-
-var Comment = mongoose.model('Comment', commentSchema);
+var newLesson = new Lesson({
+  username: 'Paul Le',
+  lesson: {
+    name: 'Kinematics',
+    status: 'true',
+    updated: '2002-12-09'
+  }
+})
 
 // Testing endpoint
 router.get('/test', (req, res) => {
-  Comment.find({UserName: 'Nick'}, function(error, comments) {
-      console.log(comments); //Display the comments returned by MongoDB, if any were found. Executes after the query is complete.
+
+  newLesson.save(function(error, data) {
+    console.log("Your lesson has been saved:");
+    console.log(data);
+    if (error) {
+      console.error(error);
+    }
+  })
+
+  Lesson.find({username: 'Paul Le'}, function(error, lesson){
+    console.log(lesson[0].username)
   });
+
 });
 
 module.exports = router;
