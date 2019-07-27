@@ -351,33 +351,29 @@
 	}
 
 	function quadraticFunction(time, a, c) {
-
 		return a * (time * time) + c
-
 	}
 
 	function linearFunction(time, a, c) {
-
 		return a * time + c
-
 	}
 
 
 	function randomPositionFunction(time) {
 
 		// Initial parameters
-		var startPosition = generateRandomNumber(-50, 50);
-		var randomNumber = generateRandomNumber(-10, 10);
+		var constant = generateRandomNumber(-50, 50);
+		var slope = generateRandomNumber(-10, 10);
 
 		// Update Position Chart
 		for (i = 0; i < positionChart.data.datasets[0].data.length; i++) {
-			positionChart.data.datasets[0].data[i] = quadraticFunction(i, randomNumber, startPosition);
+			positionChart.data.datasets[0].data[i] = quadraticFunction(i, 0.5 * slope, slope * constant);
 		}
 		positionChart.update();
 
 		// Update Velocity chart
 		for (i = 0; i < velocityChart.data.datasets[0].data.length; i++) {
-			velocityChart.data.datasets[0].data[i] = 2 * linearFunction(i, randomNumber, 0);
+			velocityChart.data.datasets[0].data[i] = 2 * linearFunction(i, slope, constant);
 		}
 		velocityChart.update();
 
