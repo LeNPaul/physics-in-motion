@@ -170,6 +170,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res, next) => {
+    // Create user in database
     Account.register(new Account({ username : req.body.username }), req.body.password, (err, account) => {
         if (err) {
           return res.render('register', { error : err.message });
@@ -184,6 +185,13 @@ router.post('/register', (req, res, next) => {
             });
         });
     });
+    // Create lessons tracking in database
+    var newLessons = new Lessons({
+      username: req.body.username
+    })
+    newLessons.save(function(err, data) {
+      // TODO - add proper error handling here
+    })
 });
 
 router.get('/login', (req, res) => {
@@ -210,23 +218,24 @@ router.get('/logout', (req, res, next) => {
 });
 
 // Testing endpoint
-
-var newLesson = new Lessons({
-  username: 'Paul Le',
-  kinematics:{
-    motion_in_one_dimension: {
-      updated: Date.now()
-    }
-  }
-})
-
 router.get('/test', (req, res) => {
 
-  newLesson.save(function(error, data) {
+  var newLesson = new Lessons({
+    username: 'Paul Le',
+    lesson_modules: {
+      kinematics: {
+        motion_in_one_dimension: {
+          updated: Date.now()
+        }
+      }
+    }
+  })
+
+  newLesson.save(function(err, data) {
     console.log("Your lesson has been saved:");
     console.log(data);
-    if (error) {
-      console.error(error);
+    if (err) {
+      console.error(err);
     }
   })
 
