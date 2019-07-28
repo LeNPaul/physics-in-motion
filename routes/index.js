@@ -190,7 +190,9 @@ router.post('/register', (req, res, next) => {
       username: req.body.username
     })
     newLessons.save(function(err, data) {
-      // TODO - add proper error handling here
+      if (err) {
+        // TODO - add proper error handling here
+      }
     })
 });
 
@@ -220,28 +222,26 @@ router.get('/logout', (req, res, next) => {
 // Testing endpoint
 router.get('/test', (req, res) => {
 
-  var newLesson = new Lessons({
-    username: 'Paul Le',
-    lesson_modules: {
-      kinematics: {
-        motion_in_one_dimension: {
-          updated: Date.now()
-        }
-      }
-    }
-  })
+  //  First get the Object ID based on username
+  //  Assuming username is unique globally - might be better to link documents somehow
+  //  Use the Object ID to update the document
 
-  newLesson.save(function(err, data) {
-    console.log("Your lesson has been saved:");
-    console.log(data);
-    if (err) {
-      console.error(err);
-    }
-  })
+  var test = Lessons.find({username: "paul.le@interfaceware.com"}, function(err, lessons) {
+    console.log(lessons[0]._id);
+  });
 
-  //Lesson.find({username: 'Paul Le'}, function(error, lesson){
-  //  console.log(lesson[0])
-  //});
+  Lessons.findByIdAndUpdate(
+    "5d3cb4a9e4d7b8d43bf45a56",
+    {username: "paul.le@interfaceware.com"},
+    {new: true},
+    // the callback function
+    function(err, lessons) {
+      //console.log(lessons);
+    }
+  )
+
+  // Redirect to complete request
+  res.redirect('/');
 
 });
 
