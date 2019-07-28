@@ -226,19 +226,27 @@ router.get('/test', (req, res) => {
   //  Assuming username is unique globally - might be better to link documents somehow
   //  Use the Object ID to update the document
 
-  var test = Lessons.find({username: "paul.le@interfaceware.com"}, function(err, lessons) {
-    console.log(lessons[0]._id);
-  });
+  var name = "paul.le@interfaceware.com"; // This will be passed within req
 
-  Lessons.findByIdAndUpdate(
-    "5d3cb4a9e4d7b8d43bf45a56",
-    {username: "paul.le@interfaceware.com"},
-    {new: true},
-    // the callback function
-    function(err, lessons) {
-      //console.log(lessons);
-    }
-  )
+  Lessons.find({username: name}, function(err, lessons) {
+    Lessons.findByIdAndUpdate(
+      lessons[0]._id,
+      {
+        lesson_modules: {
+          kinematics: {
+              simple_motion_in_one_dimension: {
+              status: true
+            }
+          }
+        }
+      },
+      {new: true},
+      // the callback function
+      function(err, lessons) {
+        //console.log(lessons);
+      }
+    )
+  });
 
   // Redirect to complete request
   res.redirect('/');
