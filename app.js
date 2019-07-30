@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var authentication = require('./routes/authentication');
 var lessons = require('./routes/lessons');
 
 var app = express();
@@ -42,8 +42,9 @@ app.use(flash());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// API endpoints and web page routes
 app.use('/', routes);
+app.use('/', authentication);
 app.use('/', lessons);
 
 // passport config
