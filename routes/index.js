@@ -232,15 +232,13 @@ router.get('/test', (req, res) => {
     Lessons.findByIdAndUpdate(
       lessons[0]._id,
       {
-        lesson_modules: {
-          kinematics: {
-              simple_motion_in_one_dimension: {
-              status: true
-            }
-          }
+        $set: {
+          "lesson_modules.kinematics.motion_in_one_dimension.status": true
         }
       },
-      {new: true},
+      {
+        new: true
+      },
       // the callback function
       function(err, lessons) {
         //console.log(lessons);
