@@ -18,7 +18,7 @@ router.post('/update_lesson_status', (req, res) => {
   //  First get the Object ID based on username
   //  Assuming username is unique globally - might be better to link documents somehow
   //  Use the Object ID to update the document
-  Lessons.find({username: req.body.username}, function(err, lessons, req) {
+  Lessons.find({username: req.body.username}, function(err, lessons) {
     Lessons.findByIdAndUpdate(
       lessons[0]._id,
       { $set: { "lesson_modules.kinematics.motion_in_one_dimension.status": true } }, // How to pass in the req?
