@@ -175,7 +175,6 @@ router.post('/register', (req, res, next) => {
         if (err) {
           return res.render('register', { error : err.message });
         }
-
         passport.authenticate('local')(req, res, () => {
             req.session.save((err) => {
                 if (err) {
@@ -219,16 +218,22 @@ router.get('/logout', (req, res, next) => {
     });
 });
 
-// Testing endpoint
-router.get('/test', (req, res) => {
+// Return lessons information for user
+// Sample request: curl --header "Content-Type: application/json" quest POST   --data '{"username":"paul.le@interfaceware.com"}'   http://localhost:8080/lessons
+router.post('/lessons', (req, res) => {
+  Lessons.find({username: req.body.username}, function(err, lessons) {
+    console.log("Returned the following:");
+    console.log(lessons)
+    res.json(lessons);
+  });
+});
 
+// Testing endpoint
+router.post('/test', (req, res) => {
   //  First get the Object ID based on username
   //  Assuming username is unique globally - might be better to link documents somehow
   //  Use the Object ID to update the document
-
-  var name = "paul.le@interfaceware.com"; // This will be passed within req
-
-  Lessons.find({username: name}, function(err, lessons) {
+  Lessons.find({username: req.body.username}, function(err, lessons) {
     Lessons.findByIdAndUpdate(
       lessons[0]._id,
       {
@@ -236,19 +241,14 @@ router.get('/test', (req, res) => {
           "lesson_modules.kinematics.motion_in_one_dimension.status": true
         }
       },
-      {
-        new: true
-      },
       // the callback function
       function(err, lessons) {
-        //console.log(lessons);
+        console.log("Returned the following:");
+        console.log(lessons)
+        res.json(lessons);
       }
     )
   });
-
-  // Redirect to complete request
-  res.redirect('/');
-
 });
 
 module.exports = router;
