@@ -45,6 +45,8 @@
 			<button type="button" class="btn btn-secondary" onclick="randomPositionFunction()">Random</button>
 			<button type="button" class="btn btn-secondary" onclick="stationaryPositionFunction()">Stationary</button>
 
+			<button type="button" class="btn btn-secondary" onclick="getLessonInfo()">Call API</button>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
@@ -141,6 +143,12 @@
 		}
 		velocityChart.update();
 
+	}
+
+	function getLessonInfo() {
+		$.post("/user_lessons", {username: "paul.le@interfaceware.com"}, function(data, status) {
+			console.log(data);
+		});
 	}
 
 </script>
