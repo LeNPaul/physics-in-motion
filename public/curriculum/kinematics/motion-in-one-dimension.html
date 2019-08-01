@@ -146,7 +146,8 @@
 	}
 
 	function getLessonInfo() {
-		$.post("/user_lessons", {username: "paul.le@interfaceware.com"}, function(data, status) {
+		var username = document.head.querySelector("[name~=username][content]").content;
+		$.post("/user_lessons", {username: username}, function(data, status) {
 			console.log(data);
 		});
 	}
