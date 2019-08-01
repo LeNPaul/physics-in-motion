@@ -4,6 +4,8 @@
 		<div class="col-sm-8">
 			<h1 class="page-header">Motion in One Dimension</h1>
 
+			<span id="lessonStatus" class="badge badge-secondary">Incomplete</span>
+
 			<p>In order to best describe the motion of a particle in one dimension, we imagine that the particle is sitting in a coordinate system, where the position of the particle can be anywhere along a line that we call the x-axis.</p>
 
 			<p>We can describe the motion of a particle in one dimension using a single function that we will call \(x(t)\). Here, \(t\) refers to time, and \(x\) refers to the position of the particle relative to a single point that we call the origin, at the given time \(t\).</p>
@@ -45,7 +47,10 @@
 			<button type="button" class="btn btn-secondary" onclick="randomPositionFunction()">Random</button>
 			<button type="button" class="btn btn-secondary" onclick="stationaryPositionFunction()">Stationary</button>
 
-			<button type="button" class="btn btn-secondary" onclick="getLessonInfo()">Call API</button>
+			<hr>
+
+			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(true)">Mark Done</button>
+			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(false)">Unmark</button>
 
 		</div>
 		<div class="col-sm-2"></div>
@@ -145,11 +150,26 @@
 
 	}
 
-	function getLessonInfo() {
+	function setLessonStatus() {
 		var username = document.head.querySelector("[name~=username][content]").content;
 		$.post("/user_lessons", {username: username}, function(data, status) {
-			console.log(data);
+			if(status) {
+				if(data[0].lesson_modules.kinematics.motion_in_one_dimension.status) {
+					document.getElementById("lessonStatus").textContent="Complete!";
+				} else {
+					document.getElementById("lessonStatus").textContent="Incomplete!";
+				}
+			}
 		});
 	}
+
+	function updateLessonStatus(status) {
+		var username = document.head.querySelector("[name~=username][content]").content;
+		$.post("/update_lesson_status", {username: username, lessonPath: "kinematics.motion_in_one_dimension", status: status}, function(data, status) {
+			setLessonStatus()
+		});
+	}
+
+	setLessonStatus()
 
 </script>
