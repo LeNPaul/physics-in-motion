@@ -161,9 +161,15 @@
 	}
 
 	var lessonPath = "kinematics.motion_in_one_dimension";
+	var username = document.head.querySelector("[name~=username][content]").content;
+
+	function setSavedNote() {
+		$.post("/user_lessons", {username: username}, function(data, status) {
+			document.getElementById('lessonNotes').value = data[0].lesson_modules.kinematics.motion_in_one_dimension.notes;
+		})
+	}
 
 	function updateNotes() {
-		var username = document.head.querySelector("[name~=username][content]").content;
 		var notes = document.getElementById("lessonNotes").value;
 		$.post("/update_notes", {username: username, lessonPath: lessonPath, notes: notes}, function(data, status) {
 			console.log(data);
@@ -171,7 +177,6 @@
 	}
 
 	function setLessonStatus() {
-		var username = document.head.querySelector("[name~=username][content]").content;
 		$.post("/user_lessons", {username: username}, function(data, status) {
 			if(status) {
 				if(data[0].lesson_modules.kinematics.motion_in_one_dimension.status) {
@@ -184,12 +189,12 @@
 	}
 
 	function updateLessonStatus(status) {
-		var username = document.head.querySelector("[name~=username][content]").content;
 		$.post("/update_lesson_status", {username: username, lessonPath: lessonPath, status: status}, function(data, status) {
 			setLessonStatus()
 		});
 	}
 
-	setLessonStatus()
+	setLessonStatus();
+	setSavedNote();
 
 </script>
