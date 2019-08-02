@@ -52,6 +52,16 @@
 			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(true)">Mark Done</button>
 			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(false)">Unmark</button>
 
+			<hr>
+
+			<form>
+				<div class="form-group">
+			   	<label for="lessonNotes">Notes</label>
+			    <textarea class="form-control" id="lessonNotes" rows="3"></textarea>
+			  </div>
+				<button type="button" class="btn btn-secondary" onclick="updateNotes()">Save</button>
+			</form>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
@@ -150,6 +160,16 @@
 
 	}
 
+	var lessonPath = "kinematics.motion_in_one_dimension";
+
+	function updateNotes() {
+		var username = document.head.querySelector("[name~=username][content]").content;
+		var notes = document.getElementById("lessonNotes").value;
+		$.post("/update_notes", {username: username, lessonPath: lessonPath, notes: notes}, function(data, status) {
+			console.log(data);
+		});
+	}
+
 	function setLessonStatus() {
 		var username = document.head.querySelector("[name~=username][content]").content;
 		$.post("/user_lessons", {username: username}, function(data, status) {
@@ -165,7 +185,7 @@
 
 	function updateLessonStatus(status) {
 		var username = document.head.querySelector("[name~=username][content]").content;
-		$.post("/update_lesson_status", {username: username, lessonPath: "kinematics.motion_in_one_dimension", status: status}, function(data, status) {
+		$.post("/update_lesson_status", {username: username, lessonPath: lessonPath, status: status}, function(data, status) {
 			setLessonStatus()
 		});
 	}

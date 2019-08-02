@@ -207,6 +207,7 @@ router.post('/update_lesson_status', (req, res) => {
     Lessons.findByIdAndUpdate(
       lessons[0]._id,
       mapLessons(req.body.lessonPath, req.body.status),
+      { new: true },
       function(err, lessons) {
         console.log("Returned the following:");
         console.log(lessons)
@@ -223,6 +224,7 @@ router.post('/update_notes', (req, res) => {
     Lessons.findByIdAndUpdate(
       lessons[0]._id,
       mapNotes(req.body.lessonPath, req.body.notes),
+      { new: true },
       function(err, notes) {
         console.log("Returned the following:");
         console.log(notes)
