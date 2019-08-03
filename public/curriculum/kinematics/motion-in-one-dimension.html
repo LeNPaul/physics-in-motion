@@ -163,6 +163,13 @@
 	var lessonPath = "kinematics.motion_in_one_dimension";
 	var username = document.head.querySelector("[name~=username][content]").content;
 
+	function updateTime() {
+		$.post("/update_time", {username: username, lessonPath: lessonPath}, function(data, status) {
+			// Just update the last seen time
+			// TODO - add proper error handling here
+		});
+	};
+
 	function setSavedNote() {
 		$.post("/user_lessons", {username: username}, function(data, status) {
 			document.getElementById('lessonNotes').value = data[0].lesson_modules.kinematics.motion_in_one_dimension.notes;
@@ -194,6 +201,7 @@
 		});
 	}
 
+	updateTime();
 	setLessonStatus();
 	setSavedNote();
 
