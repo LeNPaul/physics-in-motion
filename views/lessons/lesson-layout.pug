@@ -48,8 +48,9 @@ html(lang='en',ng-app='scotchApp')
                     .col-sm-8 
                       span#lessonStatus.badge.badge-secondary Incomplete
                       hr
-                      button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Mark Done
-                      button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
+                      .btn-group(role='group', aria-label='Basic example')
+                        button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Done
+                        button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
                       hr
                       form
                         .form-group
