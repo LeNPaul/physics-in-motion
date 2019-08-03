@@ -4,8 +4,6 @@
 		<div class="col-sm-8">
 			<h1 class="page-header">Motion in One Dimension</h1>
 
-			<span id="lessonStatus" class="badge badge-secondary">Incomplete</span>
-
 			<p>In order to best describe the motion of a particle in one dimension, we imagine that the particle is sitting in a coordinate system, where the position of the particle can be anywhere along a line that we call the x-axis.</p>
 
 			<p>We can describe the motion of a particle in one dimension using a single function that we will call \(x(t)\). Here, \(t\) refers to time, and \(x\) refers to the position of the particle relative to a single point that we call the origin, at the given time \(t\).</p>
@@ -46,21 +44,6 @@
 
 			<button type="button" class="btn btn-secondary" onclick="randomPositionFunction()">Random</button>
 			<button type="button" class="btn btn-secondary" onclick="stationaryPositionFunction()">Stationary</button>
-
-			<hr>
-
-			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(true)">Mark Done</button>
-			<button type="button" class="btn btn-secondary" onclick="updateLessonStatus(false)">Unmark</button>
-
-			<hr>
-
-			<form>
-				<div class="form-group">
-			   	<label for="lessonNotes">Notes</label>
-			    <textarea class="form-control" id="lessonNotes" rows="3"></textarea>
-			  </div>
-				<button type="button" class="btn btn-secondary" onclick="updateNotes()">Save</button>
-			</form>
 
 		</div>
 		<div class="col-sm-2"></div>

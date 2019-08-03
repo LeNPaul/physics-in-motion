@@ -39,6 +39,23 @@ html(lang='en',ng-app='scotchApp')
               p.card-text
                 // ANGULAR DYNAMIC CONTENT
                 div.ng-view
+          .card.mt-4
+            .card-body
+              p.card-text
+                .container
+                  .row
+                    .col-sm-2
+                    .col-sm-8 
+                      span#lessonStatus.badge.badge-secondary Incomplete
+                      hr
+                      button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Mark Done
+                      button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
+                      hr
+                      form
+                        .form-group
+                          label(for='lessonNotes') Notes
+                          textarea#lessonNotes.form-control(rows='3')
+                        button.btn.btn-secondary(type='button', onclick='updateNotes()') Save
           // /.card
           //.card.card-outline-secondary.my-4
             .card-header
