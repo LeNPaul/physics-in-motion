@@ -186,6 +186,115 @@ function mapNotes(key, notes) {
   return value;
 }
 
+// TODO - move these help functions to their own module
+function mapTime(key, time) {
+  var value;
+  switch (key) {
+    // Kinematics
+    case "kinematics.motion_in_one_dimension":
+      value = { $set: { "lesson_modules.kinematics.motion_in_one_dimension.updated": time } };
+      break;
+    case "kinematics.motion_in_two_dimensions":
+      value = { $set: { "lesson_modules.kinematics.motion_in_two_dimensions.updated": time } };
+      break;
+    case "kinematics.simple_motion_in_one_dimension":
+      value = { $set: { "lesson_modules.kinematics.simple_motion_in_one_dimension.updated": time } };
+      break;
+    case "kinematics.simple_motion_in_two_dimensions":
+      value = { $set: { "lesson_modules.kinematics.simple_motion_in_two_dimensions.updated": time } };
+      break;
+    // Forces
+    case "forces.friction_drag":
+      value = { $set: { "lesson_modules.forces.friction_drag.updated": time } };
+      break;
+    case "forces.newtons_law":
+      value = { $set: { "lesson_modules.forces.newtons_law.updated": time } };
+      break;
+    case "forces.simple_forces":
+      value = { $set: { "lesson_modules.forces.simple_forces.updated": time } };
+      break;
+    // Energy
+    case "energy.conservative_forces":
+      value = { $set: { "lesson_modules.energy.conservative_forces.updated": time } };
+      break;
+    case "energy.energy_conservation_work":
+      value = { $set: { "lesson_modules.energy.energy_conservation_work.updated": time } };
+      break;
+    case "energy.power":
+      value = { $set: { "lesson_modules.energy.power.updated": time } };
+      break;
+    case "energy.work_potential_energy":
+      value = { $set: { "lesson_modules.energy.work_potential_energy.updated": time } };
+      break;
+    // Momentum
+    case "momentum.elastic_collisions":
+      value = { $set: { "lesson_modules.momentum.elastic_collisions.updated": time } };
+      break;
+    case "momentum.explosions":
+      value = { $set: { "lesson_modules.momentum.explosions.updated": time } };
+      break;
+    case "momentum.momentum_conservation":
+      value = { $set: { "lesson_modules.momentum.momentum_conservation.updated": time } };
+      break;
+    // Simple Harmonic Motion
+    case "simple_harmonic_motion.damped_harmonic_motion":
+      value = { $set: { "lesson_modules.simple_harmonic_motion.damped_harmonic_motion.updated": time } };
+      break;
+    case "simple_harmonic_motion.driven_oscillations":
+      value = { $set: { "lesson_modules.simple_harmonic_motion.driven_oscillations.updated": time } };
+      break;
+    case "simple_harmonic_motion.dynamics_simple_harmonic_motion":
+      value = { $set: { "lesson_modules.simple_harmonic_motion.dynamics_simple_harmonic_motion.updated": time } };
+      break;
+    case "simple_harmonic_motion.the_pendulum":
+      value = { $set: { "lesson_modules.simple_harmonic_motion.the_pendulum.updated": time } };
+      break;
+    // Waves
+    case "waves.characteristics_waves":
+      value = { $set: { "lesson_modules.waves.characteristics_waves.updated": time } };
+      break;
+    case "waves.interference":
+      value = { $set: { "lesson_modules.waves.interference.updated": time } };
+      break;
+    case "waves.superposition_of_waves":
+      value = { $set: { "lesson_modules.waves.superposition_of_waves.updated": time } };
+      break;
+    // Fluids
+    case "fluids.buoyancy":
+      value = { $set: { "lesson_modules.fluids.buoyancy.updated": time } };
+      break;
+    case "fluids.continuity":
+      value = { $set: { "lesson_modules.fluids.continuity.updated": time } };
+      break;
+    case "fluids.fluid_dynamics":
+      value = { $set: { "lesson_modules.fluids.fluid_dynamics.updated": time } };
+      break;
+    case "fluids.incompressible_fluids":
+      value = { $set: { "lesson_modules.fluids.incompressible_fluids.updated": time } };
+      break;
+    case "fluids.pressure":
+      value = { $set: { "lesson_modules.fluids.pressure.updated": time } };
+  }
+  return value;
+}
+
+// Updates the updated field to be the current time
+// Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lessonPath":"forces.friction_drag"}' http://localhost:8080/update_time
+router.post('/update_time', (req, res) => {
+  Lessons.find({username: req.body.username}, function(err, lessons) {
+    Lessons.findByIdAndUpdate(
+      lessons[0]._id,
+      mapTime(req.body.lessonPath, new Date()),
+      { new: true },
+      function(err, time) {
+        console.log("Returned the following:");
+        console.log(time)
+        res.json(time);
+      }
+    )
+  });
+});
+
 // Return lessons information for user
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com"}' http://localhost:8080/user_lessons
 router.post('/user_lessons', (req, res) => {
