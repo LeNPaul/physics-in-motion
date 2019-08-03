@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 // TODO - get child schema to work properly and simplify code
 const LessonProperties = new Schema({
   status: { type: Boolean, default: false },
-  updated: Date,
-  notes: String
+  updated: { type: Date, default: new Date() },
+  notes: { type: String, default: "" }
 });
 
 const Lessons = new Schema({
