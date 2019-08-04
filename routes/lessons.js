@@ -343,6 +343,24 @@ router.post('/update_notes', (req, res) => {
   });
 });
 
+// Return the most recently accessed Lessons
+// Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com"}' http://localhost:8080/get_lessons
+router.post('/get_lessons', (req,  res) => {
+
+  //  Loop through each lesson lesson module
+  //    For each lesson module, get the most recently accessed lesson
+  //  Loop through each lesson module and get the most recently accessed lesson
+
+  Lessons.find({username: req.body.username}, function(err, lessons) {
+    
+    for (const [key, value] of Object.entries(lessons[0].lesson_modules.kinematics)) {
+      console.log(value);
+    }
+
+    res.json(lessons);
+  });
+});
+
 /* GET users listing. */
 router.get('/', (req, res, next) => {
   res.send('respond with a resource');
