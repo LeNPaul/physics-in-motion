@@ -352,31 +352,14 @@ router.post('/get_lessons', (req,  res) => {
   //  Loop through each lesson module and get the most recently accessed lesson
 
   Lessons.find({username: req.body.username}, function(err, lessons) {
-
-    var i = 0;
+    var lastAccessedLessons = [];
     for (const [name, lesson] of Object.entries(lessons[0].lesson_modules)) {
-
-      console.log(lesson);
-
-      keysSorted = Object.keys(lesson).sort(function(a,b){return lesson[b].updated - lesson[a].updated})
-      console.log(keysSorted);     // bar,me,you,foo
-
-      for (const [key, value] of Object.entries(lesson)) {
-        //console.log(key, value);
-        //console.log(value.updated);
-      }
-/*
-      i = i + 1
-      console.log(name, lesson);
-      if (lesson.motion_in_one_dimension) {
-        console.log(lesson.motion_in_one_dimension.updated);
-        console.log(lesson.motion_in_two_dimensions.updated);
-        console.log(lesson.motion_in_one_dimension.updated > lesson.motion_in_two_dimensions.updated);
-      }
-*/
-
+      lessonsSorted = Object.keys(lesson).sort(function(a,b){return lesson[b].updated - lesson[a].updated})
+      lastAccessedLessons.push([name, lesson[lessonsSorted[1]]]);
     }
-    res.json(lessons);
+    lastAccessedLessons.shift();
+    modulesSorted = lastAccessedLessons.sort(function(a,b){return b[1].updated - a[1].updated})
+    res.json(modulesSorted);
   });
 });
 
