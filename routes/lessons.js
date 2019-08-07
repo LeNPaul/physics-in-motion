@@ -23,8 +23,8 @@ function mapLessons(key, status) {
     case "forces.friction_drag":
       value = { $set: { "lesson_modules.forces.friction_drag.status": status } };
       break;
-    case "forces.newtons_law":
-      value = { $set: { "lesson_modules.forces.newtons_law.status": status } };
+    case "forces.newtons_laws":
+      value = { $set: { "lesson_modules.forces.newtons_laws.status": status } };
       break;
     case "forces.simple_forces":
       value = { $set: { "lesson_modules.forces.simple_forces.status": status } };
@@ -118,8 +118,8 @@ function mapNotes(key, notes) {
     case "forces.friction_drag":
       value = { $set: { "lesson_modules.forces.friction_drag.notes": notes } };
       break;
-    case "forces.newtons_law":
-      value = { $set: { "lesson_modules.forces.newtons_law.notes": notes } };
+    case "forces.newtons_laws":
+      value = { $set: { "lesson_modules.forces.newtons_laws.notes": notes } };
       break;
     case "forces.simple_forces":
       value = { $set: { "lesson_modules.forces.simple_forces.notes": notes } };
@@ -213,8 +213,8 @@ function mapTime(key, time) {
     case "forces.friction_drag":
       value = { $set: { "lesson_modules.forces.friction_drag.updated": time } };
       break;
-    case "forces.newtons_law":
-      value = { $set: { "lesson_modules.forces.newtons_law.updated": time } };
+    case "forces.newtons_laws":
+      value = { $set: { "lesson_modules.forces.newtons_laws.updated": time } };
       break;
     case "forces.simple_forces":
       value = { $set: { "lesson_modules.forces.simple_forces.updated": time } };
