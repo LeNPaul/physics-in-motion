@@ -139,6 +139,11 @@ const Lessons = new Schema({
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
+        fluid_statics: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
         fluid_dynamics: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },

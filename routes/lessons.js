@@ -85,6 +85,9 @@ function mapLessons(key, status) {
     case "fluids.fluid_dynamics":
       value = { $set: { "lesson_modules.fluids.fluid_dynamics.status": status } };
       break;
+    case "fluids.fluid_statics":
+      value = { $set: { "lesson_modules.fluids.fluid_statics.status": status } };
+      break;
     case "fluids.incompressible_fluids":
       value = { $set: { "lesson_modules.fluids.incompressible_fluids.status": status } };
       break;
@@ -173,6 +176,9 @@ function mapNotes(key, notes) {
       break;
     case "fluids.continuity":
       value = { $set: { "lesson_modules.fluids.continuity.notes": notes } };
+      break;
+    case "fluids.fluid_statics":
+      value = { $set: { "lesson_modules.fluids.fluid_statics.notes": notes } };
       break;
     case "fluids.fluid_dynamics":
       value = { $set: { "lesson_modules.fluids.fluid_dynamics.notes": notes } };
@@ -265,6 +271,9 @@ function mapTime(key, time) {
       break;
     case "fluids.continuity":
       value = { $set: { "lesson_modules.fluids.continuity.updated": time } };
+      break;
+    case "fluids.fluid_statics":
+      value = { $set: { "lesson_modules.fluids.fluid_statics.updated": time } };
       break;
     case "fluids.fluid_dynamics":
       value = { $set: { "lesson_modules.fluids.fluid_dynamics.updated": time } };
