@@ -5,7 +5,7 @@ var scotchApp = angular.module('scotchApp', ['ngRoute']);
 scotchApp.config(function($routeProvider) {
   $routeProvider
 
-  // Initual page that is rendered when AngularJS route takes over
+  // Initial page that is rendered when AngularJS route takes over
   .when('/', {
     templateUrl: 'curriculum/start.html',
   })

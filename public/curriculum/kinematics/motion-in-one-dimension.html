@@ -1,4 +1,4 @@
-<div class="container">
+<div id="lesson-module" data-lesson="kinematics.motion_in_one_dimension" class="container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
@@ -143,7 +143,8 @@
 
 	}
 
-	var lessonPath = "kinematics.motion_in_one_dimension";
+	var lesson = document.querySelector("#lesson-module");
+	var lessonPath = lesson.dataset.lesson;
 	var username = document.head.querySelector("[name~=username][content]").content;
 
 	function updateTime() {
