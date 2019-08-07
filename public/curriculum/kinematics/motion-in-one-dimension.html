@@ -1,4 +1,4 @@
-<div id="lesson-module" data-lesson="kinematics.motion_in_one_dimension" class="container">
+<div id="lesson-module" data-topic="kinematics" data-lesson="motion_in_one_dimension" class="container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
@@ -143,50 +143,5 @@
 
 	}
 
-	var lesson = document.querySelector("#lesson-module");
-	var lessonPath = lesson.dataset.lesson;
-	var username = document.head.querySelector("[name~=username][content]").content;
-
-	function updateTime() {
-		$.post("/update_time", {username: username, lessonPath: lessonPath}, function(data, status) {
-			// Just update the last seen time
-			// TODO - add proper error handling here
-		});
-	};
-
-	function setSavedNote() {
-		$.post("/user_lessons", {username: username}, function(data, status) {
-			document.getElementById('lessonNotes').value = data[0].lesson_modules.kinematics.motion_in_one_dimension.notes;
-		})
-	}
-
-	function updateNotes() {
-		var notes = document.getElementById("lessonNotes").value;
-		$.post("/update_notes", {username: username, lessonPath: lessonPath, notes: notes}, function(data, status) {
-			console.log(data);
-		});
-	}
-
-	function setLessonStatus() {
-		$.post("/user_lessons", {username: username}, function(data, status) {
-			if(status) {
-				if(data[0].lesson_modules.kinematics.motion_in_one_dimension.status) {
-					document.getElementById("lessonStatus").textContent="Complete!";
-				} else {
-					document.getElementById("lessonStatus").textContent="Incomplete!";
-				}
-			}
-		});
-	}
-
-	function updateLessonStatus(status) {
-		$.post("/update_lesson_status", {username: username, lessonPath: lessonPath, status: status}, function(data, status) {
-			setLessonStatus()
-		});
-	}
-
-	updateTime();
-	setLessonStatus();
-	setSavedNote();
-
 </script>
+<script src="assets/js/lesson.js"></script>
