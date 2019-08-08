@@ -41,7 +41,7 @@ html(lang='en')
         h2.border-bottom.border-gray.pb-2.mb-0 Welcome back!
         p.text-muted Logged in as #{user.username}
         p This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
-        a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning 
+        a.btn.btn-lg.btn-primary(href='/courses', role='button') Continue learning 
       .my-3.p-3.bg-white.rounded.box-shadow
         h6.border-bottom.border-gray.pb-2.mb-0 Resume Learning
         .media.text-muted.pt-3
@@ -50,7 +50,7 @@ html(lang='en')
             .d-flex.justify-content-between.align-items-center.w-100
               strong.text-gray-dark Kinematics
               a(href='/kinematics') Continue
-            span.d-block How things move though space. Learn about point objects move though one-dimensional space, and two-dimensional space.
+            span.d-block How things move though space. Learn how point objects move though both one-dimensional space, and two-dimensional space.
         .media.text-muted.pt-3
           img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
           .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
@@ -63,10 +63,38 @@ html(lang='en')
           .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
             .d-flex.justify-content-between.align-items-center.w-100
               strong.text-gray-dark Energy
-              a(href='/forces') Continue
-            span.d-block The mysterious phenomena that causes things to act and behave the way they do.
+              a(href='/energy') Continue
+            span.d-block The 'thing' that does work on an object. It makes things move, and is what makes the universe run at all scales, from the quantum to the astronomical.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Momentum
+              a(href='/momentum') Continue
+            span.d-block Momentum is what keeps an avalanche roll once it has been set off - once moving, it takes a large external force to stop!
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Simple Harmonic Motion
+              a(href='/simple-harmonic-motion') Continue
+            span.d-block Anytime there is something moving back and forth repeatedly in a consisten pattern, you have simple harmonic motion. Think of a pendulum.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Waves
+              a(href='/waves') Continue
+            span.d-block What happens when you have a system of objects interacting with each other through simple harmonic motion? You have waves.
+        .media.text-muted.pt-3
+          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
+          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
+            .d-flex.justify-content-between.align-items-center.w-100
+              strong.text-gray-dark Fluids
+              a(href='/fluids') Continue
+            span.d-block Different from point objects - think of so many point objects that they blend into one system known as a fluid. Or, you can just think about water.
         small.d-block.text-right.mt-3
-          a(href='/energy') All Courses
+          a(href='/courses') All Courses
       .my-3.p-3.bg-white.rounded.box-shadow
         h6.border-bottom.border-gray.pb-2.mb-0 Updates and News
         .media.text-muted.pt-3
