@@ -372,9 +372,21 @@ router.post('/get_lessons', (req,  res) => {
   });
 });
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
+// Return the progress of a lesson
+// Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lesson":"kinematics"}' http://localhost:8080/get_lesson_progress
+router.post('/get_lesson_progress', (req, res) => {
+  Lessons.find({username: req.body.username}, function(err, lessons) {
+    var modules = lessons[0]["lesson_modules"][req.body.lesson];
+    var total = 0;
+    var done = 0;
+    for (const [name, lesson] of Object.entries(modules)) {
+      if (lesson["status"]) {
+        done = done + 1;
+      }
+      total = total + 1;
+    }
+    res.json({progress: done / (total - 1)});
+  });
 });
 
 module.exports = router;
