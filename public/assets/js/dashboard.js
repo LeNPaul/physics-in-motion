@@ -10,7 +10,7 @@ function setLatestLesson() {
 // Important article: https://blog.maximerouiller.com/post/ajax-requests-in-a-loop-and-other-scoping-problems-with-javascript/
 function setLessonProgress() {
   const demoClass = document.getElementsByClassName('progress-bar');
-  for (var i = 0; i < 5/*demoClass.length*/; i++) {
+  for (var i = 0; i < demoClass.length; i++) {
     let lessonId = demoClass[i].id;
     let lesson = lessonId.split("-");
     $.post("/get_lesson_progress", {username: username, lesson: lesson[1]}, function(data, status) {
