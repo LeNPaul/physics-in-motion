@@ -25,4 +25,6 @@ function minifyJs(cb) {
   cb();
 }
 
-gulp.task('build', gulp.series(clean, minifyCss, minifyJs))
+gulp.task('clean', gulp.series(clean))
+
+gulp.task('build', gulp.series(minifyCss, minifyJs))
