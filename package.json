@@ -32,10 +32,9 @@
     "should": "~2.1.0"
   },
   "devDependencies": {
-    "browser-sync": "^1.3.3",
     "del": "^5.0.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
-    "gulp-nodemon": "^1.0.4"
+    "gulp-terser": "^1.2.0"
   }
 }

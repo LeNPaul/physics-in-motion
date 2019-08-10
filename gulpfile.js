@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var cleanCSS = require('gulp-clean-css');
+var terser = require('gulp-terser');
 
 function clean(cb) {
   del('dist');
@@ -17,4 +18,11 @@ function minifyCss(cb) {
   cb();
 }
 
-gulp.task('build', gulp.series(clean, minifyCss))
+function minifyJs(cb) {
+  gulp.src('public/assets/js/**/*.js')
+    .pipe(terser())
+    .pipe(gulp.dest('dist/public/assets/js'));
+  cb();
+}
+
+gulp.task('build', gulp.series(clean, minifyCss, minifyJs))
