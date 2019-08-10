@@ -39,7 +39,7 @@ const Lessons = new Schema({
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        newtons_law: {
+        newtons_laws: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
