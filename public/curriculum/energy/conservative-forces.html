@@ -41,6 +41,8 @@
 
       <p>Kinetic energy is the part of the energy that is assoicated with the motion of the object. Together, the kinetic and potential energies form the total energy. The total energy is the part that is conserved.</p>
 
+      <canvas id="kinetic-energy-chart" width="800" height="500"></canvas>
+
       <p>The standard unit of energy is known as the joule, and is defined as:</p>
 
       <p>$$ Joule = \frac{Kg \times m^2}{s^2} $$</p>
@@ -68,4 +70,17 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("kinetic-energy-chart"),
+    chartConfig(
+      'Kinetic Energy as a Function of Velocity',
+      'Velocity (m/s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Kinetic Energy (J)',
+      [0, 50, 200, 450, 800, 1250, 1800, 2450, 3200, 4050, 5000]
+    )
+  );
+
+</script>
 <script src="assets/js/lesson.js"></script>
