@@ -17,6 +17,8 @@
       <p>Where \( N \) is the normal force acting on the object due to the surface, and \( \mu_K \) is a dimensionless constant coefficient characterizing the materials involved. The subscript \( k \) stands for kinetic friction, which denotes the case where
         two surfaces are moving against each other.</p>
 
+      <canvas id="friction-force" width="800" height="500"></canvas>
+
       <p>If the solid object is resting against another surface, but is not moving relative to it, then there is a force of friction present known as static friction. This is a force acting on the object due to the surface that opposes any other force acting
         on the object that tries to move this object. The maximum magnitude of this static friction is:</p>
 
@@ -48,4 +50,17 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("friction-force"),
+    chartConfig(
+      'Frictional Force as a Function of Normal Force',
+      'Normal Force (N)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Frictional Force (N)',
+      [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+    )
+  );
+
+</script>
 <script src="assets/js/lesson.js"></script>
