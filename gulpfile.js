@@ -20,7 +20,10 @@ function minifyCss(cb) {
 
 function minifyJs(cb) {
   gulp.src('public/assets/js/**/*.js')
-    //.pipe(terser())
+    .pipe(terser({
+      keep_fnames: true,
+      mangle: false
+    }))
     .pipe(gulp.dest('dist/public/assets/js'));
   cb();
 }
