@@ -29,7 +29,15 @@ function minifyJs(cb) {
 }
 
 function moveApplication(cb) {
-  gulp.src(['**/*', '!public/assets/js/**/*.js', '!public/assets/css/**/*.css'])
+  gulp.src(['**/*',
+  '!public/assets/js/**/*.js',
+  '!public/assets/css/**/*.css',
+  '!test/**',
+  '!*.md',
+  '!Makefile',
+  '!bower.json',
+  '!package-lock.json',
+  '!gulpfile.js'])
     .pipe(gulp.dest('dist'));
   cb();
 }
