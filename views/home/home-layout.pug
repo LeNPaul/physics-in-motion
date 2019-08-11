@@ -7,12 +7,12 @@ html(lang='en')
     meta(name='author', content='')
     link(rel='icon', href='assets/img/rocket.png')
     title #{ title }
-    // Bootstrap core CSS
+    //- Bootstrap core CSS
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Custom styles for this template
+    //- Custom styles for this template
     link(href='assets/css/home/carousel.css', rel='stylesheet')
     link(href='assets/css/style.css', rel='stylesheet')
-    // Google Analytics
+    //- Google Analytics
     include ../google-analytics.pug
   body
     if (!user)
@@ -20,26 +20,26 @@ html(lang='en')
     if (user)
       include ../navbar/user-nav.pug
     main(role='main')
-      //
+      //-
         Marketing messaging and featurettes
         ==================================================
-      // Wrap the rest of the page in another container to center all the content.
+      //- Wrap the rest of the page in another container to center all the content.
       .container.marketing
-        // START THE FEATURETTES
+        //- START THE FEATURETTES
         
         block content
         
-        // /END THE FEATURETTES
-        // /.container
-        // FOOTER        
+        //- /END THE FEATURETTES
+        //- /.container
+        //- FOOTER        
         include ../footer/home-footer.pug        
-    //
+    //-
       Bootstrap core JavaScript
       ==================================================
-    // Placed at the end of the document so the pages load faster
+    //- Placed at the end of the document so the pages load faster
     script(src='assets/libs/jquery/dist/jquery.slim.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/popper.min.js')
     script(src='assets/libs/bootstrap/dist/js/bootstrap.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/holder.min.js')
-    // Font Awesome
+    //- Font Awesome
     script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')

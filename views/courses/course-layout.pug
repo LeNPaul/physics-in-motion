@@ -7,35 +7,35 @@ html(lang='en')
     meta(name='author', content='')
     link(rel='icon', href='../../../../favicon.ico')
     title #{ title } | Physics in Motion
-    // Bootstrap core CSS
+    //- Bootstrap core CSS
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Custom styles for this template
+    //- Custom styles for this template
     link(href='assets/css/courses/album.css', rel='stylesheet')
-    // Google Analytics
+    //- Google Analytics
     include ../google-analytics.pug
   body
     if (!user)
       include ../navbar/default-nav.pug
-      // Temporary fix for spacing issue below the navbar
+      //- Temporary fix for spacing issue below the navbar
       hr.featurette-divider.home-divider
     if (user)
       include ../navbar/user-nav.pug
-      // Temporary fix for spacing issue below the navbar
+      //- Temporary fix for spacing issue below the navbar
       hr.featurette-divider.home-divider
     main(role='main')
           
       block content
       
-    // Footer
+    //- Footer
     .container
       include ../footer/home-footer.pug
-    //
+    //-
       Bootstrap core JavaScript
       ==================================================
-    // Placed at the end of the document so the pages load faster
+    //- Placed at the end of the document so the pages load faster
     script(src='assets/libs/jquery/dist/jquery.slim.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/popper.min.js')
     script(src='assets/libs/bootstrap/dist/js/bootstrap.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/holder.min.js')
-    // Font Awesome
+    //- Font Awesome
     script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')

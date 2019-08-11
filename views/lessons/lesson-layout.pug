@@ -8,21 +8,21 @@ html(lang='en',ng-app='scotchApp')
     meta(name='author', content='')
     link(rel='icon', href='../../favicon.ico')
     title #{ title } | Physics in Motion
-    // Bootstrap core CSS
+    //- Bootstrap core CSS
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Custom styles for this template
+    //- Custom styles for this template
     link(href='assets/css/lessons/shop-item.css', rel='stylesheet')
-    // Set username as metadata if logged in
+    //- Set username as metadata if logged in
     if (user)
       meta(name='username', content=user.username)
-    // Google Analytics
+    //- Google Analytics
     include ../google-analytics.pug     
   body(ng-controller='mainController')
     if (!user)
       include ../navbar/default-nav.pug
     if (user)
       include ../navbar/user-nav.pug
-    // Page Content
+    //- Page Content
     .container
       .row
         .col-lg-3
@@ -32,12 +32,12 @@ html(lang='en',ng-app='scotchApp')
             |  #{ title }  
           .list-group
             block content
-        // /.col-lg-3
+        //- /.col-lg-3
         .col-lg-9
           .card.mt-4
             .card-body
               p.card-text
-                // ANGULAR DYNAMIC CONTENT
+                //- ANGULAR DYNAMIC CONTENT
                 div.ng-view
           if (user)
             .card.mt-4
@@ -58,8 +58,8 @@ html(lang='en',ng-app='scotchApp')
                             label(for='lessonNotes') Notes
                             textarea#lessonNotes.form-control(rows='3')
                           button.btn.btn-secondary(type='button', onclick='updateNotes()') Save
-          // /.card
-          //.card.card-outline-secondary.my-4
+          //- /.card
+          //- .card.card-outline-secondary.my-4
             .card-header
               | Product Reviews
             .card-body
@@ -76,28 +76,28 @@ html(lang='en',ng-app='scotchApp')
               small.text-muted Posted by Anonymous on 3/1/17
               hr
               a.btn.btn-success(href='#') Leave a Review
-          // /.card
-          // /.col-lg-9
-          // /.container
-    // Footer
+          //- /.card
+          //- /.col-lg-9
+          //- /.container
+    //- Footer
     .container
       include ../footer/home-footer.pug       
-    //
+    //-
       Bootstrap core JavaScript
       ==================================================
-    // Placed at the end of the document so the pages load faster
+    //- Placed at the end of the document so the pages load faster
     script(src='assets/libs/jquery/dist/jquery.min.js')
     script(src='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
-    // AngularJS
+    //- AngularJS
     script(src='assets/libs/angular/angular.min.js')
     script(src='assets/libs/angular-route/angular-route.min.js')
-    // MathJax
+    //- MathJax
     script(type='text/javascript', async='', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
-    // Font Awesome
+    //- Font Awesome
     script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
-    // Chart.js
+    //- Chart.js
     script(src='assets/libs/chart.js/dist/Chart.bundle.js')
-    // ANGULAR CUSTOM
+    //- ANGULAR CUSTOM
     script(src='assets/js/script.js')
-    // Helper functions for creating charts for lesson modules
+    //- Helper functions for creating charts for lesson modules
     script(src='assets/js/chart.js')

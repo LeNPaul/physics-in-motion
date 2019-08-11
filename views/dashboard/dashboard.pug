@@ -7,15 +7,15 @@ html(lang='en')
     meta(name='author', content='')
     link(rel='icon', href='../../../../favicon.ico')
     title Dashboard | Physics in Motion
-    // Bootstrap core CSS
+    //- Bootstrap core CSS
     link(href='assets/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Custom styles for this template
+    //- Custom styles for this template
     link(href='assets/css/dashboard/album.css', rel='stylesheet')
     link(href='assets/css/dashboard/dashboard.css', rel='stylesheet')
-    // Set username as metadata if logged in
+    //- Set username as metadata if logged in
     if (user)
       meta(name='username', content=user.username)
-    // Google Analytics
+    //- Google Analytics
     include ../google-analytics.pug
   body
     if (!user)
@@ -24,7 +24,7 @@ html(lang='en')
     if (user)
       include ../navbar/user-nav.pug
             
-    //main.container(role='main')
+    //- main.container(role='main')
       .jumbotron
         h1 Welcome back!
         p Logged in as #{user.username}
@@ -33,7 +33,7 @@ html(lang='en')
           | This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
         a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning            
   
-    // Temporary fix for spacing issue below the navbar
+    //- Temporary fix for spacing issue below the navbar
     hr.featurette-divider.home-divider
     hr.featurette-divider.home-divider
     hr.featurette-divider.home-divider
@@ -119,30 +119,30 @@ html(lang='en')
           .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
             .d-flex.justify-content-between.align-items-center.w-100
               strong.text-gray-dark Welcome to the beta release of Physics in Motion!
-              //a(href='#') Follow
+              //- a(href='#') Follow
             span.d-block This is only a beta release, with only a few courses created.
         .media.text-muted.pt-3
           img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
           .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
             .d-flex.justify-content-between.align-items-center.w-100
               strong.text-gray-dark Updates to our Terms and Privacy
-              //a(href='#') Follow
+              //- a(href='#') Follow
             span.d-block We have recently updated our Terms and Privacy pages.
         small.d-block.text-right.mt-3
           a(href='#') See more
 
     .container
       include ../footer/home-footer.pug  
-    //
+    //-
       Bootstrap core JavaScript
       ==================================================
-    // Placed at the end of the document so the pages load faster
+    //- Placed at the end of the document so the pages load faster
     script(src='assets/libs/jquery/dist/jquery.slim.min.js')
     script(src='assets/libs/jquery/dist/jquery.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/popper.min.js')
     script(src='assets/libs/bootstrap/dist/js/bootstrap.min.js')
     script(src='assets/libs/bootstrap/assets/js/vendor/holder.min.js')
-    // Font Awesome
+    //- Font Awesome
     script(src='assets/libs/font-awesome/svg-with-js/js/fontawesome-all.min.js')
-    // Help functions for user dashboard
+    //- Help functions for user dashboard
     script(src='assets/js/dashboard.js')
