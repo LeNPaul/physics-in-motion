@@ -13,7 +13,7 @@ function clean(cb) {
 
 function minifyCss(cb) {
   gulp.src('public/assets/css/**/*.css')
-    //.pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({level: {1: {specialComments: 0}}}))
     .pipe(gulp.dest('dist/public/assets/css'));
   cb();
 }
@@ -25,26 +25,12 @@ function minifyJs(cb) {
   cb();
 }
 
-function minifyCssLibs(cb) {
-	gulp.src('public/assets/libs/**/*.css')
-    //.pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/public/assets/libs'));
-  cb();
-}
-
-function minifyJsLibs(cb) {
-	gulp.src('public/assets/libs/**/*.js')
-    //.pipe(terser())
-    .pipe(gulp.dest('dist/public/assets/libs'));
-  cb();
-}
-
 function moveApplication(cb) {
-  gulp.src(['**/*', '!public/assets/js/**/*.js', '!public/assets/css/**/*.css', '!public/assets/libs/**/*.css', '!public/assets/libs/**/*.js'])
+  gulp.src(['**/*', '!public/assets/js/**/*.js', '!public/assets/css/**/*.css'])
     .pipe(gulp.dest('dist'));
   cb();
 }
 
 gulp.task('clean', gulp.series(clean))
 
-gulp.task('build', gulp.parallel(moveApplication, minifyCss, minifyJs, minifyCssLibs, minifyJsLibs))
+gulp.task('build', gulp.parallel(moveApplication, minifyCss, minifyJs))
