@@ -10,7 +10,9 @@ noteApp.controller('mainController', function($scope) {
 	  return true;
 	});
 
-  $.get("/notes/kinematics/data", function(data, status) {
+	var lesson = document.head.querySelector("[name~=course][content]").content;
+
+  $.get("/notes/" + lesson + "/data", function(data, status) {
     var information = []
     for (const [name, lesson] of Object.entries(data)) {
       information.push({name: name, notes: lesson.notes});
@@ -18,5 +20,4 @@ noteApp.controller('mainController', function($scope) {
     $scope.TopicNames = information
     $scope.$digest();
   });
-
 });
