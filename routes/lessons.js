@@ -110,7 +110,7 @@ router.post('/get_lesson_progress', (req, res) => {
   });
 });
 
-router.get('/notes/:lesson', (req, res) => {
+router.get('/notes/:lesson/data', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var lessonInfo = lessons[0]['lesson_modules'][req.params.lesson];
     console.log("Returned the following:");

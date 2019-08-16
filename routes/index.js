@@ -38,9 +38,10 @@ router.get('/terms', (req, res) => {
 
 // User notes
 
-router.get('/notes', (req, res) => {
+router.get('/notes/:course', (req, res) => {
     res.render('dashboard/notes', {
       user : req.user,
+      course : req.params.course,
       title : 'Notes'
      });
 });

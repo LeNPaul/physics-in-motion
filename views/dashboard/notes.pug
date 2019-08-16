@@ -9,12 +9,13 @@ html(lang='en',ng-app='noteApp')
     link(rel='icon', href='../../favicon.ico')
     title #{ title } | Physics in Motion
     //- Bootstrap core CSS
-    link(href='assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
     //- Custom styles for this template
-    link(href='assets/css/lessons/shop-item.css', rel='stylesheet')
+    link(href='/assets/css/lessons/shop-item.css', rel='stylesheet')
     //- Set username as metadata if logged in
     if (user)
       meta(name='username', content=user.username)
+      meta(name='course', content=course)
     //- Google Analytics
     include ../google-analytics.pug     
   body(ng-controller='mainController')
@@ -27,7 +28,7 @@ html(lang='en',ng-app='noteApp')
       .row
         .col-lg-3
           h5.my-4 
-            a(href=course_url) #{ course }  
+            a(href='/' + course) #{ course }
             i.fa.fa-arrow-right(aria-hidden='true')
             |  #{ title }  
           .list-group
@@ -37,8 +38,14 @@ html(lang='en',ng-app='noteApp')
           .card.mt-4
             .card-body
               p.card-text
-                //- ANGULAR DYNAMIC CONTENT
-                div.ng-view
+                .container
+                  .row
+                      .col-sm-2
+                      .col-sm-8
+                        h1.page-header #{ course }
+                        div(ng-repeat='tpname in TopicNames')
+                          h3 {{ tpname.name }}
+                          p {{ tpname.notes }}
           //- /.card
           //- .card.card-outline-secondary.my-4
             .card-header
@@ -67,18 +74,18 @@ html(lang='en',ng-app='noteApp')
       Bootstrap core JavaScript
       ==================================================
     //- Placed at the end of the document so the pages load faster
-    script(src='assets/libs/jquery/jquery.min.js')
-    script(src='assets/libs/bootstrap/bootstrap.bundle.min.js')
+    script(src='/assets/libs/jquery/jquery.min.js')
+    script(src='/assets/libs/bootstrap/bootstrap.bundle.min.js')
     //- AngularJS
-    script(src='assets/libs/angular/angular.min.js')
-    script(src='assets/libs/angular-route/angular-route.min.js')
+    script(src='/assets/libs/angular/angular.min.js')
+    script(src='/assets/libs/angular-route/angular-route.min.js')
     //- MathJax
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
     //- Font Awesome
-    script(src='assets/libs/font-awesome/fontawesome-all.min.js')
+    script(src='/assets/libs/font-awesome/fontawesome-all.min.js')
     //- Chart.js
-    script(src='assets/libs/chart.js/Chart.bundle.js')
+    script(src='/assets/libs/chart.js/Chart.bundle.js')
     //- ANGULAR CUSTOM
-    script(src='assets/js/noteApp.js')
+    script(src='/assets/js/noteApp.js')
     //- Helper functions for creating charts for lesson modules
-    script(src='assets/js/chart.js')
+    script(src='/assets/js/chart.js')

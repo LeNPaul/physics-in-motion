@@ -1,21 +1,5 @@
 // create the module and name it scotchApp
-var noteApp = angular.module('noteApp', ['ngRoute']);
-
-// configure our routes
-noteApp.config(function($routeProvider) {
-  $routeProvider
-
-  // Initial page that is rendered when AngularJS route takes over
-  .when('/', {
-    templateUrl: 'curriculum/start.html',
-  })
-
-  // Kinematics
-  .when('/test', {
-    templateUrl: 'pages/lesson.html',
-  })
-
-});
+var noteApp = angular.module('noteApp', []);
 
 // create the controller and inject Angular's $scope
 noteApp.controller('mainController', function($scope) {
@@ -26,8 +10,13 @@ noteApp.controller('mainController', function($scope) {
 	  return true;
 	});
 
-});
+  $.get("/notes/kinematics/data", function(data, status) {
+    var information = []
+    for (const [name, lesson] of Object.entries(data)) {
+      information.push({name: name, notes: lesson.notes});
+    }
+    $scope.TopicNames = information
+    $scope.$digest();
+  });
 
-noteApp.controller('contactController', function($scope) {
-  $scope.message = 'Contact us! JK. This is just a demo.';
 });
