@@ -1,0 +1,84 @@
+doctype html
+html(lang='en',ng-app='noteApp')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title #{ title } | Physics in Motion
+    //- Bootstrap core CSS
+    link(href='assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
+    //- Custom styles for this template
+    link(href='assets/css/lessons/shop-item.css', rel='stylesheet')
+    //- Set username as metadata if logged in
+    if (user)
+      meta(name='username', content=user.username)
+    //- Google Analytics
+    include ../google-analytics.pug     
+  body(ng-controller='mainController')
+    if (!user)
+      include ../navbar/default-nav.pug
+    if (user)
+      include ../navbar/user-nav.pug
+    //- Page Content
+    .container
+      .row
+        .col-lg-3
+          h5.my-4 
+            a(href=course_url) #{ course }  
+            i.fa.fa-arrow-right(aria-hidden='true')
+            |  #{ title }  
+          .list-group
+            block content
+        //- /.col-lg-3
+        .col-lg-9
+          .card.mt-4
+            .card-body
+              p.card-text
+                //- ANGULAR DYNAMIC CONTENT
+                div.ng-view
+          //- /.card
+          //- .card.card-outline-secondary.my-4
+            .card-header
+              | Product Reviews
+            .card-body
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+              small.text-muted Posted by Anonymous on 3/1/17
+              hr
+              a.btn.btn-success(href='#') Leave a Review
+          //- /.card
+          //- /.col-lg-9
+          //- /.container
+    //- Footer
+    .container
+      include ../footer/home-footer.pug       
+    //-
+      Bootstrap core JavaScript
+      ==================================================
+    //- Placed at the end of the document so the pages load faster
+    script(src='assets/libs/jquery/jquery.min.js')
+    script(src='assets/libs/bootstrap/bootstrap.bundle.min.js')
+    //- AngularJS
+    script(src='assets/libs/angular/angular.min.js')
+    script(src='assets/libs/angular-route/angular-route.min.js')
+    //- MathJax
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
+    //- Font Awesome
+    script(src='assets/libs/font-awesome/fontawesome-all.min.js')
+    //- Chart.js
+    script(src='assets/libs/chart.js/Chart.bundle.js')
+    //- ANGULAR CUSTOM
+    script(src='assets/js/noteApp.js')
+    //- Helper functions for creating charts for lesson modules
+    script(src='assets/js/chart.js')

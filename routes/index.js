@@ -36,6 +36,15 @@ router.get('/terms', (req, res) => {
     });
 });
 
+// User notes
+
+router.get('/notes', (req, res) => {
+    res.render('dashboard/notes', {
+      user : req.user,
+      title : 'Notes'
+     });
+});
+
 // Curriculum
 
 router.get('/courses', (req, res) => {
