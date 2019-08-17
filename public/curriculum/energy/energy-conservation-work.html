@@ -12,6 +12,12 @@
       <p>Over the last couple of centuries the following empirical observation has been made: when a body is slowed down by friction or drag (or other dissipative forces), heat is transferred to the stopping medium. If the body itself is made of many smaller
         parts then heat may also be transferred to itself in the process. If this heat quantity is included in the balance of energy, then the energy of the system as a whole, body + medium, is conserved.</p>
 
+      <canvas id="kinetic-energy-chart" width="800" height="500"></canvas>
+
+      <canvas id="potential-energy-chart" width="800" height="500"></canvas>
+
+      <canvas id="mechanical-energy-chart" width="800" height="500"></canvas>
+
       <p>Thus, conservation of energy is still a useful notion, but we must include heat in the balance of energy. Importantly, while the mechanical energy is associated with the body under consideration, heat is the energy quantity transferred to the medium
         the body is interacting with or to the body's own internal components.</p>
 
@@ -56,4 +62,37 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("kinetic-energy-chart"),
+    chartConfig(
+      'Kinetic Energy as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Kinetic Energy (J)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    )
+  );
+
+  new Chart(document.getElementById("potential-energy-chart"),
+    chartConfig(
+      'Potential Energy as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Potential Energy (J)',
+      [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
+    )
+  );
+
+  new Chart(document.getElementById("mechanical-energy-chart"),
+    chartConfig(
+      'Mechanical Energy as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Mechanical Energy (J)',
+      [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
+    )
+  );
+
+</script>
 <script src="assets/js/lesson.js"></script>
