@@ -14,7 +14,7 @@ noteApp.controller('mainController', function($scope) {
     return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 	}
 
-	var lesson = document.head.querySelector("[name~=course][content]").content;
+	var lesson = document.head.querySelector("[name~=course][content]").content.replace(/-/g, '_');
 
   $.get("/notes/" + lesson + "/data", function(data, status) {
     var information = []
