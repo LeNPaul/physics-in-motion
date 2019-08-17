@@ -28,9 +28,9 @@ html(lang='en',ng-app='noteApp')
       .row
         .col-lg-3
           h5.my-4 
-            a(href='/' + course) #{ course }
-            i.fa.fa-arrow-right(aria-hidden='true')
-            |  #{ title }  
+            a(style='text-transform: capitalize', href='/' + course) #{ course } 
+            i.fa.fa-arrow-right(aria-hidden='true') 
+            |  #{ title }
           .list-group
             block content
         //- /.col-lg-3
@@ -42,7 +42,7 @@ html(lang='en',ng-app='noteApp')
                   .row
                       .col-sm-2
                       .col-sm-8
-                        h1.page-header #{ course }
+                        //- h1.page-header #{ course }
                         div(ng-repeat='tpname in TopicNames')
                           h3 {{ tpname.name }}
                           p {{ tpname.notes }}

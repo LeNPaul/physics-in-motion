@@ -10,14 +10,20 @@ noteApp.controller('mainController', function($scope) {
 	  return true;
 	});
 
+	function capitalizeFirstLetter(string) {
+    return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+	}
+
 	var lesson = document.head.querySelector("[name~=course][content]").content;
 
   $.get("/notes/" + lesson + "/data", function(data, status) {
     var information = []
     for (const [name, lesson] of Object.entries(data)) {
-      information.push({name: name, notes: lesson.notes});
+			var displayName = capitalizeFirstLetter(name.replace(/_/g, ' '));
+      information.push({name: displayName, notes: lesson.notes});
     }
     $scope.TopicNames = information
     $scope.$digest();
   });
+
 });
