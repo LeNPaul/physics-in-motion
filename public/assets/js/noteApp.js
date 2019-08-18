@@ -1,4 +1,4 @@
-// create the module and name it scotchApp
+// create the module and name it noteApp
 var noteApp = angular.module('noteApp', []);
 
 // create the controller and inject Angular's $scope

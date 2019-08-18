@@ -1,8 +1,8 @@
-// create the module and name it scotchApp
-var scotchApp = angular.module('scotchApp', ['ngRoute']);
+// create the module and name it lessonApp
+var lessonApp = angular.module('lessonApp', ['ngRoute']);
 
 // configure our routes
-scotchApp.config(function($routeProvider) {
+lessonApp.config(function($routeProvider) {
   $routeProvider
 
   // Initial page that is rendered when AngularJS route takes over
@@ -150,7 +150,7 @@ scotchApp.config(function($routeProvider) {
 });
 
 // create the controller and inject Angular's $scope
-scotchApp.controller('mainController', function($scope) {
+lessonApp.controller('mainController', function($scope) {
 
   // Render LaTex when loading new view
 	$scope.$watch(function(){
@@ -160,6 +160,6 @@ scotchApp.controller('mainController', function($scope) {
 
 });
 
-scotchApp.controller('contactController', function($scope) {
+lessonApp.controller('contactController', function($scope) {
   $scope.message = 'Contact us! JK. This is just a demo.';
 });
