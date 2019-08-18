@@ -42,8 +42,47 @@
       <p>$$ W_{ext} = \Delta K + \Delta U $$
       </p>
 
+      <canvas id="kinetic-energy-change-chart" width="800" height="500"></canvas>
+
+      <canvas id="potential-energy-change-chart" width="800" height="500"></canvas>
+
+      <canvas id="work-change-chart" width="800" height="500"></canvas>
+
     </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("kinetic-energy-change-chart"),
+    chartConfig(
+      'Change in Kinetic Energy as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Kinetic Energy (J)',
+      [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]
+    )
+  );
+
+  new Chart(document.getElementById("potential-energy-change-chart"),
+    chartConfig(
+      'Change in Potential Energy as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Potential Energy (J)',
+      [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]
+    )
+  );
+
+  new Chart(document.getElementById("work-change-chart"),
+    chartConfig(
+      'Work as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Work (J)',
+      [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
+    )
+  );
+
+</script>
 <script src="assets/js/lesson.js"></script>
