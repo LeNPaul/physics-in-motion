@@ -12,6 +12,10 @@
       <p>$$ P = \frac{dW}{dt} $$
       </p>
 
+      <canvas id="work-time-line-chart" width="800" height="500"></canvas>
+
+			<canvas id="power-time-line-chart" width="800" height="500"></canvas>
+
       <p>In the case where the power delivered over some time \( T \) is a constant, \( P_c \), we get:</p>
 
       <p>$$ P_c T = W \rightarrow P_c = \frac{W}{T} $$
@@ -28,4 +32,27 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("work-time-line-chart"),
+		chartConfig(
+			'Work as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Work (J)',
+			[0, 100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000]
+		)
+	);
+
+  new Chart(document.getElementById("power-time-line-chart"),
+		chartConfig(
+			'Power as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Power (W)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+		)
+	);
+
+</script>
 <script src="assets/js/lesson.js"></script>
