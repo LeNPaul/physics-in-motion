@@ -34,7 +34,6 @@ function moveApplication(cb) {
   '!public/assets/css/**/*.css',
   '!test/**',
   '!*.md',
-  '!Makefile',
   '!bower.json',
   '!package-lock.json',
   '!gulpfile.js'])
