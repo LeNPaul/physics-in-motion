@@ -5,19 +5,19 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='assets/img/rocket.png')
+    link(rel='icon', href='/assets/img/rocket.png')
     title Welcome Back | Physics in Motion
     //- Bootstrap core CSS
-    link(href='assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
     //- Custom styles for this template
-    link(href='assets/css/authentication/floating-labels.css', rel='stylesheet')
+    link(href='/assets/css/authentication/floating-labels.css', rel='stylesheet')
     //- Google Analytics
     include ../views/google-analytics.pug
   body
     form.form-signin(method='post', action='/login')
       .text-center.mb-4
         a(href='/')
-          img.mb-4(src='assets/img/rocket.png', alt='', width='72', height='72')
+          img.mb-4(src='/assets/img/rocket.png', alt='', width='72', height='72')
         h1.h3.mb-3.font-weight-normal Sign in
       if (error && error.length > 0)
         .alert.alert-danger.text-center= error
