@@ -39,6 +39,13 @@ describe('Lessons API', () => {
     done();
   });
 
+  it('set updated field to current time', (done) => {
+    chai.request(app).post('/update_time').send({username: "12345", lessonPath: "forces.friction_drag", notes: "Hello world note"}).end((err, res) => {
+      res.should.have.status(200);
+      done();
+    });
+  });
+
   it('return user lesson information', (done) => {
     chai.request(app).post('/user_lessons').send({username:"12345"}).end((err, res) => {
       res.should.have.status(200);
@@ -46,8 +53,29 @@ describe('Lessons API', () => {
     });
   });
 
-  it('set updated field to current time', (done) => {
-    chai.request(app).post('/update_time').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+  it('update lesson status', (done) => {
+    chai.request(app).post('/update_lesson_status').send({username:"12345", lessonPath:"forces.friction_drag", status: true}).end((err, res) => {
+      res.should.have.status(200);
+      done();
+    });
+  });
+
+  it('update notes for a lesson', (done) => {
+    chai.request(app).post('/update_notes').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+      res.should.have.status(200);
+      done();
+    });
+  });
+
+  it('return most recently accessed lessons', (done) => {
+    chai.request(app).post('/get_lessons').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+      res.should.have.status(200);
+      done();
+    });
+  });
+
+  it('return the progress of a lesson', (done) => {
+    chai.request(app).post('/get_lesson_progress').send({username:"12345", lesson:"kinematics"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });
