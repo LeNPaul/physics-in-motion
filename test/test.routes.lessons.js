@@ -8,35 +8,35 @@ const Lessons = require("../models/lessons.js");
 
 chai.use(chaiHttp);
 
-describe('/POST user_lessons', () => {
+describe('Lessons API', () => {
 
   before((done) => {
-      const db = mongoose.connect('mongodb://localhost/test');
-      done();
+    const db = mongoose.connect('mongodb://localhost/test');
+    done();
   });
 
   after((done) => {
-      mongoose.connection.close();
-      done();
+    mongoose.connection.close();
+    done();
   });
 
   beforeEach( (done) => {
-      var account = new Account({
-          username: '12345',
-          password: 'testy'
-      });
-      var lesson = new Lessons({
-        username: '12345'
-      });
-      account.save((error) => {
-          if (error) console.log('error' + error.message);
-          else console.log('no error');
-      });
-      lesson.save((error) => {
-          if (error) console.log('error' + error.message);
-          else console.log('no error');
-      });
-      done();
+    var account = new Account({
+      username: '12345',
+      password: 'testy'
+    });
+    var lesson = new Lessons({
+      username: '12345'
+    });
+    account.save((error) => {
+      if (error) console.log('error' + error.message);
+      else console.log('no error');
+    });
+    lesson.save((error) => {
+      if (error) console.log('error' + error.message);
+      else console.log('no error');
+    });
+    done();
   });
 
   it('return user lesson information', (done) => {
@@ -46,14 +46,19 @@ describe('/POST user_lessons', () => {
     });
   });
 
-  afterEach((done) => {
-      Account.remove({}, () => {
-
-      });
-      Lessons.remove({}, () => {
-
-      });
+  it('set updated field to current time', (done) => {
+    chai.request(app).post('/update_time').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+      res.should.have.status(200);
       done();
+    });
+  });
+
+  afterEach((done) => {
+    Account.remove({}, () => {
+    });
+    Lessons.remove({}, () => {
+      done();
+    });
    });
 
 });
