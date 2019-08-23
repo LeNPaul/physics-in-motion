@@ -15,7 +15,13 @@
       <p>$$ \vec{F} = m \vec{a} = \frac{d \vec{p}}{dt} $$
       </p>
 
-      <p>Where in the last step, \( \vec{p} = m \vec{v} \). This is a vector quantity known as the momentum. In general, it is a function of time. However, if any of the components of the force vanishes, then the corresponding component of the momentum is
+      <p>where in the last step, \( \vec{p} = m \vec{v} \). This is a vector quantity known as the momentum. In general, it is a function of time.</p>
+
+      <canvas id="constant-force" width="800" height="500"></canvas>
+
+      <canvas id="constant-momentum" width="800" height="500"></canvas>
+
+      <p>However, if any of the components of the force vanishes, then the corresponding component of the momentum is
         conserved:</p>
 
       <p>$$ 0 = \frac{d p_i}{dt} \rightarrow p_i = constant $$</p>
@@ -38,7 +44,7 @@
       <p>$$ \vec{F}_2 = \frac{d \vec{p}_2}{dt} $$
       </p>
 
-      <p>Where \( \vec{p}_1 = m_1 \vec{v}_1 \) is the momentum associated with the first particle, and \( \vec{p}_2 = m_2 \vec{v}_2 \) is the momentum associated with the second particle. Since we assumed that no external forces are prsent, then from Newton's
+      <p>Where \( \vec{p}_1 = m_1 \vec{v}_1 \) is the momentum associated with the first particle, and \( \vec{p}_2 = m_2 \vec{v}_2 \) is the momentum associated with the second particle. Since we assumed that no external forces are present, then from Newton's
         third law we have that \( \vec{F}_1 = - \vec{F}_2 \). Adding the two equations we then find:</p>
 
       <p>$$ 0 = \frac{d}{dt} ( \vec{p}_1 + \vec{p}_2 ) \rightarrow \vec{P}_{tot} = \vec{p}_1 + \vec{p}_2 $$
@@ -52,4 +58,27 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("constant-momentum"),
+    chartConfig(
+      'Momentum as a Function of Time',
+      'Momentum (kg x m/s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Time (s)',
+      [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+    )
+  );
+
+  new Chart(document.getElementById("constant-force"),
+    chartConfig(
+      'Force as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Force (N)',
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    )
+  );
+
+</script>
 <script src="/assets/js/lesson.js"></script>
