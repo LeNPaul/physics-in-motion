@@ -44,6 +44,10 @@
       <p>$$ v_{2f} = v_{1i} $$
       </p>
 
+      <canvas id="elastic-collision-1" width="800" height="500"></canvas>
+
+      <canvas id="elastic-collision-2" width="800" height="500"></canvas>
+
       <p>Second, if one object is much heavier than the second one, then:</p>
 
       <p>$$ v_{1f} = v_{1i} $$
@@ -58,4 +62,27 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("elastic-collision-1"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Position (m)',
+      [0, 10, 20, 30, 40, 50, 40, 30, 20, 10, 0]
+    )
+  );
+
+  new Chart(document.getElementById("elastic-collision-2"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      'Position (m)',
+      [100, 90, 80, 70, 60, 50, 60, 70, 80, 90, 100]
+    )
+  );
+
+</script>
 <script src="/assets/js/lesson.js"></script>
