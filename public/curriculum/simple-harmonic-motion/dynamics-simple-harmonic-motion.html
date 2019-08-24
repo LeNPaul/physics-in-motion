@@ -20,6 +20,10 @@
       <p>$$ F = - \frac{d U(x)}{d x} = - k x(t) $$
       </p>
 
+      <canvas id="potential-function" width="800" height="500"></canvas>
+
+      <canvas id="conservative-forces" width="800" height="500"></canvas>
+
       <p>You might recognize this force as that of a simple spring with spring constant \( k \), namely Hooke's law. This is indeed the case, but it turns out that this force also serves as a good model for many other physical systems. The equation of motion
         associated with such a force is,</p>
 
@@ -87,4 +91,27 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("potential-function"),
+    chartConfig(
+      'Potential Energy as a Function of Position',
+      'Position (m)',
+      [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5],
+      'Potential Energy (J)',
+      [25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25]
+    )
+  );
+
+  new Chart(document.getElementById("conservative-forces"),
+    chartConfig(
+      'Conservative Force as a Function of Position',
+      'Position (m)',
+      [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5],
+      'Force (N)',
+      [50, 40, 30, 20, 10, 0, 10, 20, 30, 40, 50]
+    )
+  );
+
+</script>
 <script src="/assets/js/lesson.js"></script>
