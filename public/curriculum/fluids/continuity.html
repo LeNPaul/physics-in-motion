@@ -27,8 +27,23 @@
 
       <p>Thus, as the fluid moves from a more constricted tube to a large tube it slows down. Similarly, as the fluids moves from a more spacious tube to a more constricted one it speeds up.</p>
 
+      <canvas id="fluid-velocity-chart" width="800" height="500"></canvas>
+
     </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+	new Chart(document.getElementById("fluid-velocity-chart"),
+		chartConfig(
+			'Fluid Velocity from Larger Area to Smaller Area',
+			'Velocity 1 (m/s)',
+			[5, 15, 25, 35, 45, 55, 65, 75, 85, 95, 105],
+			'Velocity 2 (m/s)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+		)
+	);
+
+</script>
 <script src="/assets/js/lesson.js"></script>
