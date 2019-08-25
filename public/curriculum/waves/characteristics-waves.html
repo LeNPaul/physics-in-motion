@@ -26,6 +26,8 @@
         / d t^2 \) term in Newton's Second Law, and the left hand side is the force, that is, \( F = m a \). But, this is now applied at every point along the string, \( x \). This equation is known as the wave equation and it finds application in
         many fields of science and technology. The solutions of these are known as waves.</p>
 
+      <canvas id="wave-chart" width="800" height="500"></canvas>
+
       <h3>Characteristics of Waves</h3>
 
       <p>There are many types of media that support waves, and what is "waving" in each one could be different. Waves are disturbances that propagate through the medium about some unperturbed state. Water waves are disturbances in the height of the water's
@@ -96,4 +98,17 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("wave-chart"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [Math.sin(0), Math.sin(0.5), Math.sin(1), Math.sin(1.5), Math.sin(2), Math.sin(2.5), Math.sin(3), Math.sin(3.5), Math.sin(4), Math.sin(4.5), Math.sin(5), Math.sin(5.5), Math.sin(6), Math.sin(6.5), Math.sin(7), Math.sin(7.5), Math.sin(8), Math.sin(8.5), Math.sin(9), Math.sin(9.5), Math.sin(10)]
+    )
+  );
+
+</script>
 <script src="/assets/js/lesson.js"></script>
