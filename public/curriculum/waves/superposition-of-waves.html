@@ -33,8 +33,54 @@
         \( f_1 \rightarrow f_2 \). Such amplitude modulations are certainly detectable by our ears and one can perceive the note's intensity increasing and decreasing in a periodic fashion. The piano is tuned when \( f_{beat} = f_1 - f_2 \rightarrow 0
         \). This can be detected by listening to the beat as its period grows larger and larger.</p>
 
+    <canvas id="wave-chart-1" width="800" height="500"></canvas>
+    <canvas id="wave-chart-2" width="800" height="500"></canvas>
+    <canvas id="wave-chart-3" width="800" height="500"></canvas>
+
     </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  function sin(a, x) {
+    return Math.sin(a * x)
+  }
+
+  function superSin(a, b, x) {
+    return 2 * Math.cos((a - b)/2 * x) * Math.sin((a + b)/2 * x)
+  }
+
+  new Chart(document.getElementById("wave-chart-1"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [sin(1, 0), sin(1, 0.5), sin(1, 1), sin(1, 1.5), sin(1, 2), sin(1, 2.5), sin(1, 3), sin(1, 3.5), sin(1, 4), sin(1, 4.5), sin(1, 5), sin(1, 5.5), sin(1, 6), sin(1, 6.5), sin(1, 7), sin(1, 7.5), sin(1, 8), sin(1, 8.5), sin(1, 9), sin(1, 9.5), sin(1, 10)]
+    )
+  );
+
+  new Chart(document.getElementById("wave-chart-2"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [sin(0.3, 0), sin(0.3, 0.5), sin(0.3, 1), sin(0.3, 1.5), sin(0.3, 2), sin(0.3, 2.5), sin(0.3, 3), sin(0.3, 3.5), sin(0.3, 4), sin(0.3, 4.5), sin(0.3, 5), sin(0.3, 5.5), sin(0.3, 6), sin(0.3, 6.5), sin(0.3, 7), sin(0.3, 7.5), sin(0.3, 8), sin(0.3, 8.5), sin(0.3, 9), sin(0.3, 9.5), sin(0.3, 10)]
+    )
+  );
+
+  new Chart(document.getElementById("wave-chart-3"),
+    chartConfig(
+      'Superposition as a Function of Time',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [superSin(1, 0.3, 0), superSin(1, 0.3, 0.5), superSin(1, 0.3, 1), superSin(1, 0.3, 1.5), superSin(1, 0.3, 2), superSin(1, 0.3, 2.5), superSin(1, 0.3, 3), superSin(1, 0.3, 3.5), superSin(1, 0.3, 4), superSin(1, 0.3, 4.5), superSin(1, 0.3, 5), superSin(1, 0.3, 5.5), superSin(1, 0.3, 6), superSin(1, 0.3, 6.5), superSin(1, 0.3, 7), superSin(1, 0.3, 7.5), superSin(1, 0.3, 8), superSin(1, 0.3, 8.5), superSin(1, 0.3, 9), superSin(1, 0.3, 9.5), superSin(1, 0.3, 10)]
+    )
+  );
+
+
+</script>
 <script src="/assets/js/lesson.js"></script>
