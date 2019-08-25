@@ -65,6 +65,10 @@
 
       <p>Here the relation between the wavenumber and the wavelength, \( k = 2 \pi / \lambda \)</p>
 
+      <canvas id="wave-chart-1" width="800" height="500"></canvas>
+      <canvas id="wave-chart-2" width="800" height="500"></canvas>
+      <canvas id="wave-chart-3" width="800" height="500"></canvas>
+
       <h3>Young's Double Slit Experiment</h3>
 
       <p>One of the vexing questions of classical physics was whether light is a wave of a particle. The beautiful experiment by Young seemed to have settled this question in favour of waves. Young considered a single light source impinging on a screen with
@@ -112,4 +116,42 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  function sin(a, x) {
+    return Math.sin(a * x)
+  }
+
+  new Chart(document.getElementById("wave-chart-1"),
+    chartConfig(
+      'Position as a Function of Time',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [sin(1, 0), sin(1, 0.5), sin(1, 1), sin(1, 1.5), sin(1, 2), sin(1, 2.5), sin(1, 3), sin(1, 3.5), sin(1, 4), sin(1, 4.5), sin(1, 5), sin(1, 5.5), sin(1, 6), sin(1, 6.5), sin(1, 7), sin(1, 7.5), sin(1, 8), sin(1, 8.5), sin(1, 9), sin(1, 9.5), sin(1, 10)]
+    )
+  );
+
+  new Chart(document.getElementById("wave-chart-2"),
+    chartConfig(
+      'Constructive Interference',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [sin(1, 0) + sin(1, 0), sin(1, 0.5) + sin(1, 0.5), sin(1, 1) + sin(1, 1), sin(1, 1.5) + sin(1, 1.5), sin(1, 2) + sin(1, 2), sin(1, 2.5) + sin(1, 2.5), sin(1, 3) + sin(1, 3), sin(1, 3.5) + sin(1, 3.5), sin(1, 4) + sin(1, 4), sin(1, 4.5) + sin(1, 4.5), sin(1, 5) + sin(1, 5), sin(1, 5.5) + sin(1, 5.5), sin(1, 6) + sin(1, 6), sin(1, 6.5) + sin(1, 6.5), sin(1, 7) + sin(1, 7), sin(1, 7.5) + sin(1, 7.5), sin(1, 8) + sin(1, 8), sin(1, 8.5) + sin(1, 8.5), sin(1, 9) + sin(1, 9), sin(1, 9.5) + sin(1, 9.5), sin(1, 10) + sin(1, 10)]
+    )
+  );
+
+  new Chart(document.getElementById("wave-chart-3"),
+    chartConfig(
+      'Destructive Interference',
+      'Time (s)',
+      [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+      'Position (m)',
+      [sin(1, 0) - sin(1, 0), sin(1, 0.5) - sin(1, 0.5), sin(1, 1) - sin(1, 1), sin(1, 1.5) - sin(1, 1.5), sin(1, 2) - sin(1, 2), sin(1, 2.5) - sin(1, 2.5), sin(1, 3) - sin(1, 3), sin(1, 3.5) - sin(1, 3.5), sin(1, 4) - sin(1, 4), sin(1, 4.5) - sin(1, 4.5), sin(1, 5) - sin(1, 5), sin(1, 5.5) - sin(1, 5.5), sin(1, 6) - sin(1, 6), sin(1, 6.5) - sin(1, 6.5), sin(1, 7) - sin(1, 7), sin(1, 7.5) - sin(1, 7.5), sin(1, 8) - sin(1, 8), sin(1, 8.5) - sin(1, 8.5), sin(1, 9) - sin(1, 9), sin(1, 9.5) - sin(1, 9.5), sin(1, 10) - sin(1, 10)]
+    )
+  );
+
+
+</script>
 <script src="/assets/js/lesson.js"></script>
