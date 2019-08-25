@@ -89,9 +89,6 @@ lessonApp.config(function($routeProvider) {
   .when('/pressure', {
     templateUrl: 'curriculum/fluids/pressure.html',
   })
-  .when('/incompressible-fluids', {
-    templateUrl: 'curriculum/fluids/incompressible-fluids.html',
-  })
   .when('/buoyancy', {
     templateUrl: 'curriculum/fluids/buoyancy.html',
   })
