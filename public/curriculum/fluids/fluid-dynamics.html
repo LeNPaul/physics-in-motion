@@ -50,8 +50,23 @@
 
       <p>This relation is known as Bernoulli's equation.</p>
 
+      <canvas id="fluid-velocity-chart" width="800" height="500"></canvas>
+
     </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
+<script>
+
+  new Chart(document.getElementById("fluid-velocity-chart"),
+		chartConfig(
+			'Pressure as a Function of Velocity',
+			'Velocity (m/s)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Pressure (Pa)',
+			[10000, 8100, 6400, 4900, 3600, 2500, 1600, 900, 400, 100]
+		)
+	);
+
+</script>
 <script src="/assets/js/lesson.js"></script>
