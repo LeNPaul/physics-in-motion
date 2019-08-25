@@ -24,7 +24,7 @@
 
       <p>Where \( \omega = \sqrt{l/g - b^2/(4m^2)} \). Damped harmonic oscillation oscillates in a periodic fashion as expected from a pendulum, but the amplitude of the oscillations also diminishes over time.</p>
 
-      <canvas id="pendulum-motion" width="800" height="500"></canvas>
+      <canvas id="damped-harmonic-motion" width="800" height="500"></canvas>
 
     </div>
     <div class="col-sm-2"></div>
@@ -36,7 +36,7 @@
     return Math.exp(-x) * Math.cos(x)
   }
 
-  new Chart(document.getElementById("pendulum-motion"),
+  new Chart(document.getElementById("damped-harmonic-motion"),
     chartConfig(
       'Position as a Function of Time',
       'Time (s)',
