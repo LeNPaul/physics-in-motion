@@ -5,7 +5,7 @@ var lesson = lessonData.dataset.lesson;
 var lessonPath = topic + "." + lesson;
 
 function updateTime() {
-  $.post("/update_time", {lessonPath: lessonPath}, function(data, status) {
+  $.post("/update_lesson_time", {lessonPath: lessonPath}, function(data, status) {
     // Just update the last seen time
     // TODO - add proper error handling here
   });

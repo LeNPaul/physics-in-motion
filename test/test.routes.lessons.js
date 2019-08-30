@@ -40,7 +40,7 @@ describe('Lessons API', () => {
   });
 
   it('set updated field to current time', (done) => {
-    chai.request(app).post('/update_time').send({username: "12345", lessonPath: "forces.friction_drag", notes: "Hello world note"}).end((err, res) => {
+    chai.request(app).post('/update_lesson_time').send({username: "12345", lessonPath: "forces.friction_drag", notes: "Hello world note"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });

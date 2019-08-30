@@ -55,8 +55,8 @@ router.get('/notes/:lesson/data', (req, res) => {
 });
 
 // Updates the updated field to be the current time
-// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag"}' http://localhost:8080/update_time
-router.post('/update_time', (req, res) => {
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag"}' http://localhost:8080/update_lesson_time
+router.post('/update_lesson_time', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
     setObject["lesson_modules." + req.body.lessonPath + ".updated"] = new Date();
