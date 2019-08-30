@@ -5,7 +5,7 @@ const router = express.Router();
 // Updates the updated field to be the current time
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lessonPath":"forces.friction_drag"}' http://localhost:8080/update_time
 router.post('/update_time', (req, res) => {
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
     setObject["lesson_modules." + req.body.lessonPath + ".updated"] = new Date();
     Lessons.findByIdAndUpdate(
@@ -24,7 +24,7 @@ router.post('/update_time', (req, res) => {
 // Return lessons information for user
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com"}' http://localhost:8080/user_lessons
 router.post('/user_lessons', (req, res) => {
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     console.log("Returned the following:");
     console.log(lessons)
     res.json(lessons);
@@ -38,7 +38,7 @@ router.post('/user_lessons', (req, res) => {
 //    Use the Object ID to update the document
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lessonPath":"forces.friction_drag", "status": true}' http://localhost:8080/update_lesson_status
 router.post('/update_lesson_status', (req, res) => {
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
     setObject["lesson_modules." + req.body.lessonPath + ".status"] = req.body.status;
     Lessons.findByIdAndUpdate(
@@ -57,7 +57,7 @@ router.post('/update_lesson_status', (req, res) => {
 // Update notes for a user
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
 router.post('/update_notes', (req, res) => {
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
     setObject["lesson_modules." + req.body.lessonPath + ".notes"] = req.body.notes;
     Lessons.findByIdAndUpdate(
@@ -81,7 +81,7 @@ router.post('/get_lessons', (req,  res) => {
   //    For each lesson module, get the most recently accessed lesson
   //  Loop through each lesson module and get the most recently accessed lesson
 
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     var lastAccessedLessons = [];
     for (const [name, lesson] of Object.entries(lessons[0].lesson_modules)) {
       lessonsSorted = Object.keys(lesson).sort(function(a,b){return lesson[b].updated - lesson[a].updated})
@@ -96,7 +96,7 @@ router.post('/get_lessons', (req,  res) => {
 // Return the progress of a lesson
 // Sample request: curl --header "Content-Type: application/json" --data '{"username":"paul.le@interfaceware.com", "lesson":"kinematics"}' http://localhost:8080/get_lesson_progress
 router.post('/get_lesson_progress', (req, res) => {
-  Lessons.find({username: req.body.username}, function(err, lessons) {
+  Lessons.find({username: req.user.username}, function(err, lessons) {
     var modules = lessons[0]["lesson_modules"][req.body.lesson];
     var total = 0;
     var done = 0;
