@@ -97,8 +97,8 @@ router.post('/update_lesson_status', (req, res) => {
 });
 
 // Update notes for a user
-// Sample request: curl --cookie "<session cookie>" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
-router.post('/update_notes', (req, res) => {
+// Sample request: curl --cookie "<session cookie>" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_lesson_notes
+router.post('/update_lesson_notes', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
     setObject["lesson_modules." + req.body.lessonPath + ".notes"] = req.body.notes;

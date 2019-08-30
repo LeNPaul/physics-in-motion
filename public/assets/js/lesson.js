@@ -19,7 +19,7 @@ function setSavedNote() {
 
 function updateNotes() {
   var notes = document.getElementById("lessonNotes").value;
-  $.post("/update_notes", {lessonPath: lessonPath, notes: notes}, function(data, status) {
+  $.post("/update_lesson_notes", {lessonPath: lessonPath, notes: notes}, function(data, status) {
   });
 }
 

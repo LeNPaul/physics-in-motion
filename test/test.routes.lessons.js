@@ -61,7 +61,7 @@ describe('Lessons API', () => {
   });
 
   it('update notes for a lesson', (done) => {
-    chai.request(app).post('/update_notes').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+    chai.request(app).post('/update_lesson_notes').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });
