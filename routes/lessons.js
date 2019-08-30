@@ -22,7 +22,7 @@ router.post('/update_time', (req, res) => {
 });
 
 // Return lessons information for user
-// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/user_lessons
+// Sample request: curl --cookie "<session cookie>" http://localhost:8080/user_lessons
 router.get('/user_lessons', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     console.log("Returned the following:");
@@ -55,7 +55,7 @@ router.post('/update_lesson_status', (req, res) => {
 });
 
 // Update notes for a user
-// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
+// Sample request: curl --cookie "<session cookie>" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
 router.post('/update_notes', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
@@ -74,8 +74,8 @@ router.post('/update_notes', (req, res) => {
 });
 
 // Return the most recently accessed Lessons
-// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/get_lessons
-router.post('/get_lessons', (req,  res) => {
+// Sample request: curl --cookie "<session cookie>" http://localhost:8080/get_lessons
+router.get('/get_lessons', (req,  res) => {
 
   //  Loop through each lesson lesson module
   //    For each lesson module, get the most recently accessed lesson
