@@ -3,7 +3,7 @@ const Lessons = require('../models/lessons');
 const router = express.Router();
 
 // Updates the updated field to be the current time
-// Sample request: curl --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag"}' http://localhost:8080/update_time
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag"}' http://localhost:8080/update_time
 router.post('/update_time', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
@@ -22,7 +22,7 @@ router.post('/update_time', (req, res) => {
 });
 
 // Return lessons information for user
-// Sample request: curl --header "Content-Type: application/json" --data '{}' http://localhost:8080/user_lessons
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/user_lessons
 router.post('/user_lessons', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     console.log("Returned the following:");
@@ -36,7 +36,7 @@ router.post('/user_lessons', (req, res) => {
 //    First get the Object ID based on username
 //    Assuming username is unique globally - might be better to link documents somehow
 //    Use the Object ID to update the document
-// Sample request: curl --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "status": true}' http://localhost:8080/update_lesson_status
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "status": true}' http://localhost:8080/update_lesson_status
 router.post('/update_lesson_status', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
@@ -55,7 +55,7 @@ router.post('/update_lesson_status', (req, res) => {
 });
 
 // Update notes for a user
-// Sample request: curl --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_notes
 router.post('/update_notes', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
@@ -74,7 +74,7 @@ router.post('/update_notes', (req, res) => {
 });
 
 // Return the most recently accessed Lessons
-// Sample request: curl --header "Content-Type: application/json" --data '{}' http://localhost:8080/get_lessons
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/get_lessons
 router.post('/get_lessons', (req,  res) => {
 
   //  Loop through each lesson lesson module
@@ -94,7 +94,7 @@ router.post('/get_lessons', (req,  res) => {
 });
 
 // Return the progress of a lesson
-// Sample request: curl --header "Content-Type: application/json" --data '{"lesson":"kinematics"}' http://localhost:8080/get_lesson_progress
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lesson":"kinematics"}' http://localhost:8080/get_lesson_progress
 router.post('/get_lesson_progress', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var modules = lessons[0]["lesson_modules"][req.body.lesson];
