@@ -3,11 +3,9 @@ const Lessons = require('../models/lessons');
 const router = express.Router();
 
 // Return lessons information for user
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/user_lessons
-router.get('/user_lessons', (req, res) => {
+// Sample request: curl --cookie "<session cookie>" http://localhost:8080/lesson_data
+router.get('/lesson_data', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
-    console.log("Returned the following:");
-    console.log(lessons)
     res.json(lessons);
   });
 });

@@ -12,7 +12,7 @@ function updateTime() {
 };
 
 function setSavedNote() {
-  $.get("/user_lessons", function(data, status) {
+  $.get("/lesson_data", function(data, status) {
     document.getElementById('lessonNotes').value = data[0]["lesson_modules"][topic][lesson].notes;
   })
 }
@@ -24,7 +24,7 @@ function updateNotes() {
 }
 
 function setLessonStatus() {
-  $.get("/user_lessons", function(data, status) {
+  $.get("/lesson_data", function(data, status) {
     if(status) {
       if(data[0]["lesson_modules"][topic][lesson].status) {
         document.getElementById("lessonStatus").textContent="Complete!";

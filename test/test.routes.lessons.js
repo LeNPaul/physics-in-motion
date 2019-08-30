@@ -47,7 +47,7 @@ describe('Lessons API', () => {
   });
 
   it('return user lesson information', (done) => {
-    chai.request(app).post('/user_lessons').send({username:"12345"}).end((err, res) => {
+    chai.request(app).post('/lesson_data').send({username:"12345"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });
