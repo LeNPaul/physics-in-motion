@@ -1,5 +1,3 @@
-var username = document.head.querySelector("[name~=username][content]").content;
-
 function setLatestLesson() {
   $.post("/get_lessons", {}, function(data, status) {
     var link = document.getElementById("latest-lesson");

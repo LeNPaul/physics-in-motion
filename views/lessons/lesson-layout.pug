@@ -12,9 +12,6 @@ html(lang='en',ng-app='lessonApp')
     link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
     //- Custom styles for this template
     link(href='/assets/css/lessons/shop-item.css', rel='stylesheet')
-    //- Set username as metadata if logged in
-    if (user)
-      meta(name='username', content=user.username)
     //- Google Analytics
     include ../google-analytics.pug     
   body(ng-controller='mainController')

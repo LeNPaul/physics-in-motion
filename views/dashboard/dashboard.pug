@@ -12,9 +12,6 @@ html(lang='en')
     //- Custom styles for this template
     link(href='/assets/css/dashboard/album.css', rel='stylesheet')
     link(href='/assets/css/dashboard/dashboard.css', rel='stylesheet')
-    //- Set username as metadata if logged in
-    if (user)
-      meta(name='username', content=user.username)
     //- Google Analytics
     include ../google-analytics.pug
   body

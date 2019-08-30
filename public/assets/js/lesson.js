@@ -3,7 +3,6 @@ var topic = lessonData.dataset.topic;
 var lesson = lessonData.dataset.lesson;
 
 var lessonPath = topic + "." + lesson;
-var username = document.head.querySelector("[name~=username][content]").content;
 
 function updateTime() {
   $.post("/update_time", {lessonPath: lessonPath}, function(data, status) {
