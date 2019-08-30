@@ -29,8 +29,8 @@ router.get('/recent_lessons', (req,  res) => {
 });
 
 // Return the progress of a lesson
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/get_lesson_progress/kinematics
-router.get('/get_lesson_progress/:lesson', (req, res) => {
+// Sample request: curl --cookie "<session cookie>" http://localhost:8080/lesson_progress/kinematics
+router.get('/lesson_progress/:lesson', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var modules = lessons[0]["lesson_modules"][req.params.lesson];
     var total = 0;
