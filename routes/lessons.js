@@ -23,7 +23,7 @@ router.post('/update_time', (req, res) => {
 
 // Return lessons information for user
 // Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/user_lessons
-router.post('/user_lessons', (req, res) => {
+router.get('/user_lessons', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     console.log("Returned the following:");
     console.log(lessons)
