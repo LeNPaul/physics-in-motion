@@ -11,13 +11,11 @@ router.get('/lesson_data', (req, res) => {
 });
 
 // Return the most recently accessed Lessons
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/get_lessons
-router.get('/get_lessons', (req,  res) => {
-
+// Sample request: curl --cookie "<session cookie>" http://localhost:8080/recent_lessons
+router.get('/recent_lessons', (req,  res) => {
   //  Loop through each lesson lesson module
   //    For each lesson module, get the most recently accessed lesson
   //  Loop through each lesson module and get the most recently accessed lesson
-
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var lastAccessedLessons = [];
     for (const [name, lesson] of Object.entries(lessons[0].lesson_modules)) {

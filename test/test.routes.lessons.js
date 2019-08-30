@@ -68,7 +68,7 @@ describe('Lessons API', () => {
   });
 
   it('return most recently accessed lessons', (done) => {
-    chai.request(app).post('/get_lessons').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
+    chai.request(app).post('/recent_lessons').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });
