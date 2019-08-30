@@ -11,7 +11,7 @@ function setLessonProgress() {
   for (var i = 0; i < demoClass.length; i++) {
     let lessonId = demoClass[i].id;
     let lesson = lessonId.split("-");
-    $.post("/get_lesson_progress", {lesson: lesson[1]}, function(data, status) {
+    $.get("/get_lesson_progress/" + lesson[1], function(data, status) {
       var percentage = data.progress * 100
       document.getElementById(lessonId).setAttribute("style", "width: " + percentage + "%;");
     })
