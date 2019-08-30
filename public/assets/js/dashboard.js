@@ -1,7 +1,7 @@
 var username = document.head.querySelector("[name~=username][content]").content;
 
 function setLatestLesson() {
-  $.post("/get_lessons", {username: username}, function(data, status) {
+  $.post("/get_lessons", {}, function(data, status) {
     var link = document.getElementById("latest-lesson");
     link.setAttribute('href', data[0][0]);
   });
@@ -13,7 +13,7 @@ function setLessonProgress() {
   for (var i = 0; i < demoClass.length; i++) {
     let lessonId = demoClass[i].id;
     let lesson = lessonId.split("-");
-    $.post("/get_lesson_progress", {username: username, lesson: lesson[1]}, function(data, status) {
+    $.post("/get_lesson_progress", {lesson: lesson[1]}, function(data, status) {
       var percentage = data.progress * 100
       document.getElementById(lessonId).setAttribute("style", "width: " + percentage + "%;");
     })
