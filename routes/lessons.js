@@ -3,7 +3,7 @@ const Lessons = require('../models/lessons');
 const router = express.Router();
 
 // Return lessons information for user
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/lesson_data
+// Sample request: curl --cookie "" http://localhost:8080/lesson_data
 router.get('/lesson_data', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     res.json(lessons);
@@ -11,7 +11,7 @@ router.get('/lesson_data', (req, res) => {
 });
 
 // Return the most recently accessed Lessons
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/recent_lessons
+// Sample request: curl --cookie "" http://localhost:8080/recent_lessons
 router.get('/recent_lessons', (req,  res) => {
   //  Loop through each lesson lesson module
   //    For each lesson module, get the most recently accessed lesson
@@ -29,7 +29,7 @@ router.get('/recent_lessons', (req,  res) => {
 });
 
 // Return the progress of a lesson
-// Sample request: curl --cookie "<session cookie>" http://localhost:8080/lesson_progress/kinematics
+// Sample request: curl --cookie "" http://localhost:8080/lesson_progress/kinematics
 router.get('/lesson_progress/:lesson', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var modules = lessons[0]["lesson_modules"][req.params.lesson];
@@ -48,8 +48,6 @@ router.get('/lesson_progress/:lesson', (req, res) => {
 router.get('/notes/:lesson/data', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var lessonInfo = lessons[0]['lesson_modules'][req.params.lesson];
-    console.log("Returned the following:");
-    console.log(lessonInfo)
     res.json(lessonInfo);
   });
 });
@@ -65,8 +63,6 @@ router.post('/update_lesson_time', (req, res) => {
       setObject,
       { new: true },
       function(err, time) {
-        console.log("Returned the following:");
-        console.log(time)
         res.json(time);
       }
     )
@@ -88,8 +84,6 @@ router.post('/update_lesson_status', (req, res) => {
       setObject,
       { new: true },
       function(err, lessons) {
-        console.log("Returned the following:");
-        console.log(lessons)
         res.json(lessons);
       }
     )
@@ -97,7 +91,7 @@ router.post('/update_lesson_status', (req, res) => {
 });
 
 // Update notes for a user
-// Sample request: curl --cookie "<session cookie>" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_lesson_notes
+// Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "notes": "Hello world note"}' http://localhost:8080/update_lesson_notes
 router.post('/update_lesson_notes', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var setObject = {};
@@ -107,8 +101,6 @@ router.post('/update_lesson_notes', (req, res) => {
       setObject,
       { new: true },
       function(err, notes) {
-        console.log("Returned the following:");
-        console.log(notes)
         res.json(notes);
       }
     )
