@@ -5,11 +5,6 @@ var lessonApp = angular.module('lessonApp', ['ngRoute']);
 lessonApp.config(function($routeProvider) {
   $routeProvider
 
-  // Initial page that is rendered when AngularJS route takes over
-  .when('/', {
-    templateUrl: 'curriculum/start.html',
-  })
-
   // Kinematics
   .when('/motion-in-one-dimension', {
     templateUrl: 'curriculum/kinematics/motion-in-one-dimension.html',
