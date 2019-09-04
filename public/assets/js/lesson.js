@@ -41,6 +41,8 @@ function updateLessonStatus(status) {
   });
 }
 
-updateTime();
-setLessonStatus();
-setSavedNote();
+if(document.getElementById("lessonStatus")) {
+  updateTime();
+  setLessonStatus();
+  setSavedNote();
+}
