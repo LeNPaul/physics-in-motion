@@ -40,14 +40,14 @@ describe('Lessons API', () => {
   });
 
   it('set updated field to current time', (done) => {
-    chai.request(app).post('/update_lesson_time').send({username: "12345", lessonPath: "forces.friction_drag", notes: "Hello world note"}).end((err, res) => {
+    chai.request(app).post('/update_lesson_time').send({lessonPath: "forces.friction_drag"}).end((err, res) => {
       res.should.have.status(200);
       done();
     });
   });
 
   it('return user lesson information', (done) => {
-    chai.request(app).post('/lesson_data').send({username:"12345"}).end((err, res) => {
+    chai.request(app).get('/lesson_data').end((err, res) => {
       res.should.have.status(200);
       done();
     });
