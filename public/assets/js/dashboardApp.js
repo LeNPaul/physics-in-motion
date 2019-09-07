@@ -4,6 +4,9 @@ var dashboardApp = angular.module('dashboardApp', []);
 // create the controller and inject Angular's $scope
 dashboardApp.controller('mainController', function($scope) {
 
-  console.log("This dashboard app works");
+  $.get("/recent_lessons", function(data, status) {
+    $scope.records = data;
+    $scope.$digest();
+  });
 
 });
