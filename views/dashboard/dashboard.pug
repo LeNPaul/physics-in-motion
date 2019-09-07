@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en',ng-app='dashboardApp')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
@@ -14,7 +14,7 @@ html(lang='en')
     link(href='/assets/css/dashboard/dashboard.css', rel='stylesheet')
     //- Google Analytics
     include ../google-analytics.pug
-  body
+  body(ng-controller='mainController')
     if (!user)
       include ../navbar/default-nav.pug
 
@@ -146,7 +146,11 @@ html(lang='en')
     script(src='/assets/libs/bootstrap/popper.min.js')
     script(src='/assets/libs/bootstrap/bootstrap.min.js')
     script(src='/assets/libs/bootstrap/holder.min.js')
+    //- AngularJS
+    script(src='/assets/libs/angular/angular.min.js')
     //- Font Awesome
     script(src='/assets/libs/font-awesome/fontawesome-all.min.js')
+    //- ANGULAR CUSTOM
+    script(src='/assets/js/dashboardApp.js')
     //- Help functions for user dashboard
     script(src='/assets/js/dashboard.js')
