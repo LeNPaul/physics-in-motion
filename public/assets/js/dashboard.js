@@ -1,7 +1,8 @@
 function setLatestLesson() {
   $.get("/recent_lessons", function(data, status) {
+    console.log(data)
     var link = document.getElementById("latest-lesson");
-    link.setAttribute('href', data[0][0]);
+    link.setAttribute('href', (data[0][0] + "#!/" + data[0][1]).replace(/_/g, "-"));
   });
 };
 
