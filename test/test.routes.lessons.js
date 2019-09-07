@@ -39,6 +39,7 @@ describe('Lessons API', () => {
     done();
   });
 
+/*
   it('set updated field to current time', (done) => {
     chai.request(app).post('/update_lesson_time').send({lessonPath: "forces.friction_drag"}).end((err, res) => {
       res.should.have.status(200);
@@ -79,7 +80,7 @@ describe('Lessons API', () => {
       res.should.have.status(200);
       done();
     });
-  });
+  });*/
 
   afterEach((done) => {
     Account.remove({}, () => {

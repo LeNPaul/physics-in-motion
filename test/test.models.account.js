@@ -30,7 +30,6 @@ describe('Account', () => {
     it('find a user by username', (done) => {
         Account.findOne({ username: '12345' }, (err, account) => {
             account.username.should.eql('12345');
-            console.log("   username: ", account.username);
             done();
         });
     });
