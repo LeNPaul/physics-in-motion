@@ -21,7 +21,6 @@ router.get('/recent_lessons', (req,  res) => {
     }
     lastAccessedLessons.shift();
     modulesSorted = lastAccessedLessons.sort(function(a,b){return b[2].updated - a[2].updated})
-    console.log(modulesSorted);
     res.json(modulesSorted);
   });
 });
