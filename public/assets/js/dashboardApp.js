@@ -4,14 +4,6 @@ var dashboardApp = angular.module('dashboardApp', []);
 // create the controller and inject Angular's $scope
 dashboardApp.controller('mainController', function($scope) {
 
-  function getRecentLessons(){
-    return new Promise((resolve, reject) => {
-      $.get("/recent_lessons", function(lessons, status) {
-        resolve(lessons);
-      });
-    })
-  }
-
   function getLessonProgress(lesson){
     return new Promise((resolve, reject) => {
       $.get("/lesson_progress/" + lesson, function(data){
@@ -20,17 +12,20 @@ dashboardApp.controller('mainController', function($scope) {
     })
   }
 
-  getRecentLessons().then(lessons => {
-    for(var i = 0; i < lessons.length; i++) {
-      getLessonProgress(lessons[i][0]).then(data => {
-        // Set the links and stuff
-        console.log(lessons);
-        // Set the lesson progress
-        console.log(data);
-      })
-    }
-  })
-
-  $scope.records = [];
+  function getDashboardData(){
+    return new Promise((resolve, reject) => {
+      $.get("/recent_lessons", function(lessons, status) {
+        let dashboardData = [];
+        for (let i=1; i < lessons.length; i++) {
+          getLessonProgress(lessons[i][0]).then(data => {
+            dashboardData.push(lessons[i]);
+          });
+        }
+        resolve(dashboardData);
+        //$scope.records = dashboardData;
+        //$scope.$digest();
+      });
+    })
+  }
 
 });
