@@ -37,6 +37,13 @@ dashboardApp.controller('mainController', function($scope) {
     }
   }
 
+  function setLatestLesson() {
+    $.get("/recent_lessons", function(data, status) {
+      var link = document.getElementById("latest-lesson");
+      link.setAttribute('href', (data[0][0] + "#!/" + data[0][1]).replace(/_/g, "-"));
+    });
+  };
+
   // Important article: https://blog.maximerouiller.com/post/ajax-requests-in-a-loop-and-other-scoping-problems-with-javascript/
   function setLessonProgress() {
     const demoClass = document.getElementsByClassName('progress-bar');
@@ -70,6 +77,7 @@ dashboardApp.controller('mainController', function($scope) {
     })
   }
 
+  setLatestLesson();
   getDashboardData().then(function(value){
     setLessonProgress();
   })
