@@ -19,4 +19,4 @@ function setLessonProgress() {
 };
 
 setLatestLesson();
-setLessonProgress();
+//setLessonProgress();
