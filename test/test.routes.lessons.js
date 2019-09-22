@@ -39,49 +39,6 @@ describe('Lessons API', () => {
     done();
   });
 
-/*
-  it('set updated field to current time', (done) => {
-    chai.request(app).post('/update_lesson_time').send({lessonPath: "forces.friction_drag"}).end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });
-
-  it('return user lesson information', (done) => {
-    chai.request(app).get('/lesson_data').end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });
-
-  it('update lesson status', (done) => {
-    chai.request(app).post('/update_lesson_status').send({username:"12345", lessonPath:"forces.friction_drag", status: true}).end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });
-
-  it('update notes for a lesson', (done) => {
-    chai.request(app).post('/update_lesson_notes').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });
-
-  it('return most recently accessed lessons', (done) => {
-    chai.request(app).post('/recent_lessons').send({username: "12345", lessonPath: "forces.friction_drag"}).end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });
-
-  it('return the progress of a lesson', (done) => {
-    chai.request(app).post('/get_lesson_progress').send({username:"12345", lesson:"kinematics"}).end((err, res) => {
-      res.should.have.status(200);
-      done();
-    });
-  });*/
-
   afterEach((done) => {
     Account.remove({}, () => {
     });
