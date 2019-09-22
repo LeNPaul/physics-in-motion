@@ -33,6 +33,7 @@ function moveApplication(cb) {
   '!public/assets/js/**/*.js',
   '!public/assets/css/**/*.css',
   '!test/**',
+  '!server/**',
   '!*.md',
   '!bower.json',
   '!package-lock.json',
