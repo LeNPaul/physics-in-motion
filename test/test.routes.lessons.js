@@ -39,6 +39,18 @@ describe('Lessons API', () => {
     done();
   });
 
+  let agent = chai.request.agent(app)
+
+  it('log into user account', (done) => {
+    agent.post('/login').send({ username: '12345', password: 'testy' }).then(function(res){})
+    done();
+  });
+
+  it('get recent lessons for user', (done) => {
+    agent.get('/recent_lessons').then(function(res){})
+    done();
+  })
+
   afterEach((done) => {
     Account.remove({}, () => {
     });
