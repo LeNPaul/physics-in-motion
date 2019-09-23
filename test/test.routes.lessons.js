@@ -12,15 +12,6 @@ describe('Lessons API', () => {
 
   before((done) => {
     const db = mongoose.connect('mongodb://localhost/test');
-    done();
-  });
-
-  after((done) => {
-    mongoose.connection.close();
-    done();
-  });
-
-  beforeEach( (done) => {
     var account = new Account({
       username: '12345',
       password: 'testy'
@@ -36,27 +27,28 @@ describe('Lessons API', () => {
       if (error) console.log('error' + error.message);
       else console.log('no error');
     });
-    done();
-  });
-
-  let agent = chai.request.agent(app)
-
-  it('log into user account', (done) => {
-    agent.post('/login').send({ username: '12345', password: 'testy' }).then(function(res){})
-    done();
-  });
-
-  it('get recent lessons for user', (done) => {
-    agent.get('/recent_lessons').then(function(res){})
-    done();
-  })
-
-  afterEach((done) => {
     Account.remove({}, () => {
     });
     Lessons.remove({}, () => {
-      done();
     });
-   });
+    done();
+  });
+
+  beforeEach( (done) => {
+    done();
+  });
+
+  it('log into user account', (done) => {
+    done();
+  });
+
+  afterEach((done) => {
+    done();
+  });
+
+  after((done) => {
+    mongoose.connection.close();
+    done();
+  });
 
 });
