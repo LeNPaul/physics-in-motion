@@ -27,10 +27,6 @@ describe('Lessons API', () => {
       if (error) console.log('error' + error.message);
       else console.log('no error');
     });
-    Account.remove({}, () => {
-    });
-    Lessons.remove({}, () => {
-    });
     done();
   });
 
@@ -47,6 +43,11 @@ describe('Lessons API', () => {
   });
 
   after((done) => {
+    Account.remove({}, () => {
+    });
+    Lessons.remove({}, () => {
+    });
+    done();
     mongoose.connection.close();
     done();
   });
