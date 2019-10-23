@@ -11,6 +11,5 @@ describe('Route API', () => {
       res.should.have.status(200);
       done();
     });
-  });
 
 });
