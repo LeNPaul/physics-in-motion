@@ -7,12 +7,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var Promise = require("bluebird");
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 
 var routes = require('./routes/index');
 var authentication = require('./routes/authentication');
 var lessons = require('./routes/lessons');
+
+// Use bluebird promise library
+mongoose.Promise = require('bluebird');
 
 var app = express();
 
