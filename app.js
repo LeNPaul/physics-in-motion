@@ -58,9 +58,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // Connect to our mongoDB database
-mongoose.connect(db.url, {
-  useMongoClient: true,
-});
+mongoose.connect(db.url, {});
 
 mongoose.connection.on('connected', function() {
   console.log('Mongoose connected to ' + db.url);
