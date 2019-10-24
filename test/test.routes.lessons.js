@@ -9,7 +9,7 @@ describe('lesson_data endpoint', () => {
 
   it('return unsuccessful request', (done) => {
     chai.request(app).get('/lesson_data').end((err, res) => {
-      res.should.have.status(500);
+      res.status.should.be.equal(500);
     });
     done();
   });
