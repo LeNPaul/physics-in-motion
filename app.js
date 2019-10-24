@@ -59,7 +59,8 @@ passport.deserializeUser(Account.deserializeUser());
 
 // Connect to our mongoDB database
 mongoose.connect(db.url, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 mongoose.connection.on('connected', function() {
