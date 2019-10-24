@@ -28,3 +28,39 @@ describe('about routes', () => {
   });
 
 });
+
+describe('contact routes', () => {
+
+  it('return the contact page', (done) => {
+    chai.request(app).get('/contact').end((err, res) => {
+      res.should.have.status(200);
+      res.text.length.should.be.eql(3553);
+    });
+    done();
+  });
+
+});
+
+describe('privacy routes', () => {
+
+  it('return the privacy page', (done) => {
+    chai.request(app).get('/privacy').end((err, res) => {
+      res.should.have.status(200);
+      res.text.length.should.be.eql(11086);
+    });
+    done();
+  });
+
+});
+
+describe('terms routes', () => {
+
+  it('return the terms page', (done) => {
+    chai.request(app).get('/terms').end((err, res) => {
+      res.should.have.status(200);
+      res.text.length.should.be.eql(7858);
+    });
+    done();
+  });
+
+});
