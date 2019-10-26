@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --exit"
   },
   "repository": {
     "type": "git",
