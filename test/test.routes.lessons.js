@@ -1,20 +1,10 @@
 var should = require('should');
 var assert = require('assert');
 var chai = require('chai'), chaiHttp = require('chai-http');
-var app = 'http://localhost:8080'
+var app = 'http://localhost:8080';
+var user = {username: 'test@email.com', password: 'password'};
 
 chai.use(chaiHttp);
-
-describe('register user', () => {
-
-  it('register a new user', (done) => {
-    chai.request(app).post('/login').send({username: 'test@email.com', password: 'password'}).end((err, res) => {
-      console.log(res);
-      done();
-    });
-  });
-
-});
 
 describe('lesson_data endpoint', () => {
 
@@ -45,6 +35,19 @@ describe('lesson_progress endpoints', () => {
       res.status.should.be.equal(500);
       done();
     });
+  });
+
+  it('log into user and get lesson_progress', (done) => {
+    var agent = chai.request.agent(app)
+    agent.post('/login').send(user).end((err, res) => {
+      agent.get('/lesson_progress/kinematics').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.property('progress');
+        res.body.progress.should.be.equal(0);
+        done();
+      });
+    });
+    agent.close();
   });
 
 });
