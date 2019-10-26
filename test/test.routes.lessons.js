@@ -18,7 +18,7 @@ describe('/lesson_data endpoint', () => {
     agent.post('/login').send(user).end((err, res) => {
       agent.get('/lesson_data').end((err, res) => {
         res.status.should.be.equal(200);
-        res.body[0].should.have.property('lesson_modules')
+        res.body[0].should.have.property('lesson_modules');
         done();
       });
     });
@@ -46,28 +46,8 @@ describe('/recent_lessons endpoint', () => {
   });
 });
 
-describe('/lesson_data endpoint', () => {
-  it('requesting /lesson_data without sesssion cooke should not return user data', (done) => {
-    chai.request(app).get('/lesson_data').end((err, res) => {
-      res.status.should.be.equal(500);
-      done();
-    });
-  });
-  it('requesting /lesson_data with sesssion cooke should return user data', (done) => {
-    var agent = chai.request.agent(app)
-    agent.post('/login').send(user).end((err, res) => {
-      agent.get('/lesson_data').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body[0].should.have.property('lesson_modules');
-        done();
-      });
-    });
-    agent.close();
-  });
-});
-
 // Test workflow where lesson progress is updated and then immediately checked to make sure the value is the same
-describe('/lesson_progress endpoints', () => {
+describe('/lesson_progress/:lesson endpoints', () => {
   var lessons = ['kinematics', 'forces', 'energy', 'momentum', 'simple_harmonic_motion', 'waves', 'fluids']
   for(let i = 0; i < lessons.length; i++) {
     it('requesting /lesson_progress/' + lessons[i] + ' without sesssion cooke should not return user data', (done) => {
@@ -83,6 +63,29 @@ describe('/lesson_progress endpoints', () => {
           res.status.should.be.equal(200);
           res.body.should.have.property('progress');
           res.body.progress.should.be.equal(0);
+          done();
+        });
+      });
+    });
+    agent.close();
+  }
+});
+
+describe('/notes/:lesson/data endpoints', () => {
+  var lessons = ['kinematics', 'forces', 'energy', 'momentum', 'simple_harmonic_motion', 'waves', 'fluids']
+  for(let i = 0; i < lessons.length; i++) {
+    it('requesting /notes/' + lessons[i] + '/data without sesssion cooke should not return user data', (done) => {
+      chai.request(app).get('/notes/' + lessons[i] + '/data').end((err, res) => {
+        res.status.should.be.equal(500);
+        done();
+      });
+    });
+    var agent = chai.request.agent(app)
+    it('requesting /notes/' + lessons[i] + '/data with sesssion cooke should return user data', (done) => {
+      agent.post('/login').send(user).end((err, res) => {
+        agent.get('/notes/' + lessons[i] + '/data').end((err, res) => {
+          res.status.should.be.equal(200);
+          res.body.should.be.Object();
           done();
         });
       });
