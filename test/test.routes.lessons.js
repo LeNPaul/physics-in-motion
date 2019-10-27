@@ -89,32 +89,95 @@ describe('/notes/:lesson/data endpoints', () => {
   }
 });
 
-// forces.friction_drag
-// forces.newtons_laws
-// forces.simple_forces
-
 describe('/update_lesson_time endpoints', () => {
 
   // Check that request with no session cookie does not return user data
 
-  it('update lesson time for forces.friction_drag', (done) => {
-    agent.post('/update_lesson_time').send({lessonPath:'forces.simple_forces'}).end((err, res) => {
-      res.status.should.be.equal(200);
-      res.body.should.be.Object();
-      done();
-    });
-  });
+  var lessons = [
+    [
+      'kinematics',
+      [
+        'motion_in_one_dimension',
+        'motion_in_two_dimensions',
+        'simple_motion_in_one_dimension',
+        'simple_motion_in_two_dimensions'
+      ]
+    ],
+    [
+      'forces',
+      [
+        'friction_drag',
+        'newtons_laws',
+        'simple_forces'
+      ]
+    ],
+    [
+      'energy',
+      [
+        'conservative_forces',
+        'energy_conservation_work',
+        'power',
+        'work_potential_energy'
+      ]
+    ],
+    [
+      'momentum',
+      [
+        'elastic_collisions',
+        'explosions',
+        'momentum_conservation'
+      ]
+    ],
+    [
+      'simple_harmonic_motion',
+      [
+        'damped_harmonic_motion',
+        'driven_oscillations',
+        'dynamics_simple_harmonic_motion',
+        'the_pendulum'
+      ]
+    ],
+    [
+      'waves',
+      [
+        'characteristics_waves',
+        'interference',
+        'superposition_of_waves'
+      ]
+    ],
+    [
+      'fluids',
+      [
+        'buoyancy',
+        'continuity',
+        'fluid_statics',
+        'fluid_dynamics',
+        'incompressible_fluids',
+        'pressure'
+      ]
+    ]
+  ]
 
-  it('/recent_lessons should return forces.friction_drag as the most recent accessed lesson module', (done) => {
-    agent.get('/recent_lessons').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.body.should.have.lengthOf(7);
-      res.body[0][0].should.be.equal('forces');
-      res.body[0][1].should.be.equal('simple_forces');
-      done();
-    });
-  });
-
+  for(let i = 0; i < lessons.length; i++) {
+    for(let j = 0; j < lessons[i][1].length; j++) {
+      it('update lesson time for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+        agent.post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
+          res.status.should.be.equal(200);
+          res.body.should.be.Object();
+          done();
+        });
+      });
+      it('/recent_lessons should return ' + lessons[i][0] + '.' + lessons[i][1][j] + ' as the most recent accessed lesson module', (done) => {
+        agent.get('/recent_lessons').end((err, res) => {
+          res.status.should.be.equal(200);
+          res.body.should.have.lengthOf(7);
+          res.body[0][0].should.be.equal(lessons[i][0]);
+          res.body[0][1].should.be.equal(lessons[i][1][j]);
+          done();
+        });
+      });
+    }
+  }
 });
 
 agent.close();
