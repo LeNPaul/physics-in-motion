@@ -6,6 +6,17 @@ var user = {username: 'test@email.com', password: 'password'};
 
 chai.use(chaiHttp);
 
+var agent = chai.request.agent(app);
+
+describe('/login endpoint', () => {
+  it('log into user account', (done) => {
+    agent.post('/login').send(user).end((err, res) => {
+      res.status.should.be.equal(200);
+      done();
+    });
+  });
+});
+
 describe('/lesson_data endpoint', () => {
   it('requesting /lesson_data without sesssion cooke should not return user data', (done) => {
     chai.request(app).get('/lesson_data').end((err, res) => {
@@ -14,15 +25,11 @@ describe('/lesson_data endpoint', () => {
     });
   });
   it('requesting /lesson_data with sesssion cooke should return user data', (done) => {
-    var agent = chai.request.agent(app)
-    agent.post('/login').send(user).end((err, res) => {
-      agent.get('/lesson_data').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body[0].should.have.property('lesson_modules');
-        done();
-      });
+    agent.get('/lesson_data').end((err, res) => {
+      res.status.should.be.equal(200);
+      res.body[0].should.have.property('lesson_modules');
+      done();
     });
-    agent.close();
   });
 });
 
@@ -34,15 +41,11 @@ describe('/recent_lessons endpoint', () => {
     });
   });
   it('requesting /recent_lessons with sesssion cooke should return user data', (done) => {
-    var agent = chai.request.agent(app)
-    agent.post('/login').send(user).end((err, res) => {
-      agent.get('/recent_lessons').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body.should.have.lengthOf(7);
-        done();
-      });
+    agent.get('/recent_lessons').end((err, res) => {
+      res.status.should.be.equal(200);
+      res.body.should.have.lengthOf(7);
+      done();
     });
-    agent.close();
   });
 });
 
@@ -56,18 +59,14 @@ describe('/lesson_progress/:lesson endpoints', () => {
         done();
       });
     });
-    var agent = chai.request.agent(app)
     it('requesting /lesson_progress/' + lessons[i] + ' with sesssion cooke should return user data', (done) => {
-      agent.post('/login').send(user).end((err, res) => {
-        agent.get('/lesson_progress/' + lessons[i]).end((err, res) => {
-          res.status.should.be.equal(200);
-          res.body.should.have.property('progress');
-          res.body.progress.should.be.equal(0);
-          done();
-        });
+      agent.get('/lesson_progress/' + lessons[i]).end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.property('progress');
+        res.body.progress.should.be.equal(0);
+        done();
       });
     });
-    agent.close();
   }
 });
 
@@ -80,17 +79,13 @@ describe('/notes/:lesson/data endpoints', () => {
         done();
       });
     });
-    var agent = chai.request.agent(app)
     it('requesting /notes/' + lessons[i] + '/data with sesssion cooke should return user data', (done) => {
-      agent.post('/login').send(user).end((err, res) => {
-        agent.get('/notes/' + lessons[i] + '/data').end((err, res) => {
-          res.status.should.be.equal(200);
-          res.body.should.be.Object();
-          done();
-        });
+      agent.get('/notes/' + lessons[i] + '/data').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.be.Object();
+        done();
       });
     });
-    agent.close();
   }
 });
 
@@ -101,15 +96,6 @@ describe('/notes/:lesson/data endpoints', () => {
 describe('/update_lesson_time endpoints', () => {
 
   // Check that request with no session cookie does not return user data
-
-  var agent = chai.request.agent(app)
-
-  it('log into a user account', (done) => {
-    agent.post('/login').send(user).end((err, res) => {
-      res.status.should.be.equal(200);
-      done();
-    });
-  });
 
   it('update lesson time for forces.friction_drag', (done) => {
     agent.post('/update_lesson_time').send({lessonPath:'forces.simple_forces'}).end((err, res) => {
@@ -129,5 +115,6 @@ describe('/update_lesson_time endpoints', () => {
     });
   });
 
-  agent.close();
 });
+
+agent.close();
