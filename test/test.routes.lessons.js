@@ -3,6 +3,70 @@ var assert = require('assert');
 var chai = require('chai'), chaiHttp = require('chai-http');
 var app = 'http://localhost:8080';
 var user = {username: 'test@email.com', password: 'password'};
+var lessons = [
+  [
+    'kinematics',
+    [
+      'motion_in_one_dimension',
+      'motion_in_two_dimensions',
+      'simple_motion_in_one_dimension',
+      'simple_motion_in_two_dimensions'
+    ]
+  ],
+  [
+    'forces',
+    [
+      'friction_drag',
+      'newtons_laws',
+      'simple_forces'
+    ]
+  ],
+  [
+    'energy',
+    [
+      'conservative_forces',
+      'energy_conservation_work',
+      'power',
+      'work_potential_energy'
+    ]
+  ],
+  [
+    'momentum',
+    [
+      'elastic_collisions',
+      'explosions',
+      'momentum_conservation'
+    ]
+  ],
+  [
+    'simple_harmonic_motion',
+    [
+      'damped_harmonic_motion',
+      'driven_oscillations',
+      'dynamics_simple_harmonic_motion',
+      'the_pendulum'
+    ]
+  ],
+  [
+    'waves',
+    [
+      'characteristics_waves',
+      'interference',
+      'superposition_of_waves'
+    ]
+  ],
+  [
+    'fluids',
+    [
+      'buoyancy',
+      'continuity',
+      'fluid_statics',
+      'fluid_dynamics',
+      'incompressible_fluids',
+      'pressure'
+    ]
+  ]
+]
 
 chai.use(chaiHttp);
 
@@ -51,16 +115,15 @@ describe('/recent_lessons endpoint', () => {
 
 // Test workflow where lesson progress is updated and then immediately checked to make sure the value is the same
 describe('/lesson_progress/:lesson endpoints', () => {
-  var lessons = ['kinematics', 'forces', 'energy', 'momentum', 'simple_harmonic_motion', 'waves', 'fluids']
   for(let i = 0; i < lessons.length; i++) {
-    it('requesting /lesson_progress/' + lessons[i] + ' without sesssion cooke should not return user data', (done) => {
-      chai.request(app).get('/lesson_progress/' + lessons[i]).end((err, res) => {
+    it('requesting /lesson_progress/' + lessons[i][0] + ' without sesssion cooke should not return user data', (done) => {
+      chai.request(app).get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-    it('requesting /lesson_progress/' + lessons[i] + ' with sesssion cooke should return user data', (done) => {
-      agent.get('/lesson_progress/' + lessons[i]).end((err, res) => {
+    it('requesting /lesson_progress/' + lessons[i][0] + ' with sesssion cooke should return user data', (done) => {
+      agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.property('progress');
         res.body.progress.should.be.equal(0);
@@ -71,16 +134,15 @@ describe('/lesson_progress/:lesson endpoints', () => {
 });
 
 describe('/notes/:lesson/data endpoints', () => {
-  var lessons = ['kinematics', 'forces', 'energy', 'momentum', 'simple_harmonic_motion', 'waves', 'fluids']
   for(let i = 0; i < lessons.length; i++) {
-    it('requesting /notes/' + lessons[i] + '/data without sesssion cooke should not return user data', (done) => {
-      chai.request(app).get('/notes/' + lessons[i] + '/data').end((err, res) => {
+    it('requesting /notes/' + lessons[i][0] + '/data without sesssion cooke should not return user data', (done) => {
+      chai.request(app).get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-    it('requesting /notes/' + lessons[i] + '/data with sesssion cooke should return user data', (done) => {
-      agent.get('/notes/' + lessons[i] + '/data').end((err, res) => {
+    it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return user data', (done) => {
+      agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.be.Object();
         done();
@@ -90,76 +152,14 @@ describe('/notes/:lesson/data endpoints', () => {
 });
 
 describe('/update_lesson_time endpoints', () => {
-
-  // Check that request with no session cookie does not return user data
-
-  var lessons = [
-    [
-      'kinematics',
-      [
-        'motion_in_one_dimension',
-        'motion_in_two_dimensions',
-        'simple_motion_in_one_dimension',
-        'simple_motion_in_two_dimensions'
-      ]
-    ],
-    [
-      'forces',
-      [
-        'friction_drag',
-        'newtons_laws',
-        'simple_forces'
-      ]
-    ],
-    [
-      'energy',
-      [
-        'conservative_forces',
-        'energy_conservation_work',
-        'power',
-        'work_potential_energy'
-      ]
-    ],
-    [
-      'momentum',
-      [
-        'elastic_collisions',
-        'explosions',
-        'momentum_conservation'
-      ]
-    ],
-    [
-      'simple_harmonic_motion',
-      [
-        'damped_harmonic_motion',
-        'driven_oscillations',
-        'dynamics_simple_harmonic_motion',
-        'the_pendulum'
-      ]
-    ],
-    [
-      'waves',
-      [
-        'characteristics_waves',
-        'interference',
-        'superposition_of_waves'
-      ]
-    ],
-    [
-      'fluids',
-      [
-        'buoyancy',
-        'continuity',
-        'fluid_statics',
-        'fluid_dynamics',
-        'incompressible_fluids',
-        'pressure'
-      ]
-    ]
-  ]
-
   for(let i = 0; i < lessons.length; i++) {
     for(let j = 0; j < lessons[i][1].length; j++) {
+      it('requesting /update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' without sesssion cooke should not return user data', (done) => {
+        chai.request(app).post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
+          res.status.should.be.equal(500);
+          done();
+        });
+      });
       it('update lesson time for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
         agent.post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
           res.status.should.be.equal(200);
