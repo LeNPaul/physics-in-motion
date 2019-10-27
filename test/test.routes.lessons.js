@@ -93,3 +93,41 @@ describe('/notes/:lesson/data endpoints', () => {
     agent.close();
   }
 });
+
+// forces.friction_drag
+// forces.newtons_laws
+// forces.simple_forces
+
+describe('/update_lesson_time endpoints', () => {
+
+  // Check that request with no session cookie does not return user data
+
+  var agent = chai.request.agent(app)
+
+  it('log into a user account', (done) => {
+    agent.post('/login').send(user).end((err, res) => {
+      res.status.should.be.equal(200);
+      done();
+    });
+  });
+
+  it('update lesson time for forces.friction_drag', (done) => {
+    agent.post('/update_lesson_time').send({lessonPath:'forces.simple_forces'}).end((err, res) => {
+      res.status.should.be.equal(200);
+      res.body.should.be.Object();
+      done();
+    });
+  });
+
+  it('/recent_lessons should return forces.friction_drag as the most recent accessed lesson module', (done) => {
+    agent.get('/recent_lessons').end((err, res) => {
+      res.status.should.be.equal(200);
+      res.body.should.have.lengthOf(7);
+      res.body[0][0].should.be.equal('forces');
+      res.body[0][1].should.be.equal('simple_forces');
+      done();
+    });
+  });
+
+  agent.close();
+});
