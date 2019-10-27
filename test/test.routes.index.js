@@ -5,62 +5,56 @@ var app = 'http://localhost:8080'
 
 chai.use(chaiHttp);
 
-describe('index routes', () => {
+describe('Index endpoints', () => {
 
-  it('return the home page', (done) => {
-    chai.request(app).get('/').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.text.length.should.be.eql(5348);
+  describe('index routes', () => {
+    it('return the home page', (done) => {
+      chai.request(app).get('/').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(5348);
+      });
+      done();
     });
-    done();
   });
 
-});
-
-describe('about routes', () => {
-
-  it('return the about page', (done) => {
-    chai.request(app).get('/about').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.text.length.should.be.eql(4559);
+  describe('about routes', () => {
+    it('return the about page', (done) => {
+      chai.request(app).get('/about').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(4559);
+      });
+      done();
     });
-    done();
   });
 
-});
-
-describe('contact routes', () => {
-
-  it('return the contact page', (done) => {
-    chai.request(app).get('/contact').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.text.length.should.be.eql(3553);
+  describe('contact routes', () => {
+    it('return the contact page', (done) => {
+      chai.request(app).get('/contact').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(3553);
+      });
+      done();
     });
-    done();
   });
 
-});
-
-describe('privacy routes', () => {
-
-  it('return the privacy page', (done) => {
-    chai.request(app).get('/privacy').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.text.length.should.be.eql(11086);
+  describe('privacy routes', () => {
+    it('return the privacy page', (done) => {
+      chai.request(app).get('/privacy').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(11086);
+      });
+      done();
     });
-    done();
   });
 
-});
-
-describe('terms routes', () => {
-
-  it('return the terms page', (done) => {
-    chai.request(app).get('/terms').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.text.length.should.be.eql(7858);
+  describe('terms routes', () => {
+    it('return the terms page', (done) => {
+      chai.request(app).get('/terms').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(7858);
+      });
+      done();
     });
-    done();
   });
 
 });
