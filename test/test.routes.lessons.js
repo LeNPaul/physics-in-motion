@@ -67,6 +67,7 @@ var lessons = [
     ]
   ]
 ]
+var notes = '~!@#$%^&*()_+`1234567890-=qwertyuiop[]\asdfghjkl;\'zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?"';
 
 chai.use(chaiHttp);
 
@@ -141,10 +142,20 @@ describe('/notes/:lesson/data endpoints', () => {
         done();
       });
     });
-    it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return user data', (done) => {
+    for(let j = 0; j < lessons[i][1].length; j++) {
+      it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+          agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+            done();
+          });
+      });
+    }
+    it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return correct user data', (done) => {
       agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.be.Object();
+        for(let j = 0; j < lessons[i][1].length; j++) {
+          res.body[lessons[i][1][j]].notes.should.be.equal(notes);
+        }
         done();
       });
     });
