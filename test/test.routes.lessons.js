@@ -71,124 +71,136 @@ var notes = '~!@#$%^&*()_+`1234567890-=qwertyuiop[]\asdfghjkl;\'zxcvbnm,./QWERTY
 
 chai.use(chaiHttp);
 
-var agent = chai.request.agent(app);
+describe('Lessons endpoints', () => {
 
-describe('/login endpoint', () => {
-  it('log into user account', (done) => {
-    agent.post('/login').send(user).end((err, res) => {
-      res.status.should.be.equal(200);
-      done();
-    });
-  });
-});
+  var agent = chai.request.agent(app);
 
-describe('/lesson_data endpoint', () => {
-  it('requesting /lesson_data without sesssion cooke should not return user data', (done) => {
-    chai.request(app).get('/lesson_data').end((err, res) => {
-      res.status.should.be.equal(500);
-      done();
-    });
-  });
-  it('requesting /lesson_data with sesssion cooke should return user data', (done) => {
-    agent.get('/lesson_data').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.body[0].should.have.property('lesson_modules');
-      done();
-    });
-  });
-});
-
-describe('/recent_lessons endpoint', () => {
-  it('requesting /recent_lessons without sesssion cooke should not return user data', (done) => {
-    chai.request(app).get('/recent_lessons').end((err, res) => {
-      res.status.should.be.equal(500);
-      done();
-    });
-  });
-  it('requesting /recent_lessons with sesssion cooke should return user data', (done) => {
-    agent.get('/recent_lessons').end((err, res) => {
-      res.status.should.be.equal(200);
-      res.body.should.have.lengthOf(7);
-      done();
-    });
-  });
-});
-
-// Test workflow where lesson progress is updated and then immediately checked to make sure the value is the same
-describe('/lesson_progress/:lesson endpoints', () => {
-  for(let i = 0; i < lessons.length; i++) {
-    it('requesting /lesson_progress/' + lessons[i][0] + ' without sesssion cooke should not return user data', (done) => {
-      chai.request(app).get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
-        res.status.should.be.equal(500);
-        done();
-      });
-    });
-    it('requesting /lesson_progress/' + lessons[i][0] + ' with sesssion cooke should return user data', (done) => {
-      agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
+  describe('/login endpoint', () => {
+    it('log into user account', (done) => {
+      agent.post('/login').send(user).end((err, res) => {
         res.status.should.be.equal(200);
-        res.body.should.have.property('progress');
-        res.body.progress.should.be.equal(0);
         done();
       });
     });
-  }
-});
+  });
 
-describe('/notes/:lesson/data endpoints', () => {
-  for(let i = 0; i < lessons.length; i++) {
-    it('requesting /notes/' + lessons[i][0] + '/data without sesssion cooke should not return user data', (done) => {
-      chai.request(app).get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
+  describe('/lesson_data endpoint', () => {
+    it('requesting /lesson_data without sesssion cooke should not return user data', (done) => {
+      chai.request(app).get('/lesson_data').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-    for(let j = 0; j < lessons[i][1].length; j++) {
-      it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
-          agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+    it('requesting /lesson_data with sesssion cooke should return user data', (done) => {
+      agent.get('/lesson_data').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body[0].should.have.property('lesson_modules');
+        done();
+      });
+    });
+  });
+
+  describe('/recent_lessons endpoint', () => {
+    it('requesting /recent_lessons without sesssion cooke should not return user data', (done) => {
+      chai.request(app).get('/recent_lessons').end((err, res) => {
+        res.status.should.be.equal(500);
+        done();
+      });
+    });
+    it('requesting /recent_lessons with sesssion cooke should return user data', (done) => {
+      agent.get('/recent_lessons').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.lengthOf(7);
+        done();
+      });
+    });
+  });
+
+  // Test workflow where lesson progress is updated and then immediately checked to make sure the value is the same
+  describe('/lesson_progress/:lesson endpoints', () => {
+    for(let i = 0; i < lessons.length; i++) {
+      describe('/lesson_progress/' + lessons[i][0], () => {
+        it('requesting /lesson_progress/' + lessons[i][0] + ' without sesssion cooke should not return user data', (done) => {
+          chai.request(app).get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
+            res.status.should.be.equal(500);
             done();
           });
+        });
+        it('requesting /lesson_progress/' + lessons[i][0] + ' with sesssion cooke should return user data', (done) => {
+          agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
+            res.status.should.be.equal(200);
+            res.body.should.have.property('progress');
+            res.body.progress.should.be.equal(0);
+            done();
+          });
+        });
       });
     }
-    it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return correct user data', (done) => {
-      agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body.should.be.Object();
+  });
+
+  describe('/notes/:lesson/data endpoints', () => {
+    for(let i = 0; i < lessons.length; i++) {
+      describe('/notes/' + lessons[i][0] + '/data', () => {
+        it('requesting /notes/' + lessons[i][0] + '/data without sesssion cooke should not return user data', (done) => {
+          chai.request(app).get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
+            res.status.should.be.equal(500);
+            done();
+          });
+        });
         for(let j = 0; j < lessons[i][1].length; j++) {
-          res.body[lessons[i][1][j]].notes.should.be.equal(notes);
+          it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+              agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+                done();
+              });
+          });
         }
-        done();
-      });
-    });
-  }
-});
-
-describe('/update_lesson_time endpoints', () => {
-  for(let i = 0; i < lessons.length; i++) {
-    for(let j = 0; j < lessons[i][1].length; j++) {
-      it('requesting /update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' without sesssion cooke should not return user data', (done) => {
-        chai.request(app).post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
-          res.status.should.be.equal(500);
-          done();
-        });
-      });
-      it('update lesson time for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
-        agent.post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
-          res.status.should.be.equal(200);
-          res.body.should.be.Object();
-          done();
-        });
-      });
-      it('/recent_lessons should return ' + lessons[i][0] + '.' + lessons[i][1][j] + ' as the most recent accessed lesson module', (done) => {
-        agent.get('/recent_lessons').end((err, res) => {
-          res.status.should.be.equal(200);
-          res.body.should.have.lengthOf(7);
-          res.body[0][0].should.be.equal(lessons[i][0]);
-          res.body[0][1].should.be.equal(lessons[i][1][j]);
-          done();
+        it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return correct user data', (done) => {
+          agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
+            res.status.should.be.equal(200);
+            res.body.should.be.Object();
+            for(let j = 0; j < lessons[i][1].length; j++) {
+              res.body[lessons[i][1][j]].notes.should.be.equal(notes);
+            }
+            done();
+          });
         });
       });
     }
-  }
-});
+  });
 
-agent.close();
+  describe('/update_lesson_time endpoints', () => {
+    for(let i = 0; i < lessons.length; i++) {
+      describe('/update_lesson_time for ' + lessons[i][0] + ' lessons', () => {
+        for(let j = 0; j < lessons[i][1].length; j++) {
+          describe('/update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' lesson modules', () => {
+            it('requesting /update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' without sesssion cooke should not return user data', (done) => {
+              chai.request(app).post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
+                res.status.should.be.equal(500);
+                done();
+              });
+            });
+            it('update lesson time for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+              agent.post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
+                res.status.should.be.equal(200);
+                res.body.should.be.Object();
+                done();
+              });
+            });
+            it('/recent_lessons should return ' + lessons[i][0] + '.' + lessons[i][1][j] + ' as the most recent accessed lesson module', (done) => {
+              agent.get('/recent_lessons').end((err, res) => {
+                res.status.should.be.equal(200);
+                res.body.should.have.lengthOf(7);
+                res.body[0][0].should.be.equal(lessons[i][0]);
+                res.body[0][1].should.be.equal(lessons[i][1][j]);
+                done();
+              });
+            });
+          });
+        }
+      })
+    }
+  });
+
+  agent.close();
+
+});
