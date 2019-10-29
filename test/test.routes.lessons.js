@@ -67,7 +67,7 @@ var lessons = [
     ]
   ]
 ]
-var notes = '~!@#$%^&*()_+`1234567890-=qwertyuiop[]\asdfghjkl;\'zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?"';
+var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:”ZXCVBNM<>?';
 
 chai.use(chaiHttp);
 
@@ -116,6 +116,7 @@ describe('Lessons endpoints', () => {
     });
   });
 
+  // Test workflow between /lesson_progress/:lesson and /update_lesson_status
   describe('/lesson_progress/:lesson endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/lesson_progress/' + lessons[i][0], () => {
@@ -125,34 +126,49 @@ describe('Lessons endpoints', () => {
             done();
           });
         });
-        for(let j=0; j < lessons[i][1].length; j++) {
-          it('/update_lesson_status for ' + lessons[i][1][j] + ' to be true', (done) => {
-            agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: true}).end((err, res) => {
-              res.status.should.be.equal(200);
-              done();
+        describe('revert back to default state with no progress for lesson module', () => {
+          for(let j=0; j < lessons[i][1].length; j++) {
+            it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
+              agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
+                res.status.should.be.equal(200);
+                done();
+              });
             });
-          });
-          it('/lesson_progress/' + lessons[i][0] + ' should return ' + ((j + 1) / lessons[i][1].length), (done) => {
-            agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
-              res.status.should.be.equal(200);
-              res.body.should.have.property('progress');
-              res.body.progress.should.be.equal((j + 1) / lessons[i][1].length);
-              done();
+          }
+        });
+        describe('testing lesson progress functionality for ' + lessons[i][0], () => {
+          for(let j=0; j < lessons[i][1].length; j++) {
+            it('/update_lesson_status for ' + lessons[i][1][j] + ' to be true', (done) => {
+              agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: true}).end((err, res) => {
+                res.status.should.be.equal(200);
+                done();
+              });
             });
-          });
-        }
-        for(let j=0; j < lessons[i][1].length; j++) {
-          it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
-            agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
-              res.status.should.be.equal(200);
-              done();
+            it('/lesson_progress/' + lessons[i][0] + ' should return ' + ((j + 1) / lessons[i][1].length), (done) => {
+              agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
+                res.status.should.be.equal(200);
+                res.body.should.have.property('progress');
+                res.body.progress.should.be.equal((j + 1) / lessons[i][1].length);
+                done();
+              });
             });
-          });
-        }
+          }
+        });
+        describe('revert back to previous state', () => {
+          for(let j=0; j < lessons[i][1].length; j++) {
+            it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
+              agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
+                res.status.should.be.equal(200);
+                done();
+              });
+            });
+          }
+        });
       });
     }
   });
 
+  // Test workflow between /notes/:lesson/data and /update_lesson_notes
   describe('/notes/:lesson/data endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/notes/' + lessons[i][0] + '/data', () => {
@@ -162,27 +178,30 @@ describe('Lessons endpoints', () => {
             done();
           });
         });
-        for(let j = 0; j < lessons[i][1].length; j++) {
-          it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
-              agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+        describe('testing lesson note functionality for ' + lessons[i][0], () => {
+          for(let j = 0; j < lessons[i][1].length; j++) {
+            it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+                agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+                  done();
+                });
+            });
+            it('check that /notes/' + lessons[i][0] + '/data returns the correct user data', (done) => {
+              agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
+                res.status.should.be.equal(200);
+                res.body.should.be.Object();
+                for(let j = 0; j < lessons[i][1].length; j++) {
+                  res.body[lessons[i][1][j]].notes.should.be.equal(notes);
+                }
                 done();
               });
-          });
-        }
-        it('requesting /notes/' + lessons[i][0] + '/data with sesssion cooke should return correct user data', (done) => {
-          agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
-            res.status.should.be.equal(200);
-            res.body.should.be.Object();
-            for(let j = 0; j < lessons[i][1].length; j++) {
-              res.body[lessons[i][1][j]].notes.should.be.equal(notes);
-            }
-            done();
-          });
+            });
+          }
         });
       });
     }
   });
 
+  // Test workflow between /update_lesson_time and /recent_lessons
   describe('/update_lesson_time endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/update_lesson_time for ' + lessons[i][0] + ' lessons', () => {
@@ -204,7 +223,7 @@ describe('Lessons endpoints', () => {
             it('/recent_lessons should return ' + lessons[i][0] + '.' + lessons[i][1][j] + ' as the most recent accessed lesson module', (done) => {
               agent.get('/recent_lessons').end((err, res) => {
                 res.status.should.be.equal(200);
-                res.body.should.have.lengthOf(7);
+                res.body.should.have.lengthOf(lessons.length);
                 res.body[0][0].should.be.equal(lessons[i][0]);
                 res.body[0][1].should.be.equal(lessons[i][1][j]);
                 done();
