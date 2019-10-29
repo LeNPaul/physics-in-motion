@@ -116,7 +116,6 @@ describe('Lessons endpoints', () => {
     });
   });
 
-  // Test workflow where lesson progress is updated and then immediately checked to make sure the value is the same
   describe('/lesson_progress/:lesson endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/lesson_progress/' + lessons[i][0], () => {
@@ -126,14 +125,30 @@ describe('Lessons endpoints', () => {
             done();
           });
         });
-        it('requesting /lesson_progress/' + lessons[i][0] + ' with sesssion cooke should return user data', (done) => {
-          agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
-            res.status.should.be.equal(200);
-            res.body.should.have.property('progress');
-            res.body.progress.should.be.equal(0);
-            done();
+        for(let j=0; j < lessons[i][1].length; j++) {
+          it('/update_lesson_status for ' + lessons[i][1][j] + ' to be true', (done) => {
+            agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: true}).end((err, res) => {
+              res.status.should.be.equal(200);
+              done();
+            });
           });
-        });
+          it('/lesson_progress/' + lessons[i][0] + ' should return ' + ((j + 1) / lessons[i][1].length), (done) => {
+            agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
+              res.status.should.be.equal(200);
+              res.body.should.have.property('progress');
+              res.body.progress.should.be.equal((j + 1) / lessons[i][1].length);
+              done();
+            });
+          });
+        }
+        for(let j=0; j < lessons[i][1].length; j++) {
+          it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
+            agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
+              res.status.should.be.equal(200);
+              done();
+            });
+          });
+        }
       });
     }
   });
