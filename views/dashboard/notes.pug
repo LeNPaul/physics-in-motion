@@ -16,7 +16,7 @@ html(lang='en',ng-app='noteApp')
     if (user)
       meta(name='course', content=course)
     //- Google Analytics
-    include ../google-analytics.pug     
+    include ../google-analytics.pug
   body(ng-controller='mainController')
     if (!user)
       include ../navbar/default-nav.pug
@@ -26,9 +26,9 @@ html(lang='en',ng-app='noteApp')
     .container
       .row
         .col-lg-3
-          h5.my-4 
-            a(style='text-transform: capitalize', href='/' + course) #{ course } 
-            i.fa.fa-arrow-right(aria-hidden='true') 
+          h5.my-4
+            a(style='text-transform: capitalize', href='/' + course) #{ course.replace(/\-/g, ' ') }
+            i.fa.fa-arrow-right(aria-hidden='true')
             |  #{ title }
           .list-group
             block content
@@ -68,7 +68,7 @@ html(lang='en',ng-app='noteApp')
           //- /.container
     //- Footer
     .container
-      include ../footer/home-footer.pug       
+      include ../footer/home-footer.pug
     //-
       Bootstrap core JavaScript
       ==================================================
