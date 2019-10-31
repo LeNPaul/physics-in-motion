@@ -20,30 +20,30 @@ html(lang='en',ng-app='dashboardApp')
 
     if (user)
       include ../navbar/user-nav.pug
-            
+
     //- main.container(role='main')
       .jumbotron
         h1 Welcome back!
         p Logged in as #{user.username}
-        
+
         p.lead
           | This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
-        a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning            
-  
+        a.btn.btn-lg.btn-primary(href='../../components/navbar/', role='button') Continue learning
+
     //- Temporary fix for spacing issue below the navbar
     hr.featurette-divider.home-divider
     hr.featurette-divider.home-divider
     hr.featurette-divider.home-divider
     hr.featurette-divider.home-divider
-    
+
     main.container(role='main')
       .my-3.p-3.bg-white.rounded.box-shadow
         h2.border-bottom.border-gray.pb-2.mb-0 Welcome back!
         p.text-muted Logged in as #{user.username}
         p This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
-        a.btn.btn-lg.btn-primary(id="latest-lesson" href='/courses', role='button') Continue learning 
+        a.btn.btn-lg.btn-primary(id="latest-lesson" href='/courses', role='button') Continue learning
       .my-3.p-3.bg-white.rounded.box-shadow
-        h6.border-bottom.border-gray.pb-2.mb-0 Resume Learning          
+        h6.border-bottom.border-gray.pb-2.mb-0 Resume Learning
         .media.text-muted.pt-3(ng-repeat="x in records")
           i(class="fas fa-book", style="margin: 9px;")
           img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
@@ -77,7 +77,7 @@ html(lang='en',ng-app='dashboardApp')
           a(href='#') See more
 
     .container
-      include ../footer/home-footer.pug  
+      include ../footer/home-footer.pug
     //-
       Bootstrap core JavaScript
       ==================================================
@@ -93,5 +93,3 @@ html(lang='en',ng-app='dashboardApp')
     script(src='/assets/libs/font-awesome/fontawesome-all.min.js')
     //- ANGULAR CUSTOM
     script(src='/assets/js/dashboardApp.js')
-    //- Help functions for user dashboard
-    script(src='/assets/js/dashboard.js')
