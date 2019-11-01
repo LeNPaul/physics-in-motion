@@ -110,7 +110,7 @@ describe('Lessons endpoints', () => {
     it('requesting /recent_lessons with sesssion cooke should return user data', (done) => {
       agent.get('/recent_lessons').end((err, res) => {
         res.status.should.be.equal(200);
-        res.body.should.have.lengthOf(7);
+        res.body.should.have.lengthOf(lessons.length);
         done();
       });
     });
