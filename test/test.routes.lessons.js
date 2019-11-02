@@ -71,6 +71,20 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 
 chai.use(chaiHttp);
 
+// Endpoints that are tested:
+//    /lesson_data
+//      - request without session cooke should not return user data
+//      - requesting with session cooke should return
+//        - an array with length of 1
+//        - one element with property of lesson_modules and username
+//        - lesson_modules should have all of the lessons
+//    /recent_lessons
+//    /lesson_progress/:lesson
+//    /notes/:lesson/data
+//    /update_lesson_time
+//    /update_lesson_status
+//    /update_lesson_notes
+
 describe('Lessons endpoints', () => {
 
   var agent = chai.request.agent(app);
@@ -85,14 +99,15 @@ describe('Lessons endpoints', () => {
   });
 
   describe('/lesson_data endpoint', () => {
-    it('requesting /lesson_data without sesssion cooke should not return user data', (done) => {
+    it('requesting /lesson_data without session cooke should not return user data', (done) => {
       chai.request(app).get('/lesson_data').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-    it('requesting /lesson_data with sesssion cooke should return user data', (done) => {
+    it('requesting /lesson_data with session cooke should return user data', (done) => {
       agent.get('/lesson_data').end((err, res) => {
+        console.log(res.body[0]);
         res.status.should.be.equal(200);
         res.body[0].should.have.property('lesson_modules');
         done();
@@ -101,13 +116,13 @@ describe('Lessons endpoints', () => {
   });
 
   describe('/recent_lessons endpoint', () => {
-    it('requesting /recent_lessons without sesssion cooke should not return user data', (done) => {
+    it('requesting /recent_lessons without session cooke should not return user data', (done) => {
       chai.request(app).get('/recent_lessons').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-    it('requesting /recent_lessons with sesssion cooke should return user data', (done) => {
+    it('requesting /recent_lessons with session cooke should return user data', (done) => {
       agent.get('/recent_lessons').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.lengthOf(lessons.length);
@@ -120,7 +135,7 @@ describe('Lessons endpoints', () => {
   describe('/lesson_progress/:lesson endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/lesson_progress/' + lessons[i][0], () => {
-        it('requesting /lesson_progress/' + lessons[i][0] + ' without sesssion cooke should not return user data', (done) => {
+        it('requesting /lesson_progress/' + lessons[i][0] + ' without session cooke should not return user data', (done) => {
           chai.request(app).get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
             res.status.should.be.equal(500);
             done();
@@ -172,7 +187,7 @@ describe('Lessons endpoints', () => {
   describe('/notes/:lesson/data endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/notes/' + lessons[i][0] + '/data', () => {
-        it('requesting /notes/' + lessons[i][0] + '/data without sesssion cooke should not return user data', (done) => {
+        it('requesting /notes/' + lessons[i][0] + '/data without session cooke should not return user data', (done) => {
           chai.request(app).get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
             res.status.should.be.equal(500);
             done();
@@ -207,7 +222,7 @@ describe('Lessons endpoints', () => {
       describe('/update_lesson_time for ' + lessons[i][0] + ' lessons', () => {
         for(let j = 0; j < lessons[i][1].length; j++) {
           describe('/update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' lesson modules', () => {
-            it('requesting /update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' without sesssion cooke should not return user data', (done) => {
+            it('requesting /update_lesson_time for ' + lessons[i][0] + '.' + lessons[i][1][j] + ' without session cooke should not return user data', (done) => {
               chai.request(app).post('/update_lesson_time').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j]}).end((err, res) => {
                 res.status.should.be.equal(500);
                 done();
