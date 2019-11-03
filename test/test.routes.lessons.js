@@ -72,18 +72,25 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 chai.use(chaiHttp);
 
 // Endpoints that are tested:
-//    /lesson_data
+//    get /lesson_data
 //      - request without session cooke should not return user data
-//      - requesting with session cooke should return
+//      - requesting with session cookie should return
 //        - an array with length of 1
 //        - one element with property of lesson_modules and username
 //        - lesson_modules should have all of the lessons
-//    /recent_lessons
-//    /lesson_progress/:lesson
-//    /notes/:lesson/data
-//    /update_lesson_time
-//    /update_lesson_status
-//    /update_lesson_notes
+//    get /recent_lessons
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - an array with length equal to number of lessons available
+//        - array should contain correct lesson modules
+//    get /lesson_progress/:lesson
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - for each lesson, an object with property of progress
+//    get /notes/:lesson/data
+//    post /update_lesson_time
+//    post /update_lesson_status
+//    post /update_lesson_notes
 
 describe('Lessons endpoints', () => {
 
@@ -107,7 +114,6 @@ describe('Lessons endpoints', () => {
     });
     it('requesting /lesson_data with session cooke should return user data', (done) => {
       agent.get('/lesson_data').end((err, res) => {
-        console.log(res.body[0]);
         res.status.should.be.equal(200);
         res.body[0].should.have.property('lesson_modules');
         done();
