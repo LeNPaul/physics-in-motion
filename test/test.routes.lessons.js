@@ -86,11 +86,24 @@ chai.use(chaiHttp);
 //    get /lesson_progress/:lesson
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
-//        - for each lesson, an object with property of progress
+//        - for each lesson, an object with property of progress with a number from 0 - 1
 //    get /notes/:lesson/data
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - lesson notes for all lesson modules should be returned
+//        - each lesson module should have notes, status, and updated time
 //    post /update_lesson_time
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - update the lesson time for every lesson module of every lesson, then check the most recent lesson using get /recent_lessons to make sure the correct lesson is returned
 //    post /update_lesson_status
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - update the lesson status for every lesson module of every lesson, then check the lesson progress using get /lesson_progress/:lesson
 //    post /update_lesson_notes
+//      - request without session cookie should not return user data
+//      - requesting with session cookie should return
+//        - update the
 
 describe('Lessons endpoints', () => {
 
