@@ -103,7 +103,7 @@ chai.use(chaiHttp);
 //    post /update_lesson_notes
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
-//        - update the
+//        - update the notes for every lesson module of every lesson, and then check that the notes using get /notes/:lesson/data match what was inputted
 
 describe('Lessons endpoints', () => {
 
