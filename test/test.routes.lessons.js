@@ -72,12 +72,6 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 chai.use(chaiHttp);
 
 // Endpoints that are tested:
-//    get /lesson_data
-//      - request without session cooke should not return user data
-//      - requesting with session cookie should return
-//        - an array with length of 1
-//        - one element with property of lesson_modules and username
-//        - lesson_modules should have all of the lessons
 //    get /recent_lessons
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
@@ -105,7 +99,7 @@ chai.use(chaiHttp);
 //      - requesting with session cookie should return
 //        - update the notes for every lesson module of every lesson, and then check that the notes using get /notes/:lesson/data match what was inputted
 
-describe('Lessons endpoints', () => {
+describe('routes/lessons.js endpoints', () => {
 
   var agent = chai.request.agent(app);
 
@@ -128,7 +122,17 @@ describe('Lessons endpoints', () => {
     it('requesting /lesson_data with session cooke should return user data', (done) => {
       agent.get('/lesson_data').end((err, res) => {
         res.status.should.be.equal(200);
+        res.body.should.have.lengthOf(1);
         res.body[0].should.have.property('lesson_modules');
+        res.body[0].should.have.property('username');
+        // lesson_modules should contain all lessons
+        for(let i = 0; i < lessons.length; i++) {
+          res.body[0].lesson_modules[lessons[i][0]].should.be.an.Object();
+          // lessons should contain all lesson modules
+          for(let j=0; j < lessons[i][1].length; j++) {
+            res.body[0].lesson_modules[lessons[i][0]][lessons[i][1][j]].should.be.an.Object();
+          }
+        }
         done();
       });
     });
