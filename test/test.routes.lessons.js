@@ -72,11 +72,6 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 chai.use(chaiHttp);
 
 // Endpoints that are tested:
-//    get /recent_lessons
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - an array with length equal to number of lessons available
-//        - array should contain correct lesson modules
 //    get /lesson_progress/:lesson
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
@@ -149,6 +144,17 @@ describe('routes/lessons.js endpoints', () => {
       agent.get('/recent_lessons').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.lengthOf(lessons.length);
+        // array should contain all of the correct lesson modules
+        for(let i = 0; i < lessons.length; i++) {
+          var isExists = false;
+          for(let j = 0; j < res.body.length; j++) {
+            if(lessons[i][0] == res.body[j][0]) {
+              console.log(lessons[i][0], res.body[j][0])
+              isExists = true;
+            }
+          }
+          isExists.should.be.equal(true);
+        }
         done();
       });
     });
