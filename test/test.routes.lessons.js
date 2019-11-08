@@ -72,10 +72,6 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 chai.use(chaiHttp);
 
 // Endpoints that are tested:
-//    get /lesson_progress/:lesson
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - for each lesson, an object with property of progress with a number from 0 - 1
 //    get /notes/:lesson/data
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
@@ -149,7 +145,6 @@ describe('routes/lessons.js endpoints', () => {
           var isExists = false;
           for(let j = 0; j < res.body.length; j++) {
             if(lessons[i][0] == res.body[j][0]) {
-              console.log(lessons[i][0], res.body[j][0])
               isExists = true;
             }
           }
@@ -180,7 +175,7 @@ describe('routes/lessons.js endpoints', () => {
             });
           }
         });
-        describe('testing lesson progress functionality for ' + lessons[i][0], () => {
+        describe('loop through each lesson module, set the status to true, and check that the correct lesson progress is returned for ' + lessons[i][0], () => {
           for(let j=0; j < lessons[i][1].length; j++) {
             it('/update_lesson_status for ' + lessons[i][1][j] + ' to be true', (done) => {
               agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: true}).end((err, res) => {
@@ -192,6 +187,8 @@ describe('routes/lessons.js endpoints', () => {
               agent.get('/lesson_progress/' + lessons[i][0]).end((err, res) => {
                 res.status.should.be.equal(200);
                 res.body.should.have.property('progress');
+                (res.body.progress <= 1).should.be.equal(true);
+                (res.body.progress >= 0).should.be.equal(true);
                 res.body.progress.should.be.equal((j + 1) / lessons[i][1].length);
                 done();
               });
