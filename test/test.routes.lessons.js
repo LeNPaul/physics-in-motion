@@ -72,11 +72,6 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 chai.use(chaiHttp);
 
 // Endpoints that are tested:
-//    get /notes/:lesson/data
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - lesson notes for all lesson modules should be returned
-//        - each lesson module should have notes, status, and updated time
 //    post /update_lesson_time
 //      - request without session cookie should not return user data
 //      - requesting with session cookie should return
@@ -165,7 +160,7 @@ describe('routes/lessons.js endpoints', () => {
             done();
           });
         });
-        describe('revert back to default state with no progress for lesson module', () => {
+        describe('set status for all ' + lessons[i][0] + ' lesson modules to false', () => {
           for(let j=0; j < lessons[i][1].length; j++) {
             it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
               agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
@@ -175,7 +170,7 @@ describe('routes/lessons.js endpoints', () => {
             });
           }
         });
-        describe('loop through each lesson module, set the status to true, and check that the correct lesson progress is returned for ' + lessons[i][0], () => {
+        describe('loop through each ' + lessons[i][0] + ' lesson module, set the status to true, and check that the correct lesson progress is returned', () => {
           for(let j=0; j < lessons[i][1].length; j++) {
             it('/update_lesson_status for ' + lessons[i][1][j] + ' to be true', (done) => {
               agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: true}).end((err, res) => {
@@ -195,7 +190,7 @@ describe('routes/lessons.js endpoints', () => {
             });
           }
         });
-        describe('revert back to previous state', () => {
+        describe('set status for all ' + lessons[i][0] + ' lesson modules to false', () => {
           for(let j=0; j < lessons[i][1].length; j++) {
             it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
               agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
@@ -210,6 +205,12 @@ describe('routes/lessons.js endpoints', () => {
   });
 
   // Test workflow between /notes/:lesson/data and /update_lesson_notes
+
+  //    get /notes/:lesson/data
+  //      - requesting with session cookie should return
+  //        - lesson notes for all lesson modules should be returned
+  //        - each lesson module should have notes, status, and updated time
+
   describe('/notes/:lesson/data endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/notes/' + lessons[i][0] + '/data', () => {
