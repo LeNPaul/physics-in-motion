@@ -220,14 +220,18 @@ describe('routes/lessons.js endpoints', () => {
             done();
           });
         });
-        describe('testing lesson note functionality for ' + lessons[i][0], () => {
+        describe('update notes for all lesson modules in ' + lessons[i][0], () => {
           for(let j = 0; j < lessons[i][1].length; j++) {
-            it('update notes for ' + lessons[i][0] + '.' + lessons[i][1][j], (done) => {
+            it('update notes for ' + lessons[i][1][j], (done) => {
                 agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
                   done();
                 });
             });
-            it('check that /notes/' + lessons[i][0] + '/data returns the correct user data', (done) => {
+          }
+        });
+        describe('check that notes for all lesson modules in ' + lessons[i][0] + ' match what was saved', () => {
+          for(let j = 0; j < lessons[i][1].length; j++) {
+            it('/notes/' + lessons[i][0] + '/data should return the correct user data', (done) => {
               agent.get('/notes/' + lessons[i][0] + '/data').end((err, res) => {
                 res.status.should.be.equal(200);
                 res.body.should.be.Object();
