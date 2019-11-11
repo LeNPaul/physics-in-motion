@@ -71,20 +71,6 @@ var notes = '`1234567890-=	qwertyuiop[]\\asdfghjkl;’zxcvbnm,./~!@#$%^&*()_+QWE
 
 chai.use(chaiHttp);
 
-// Endpoints that are tested:
-//    post /update_lesson_time
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - update the lesson time for every lesson module of every lesson, then check the most recent lesson using get /recent_lessons to make sure the correct lesson is returned
-//    post /update_lesson_status
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - update the lesson status for every lesson module of every lesson, then check the lesson progress using get /lesson_progress/:lesson
-//    post /update_lesson_notes
-//      - request without session cookie should not return user data
-//      - requesting with session cookie should return
-//        - update the notes for every lesson module of every lesson, and then check that the notes using get /notes/:lesson/data match what was inputted
-
 describe('routes/lessons.js endpoints', () => {
 
   var agent = chai.request.agent(app);
@@ -150,6 +136,25 @@ describe('routes/lessons.js endpoints', () => {
     });
   });
 
+  describe('/update_lesson_status', () => {
+    console.log(lessons[0][0] + '.' + lessons[0][1][0]);
+    it('requesting /update_lesson_status without session cooke should not return user data', (done) => {
+      chai.request(app).post('/update_lesson_status').send({lessonPath: lessons[0][0] + '.' + lessons[0][1][0], status: true}).end((err, res) => {
+        res.status.should.be.equal(500);
+        done();
+      });
+    });
+  });
+
+  describe('/update_lesson_notes', () => {
+    it('requesting /update_lesson_notes without session cooke should not return user data', (done) => {
+      chai.request(app).post('/update_lesson_notes').send({lessonPath: lessons[0][0] + '.' + lessons[0][1][0], notes: "Hello world note"}).end((err, res) => {
+        res.status.should.be.equal(500);
+        done();
+      });
+    });
+  });
+
   // Test workflow between /lesson_progress/:lesson and /update_lesson_status
   describe('/lesson_progress/:lesson endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
@@ -205,12 +210,6 @@ describe('routes/lessons.js endpoints', () => {
   });
 
   // Test workflow between /notes/:lesson/data and /update_lesson_notes
-
-  //    get /notes/:lesson/data
-  //      - requesting with session cookie should return
-  //        - lesson notes for all lesson modules should be returned
-  //        - each lesson module should have notes, status, and updated time
-
   describe('/notes/:lesson/data endpoints', () => {
     for(let i = 0; i < lessons.length; i++) {
       describe('/notes/' + lessons[i][0] + '/data', () => {
@@ -236,6 +235,9 @@ describe('routes/lessons.js endpoints', () => {
                 res.status.should.be.equal(200);
                 res.body.should.be.Object();
                 for(let j = 0; j < lessons[i][1].length; j++) {
+                  res.body[lessons[i][1][j]].should.have.property('notes');
+                  res.body[lessons[i][1][j]].should.have.property('status');
+                  res.body[lessons[i][1][j]].should.have.property('updated');
                   res.body[lessons[i][1][j]].notes.should.be.equal(notes);
                 }
                 done();
