@@ -5,9 +5,9 @@ var app = 'http://localhost:8080'
 
 chai.use(chaiHttp);
 
-describe('Index endpoints', () => {
+describe('routes/index.js endpoints', () => {
 
-  describe('index routes', () => {
+  describe('/ endpoint', () => {
     it('return the home page', (done) => {
       chai.request(app).get('/').end((err, res) => {
         res.status.should.be.equal(200);
@@ -17,7 +17,7 @@ describe('Index endpoints', () => {
     });
   });
 
-  describe('about routes', () => {
+  describe('/about endpoint', () => {
     it('return the about page', (done) => {
       chai.request(app).get('/about').end((err, res) => {
         res.status.should.be.equal(200);
@@ -27,7 +27,7 @@ describe('Index endpoints', () => {
     });
   });
 
-  describe('contact routes', () => {
+  describe('/contact endpoint', () => {
     it('return the contact page', (done) => {
       chai.request(app).get('/contact').end((err, res) => {
         res.status.should.be.equal(200);
@@ -37,7 +37,7 @@ describe('Index endpoints', () => {
     });
   });
 
-  describe('privacy routes', () => {
+  describe('/privacy endpoint', () => {
     it('return the privacy page', (done) => {
       chai.request(app).get('/privacy').end((err, res) => {
         res.status.should.be.equal(200);
@@ -47,7 +47,7 @@ describe('Index endpoints', () => {
     });
   });
 
-  describe('terms routes', () => {
+  describe('/terms endpoint', () => {
     it('return the terms page', (done) => {
       chai.request(app).get('/terms').end((err, res) => {
         res.status.should.be.equal(200);
@@ -55,6 +55,66 @@ describe('Index endpoints', () => {
       });
       done();
     });
+  });
+
+  describe('/notes/:course', () => {
+
+  });
+
+  describe('/courses', () => {
+
+  });
+
+  describe('/classical-mechanics', () => {
+
+  });
+
+  describe('/kinematics', () => {
+
+  });
+
+  describe('/forces', () => {
+
+  });
+
+  describe('/energy', () => {
+
+  });
+
+  describe('/momentum', () => {
+
+  });
+
+  describe('/simple-harmonic-motion', () => {
+
+  });
+
+  describe('/waves', () => {
+
+  });
+
+  describe('/fluids', () => {
+
+  });
+
+  describe('/mathematics', () => {
+
+  });
+
+  describe('/algebra', () => {
+
+  });
+
+  describe('/geometry', () => {
+
+  });
+
+  describe('/calculus', () => {
+
+  });
+
+  describe('/resources', () => {
+
   });
 
 });
