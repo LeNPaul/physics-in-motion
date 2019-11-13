@@ -72,6 +72,17 @@ chai.use(chaiHttp);
 
 describe('routes/index.js endpoints', () => {
 
+  var agent = chai.request.agent(app);
+
+  describe('/login endpoint', () => {
+    it('log into user account', (done) => {
+      agent.post('/login').send(user).end((err, res) => {
+        res.status.should.be.equal(200);
+        done();
+      });
+    });
+  });
+
   describe('/ endpoint', () => {
     it('return the home page', (done) => {
       chai.request(app).get('/').end((err, res) => {
@@ -259,17 +270,6 @@ describe('routes/index.js endpoints', () => {
         res.text.length.should.be.eql(8500);
       });
       done();
-    });
-  });
-
-  var agent = chai.request.agent(app);
-
-  describe('/login endpoint', () => {
-    it('log into user account', (done) => {
-      agent.post('/login').send(user).end((err, res) => {
-        res.status.should.be.equal(200);
-        done();
-      });
     });
   });
 
