@@ -170,6 +170,8 @@ describe('routes/lessons.js endpoints', () => {
             it('/update_lesson_status for ' + lessons[i][1][j] + ' to be false', (done) => {
               agent.post('/update_lesson_status').send({lessonPath: lessons[i][0] + '.' + lessons[i][1][j], status: false}).end((err, res) => {
                 res.status.should.be.equal(200);
+                res.body.should.have.property('Success');
+                res.body.Success.should.be.equal(true);
                 done();
               });
             });
