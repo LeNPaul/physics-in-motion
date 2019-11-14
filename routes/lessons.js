@@ -81,7 +81,11 @@ router.post('/update_lesson_status', (req, res) => {
       setObject,
       { new: true },
       function(err, lessons) {
-        res.json(lessons);
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
       }
     )
   });
