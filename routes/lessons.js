@@ -60,7 +60,11 @@ router.post('/update_lesson_time', (req, res) => {
       setObject,
       { new: true },
       function(err, time) {
-        res.json(time);
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
       }
     )
   });
