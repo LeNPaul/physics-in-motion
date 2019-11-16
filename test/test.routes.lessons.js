@@ -227,6 +227,10 @@ describe('routes/lessons.js endpoints', () => {
           for(let j = 0; j < lessons[i][1].length; j++) {
             it('update notes for ' + lessons[i][1][j], (done) => {
                 agent.post('/update_lesson_notes').send({lessonPath:lessons[i][0] + '.' + lessons[i][1][j], notes:notes}).end((err, res) => {
+                  res.status.should.be.equal(200);
+                  res.body.should.be.Object();
+                  res.body.should.have.property('Success');
+                  res.body.Success.should.be.equal(true);
                   done();
                 });
             });
