@@ -106,7 +106,11 @@ router.post('/update_lesson_notes', (req, res) => {
       setObject,
       { new: true },
       function(err, notes) {
-        res.json(notes);
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
       }
     )
   });
