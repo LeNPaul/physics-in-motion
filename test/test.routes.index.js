@@ -84,20 +84,38 @@ describe('routes/index.js endpoints', () => {
   });
 
   describe('/ endpoint', () => {
-    it('return the home page', (done) => {
+    it('return the home page with user not logged in', (done) => {
       chai.request(app).get('/').end((err, res) => {
         res.status.should.be.equal(200);
         res.text.length.should.be.eql(5348);
       });
       done();
     });
+    it('return the home page with user logged in', (done) => {
+      agent.get('/').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(6537);
+        res.text.includes('Logged in as').should.be.equal(true);
+        res.text.includes('Logout').should.be.equal(true);
+      });
+      done();
+    });
   });
 
   describe('/about endpoint', () => {
-    it('return the about page', (done) => {
+    it('return the about page with user not logged in', (done) => {
       chai.request(app).get('/about').end((err, res) => {
         res.status.should.be.equal(200);
         res.text.length.should.be.eql(4559);
+      });
+      done();
+    });
+    it('return the about page with user logged in', (done) => {
+      agent.get('/about').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.text.length.should.be.eql(4813);
+        res.text.includes('Logged in as').should.be.equal(true);
+        res.text.includes('Logout').should.be.equal(true);
       });
       done();
     });
