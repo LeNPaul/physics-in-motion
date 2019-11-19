@@ -455,7 +455,6 @@ describe('routes/index.js endpoints', () => {
         });
         it('get user lesson notes for /notes/' + lessons[i][0], (done) => {
           agent.get('/notes/' + lessons[i][0]).end((err, res) => {
-            console.log(res);
             res.status.should.be.equal(200);
             done();
           });
