@@ -14,6 +14,7 @@ var flash = require('connect-flash');
 var routes = require('./routes/index');
 var authentication = require('./routes/authentication');
 var lessons = require('./routes/lessons');
+var quizzes = require('./routes/quizzes');
 
 // Use bluebird promise library
 mongoose.Promise = require('bluebird');
@@ -50,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/', authentication);
 app.use('/', lessons);
+app.use('/', quizzes);
 
 // passport config
 var Account = require('./models/account');
