@@ -4,6 +4,14 @@ const Account = require('../models/account');
 const Lessons = require('../models/lessons');
 const router = express.Router();
 
+// Temporary location to store quiz information
+var quizzes = [
+  {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '1'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '2'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '3'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '4'},
+]
+
 router.get('/register', (req, res) => {
     res.render('register', { });
 });
@@ -32,6 +40,20 @@ router.post('/register', (req, res, next) => {
         // TODO - add proper error handling here
       }
     })
+    // Create quizzes tracking in database
+    for(let i = 0; i < quizzes.length; i++) {
+      var newQuiz = new Quizzes({
+        username: req.body.username,
+        module_name: quizzes[i].module_name,
+        lesson_name: quizzes[i].lesson_name,
+        question_id: quizzes[i].question_id
+      })
+      newQuiz.save(function(err, data) {
+        if (err) {
+          // TODO - add proper error handling here
+        }
+      })
+    }
 });
 
 router.get('/login', (req, res) => {
