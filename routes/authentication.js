@@ -7,9 +7,33 @@ const router = express.Router();
 // Temporary location to store quiz information
 var quizzes = [
   {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '1'},
-  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '2'},
-  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '3'},
-  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '4'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '2'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '3'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '4'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_one_dimension', question_id: '5'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '6'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '7'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '8'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '9'},
+  {module_name: 'kinematics', lesson_name: 'motion_in_two_dimensions', question_id: '10'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '11'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '12'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '13'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '14'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_one_dimension', question_id: '15'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '16'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '17'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '18'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '19'},
+  {module_name: 'kinematics', lesson_name: 'simple_motion_in_two_dimensions', question_id: '20'},
+]
+
+var questions = [
+  {question_id: '', question_text: ''}
+]
+
+var answers = [
+  {answer_id: '', answer_text: '', question_id: '', is_correct: ''}
 ]
 
 router.get('/register', (req, res) => {
