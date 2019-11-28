@@ -159,14 +159,14 @@ describe('routes/quizzes.js endpoints', () => {
   describe('/questions endpoint', () => {
 
     it('requesting /questions without session cookie should not return user data', (done) => {
-      chai.request(app).get('/questions').end((err, res) => {
+      chai.request(app).get('/questions/buoyancy').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
 
     it('requesting /questions with session cookie should return user data', (done) => {
-      chai.request(app).get('/questions').end((err, res) => {
+      agent.get('/questions/buoyancy').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.lengthOf(5);
         done();
@@ -185,7 +185,7 @@ describe('routes/quizzes.js endpoints', () => {
     });
 
     it('requesting /answers with session cookie should return user data', (done) => {
-      chai.request(app).get('/answers').end((err, res) => {
+      agent.get('/answers').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.lengthOf(5);
         done();
@@ -203,18 +203,10 @@ describe('routes/quizzes.js endpoints', () => {
       });
     });
 
-    it('requesting /submit_response with session cookie should return user data', (done) => {
-      chai.request(app).post('/submit_response').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body.should.have.property('success');
-        done();
-      });
-    });
-
     // Loop through each quiz question
     //  Submitting a correct response should return true
     //  Submitting an incorrect response should return false
-    describe('submitting a correct response should return true', () => {
+    describe('requesting /submit_response with session cookie should return user data', () => {
 
       for(let i=0; i < quizzes.length; i++) {
         describe('/submit_response for question with id of ' + quizzes[i].question_id, () => {
@@ -225,7 +217,7 @@ describe('routes/quizzes.js endpoints', () => {
           var incorrect_answer_id;
 
           it('/submit_response with a correct answer should return true', (done) => {
-            chai.request(app).post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
+            agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
               res.status.should.be.equal(200);
               res.body.should.have.property('success');
               res.body.success.should.be.equal(true);
@@ -234,7 +226,7 @@ describe('routes/quizzes.js endpoints', () => {
           });
 
           it('/submit_response with an incorrect answer should return false', (done) => {
-            chai.request(app).post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
+            agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
               res.status.should.be.equal(200);
               res.body.should.have.property('success');
               res.body.success.should.be.equal(false);
