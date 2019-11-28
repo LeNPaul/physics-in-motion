@@ -178,14 +178,14 @@ describe('routes/quizzes.js endpoints', () => {
   describe('/answers endpoint', () => {
 
     it('requesting /answers without session cookie should not return user data', (done) => {
-      chai.request(app).get('/answers').end((err, res) => {
+      chai.request(app).get('/answers/1').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
 
     it('requesting /answers with session cookie should return user data', (done) => {
-      agent.get('/answers').end((err, res) => {
+      agent.get('/answers/1').end((err, res) => {
         res.status.should.be.equal(200);
         res.body.should.have.lengthOf(5);
         done();
