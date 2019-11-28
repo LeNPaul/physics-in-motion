@@ -1,8 +1,9 @@
 const express = require('express');
+const router = express.Router();
 const passport = require('passport');
 const Account = require('../models/account');
 const Lessons = require('../models/lessons');
-const router = express.Router();
+const Quizzes = require('../models/quizzes');
 
 // Temporary location to store quiz information
 var quizzes = [

@@ -1,6 +1,6 @@
 const express = require('express');
-const Lessons = require('../models/lessons');
 const router = express.Router();
+const Lessons = require('../models/lessons');
 
 // Return lessons information for user
 // Sample request: curl --cookie "" http://localhost:8080/lesson_data
