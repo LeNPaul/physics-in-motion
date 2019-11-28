@@ -21,9 +21,17 @@ describe('routes/quizzes.js endpoints', () => {
 
   describe('/questions endpoint', () => {
 
-    it('requesting /questions without session cooke should not return user data', (done) => {
+    it('requesting /questions without session cookie should not return user data', (done) => {
       chai.request(app).get('/questions').end((err, res) => {
         res.status.should.be.equal(500);
+        done();
+      });
+    });
+
+    it('requesting /questions with session cookie should return user data', (done) => {
+      chai.request(app).get('/questions').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.lengthOf(5);
         done();
       });
     });
@@ -32,25 +40,43 @@ describe('routes/quizzes.js endpoints', () => {
 
   describe('/answers endpoint', () => {
 
-    it('requesting /answers without session cooke should not return user data', (done) => {
+    it('requesting /answers without session cookie should not return user data', (done) => {
       chai.request(app).get('/answers').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
 
+    it('requesting /answers with session cookie should return user data', (done) => {
+      chai.request(app).get('/answers').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.lengthOf(5);
+        done();
+      });
+    });
 
   });
 
   describe('/submit_response endpoint', () => {
 
-    it('requesting /submit_response without session cooke should not return user data', (done) => {
+    it('requesting /submit_response without session cookie should not return user data', (done) => {
       chai.request(app).post('/submit_response').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
 
+    it('requesting /submit_response with session cookie should return user data', (done) => {
+      chai.request(app).post('/submit_response').end((err, res) => {
+        res.status.should.be.equal(200);
+        res.body.should.have.property('success');
+        done();
+      });
+    });
+
+    // Loop through each quiz question
+    //  Submitting a correct response should return true
+    //  Submitting an incorrect response should return false
 
   });
 
