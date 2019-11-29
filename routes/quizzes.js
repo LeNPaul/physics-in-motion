@@ -32,6 +32,8 @@ router.get('/answers/:question_id', (req, res) => {
 // Returns the response will indicate if correct or not - i.e. {Success: true}
 //   Returned as an object with a field of Success that is equal to true or false
 router.post('/submit_response', (req, res) => {
+  // Find answer with the question_id and answer_id
+  // If is_correct is true then return Success
   res.json({});
 });
 
