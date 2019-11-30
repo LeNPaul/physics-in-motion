@@ -35,23 +35,28 @@ router.get('/answers/:question_id', (req, res) => {
 
 // curl --header "Content-Type: application/json" --data '{"question_id": "1", "answer_id": "1"}' http://localhost:8080/submit_response
 
+// TODO: app crashes if line 50 does not return anything
+
 router.post('/submit_response', (req, res) => {
-
   // Find user's quiz and update last edit time
-
-
-  // Find answer with the question_id and answer_id
-  Answers.find({question_id: req.body.question_id, answer_id: req.body.answer_id}, function(err, answers) {
-    if(answers[0].is_correct == 'true') {
-      res.json({success: true});
-    } else {
-      res.json({success: false});
-    };
+  Quizzes.find({username: 'test@email.com', question_id: req.body.question_id}, function(err, quizzes) {
+    // Update last edit time
+    Quizzes.findByIdAndUpdate(
+      quizzes[0]._id,
+      {last_response_time: new Date(), last_response_answer_id: req.body.answer_id},
+      { new: true },
+      function(err, time) {
+        // Find answer with the question_id and answer_id
+        Answers.find({question_id: req.body.question_id, answer_id: req.body.answer_id}, function(err, answers) {
+          if(answers[0].is_correct == 'true') {
+            res.json({success: true});
+          } else {
+            res.json({success: false});
+          };
+        });
+      }
+    )
   });
-
-  // If is_correct is true then return Success
-
-
 });
 
 module.exports = router;
