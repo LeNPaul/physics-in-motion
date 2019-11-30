@@ -22,7 +22,6 @@ router.get('/questions/:lesson_name', (req, res) => {
 // TODO: somone fetch 1 correct and 4 incorrect
 router.get('/answers/:question_id', (req, res) => {
   Quizzes.find({username: req.user.username, question_id: req.params.question_id}, function(err, answers) {
-    console.log(answers);
     res.json(answers);
   });
 });
@@ -33,7 +32,7 @@ router.get('/answers/:question_id', (req, res) => {
 // Returns the response will indicate if correct or not - i.e. {Success: true}
 //   Returned as an object with a field of Success that is equal to true or false
 
-// curl --header "Content-Type: application/json" --data '{"question_id": "1", "answer_id": "1"}' http://localhost:8080/submit_response
+// curl --header "Content-Type: application/json" --data '{"question_id": "1", "answer_id": "3456"}' http://localhost:8080/submit_response
 
 // TODO: app crashes if line 50 does not return anything
 
@@ -48,11 +47,15 @@ router.post('/submit_response', (req, res) => {
       function(err, time) {
         // Find answer with the question_id and answer_id
         Answers.find({question_id: req.body.question_id, answer_id: req.body.answer_id}, function(err, answers) {
-          if(answers[0].is_correct == 'true') {
-            res.json({success: true});
+          if(answers.length > 0) {
+            if(answers[0].is_correct == 'true') {
+              res.json({success: true});
+            } else {
+              res.json({success: false});
+            };
           } else {
             res.json({success: false});
-          };
+          }
         });
       }
     )
