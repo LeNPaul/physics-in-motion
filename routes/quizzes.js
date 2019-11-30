@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Quizzes = require('../models/quizzes');
+const Answers = require('../models/answers');
 
 // Accepts lesson_name name
 // Returns the questions for that lesson module
@@ -31,10 +32,26 @@ router.get('/answers/:question_id', (req, res) => {
 // Accepts question_id and answer_id
 // Returns the response will indicate if correct or not - i.e. {Success: true}
 //   Returned as an object with a field of Success that is equal to true or false
+
+// curl --header "Content-Type: application/json" --data '{"question_id": "1", "answer_id": "1"}' http://localhost:8080/submit_response
+
 router.post('/submit_response', (req, res) => {
+
+  // Find user's quiz and update last edit time
+
+
   // Find answer with the question_id and answer_id
+  Answers.find({question_id: req.body.question_id, answer_id: req.body.answer_id}, function(err, answers) {
+    if(answers[0].is_correct == 'true') {
+      res.json({success: true});
+    } else {
+      res.json({success: false});
+    };
+  });
+
   // If is_correct is true then return Success
-  res.json({});
+
+
 });
 
 module.exports = router;

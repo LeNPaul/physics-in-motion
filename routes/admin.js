@@ -825,6 +825,7 @@ var answers = [
 // Create endpoint for initiating quizzes for a user (take the username as an input and loop through quizzes to initiate)
 //    Call this endpoint when a new user is created
 //    Endpoint should also be able to "insert or ignore", so that new questions and answers can be added (when questions or answers are updated, loop through every user and call this endpoint)
+// Add some logging to indicate what was updated
 
 router.post('/initiate_questions', (req, res) => {
   for(let i = 0; i < questions.length; i++) {
@@ -844,8 +845,10 @@ router.post('/initiate_questions', (req, res) => {
 router.post('/initiate_answers', (req, res) => {
   for(let i = 0; i < questions.length; i++) {
     var newAnswer = new Answers({
-      question_id: questions[i].question_id,
-      question_text: questions[i].question_text,
+      answer_id: answers[i].answer_id,
+      answer_text: answers[i].answer_text,
+      question_id: answers[i].question_id,
+      is_correct: answers[i].is_correct,
     })
     newAnswer.save(function(err, data) {
       if (err) {
