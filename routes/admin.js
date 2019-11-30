@@ -821,6 +821,11 @@ var answers = [
   {answer_id: '675', answer_text: '<placeholder text>', question_id: '135', is_correct: false},
 ]
 
+// Option to update database with new questions and answers (maybe do an insert or ignore equivalent)
+// Create endpoint for initiating quizzes for a user (take the username as an input and loop through quizzes to initiate)
+//    Call this endpoint when a new user is created
+//    Endpoint should also be able to "insert or ignore", so that new questions and answers can be added (when questions or answers are updated, loop through every user and call this endpoint)
+
 router.post('/initiate_questions', (req, res) => {
   for(let i = 0; i < questions.length; i++) {
     var newQuestion = new Questions({
