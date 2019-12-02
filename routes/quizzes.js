@@ -34,9 +34,10 @@ router.get('/answers/:question_id', (req, res) => {
 
 // curl --header "Content-Type: application/json" --data '{"question_id": "1", "answer_id": "3456"}' http://localhost:8080/submit_response
 
-// TODO: app crashes if line 50 does not return anything
-
 router.post('/submit_response', (req, res) => {
+
+  console.log(req.user.username);
+
   // Find user's quiz and update last edit time
   Quizzes.find({username: 'test@email.com', question_id: req.body.question_id}, function(err, quizzes) {
     // Update last edit time
@@ -49,17 +50,18 @@ router.post('/submit_response', (req, res) => {
         Answers.find({question_id: req.body.question_id, answer_id: req.body.answer_id}, function(err, answers) {
           if(answers.length > 0) {
             if(answers[0].is_correct == 'true') {
-              res.json({success: true});
+              res.json({is_correct: true});
             } else {
-              res.json({success: false});
+              res.json({is_correct: false});
             };
           } else {
-            res.json({success: false});
+            res.json({is_correct: false});
           }
         });
       }
     )
   });
+
 });
 
 module.exports = router;

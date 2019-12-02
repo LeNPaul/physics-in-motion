@@ -219,8 +219,8 @@ describe('routes/quizzes.js endpoints', () => {
           it('/submit_response with a correct answer should return true', (done) => {
             agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
               res.status.should.be.equal(200);
-              res.body.should.have.property('success');
-              res.body.success.should.be.equal(true);
+              res.body.should.have.property('is_correct');
+              res.body.is_correct.should.be.equal(true);
               done();
             });
           });
@@ -228,8 +228,8 @@ describe('routes/quizzes.js endpoints', () => {
           it('/submit_response with an incorrect answer should return false', (done) => {
             agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
               res.status.should.be.equal(200);
-              res.body.should.have.property('success');
-              res.body.success.should.be.equal(false);
+              res.body.should.have.property('is_correct');
+              res.body.is_correct.should.be.equal(false);
               done();
             });
           });
