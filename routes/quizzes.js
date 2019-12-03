@@ -21,7 +21,7 @@ router.get('/questions/:lesson_name', (req, res) => {
 //    Each element much be an object with answer text
 // TODO: somone fetch 1 correct and 4 incorrect
 router.get('/answers/:question_id', (req, res) => {
-  Quizzes.find({username: req.user.username, question_id: req.params.question_id}, function(err, answers) {
+  Answers.find({question_id: req.params.question_id}, function(err, answers) {
     res.json(answers);
   });
 });
