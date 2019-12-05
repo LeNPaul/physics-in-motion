@@ -21,12 +21,19 @@ router.get('/questions/:lesson_name', (req, res) => {
 //    Each element much be an object with answer text
 // TODO: somone fetch 1 correct and 4 incorrect
 router.get('/answers/:question_id', (req, res) => {
+
+  console.log(req.user.username);
+
   // Get one answer that is true
   Answers.find({question_id: req.params.question_id, is_correct: true}, function(err, correct_answer) {
     var answerResponse = [];
     answerResponse.push(correct_answer[0]);
     // Get four answers that are false
-    Answers.find({question_id: req.params.question_id, is_correct: false}, function(err, incorrect_answer) {
+    Answers.find({question_id: req.params.question_id, is_correct: false}, function(err, incorrect_answers) {
+      for (let i=0; i < incorrect_answers.length; i++) {
+        answerResponse.push(incorrect_answers[i]);
+      };
+      console.log(answerResponse);
       res.json(answerResponse);
     });
   });
