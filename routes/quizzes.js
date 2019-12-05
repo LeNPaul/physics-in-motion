@@ -22,13 +22,14 @@ router.get('/questions/:lesson_name', (req, res) => {
 // TODO: somone fetch 1 correct and 4 incorrect
 router.get('/answers/:question_id', (req, res) => {
   // Get one answer that is true
-  Answers.find({question_id: req.params.question_id, is_correct: true}, function(err, answers) {
+  Answers.find({question_id: req.params.question_id, is_correct: true}, function(err, correct_answer) {
     var answerResponse = [];
-    answerResponse.push(answers[0]);
+    answerResponse.push(correct_answer[0]);
     // Get four answers that are false
-    res.json(answerResponse);
+    Answers.find({question_id: req.params.question_id, is_correct: false}, function(err, incorrect_answer) {
+      res.json(answerResponse);
+    });
   });
-
 });
 
 // Submit a quiz response for a lesson module
