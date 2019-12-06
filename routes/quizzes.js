@@ -22,7 +22,7 @@ router.get('/questions/:lesson_name', (req, res) => {
 // TODO: somone fetch 1 correct and 4 incorrect
 router.get('/answers/:question_id', (req, res) => {
 
-  console.log(req.user.username);
+  console.log(req.user.username); // This is workaround to prevent application from crashing
 
   // Get one answer that is true
   Answers.find({question_id: req.params.question_id, is_correct: true}, function(err, correct_answer) {
@@ -33,7 +33,6 @@ router.get('/answers/:question_id', (req, res) => {
       for (let i=0; i < incorrect_answers.length; i++) {
         answerResponse.push(incorrect_answers[i]);
       };
-      console.log(answerResponse);
       res.json(answerResponse);
     });
   });
@@ -49,7 +48,7 @@ router.get('/answers/:question_id', (req, res) => {
 
 router.post('/submit_response', (req, res) => {
 
-  console.log(req.user.username);
+  console.log(req.user.username); // This is workaround to prevent application from crashing
 
   // Find user's quiz and update last edit time
   Quizzes.find({username: 'test@email.com', question_id: req.body.question_id}, function(err, quizzes) {
