@@ -213,7 +213,16 @@ describe('routes/quizzes.js endpoints', () => {
 
           // Make a request to the /answers API to get the answers
           // Make a call with the correct answer, and then one of the incorrect
-          var correct_answer_id;
+
+          it('requesting /answers with session cookie should return user data', (done) => {
+            agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
+              res.status.should.be.equal(200);
+              res.body.should.have.lengthOf(5);
+              console.log(res.body[0]);
+              done();
+            });
+          });
+
           var incorrect_answer_id;
 
           it('/submit_response with a correct answer should return true', (done) => {
