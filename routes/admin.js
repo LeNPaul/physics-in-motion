@@ -843,7 +843,8 @@ router.post('/initiate_questions', (req, res) => {
 });
 
 router.post('/initiate_answers', (req, res) => {
-  for(let i = 0; i < questions.length; i++) {
+  for(let i = 0; i < answers.length; i++) {
+
     var newAnswer = new Answers({
       answer_id: answers[i].answer_id,
       answer_text: answers[i].answer_text,
