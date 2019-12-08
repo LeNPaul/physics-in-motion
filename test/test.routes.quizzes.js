@@ -140,6 +140,35 @@ var quizzes = [
   {module_name: 'momentum', lesson_name: 'momentum_conservation', question_id: '134'},
   {module_name: 'momentum', lesson_name: 'momentum_conservation', question_id: '135'},
 ]
+var lesson_modules = [
+  'motion_in_one_dimension',
+  'motion_in_two_dimensions',
+  'simple_motion_in_one_dimension',
+  'simple_motion_in_two_dimensions',
+  'friction_drag',
+  'newtons_laws',
+  'simple_forces',
+  'conservative_forces',
+  'energy_conservation_work',
+  'power',
+  'work_potential_energy',
+  'elastic_collisions',
+  'explosions',
+  'momentum_conservation',
+  'damped_harmonic_motion',
+  'driven_oscillations',
+  'dynamics_simple_harmonic_motion',
+  'the_pendulum',
+  'characteristics_waves',
+  'interference',
+  'superposition_of_waves',
+  'buoyancy',
+  'continuity',
+  'fluid_statics',
+  'fluid_dynamics',
+  'incompressible_fluids',
+  'pressure'
+]
 
 chai.use(chaiHttp);
 
@@ -157,44 +186,42 @@ describe('routes/quizzes.js endpoints', () => {
   });
 
   describe('/questions endpoint', () => {
-
-    it('requesting /questions without session cookie should not return user data', (done) => {
-      chai.request(app).get('/questions/buoyancy').end((err, res) => {
-        res.status.should.be.equal(500);
-        done();
+    for (let i=0; i < lesson_modules.length; i++) {
+      it('requesting /questions without session cookie should not return user data', (done) => {
+        chai.request(app).get('/questions/' + lesson_modules[i]).end((err, res) => {
+          res.status.should.be.equal(500);
+          done();
+        });
       });
-    });
-
-    it('requesting /questions with session cookie should return user data', (done) => {
-      agent.get('/questions/buoyancy').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body.should.have.lengthOf(5);
-        done();
+      it('requesting /questions with session cookie should return user data', (done) => {
+        agent.get('/questions/' + lesson_modules[i]).end((err, res) => {
+          res.status.should.be.equal(200);
+          res.body.should.have.lengthOf(5);
+          done();
+        });
       });
-    });
-
+    }
   });
 
   describe('/answers endpoint', () => {
-
-    it('requesting /answers without session cookie should not return user data', (done) => {
-      chai.request(app).get('/answers/1').end((err, res) => {
-        res.status.should.be.equal(500);
-        done();
+    for(let i=0; i < quizzes.length; i++) {
+      it('requesting /answers without session cookie should not return user data', (done) => {
+        chai.request(app).get('/answers/' + quizzes[i].question_id).end((err, res) => {
+          res.status.should.be.equal(500);
+          done();
+        });
       });
-    });
-
-    it('requesting /answers with session cookie should return user data', (done) => {
-      agent.get('/answers/1').end((err, res) => {
-        res.status.should.be.equal(200);
-        res.body.should.have.lengthOf(5);
-        done();
+      it('requesting /answers with session cookie should return user data', (done) => {
+        agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
+          res.status.should.be.equal(200);
+          res.body.should.have.lengthOf(5);
+          done();
+        });
       });
-    });
-
+    }
   });
 
-  describe('/submit_response endpoint', () => {
+  /*describe('/submit_response endpoint', () => {
 
     it('requesting /submit_response without session cookie should not return user data', (done) => {
       chai.request(app).post('/submit_response').end((err, res) => {
@@ -219,7 +246,7 @@ describe('routes/quizzes.js endpoints', () => {
               res.status.should.be.equal(200);
               res.body.should.have.lengthOf(5);
 
-              for (let j=1; j < res.body.length; j++) {
+              for (let j=0; j < res.body.length; j++) {
 
                 if (res.body[j].is_corrent == 'true') {
 
@@ -255,7 +282,7 @@ describe('routes/quizzes.js endpoints', () => {
       };
     });
 
-  });
+  });*/
 
   agent.close();
 
