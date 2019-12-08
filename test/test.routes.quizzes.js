@@ -218,30 +218,38 @@ describe('routes/quizzes.js endpoints', () => {
             agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
               res.status.should.be.equal(200);
               res.body.should.have.lengthOf(5);
-              console.log(res.body[0]);
+
+              for (let j=1; j < res.body.length; j++) {
+
+                if (res.body[j].is_corrent == 'true') {
+
+                  it('/submit_response with a correct answer should return true', (done) => {
+                    agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
+                      res.status.should.be.equal(200);
+                      res.body.should.have.property('is_correct');
+                      res.body.is_correct.should.be.equal(true);
+                    });
+                  });
+
+                } else {
+
+                  it('/submit_response with an incorrect answer should return false', (done) => {
+                    agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
+                      res.status.should.be.equal(200);
+                      res.body.should.have.property('is_correct');
+                      res.body.is_correct.should.be.equal(false);
+                    });
+                  });
+
+                }
+
+              };
+
               done();
             });
           });
 
           var incorrect_answer_id;
-
-          it('/submit_response with a correct answer should return true', (done) => {
-            agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
-              res.status.should.be.equal(200);
-              res.body.should.have.property('is_correct');
-              res.body.is_correct.should.be.equal(true);
-              done();
-            });
-          });
-
-          it('/submit_response with an incorrect answer should return false', (done) => {
-            agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: '<placeholder>'}).end((err, res) => {
-              res.status.should.be.equal(200);
-              res.body.should.have.property('is_correct');
-              res.body.is_correct.should.be.equal(false);
-              done();
-            });
-          });
 
         });
       };
