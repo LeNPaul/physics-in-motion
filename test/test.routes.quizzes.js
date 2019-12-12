@@ -221,6 +221,17 @@ describe('routes/quizzes.js endpoints', () => {
     }
   });
 
+  describe('/submit_response endpoint', () => {
+
+    it('requesting /submit_response without session cookie should not return user data', (done) => {
+      chai.request(app).post('/submit_response').end((err, res) => {
+        res.status.should.be.equal(500);
+        done();
+      });
+    });
+
+  });
+
   /*describe('/submit_response endpoint', () => {
 
     it('requesting /submit_response without session cookie should not return user data', (done) => {
