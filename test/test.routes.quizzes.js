@@ -230,16 +230,15 @@ describe('routes/quizzes.js endpoints', () => {
       });
     });
 
+    for(let i=0; i < quizzes.length; i++) {
+      describe('/submit_response for question with id of ' + quizzes[i].question_id, () => {
+
+      });
+    };
+
   });
 
   /*describe('/submit_response endpoint', () => {
-
-    it('requesting /submit_response without session cookie should not return user data', (done) => {
-      chai.request(app).post('/submit_response').end((err, res) => {
-        res.status.should.be.equal(500);
-        done();
-      });
-    });
 
     // Loop through each quiz question
     //  Submitting a correct response should return true
