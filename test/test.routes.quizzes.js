@@ -221,110 +221,44 @@ describe('routes/quizzes.js endpoints', () => {
     }
   });
 
+  // Test /submit_response endpoint and workflow between /answers and /submit_response
   describe('/submit_response endpoint', () => {
-
     it('requesting /submit_response without session cookie should not return user data', (done) => {
       chai.request(app).post('/submit_response').end((err, res) => {
         res.status.should.be.equal(500);
         done();
       });
     });
-
-
-
     // Make call to submit response, and check if right answer
-
     // Loop through all question_id
     for(let i=0; i < quizzes.length; i++) {
       describe('/submit_response for question with id of ' + quizzes[i].question_id, () => {
         it('requesting /answers with session cookie should return user data', (done) => {
           // Make call to get answers
           agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
-
+            res.status.should.be.equal(200);
+            res.body.should.have.lengthOf(5);
             for (let j=0; j < res.body.length; j++) {
-
               if (res.body[j].is_correct == 'true') {
-
                 agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
                   res.status.should.be.equal(200);
                   res.body.should.have.property('is_correct');
                   res.body.is_correct.should.be.equal(true);
                 });
-
               } else {
-
                 agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
                   res.status.should.be.equal(200);
                   res.body.should.have.property('is_correct');
                   res.body.is_correct.should.be.equal(false);
                 });
-
               }
             }
-
             done();
           });
         });
       });
     };
-
   });
-
-  /*describe('/submit_response endpoint', () => {
-
-    // Loop through each quiz question
-    //  Submitting a correct response should return true
-    //  Submitting an incorrect response should return false
-    describe('requesting /submit_response with session cookie should return user data', () => {
-
-      for(let i=0; i < quizzes.length; i++) {
-        describe('/submit_response for question with id of ' + quizzes[i].question_id, () => {
-
-          // Make a request to the /answers API to get the answers
-          // Make a call with the correct answer, and then one of the incorrect
-
-          it('requesting /answers with session cookie should return user data', (done) => {
-            agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
-              res.status.should.be.equal(200);
-              res.body.should.have.lengthOf(5);
-
-              for (let j=0; j < res.body.length; j++) {
-
-                if (res.body[j].is_corrent == 'true') {
-
-                  it('/submit_response with a correct answer should return true', (done) => {
-                    agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
-                      res.status.should.be.equal(200);
-                      res.body.should.have.property('is_correct');
-                      res.body.is_correct.should.be.equal(true);
-                    });
-                  });
-
-                } else {
-
-                  it('/submit_response with an incorrect answer should return false', (done) => {
-                    agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
-                      res.status.should.be.equal(200);
-                      res.body.should.have.property('is_correct');
-                      res.body.is_correct.should.be.equal(false);
-                    });
-                  });
-
-                }
-
-              };
-
-              done();
-            });
-          });
-
-          var incorrect_answer_id;
-
-        });
-      };
-    });
-
-  });*/
 
   agent.close();
 
