@@ -196,7 +196,6 @@ describe('routes/quizzes.js endpoints', () => {
       it('requesting /questions with session cookie should return user data', (done) => {
         agent.get('/questions/' + lesson_modules[i]).end((err, res) => {
           res.status.should.be.equal(200);
-          res.body.should.have.lengthOf(5);
           done();
         });
       });
@@ -214,7 +213,6 @@ describe('routes/quizzes.js endpoints', () => {
       it('requesting /answers with session cookie should return user data', (done) => {
         agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
           res.status.should.be.equal(200);
-          res.body.should.have.lengthOf(5);
           done();
         });
       });
@@ -237,7 +235,6 @@ describe('routes/quizzes.js endpoints', () => {
           // Make call to get answers
           agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
             res.status.should.be.equal(200);
-            res.body.should.have.lengthOf(5);
             for (let j=0; j < res.body.length; j++) {
               if (res.body[j].is_correct == 'true') {
                 agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
