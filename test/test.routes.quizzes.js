@@ -230,9 +230,41 @@ describe('routes/quizzes.js endpoints', () => {
       });
     });
 
+
+
+    // Make call to submit response, and check if right answer
+
+    // Loop through all question_id
     for(let i=0; i < quizzes.length; i++) {
       describe('/submit_response for question with id of ' + quizzes[i].question_id, () => {
+        it('requesting /answers with session cookie should return user data', (done) => {
+          // Make call to get answers
+          agent.get('/answers/' + quizzes[i].question_id).end((err, res) => {
 
+            for (let j=0; j < res.body.length; j++) {
+
+              if (res.body[j].is_correct == 'true') {
+
+                agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
+                  res.status.should.be.equal(200);
+                  res.body.should.have.property('is_correct');
+                  res.body.is_correct.should.be.equal(true);
+                });
+
+              } else {
+
+                agent.post('/submit_response').send({question_id: quizzes[i].question_id, answer_id: res.body[j].answer_id}).end((err, res) => {
+                  res.status.should.be.equal(200);
+                  res.body.should.have.property('is_correct');
+                  res.body.is_correct.should.be.equal(false);
+                });
+
+              }
+            }
+
+            done();
+          });
+        });
       });
     };
 
