@@ -45,9 +45,8 @@ html(lang='en',ng-app='lessonApp')
                       .col-sm-2
                       .col-sm-8
                         h3 Questions
-                        div(ng-repeat='quiz in Quizzes')
-                          h3 {{ quiz.question }}
-                          p {{ quiz.text }}
+                        div(ng-repeat='question in Questions')
+                          p {{ question.text }}
             .card.mt-4
               .card-body
                 p.card-text

@@ -154,14 +154,32 @@ lessonApp.controller('mainController', function($scope) {
 
 lessonApp.controller('quizController', function($scope) {
 
-  var quizzes = [
-    {question: '<question>', text: '<placeholder>'},
-    {question: '<question>', text: '<placeholder>'},
-    {question: '<question>', text: '<placeholder>'},
-    {question: '<question>', text: '<placeholder>'},
-    {question: '<question>', text: '<placeholder>'}
-  ]
+	var lesson = 'motion_in_one_dimension'
 
-  $scope.Quizzes = quizzes;
+  $.get('/questions/' + lesson, function(data, status) {
+
+    var questions = [];
+
+    for (let i=0; i < data.length; i++) {
+
+      console.log(data[i]);
+      questions.push({text: data[i]});
+
+      /*$.get('/answers/' + data[i].question_id, function(data, status) {
+
+        for (let j=0; j < data.length; j++) {
+
+          questions.push({text: data[j].answer_text});
+
+        }
+
+      });*/
+
+    }
+
+    $scope.Questions = questions;
+    $scope.$digest();
+
+  });
 
 });
