@@ -37,7 +37,7 @@ html(lang='en',ng-app='lessonApp')
                 //- ANGULAR DYNAMIC CONTENT
                 div.ng-view
           if (user)
-            .card.mt-4
+            .card.mt-4(ng-controller='quizController')
               .card-body
                 p.card-text
                   .container
@@ -45,11 +45,9 @@ html(lang='en',ng-app='lessonApp')
                       .col-sm-2
                       .col-sm-8
                         h3 Questions
-                        p  Placeholder questions
-                        p  Placeholder questions
-                        p  Placeholder questions
-                        p  Placeholder questions
-                        p  Placeholder questions    
+                        div(ng-repeat='quiz in Quizzes')
+                          h3 {{ quiz.question }}
+                          p {{ quiz.text }}
             .card.mt-4
               .card-body
                 p.card-text

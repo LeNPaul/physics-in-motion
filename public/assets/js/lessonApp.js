@@ -152,6 +152,16 @@ lessonApp.controller('mainController', function($scope) {
 
 });
 
-lessonApp.controller('contactController', function($scope) {
-  $scope.message = 'Contact us! JK. This is just a demo.';
+lessonApp.controller('quizController', function($scope) {
+
+  var quizzes = [
+    {question: '<question>', text: '<placeholder>'},
+    {question: '<question>', text: '<placeholder>'},
+    {question: '<question>', text: '<placeholder>'},
+    {question: '<question>', text: '<placeholder>'},
+    {question: '<question>', text: '<placeholder>'}
+  ]
+
+  $scope.Quizzes = quizzes;
+
 });
