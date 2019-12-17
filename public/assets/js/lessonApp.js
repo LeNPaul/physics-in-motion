@@ -158,6 +158,12 @@ lessonApp.controller('quizController', function($scope) {
 
   $.get('/questions/' + lesson, function(question_data, status) {
 
+    for (let i=0; i < question_data.length; i++) {
+      $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
+        console.log(answer_data[i]);
+      });
+    }
+
     $scope.Questions = question_data;
     $scope.$digest();
 
