@@ -45,6 +45,9 @@ html(lang='en',ng-app='lessonApp')
                       .col-sm-2
                       .col-sm-8
                         h3 Questions
+                        div(ng-repeat='things in stuff')
+                          p {{ things.title }} {{ things.content }}
+                        button.btn.btn-secondary(type='button', ng-click='calculateQuantity()') Done
                         div(ng-repeat='question in Questions')
                           p {{ question.question_id }}
             .card.mt-4

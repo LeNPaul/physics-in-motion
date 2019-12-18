@@ -156,17 +156,24 @@ lessonApp.controller('quizController', function($scope) {
 
 	var lesson = 'motion_in_one_dimension'
 
+  $scope.stuff = [];
+
   $.get('/questions/' + lesson, function(question_data, status) {
 
     for (let i=0; i < question_data.length; i++) {
       $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
+        $scope.stuff.push({title: 'Hello', content: 'world'});
         console.log(answer_data[i]);
       });
     }
 
     $scope.Questions = question_data;
-    $scope.$digest();
 
   });
+
+
+  $scope.calculateQuantity = function() {
+    $scope.quantityResult = 'asdfasdfasdf';
+  };
 
 });
