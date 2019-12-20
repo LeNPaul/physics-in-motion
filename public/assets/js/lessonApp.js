@@ -154,26 +154,32 @@ lessonApp.controller('mainController', function($scope) {
 
 lessonApp.controller('quizController', function($scope) {
 
+  function getAnswers(question_id) {
+    return new Promise(function(resolve, reject) {
+      $.get('/answers/' + question_id, function(answer_data, status) {
+        console.log(answer_data);
+        resolve(answer_data);
+      });
+    });
+  };
+
 	var lesson = 'motion_in_one_dimension'
 
-  $scope.stuff = [];
+  $scope.questions = [];
 
   $.get('/questions/' + lesson, function(question_data, status) {
 
     for (let i=0; i < question_data.length; i++) {
       $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
-        $scope.stuff.push({title: 'Hello', content: 'world'});
-        console.log(answer_data[i]);
-      });
-    }
 
-    $scope.Questions = question_data;
+        getAnswers(question_data[i].question_id).then(function(resolve){
+          $scope.questions.push({question: question_data[i].question_id, content: answer_data});
+          $scope.$digest();
+        });
+
+      });
+    };
 
   });
-
-
-  $scope.calculateQuantity = function() {
-    $scope.quantityResult = 'asdfasdfasdf';
-  };
 
 });
