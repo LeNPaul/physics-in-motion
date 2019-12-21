@@ -14,6 +14,12 @@ router.get('/questions/:lesson_name', (req, res) => {
 });
 
 // Accepts a question_id
+// Returns the question text
+router.get('/question/:question_id', (req, res) => {
+  
+});
+
+// Accepts a question_id
 // Returns answers with at least 1 correct answer
 // Each element must be an object with answer text
 router.get('/answers/:question_id', (req, res) => {
