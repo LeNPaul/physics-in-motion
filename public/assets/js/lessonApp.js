@@ -157,8 +157,15 @@ lessonApp.controller('quizController', function($scope) {
   function getAnswers(question_id) {
     return new Promise(function(resolve, reject) {
       $.get('/answers/' + question_id, function(answer_data, status) {
-        console.log(answer_data);
         resolve(answer_data);
+      });
+    });
+  };
+
+  function getQuestion(question_id) {
+    return new Promise(function(resolve, reject) {
+      $.get('/question/' + question_id, function(question_data, status) {
+        resolve(question_data);
       });
     });
   };
@@ -168,18 +175,16 @@ lessonApp.controller('quizController', function($scope) {
   $scope.questions = [];
 
   $.get('/questions/' + lesson, function(question_data, status) {
-
     for (let i=0; i < question_data.length; i++) {
       $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
-
         getAnswers(question_data[i].question_id).then(function(resolve){
-          $scope.questions.push({question: question_data[i].question_id, content: answer_data});
-          $scope.$digest();
+          getQuestion(question_data[i].question_id).then(function(resolve){
+            $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
+            $scope.$digest();
+          });
         });
-
       });
     };
-
   });
 
 });
