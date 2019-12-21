@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Quizzes = require('../models/quizzes');
 const Answers = require('../models/answers');
+const Questions = require('../models/questions');
 
 // Accepts lesson_name
 // Returns the questions for that lesson module
@@ -16,7 +17,9 @@ router.get('/questions/:lesson_name', (req, res) => {
 // Accepts a question_id
 // Returns the question text
 router.get('/question/:question_id', (req, res) => {
-  
+  Questions.find({question_id: req.params.question_id}, function(err, question) {
+    res.json({question_text: question[0].question_text});
+  });
 });
 
 // Accepts a question_id
