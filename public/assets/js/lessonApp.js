@@ -170,7 +170,11 @@ lessonApp.controller('quizController', function($scope) {
     });
   };
 
-	var lesson = 'motion_in_one_dimension'
+  function getLessonName() {
+    return 'motion_in_one_dimension';
+  };
+
+	var lesson = getLessonName();
 
   $scope.questions = [];
 
