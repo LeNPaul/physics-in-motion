@@ -171,27 +171,34 @@ lessonApp.controller('quizController', function($scope) {
   };
 
   function getLessonName() {
-    var lessonData = document.querySelector("#lesson-module");
-    var topic = lessonData.dataset.topic;
-    var lesson = lessonData.dataset.lesson;
-    return lesson;
+    return new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        var lessonData = document.querySelector("#lesson-module");
+        var lesson = lessonData.dataset.lesson;
+        resolve(lesson);
+      }, 3000);
+    });
   };
 
-	var lesson = getLessonName();
+  getLessonName().then(function(resolve){
 
-  $scope.questions = [];
+	   var lesson = resolve;
 
-  $.get('/questions/' + lesson, function(question_data, status) {
-    for (let i=0; i < question_data.length; i++) {
-      $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
-        getAnswers(question_data[i].question_id).then(function(resolve){
-          getQuestion(question_data[i].question_id).then(function(resolve){
-            $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
-            $scope.$digest();
-          });
-        });
-      });
-    };
-  });
+     $scope.questions = [];
+
+     $.get('/questions/' + lesson, function(question_data, status) {
+       for (let i=0; i < question_data.length; i++) {
+         $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
+           getAnswers(question_data[i].question_id).then(function(resolve){
+             getQuestion(question_data[i].question_id).then(function(resolve){
+               $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
+               $scope.$digest();
+             });
+           });
+         });
+       };
+     });
+
+  })
 
 });
