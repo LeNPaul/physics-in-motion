@@ -211,4 +211,8 @@ router.get('/logout', (req, res, next) => {
     });
 });
 
+router.post('/delete', (req, res) => {
+  // Delete user account based on username
+});
+
 module.exports = router;
