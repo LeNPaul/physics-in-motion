@@ -150,9 +150,7 @@ lessonApp.controller('mainController', function($scope) {
 	  return true;
 	});
 
-});
 
-lessonApp.controller('quizController', function($scope) {
 
   function getAnswers(question_id) {
     return new Promise(function(resolve, reject) {
@@ -176,29 +174,32 @@ lessonApp.controller('quizController', function($scope) {
         var lessonData = document.querySelector("#lesson-module");
         var lesson = lessonData.dataset.lesson;
         resolve(lesson);
-      }, 3000);
+      }, 500);
     });
   };
 
-  getLessonName().then(function(resolve){
+  $scope.initiateQuiz = function(){
 
-	   var lesson = resolve;
+    // Clear here to reset quiz questions when changing modules
+    $scope.questions = [];
 
-     $scope.questions = [];
-
-     $.get('/questions/' + lesson, function(question_data, status) {
-       for (let i=0; i < question_data.length; i++) {
-         $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
-           getAnswers(question_data[i].question_id).then(function(resolve){
-             getQuestion(question_data[i].question_id).then(function(resolve){
-               $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
-               $scope.$digest();
+    if(document.querySelector("#user-exists")) {
+      getLessonName().then(function(resolve){
+    	   var lesson = resolve;
+         $.get('/questions/' + lesson, function(question_data, status) {
+           for (let i=0; i < question_data.length; i++) {
+             $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
+               getAnswers(question_data[i].question_id).then(function(resolve){
+                 getQuestion(question_data[i].question_id).then(function(resolve){
+                   $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
+                   $scope.$digest();
+                 });
+               });
              });
-           });
+           };
          });
-       };
-     });
-
-  })
+      })
+    }
+  }
 
 });
