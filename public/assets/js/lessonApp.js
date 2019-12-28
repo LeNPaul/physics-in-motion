@@ -191,7 +191,7 @@ lessonApp.controller('mainController', function($scope) {
              $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
                getAnswers(question_data[i].question_id).then(function(resolve){
                  getQuestion(question_data[i].question_id).then(function(resolve){
-                   $scope.questions.push({question: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
+                   $scope.questions.push({question_id: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
                    $scope.$digest();
                  });
                });
