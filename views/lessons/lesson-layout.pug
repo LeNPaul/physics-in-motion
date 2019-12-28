@@ -46,9 +46,11 @@ html(lang='en',ng-app='lessonApp')
                       .col-sm-8
                         h3 Questions
                         div(ng-repeat='question in questions')
+                          hr
                           p {{ question.question_text }}
-                          ul(ng-repeat='answer in question.content')
-                            li {{ answer.answer_text }}
+                          .form-check(ng-repeat='answer in question.content' class="mt-3")
+                            input(class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1")
+                            label(class="form-check-label" for="exampleRadios1") {{ answer.answer_text }}
             .card.mt-4
               .card-body
                 p.card-text
