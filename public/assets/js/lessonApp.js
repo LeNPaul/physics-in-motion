@@ -178,19 +178,19 @@ lessonApp.controller('mainController', function($scope) {
     });
   };
 
-  $scope.initiateQuiz = function(){
+  $scope.initiateQuiz = function() {
 
     // Clear here to reset quiz questions when changing modules
     $scope.questions = [];
 
     if(document.querySelector("#user-exists")) {
-      getLessonName().then(function(resolve){
+      getLessonName().then(function(resolve) {
     	   var lesson = resolve;
          $.get('/questions/' + lesson, function(question_data, status) {
            for (let i=0; i < question_data.length; i++) {
              $.get('/answers/' + question_data[i].question_id, function(answer_data, status) {
-               getAnswers(question_data[i].question_id).then(function(resolve){
-                 getQuestion(question_data[i].question_id).then(function(resolve){
+               getAnswers(question_data[i].question_id).then(function(resolve) {
+                 getQuestion(question_data[i].question_id).then(function(resolve) {
                    $scope.questions.push({question_id: question_data[i].question_id, question_text: resolve.question_text, content: answer_data});
                    $scope.$digest();
                  });
@@ -201,5 +201,9 @@ lessonApp.controller('mainController', function($scope) {
       })
     }
   }
+
+  $scope.submitAnswer = function(answer_id) {
+    console.log('Submitted answer.');
+  };
 
 });
