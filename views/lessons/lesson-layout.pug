@@ -53,6 +53,7 @@ html(lang='en',ng-app='lessonApp')
                             label(class="form-check-label" for="answer-{{ answer.answer_id }}") {{ answer.answer_text }}
                           hr
                           button.btn.btn-secondary(type='button', ng-click='submitAnswer(question.question_id)') Submit
+                          div(class="alert alert-secondary mt-3" role="alert") Please select an answer
             .card.mt-4
               .card-body
                 p.card-text
