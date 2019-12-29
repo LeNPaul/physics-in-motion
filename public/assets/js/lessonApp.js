@@ -142,7 +142,7 @@ lessonApp.config(function($routeProvider) {
 });
 
 // create the controller and inject Angular's $scope
-lessonApp.controller('mainController', function($scope) {
+lessonApp.controller('mainController', function($scope, $http) {
 
   // Render LaTex when loading new view
 	$scope.$watch(function(){
@@ -202,8 +202,25 @@ lessonApp.controller('mainController', function($scope) {
     }
   }
 
-  $scope.submitAnswer = function(answer_id) {
-    console.log('Submitted answer.');
+  $scope.submitAnswer = function(question_id) {
+
+    var radios = document.getElementsByName('question-' + question_id);
+    for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+
+        $http.post('/submit_response', {question_id: question_id, answer_id: radios[i].value}, {}).then(
+          function(response){
+            console.log(response.data.is_correct);
+          },
+          function(response){
+            // TODO: Add proper error handling
+          }
+        );
+
+        break;
+      }
+    }
+
   };
 
 });
