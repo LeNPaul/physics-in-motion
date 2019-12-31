@@ -210,7 +210,13 @@ lessonApp.controller('mainController', function($scope, $http) {
 
         $http.post('/submit_response', {question_id: question_id, answer_id: radios[i].value}, {}).then(
           function(response){
-            console.log(response.data.is_correct);
+            if(response.data.is_correct == true) {
+              document.getElementById('style-' + question_id).style.color = 'green';
+              document.getElementById('style-' + question_id).textContent="Correct!";
+            } else {
+              document.getElementById('style-' + question_id).style.color = 'red';
+              document.getElementById('style-' + question_id).textContent="Incorrect!";
+            }
           },
           function(response){
             // TODO: Add proper error handling
