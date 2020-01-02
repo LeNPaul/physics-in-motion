@@ -211,11 +211,11 @@ lessonApp.controller('mainController', function($scope, $http) {
         $http.post('/submit_response', {question_id: question_id, answer_id: radios[i].value}, {}).then(
           function(response){
             if(response.data.is_correct == true) {
-              document.getElementById('style-' + question_id).style.color = 'green';
               document.getElementById('style-' + question_id).textContent="Correct!";
+              document.getElementById('style-' + question_id).className = "alert alert-success mt-3";
             } else {
-              document.getElementById('style-' + question_id).style.color = 'red';
               document.getElementById('style-' + question_id).textContent="Incorrect!";
+              document.getElementById('style-' + question_id).className = "alert alert-danger mt-3";
             }
           },
           function(response){
