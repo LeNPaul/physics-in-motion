@@ -38,6 +38,20 @@ router.get('/answers/:question_id', (req, res) => {
       for (let i=0; i < incorrect_answers.length; i++) {
         answerResponse.push(incorrect_answers[i]);
       };
+
+      console.log(answerResponse);
+
+      for(let i = 0; i < answerResponse.length; i++){
+        console.log(answerResponse[i]);
+        const j = Math.floor(Math.random() * i)
+        console.log(j);
+        //const temp = array[i]
+        //array[i] = array[j]
+        //array[j] = temp
+      }
+
+      console.log(answerResponse);
+
       res.json(answerResponse);
     });
   });
