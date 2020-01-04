@@ -5,7 +5,7 @@ const Answers = require('../models/answers');
 
 // Temporary location to store questions information
 var questions = [
-  {question_id: '1', question_text: '<placeholder text>'},
+  {question_id: '1', question_text: 'Calculate the buoyancy of an object with volume of 3 and a density of 4.'},
   {question_id: '2', question_text: '<placeholder text>'},
   {question_id: '3', question_text: '<placeholder text>'},
   {question_id: '4', question_text: '<placeholder text>'},
@@ -144,11 +144,11 @@ var questions = [
 
 // Temporary location to store answers information
 var answers = [
-  {answer_id: '1', answer_text: '<placeholder text>', question_id: '1', is_correct: true},
-  {answer_id: '2', answer_text: '<placeholder text>', question_id: '1', is_correct: false},
-  {answer_id: '3', answer_text: '<placeholder text>', question_id: '1', is_correct: false},
-  {answer_id: '4', answer_text: '<placeholder text>', question_id: '1', is_correct: false},
-  {answer_id: '5', answer_text: '<placeholder text>', question_id: '1', is_correct: false},
+  {answer_id: '1', answer_text: '117.60', question_id: '1', is_correct: true},
+  {answer_id: '2', answer_text: '7.35', question_id: '1', is_correct: false},
+  {answer_id: '3', answer_text: '13.07', question_id: '1', is_correct: false},
+  {answer_id: '4', answer_text: '108.00', question_id: '1', is_correct: false},
+  {answer_id: '5', answer_text: '12.00', question_id: '1', is_correct: false},
   {answer_id: '6', answer_text: '<placeholder text>', question_id: '2', is_correct: true},
   {answer_id: '7', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
   {answer_id: '8', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
