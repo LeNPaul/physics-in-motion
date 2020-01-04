@@ -22,6 +22,13 @@ router.get('/question/:question_id', (req, res) => {
   });
 });
 
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 // Accepts a question_id
 // Returns answers with at least 1 correct answer
 // Each element must be an object with answer text
@@ -38,20 +45,8 @@ router.get('/answers/:question_id', (req, res) => {
       for (let i=0; i < incorrect_answers.length; i++) {
         answerResponse.push(incorrect_answers[i]);
       };
-
-      console.log(answerResponse);
-
-      for(let i = 0; i < answerResponse.length; i++){
-        console.log(answerResponse[i]);
-        const j = Math.floor(Math.random() * i)
-        console.log(j);
-        //const temp = array[i]
-        //array[i] = array[j]
-        //array[j] = temp
-      }
-
-      console.log(answerResponse);
-
+      // Shuffle array elements
+      shuffle(answerResponse);
       res.json(answerResponse);
     });
   });
