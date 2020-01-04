@@ -150,8 +150,6 @@ lessonApp.controller('mainController', function($scope, $http) {
 	  return true;
 	});
 
-
-
   function getAnswers(question_id) {
     return new Promise(function(resolve, reject) {
       $.get('/answers/' + question_id, function(answer_data, status) {
@@ -179,10 +177,8 @@ lessonApp.controller('mainController', function($scope, $http) {
   };
 
   $scope.initiateQuiz = function() {
-
     // Clear here to reset quiz questions when changing modules
     $scope.questions = [];
-
     if(document.querySelector("#user-exists")) {
       getLessonName().then(function(resolve) {
     	   var lesson = resolve;
@@ -203,11 +199,9 @@ lessonApp.controller('mainController', function($scope, $http) {
   }
 
   $scope.submitAnswer = function(question_id) {
-
     var radios = document.getElementsByName('question-' + question_id);
     for (var i = 0, length = radios.length; i < length; i++) {
       if (radios[i].checked) {
-
         $http.post('/submit_response', {question_id: question_id, answer_id: radios[i].value}, {}).then(
           function(response){
             if(response.data.is_correct == true) {
@@ -222,11 +216,9 @@ lessonApp.controller('mainController', function($scope, $http) {
             // TODO: Add proper error handling
           }
         );
-
         break;
       }
     }
-
   };
 
 });
