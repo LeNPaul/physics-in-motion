@@ -6,8 +6,8 @@ const Answers = require('../models/answers');
 // Temporary location to store questions information
 var questions = [
   {question_id: '1', question_text: 'Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) and a density of \\( 4 \\ kg/m^3 \\). Assume acceleration due to gravity is \\( 9.81 \\ m / s^2 \\)'},
-  {question_id: '2', question_text: '<placeholder text>'},
-  {question_id: '3', question_text: '<placeholder text>'},
+  {question_id: '2', question_text: 'A cruise ship weighs 165300 tonnes, is 200 metres long, 28 metres wide, and 50 metres high. What is the average density of the cruise ship?'},
+  {question_id: '3', question_text: 'What kind of function describes the relationship between buoyancy and volume, assuming that mass and density remains the same?'},
   {question_id: '4', question_text: '<placeholder text>'},
   {question_id: '5', question_text: '<placeholder text>'},
   {question_id: '6', question_text: '<placeholder text>'},
