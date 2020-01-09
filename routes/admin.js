@@ -9,7 +9,7 @@ var questions = [
   {question_id: '2', question_text: 'A cruise ship weighs 165300 tonnes, is 200 metres long, 28 metres wide, and 50 metres high. What is the average density of the cruise ship?'},
   {question_id: '3', question_text: 'What kind of function describes the relationship between buoyancy and volume, assuming that mass and density remains the same?'},
   {question_id: '4', question_text: 'A perfectly spherical balloon with a radius of 0.25 metres is held underwater. What is the force of buoyancy from that balloon?'},
-  {question_id: '5', question_text: '<placeholder text>'},
+  {question_id: '5', question_text: 'A balloon with a volume of 10 \\( m^3 \\) is completely submerged under water. The balloon is filled with a liquid that is \\(0.87 \\ kg/m^3 \\) dense. Will the ballon sink or float? Will this answer change if the volume of the ballon increases?'},
   {question_id: '6', question_text: '<placeholder text>'},
   {question_id: '7', question_text: '<placeholder text>'},
   {question_id: '8', question_text: '<placeholder text>'},
