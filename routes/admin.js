@@ -5,7 +5,7 @@ const Answers = require('../models/answers');
 
 // Temporary location to store questions information
 var questions = [
-  {question_id: '1', question_text: 'Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) and a density of \\( 4 \\ kg/m^3 \\). Assume acceleration due to gravity is \\( 9.81 \\ m / s^2 \\)'},
+  {question_id: '1', question_text: 'Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) that is completely submerged under water. Assume the density of water is \\( 4 \\ kg/m^3 \\) and acceleration due to gravity is \\( 9.81 \\ m / s^2 \\).'},
   {question_id: '2', question_text: 'A cruise ship weighs 165300 tonnes, is 200 metres long, 28 metres wide, and 50 metres high. What is the average density of the cruise ship?'},
   {question_id: '3', question_text: 'What kind of function describes the relationship between buoyancy and volume, assuming that mass and density remains the same?'},
   {question_id: '4', question_text: 'A perfectly spherical balloon with a radius of 0.25 metres is held underwater. What is the force of buoyancy from that balloon?'},
@@ -144,11 +144,11 @@ var questions = [
 
 // Temporary location to store answers information
 var answers = [
-  {answer_id: '1', answer_text: '\\( 117.72 \\ kg \\cdot m / s^2 \\)', question_id: '1', is_correct: true},
-  {answer_id: '2', answer_text: '\\( 117.72 \\ kg \\cdot s^2 / m \\)', question_id: '1', is_correct: false},
-  {answer_id: '3', answer_text: '\\(13.07 \\ kg \\cdot m / s^2 \\)', question_id: '1', is_correct: false},
-  {answer_id: '4', answer_text: '\\(108.00 \\ kg \\cdot m / s^2 \\)', question_id: '1', is_correct: false},
-  {answer_id: '5', answer_text: '\\(12.00 \\ kg \\cdot m / s^2 \\)', question_id: '1', is_correct: false},
+  {answer_id: '1', answer_text: '\\( 29341.71 \\ \\frac{kg \\cdot m}{s^2} \\)', question_id: '1', is_correct: true},
+  {answer_id: '2', answer_text: '\\( 29341.71 \\ \\frac{s^2}{kg \\cdot m} \\)', question_id: '1', is_correct: false},
+  {answer_id: '3', answer_text: '\\( 29341.71 \\ \\frac{kg \\cdot s^2}{m} \\)', question_id: '1', is_correct: false},
+  {answer_id: '4', answer_text: '\\( 29341.71 \\ \\frac{m \\cdot s^2}{kg} \\)', question_id: '1', is_correct: false},
+  {answer_id: '5', answer_text: '\\( 29341.71 \\ kg \\cdot m \\cdot s^2 \\)', question_id: '1', is_correct: false},
   {answer_id: '6', answer_text: '<placeholder text>', question_id: '2', is_correct: true},
   {answer_id: '7', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
   {answer_id: '8', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
