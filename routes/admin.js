@@ -154,11 +154,11 @@ var answers = [
   {answer_id: '8', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
   {answer_id: '9', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
   {answer_id: '10', answer_text: '<placeholder text>', question_id: '2', is_correct: false},
-  {answer_id: '11', answer_text: '<placeholder text>', question_id: '3', is_correct: true},
-  {answer_id: '12', answer_text: '<placeholder text>', question_id: '3', is_correct: false},
-  {answer_id: '13', answer_text: '<placeholder text>', question_id: '3', is_correct: false},
-  {answer_id: '14', answer_text: '<placeholder text>', question_id: '3', is_correct: false},
-  {answer_id: '15', answer_text: '<placeholder text>', question_id: '3', is_correct: false},
+  {answer_id: '11', answer_text: 'Linear function.', question_id: '3', is_correct: true},
+  {answer_id: '12', answer_text: 'Quadratic function.', question_id: '3', is_correct: false},
+  {answer_id: '13', answer_text: 'Cubic function.', question_id: '3', is_correct: false},
+  {answer_id: '14', answer_text: 'Quartic function.', question_id: '3', is_correct: false},
+  {answer_id: '15', answer_text: 'Quintic function.', question_id: '3', is_correct: false},
   {answer_id: '16', answer_text: '<placeholder text>', question_id: '4', is_correct: true},
   {answer_id: '17', answer_text: '<placeholder text>', question_id: '4', is_correct: false},
   {answer_id: '18', answer_text: '<placeholder text>', question_id: '4', is_correct: false},
@@ -827,7 +827,8 @@ var answers = [
 //    Endpoint should also be able to "insert or ignore", so that new questions and answers can be added (when questions or answers are updated, loop through every user and call this endpoint)
 // Add some logging to indicate what was updated
 
-router.post('/initiate_questions', (req, res) => {
+router.post('/initiate_quizzes', (req, res) => {
+  Questions.remove({}, function(err) {});
   for(let i = 0; i < questions.length; i++) {
     var newQuestion = new Questions({
       question_id: questions[i].question_id,
@@ -839,12 +840,8 @@ router.post('/initiate_questions', (req, res) => {
       }
     })
   };
-  res.json({success: true});
-});
-
-router.post('/initiate_answers', (req, res) => {
+  Answers.remove({}, function(err) {});
   for(let i = 0; i < answers.length; i++) {
-
     var newAnswer = new Answers({
       answer_id: answers[i].answer_id,
       answer_text: answers[i].answer_text,
