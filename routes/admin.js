@@ -19,7 +19,7 @@ var questions = [
   {question_id: '12', question_text: 'What depth of water is required to produce a pressure of \\( 1 \\ atm \\). Assume the density of water is \\( 1000 \\ kg/m^3 \\) and \\( 1 \\ atm = 1.01 \\times 10^5 \\ N/m^2 \\)'},
   {question_id: '13', question_text: 'What depth of mercury is required to produce a pressure of \\( 1 \\ atm \\). Assume the density of mercury is \\( 13600 \\ kg/m^3 \\) and \\( 1 \\ atm = 1.01 \\times 10^5 \\ N/m^2 \\)'},
   {question_id: '14', question_text: 'Calculate the pressure due to a fluid, where the fluid is water with a density of \\( 1000 \\ kg/m^3 \\) and the depth is \\( 1 \\ km \\).'},
-  {question_id: '15', question_text: ''},
+  {question_id: '15', question_text: 'Calculate the pressure due to a fluid, where the fluid is mercury with a density of \\( 13600 \\ kg/m^3 \\) and the depth is \\( 1 \\ km \\).'},
   {question_id: '16', question_text: '<placeholder text>'},
   {question_id: '17', question_text: '<placeholder text>'},
   {question_id: '18', question_text: '<placeholder text>'},
