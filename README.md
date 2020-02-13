@@ -1,5 +1,7 @@
 # Physics in Motion
 
+How physics should be taught.
+
 ![alt text](https://user-images.githubusercontent.com/8409329/62478390-fe2f9300-b778-11e9-9eef-8ef201de8f4f.png "Physics in Motion")
 
 The goal for Physics in Motion is to create dynamics lessons that allow students to learn physics the way it was meant to be taught: through motion.
