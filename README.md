@@ -6,7 +6,7 @@ How physics should be taught.
 
 ### Mission Statement
 
-The goal for Physics in Motion is to create dynamics lessons that allow students to learn physics the way it was meant to be taught: through motion.
+The goal for Physics in Motion is to create dynamics lessons that allow students to learn physics the way it was meant to be taught: through motion. For more information, please read the [full mission statement](https://medium.com/@LeNPaul/physics-in-motion-cb64911c93a4).
 
 ### Contributing
 
