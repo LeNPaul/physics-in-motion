@@ -22,7 +22,7 @@ var questions = [
   {question_id: '15', question_text: 'Calculate the pressure due to a fluid, where the fluid is mercury with a density of \\( 13600 \\ kg/m^3 \\) and the depth is \\( 1 \\ km \\).'},
   {question_id: '16', question_text: 'Two large buildings next to each other have wind blowing between the buildings with a velocity of \\( 30 \\ m/s \\). What is the air pressure between the two buildings? Assume that the density of air is \\( 1.29 \\ kg/m^3 \\).'},
   {question_id: '17', question_text: 'What kind of function describes the relationship between the pressure and the velocity of a fluid?'},
-  {question_id: '18', question_text: 'Calculate the work done by a fluid as it flows from the top of a dam at 5 metres above sea level, to 1 metre above sea level. Assume the density of water is \\( 1000 \\ kg/m^3 \\)'},
+  {question_id: '18', question_text: 'Calculate the work done by a fluid as it flows from the top of a dam at \\( 5 \\ m \\) above sea level, to \\( 1 \\ m \\) above sea level. Assume the density of water is \\( 1000 \\ kg/m^3 \\) and acceleration due to gravity is \\( 9.81 \\ m / s^2 \\).'},
   {question_id: '19', question_text: '<placeholder text>'},
   {question_id: '20', question_text: '<placeholder text>'},
   {question_id: '21', question_text: '<placeholder text>'},
