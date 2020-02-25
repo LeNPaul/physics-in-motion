@@ -229,7 +229,7 @@ var answers = [
   {answer_id: '83', answer_text: 'Cubic function', question_id: '17', is_correct: false},
   {answer_id: '84', answer_text: 'Quartic function', question_id: '17', is_correct: false},
   {answer_id: '85', answer_text: 'Quintic function', question_id: '17', is_correct: false},
-  {answer_id: '86', answer_text: '\\(  \\)', question_id: '18', is_correct: true},
+  {answer_id: '86', answer_text: '\\( 49050 \\)', question_id: '18', is_correct: true},
   {answer_id: '87', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
   {answer_id: '88', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
   {answer_id: '89', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
