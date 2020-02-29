@@ -3,6 +3,8 @@ const router = express.Router();
 const Questions = require('../models/questions');
 const Answers = require('../models/answers');
 
+// https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/14-6-bernoullis-equation/#CNX_UPhysics_Figure_14_06_TruckCar
+
 // Temporary location to store questions information
 var questions = [
   {question_id: '1', question_text: 'Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) that is completely submerged under water. Assume the density of water is \\( 997 \\ kg/m^3 \\) and acceleration due to gravity is \\( 9.81 \\ m / s^2 \\).'},
@@ -229,7 +231,7 @@ var answers = [
   {answer_id: '83', answer_text: 'Cubic function', question_id: '17', is_correct: false},
   {answer_id: '84', answer_text: 'Quartic function', question_id: '17', is_correct: false},
   {answer_id: '85', answer_text: 'Quintic function', question_id: '17', is_correct: false},
-  {answer_id: '86', answer_text: '\\( 49050 \\)', question_id: '18', is_correct: true},
+  {answer_id: '86', answer_text: '\\( 1.58 \\times 10^6 N/m^2 \\)', question_id: '18', is_correct: true},
   {answer_id: '87', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
   {answer_id: '88', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
   {answer_id: '89', answer_text: '\\(  \\)', question_id: '18', is_correct: false},
