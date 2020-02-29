@@ -3,6 +3,8 @@ const router = express.Router();
 const Questions = require('../models/questions');
 const Answers = require('../models/answers');
 
+// References
+// https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/14-5-fluid-dynamics/#ex14.5
 // https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/14-6-bernoullis-equation/#CNX_UPhysics_Figure_14_06_TruckCar
 
 // Temporary location to store questions information
@@ -25,7 +27,7 @@ var questions = [
   {question_id: '16', question_text: 'Two large buildings next to each other have wind blowing between the buildings with a velocity of \\( 30 \\ m/s \\). What is the air pressure between the two buildings? Assume that the density of air is \\( 1.29 \\ kg/m^3 \\).'},
   {question_id: '17', question_text: 'What kind of function describes the relationship between the pressure and the velocity of a fluid?'},
   {question_id: '18', question_text: 'A nozzle with a diameter of \\( 0.5 \\ cm \\) is attached to a garden hose with a radius of \\( 0.9 \\ cm \\). The flow rate through the hose and nozzle is \\( 0.5 \\ L/s \\). Calculate the speed of the water in the hose. Assume the density of water is \\( 1000 \\ kg/m^3 \\).'},
-  {question_id: '19', question_text: '<placeholder text>'},
+  {question_id: '19', question_text: 'A nozzle with a diameter of \\( 0.5 \\ cm \\) is attached to a garden hose with a radius of \\( 0.9 \\ cm \\). The flow rate through the hose and nozzle is \\( 0.5 \\ L/s \\). Calculate the speed of the water in the nozzle. Assume the density of water is \\( 1000 \\ kg/m^3 \\).'},
   {question_id: '20', question_text: '<placeholder text>'},
   {question_id: '21', question_text: '<placeholder text>'},
   {question_id: '22', question_text: '<placeholder text>'},
@@ -236,11 +238,11 @@ var answers = [
   {answer_id: '88', answer_text: '\\( 1.77 \\times 10^{-4} \\ m/s \\)', question_id: '18', is_correct: false},
   {answer_id: '89', answer_text: '\\( 1.96 \\times 10^{-4} \\ m/s \\)', question_id: '18', is_correct: false},
   {answer_id: '90', answer_text: '\\( 177 \\ m/s \\)', question_id: '18', is_correct: false},
-  {answer_id: '91', answer_text: '<placeholder text>', question_id: '19', is_correct: true},
-  {answer_id: '92', answer_text: '<placeholder text>', question_id: '19', is_correct: false},
-  {answer_id: '93', answer_text: '<placeholder text>', question_id: '19', is_correct: false},
-  {answer_id: '94', answer_text: '<placeholder text>', question_id: '19', is_correct: false},
-  {answer_id: '95', answer_text: '<placeholder text>', question_id: '19', is_correct: false},
+  {answer_id: '91', answer_text: '\\( 25.5 \\ m/s \\)', question_id: '19', is_correct: true},
+  {answer_id: '92', answer_text: '\\( 6.37 \\ m/s \\)', question_id: '19', is_correct: false},
+  {answer_id: '93', answer_text: '\\( 0.0318 \\ m/s \\)', question_id: '19', is_correct: false},
+  {answer_id: '94', answer_text: '\\( 25.5 \\times 10^{-4} \\ m/s \\)', question_id: '19', is_correct: false},
+  {answer_id: '95', answer_text: '\\( 6.37 \\times 10^{-4} \\ m/s \\)', question_id: '19', is_correct: false},
   {answer_id: '96', answer_text: '<placeholder text>', question_id: '20', is_correct: true},
   {answer_id: '97', answer_text: '<placeholder text>', question_id: '20', is_correct: false},
   {answer_id: '98', answer_text: '<placeholder text>', question_id: '20', is_correct: false},
