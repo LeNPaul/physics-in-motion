@@ -33,8 +33,7 @@ var questions = [
   {question_id: '27', question_text: 'A hydraulic jack consists of a large cylinder of area \\( A \\) connected to a small cylinder of area \\( a \\). Both cylinders are filled with oil. When force \\( f \\) is applied to the small cylinder, the resulting pressure is transmitted to the large cylinder, which then exerts an upward force \\( F \\). Suppose a car of weight  \\( 12000 \\ N \\) rests on the large cylinder of area  \\( 0.10 \\ m^2 \\). What force must be applied to the small cylinder of area \\( 0.002 \\ m^2 \\) in order to support the car?'},
   {question_id: '28', question_text: 'What is the total net force acting on the surface of a dam of height \\( h \\) and width \\( w \\)?'},
   {question_id: '29', question_text: 'Suppose you are capable of carrying a weight of \\( 400 \\ N \\). What size cube of gold could you carry? Assume that the density of gold is \\( 19300 \\ kg/m^3 \\).'},
-  {question_id: '30', question_text: 'A deep sea exploration vessel has a window of area \\( 0.10 \\ m^2 \\). What force is exerted on it by sea
-water at a depth of \\( 5000 \\ m \\)? Assume that the desnity of water is \\( l030 kg/m^3 \\).'},
+  {question_id: '30', question_text: 'A deep sea exploration vessel has a window of area \\( 0.10 \\ m^2 \\). What force is exerted on it by sea water at a depth of \\( 5000 \\ m \\)? Assume that the desnity of water is \\( l030 kg/m^3 \\).'},
   {question_id: '31', question_text: '<placeholder text>'},
   {question_id: '32', question_text: '<placeholder text>'},
   {question_id: '33', question_text: '<placeholder text>'},
