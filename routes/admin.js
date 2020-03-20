@@ -293,7 +293,7 @@ var answers = [
   {answer_id: '173', answer_text: 'Wave velocity remains the same', question_id: '35', is_correct: false},
   {answer_id: '174', answer_text: 'Wave velocity increases only up to a point', question_id: '35', is_correct: false},
   {answer_id: '175', answer_text: 'Wave velocity decreases only up to a point', question_id: '35', is_correct: false},
-  {answer_id: '176', answer_text: '\\( O.041 \\ mm \\)', question_id: '36', is_correct: true},
+  {answer_id: '176', answer_text: '\\( 0.041 \\ mm \\)', question_id: '36', is_correct: true},
   {answer_id: '177', answer_text: '\\( 41250 \\ mm \\)', question_id: '36', is_correct: false},
   {answer_id: '178', answer_text: '\\( 41.25 \\ m \\)', question_id: '36', is_correct: false},
   {answer_id: '179', answer_text: '\\( 0.041 \\ cm \\)', question_id: '36', is_correct: false},
