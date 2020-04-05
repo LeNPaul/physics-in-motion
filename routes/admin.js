@@ -138,7 +138,7 @@ var questions = [
   {question_id: '132', question_text: 'A cannon of mass \\( 1200 \\ kg \\) fires a \\( 64 \\ kg \\) shell with a muzzle velocity of \\( 62 \\ m/s \\) (this is the speed of the shell with respect to the cannon). Immediately after firing, what is the velocity \\( V \\) of the cannon with respect to the earth?'},
   {question_id: '133', question_text: 'A cannon of mass \\( 1200 \\ kg \\) fires a \\( 64 \\ kg \\) shell with a muzzle velocity of \\( 62 \\ m/s \\) (this is the speed of the shell with respect to the cannon). Immediately after firing, what is the velocity \\( v \\) of the shell with respect to the earth?'},
   {question_id: '134', question_text: 'High-speed photography reveals that when a bat strikes a baseball, a typical collision time is about \\( 2 \\ ms \\). If a speed of \\( 45 \\ m/s \\) is imparted to a ball of mass \\( 0.145 \\ kg \\), what average force is exerted by the bat?'},
-  {question_id: '135', question_text: '<placeholder text>'},
+  {question_id: '135', question_text: 'A ball of mass \\( m \\) and velocity \\( v \\) strikes a wall at an angle \\( \\theta \\) and bounces off at the same speed and at the same angle. If the collision time with the wall is \\( \\Delta t \\), what is the average force exerted on the wall?'},
 ]
 
 // Temporary location to store answers information
@@ -788,11 +788,11 @@ var answers = [
   {answer_id: '668', answer_text: '\\( 6.53 \\ N \\)', question_id: '134', is_correct: false},
   {answer_id: '669', answer_text: '\\( 326 \\ N \\)', question_id: '134', is_correct: false},
   {answer_id: '670', answer_text: '\\( 32.6 \\ N \\)', question_id: '134', is_correct: false},
-  {answer_id: '671', answer_text: '<placeholder text>', question_id: '135', is_correct: true},
-  {answer_id: '672', answer_text: '<placeholder text>', question_id: '135', is_correct: false},
-  {answer_id: '673', answer_text: '<placeholder text>', question_id: '135', is_correct: false},
-  {answer_id: '674', answer_text: '<placeholder text>', question_id: '135', is_correct: false},
-  {answer_id: '675', answer_text: '<placeholder text>', question_id: '135', is_correct: false},
+  {answer_id: '671', answer_text: '\\( \\frac{2 m v \\sin \\theta}{\\Delta t} \\)', question_id: '135', is_correct: true},
+  {answer_id: '672', answer_text: '\\( \\frac{2 m v \\cos \\theta}{\\Delta t} \\)', question_id: '135', is_correct: false},
+  {answer_id: '673', answer_text: '\\( \\frac{2 m v \\tan \\theta}{\\Delta t} \\)', question_id: '135', is_correct: false},
+  {answer_id: '674', answer_text: '\\( \\frac{m v \\sin \\theta}{\\Delta t} \\)', question_id: '135', is_correct: false},
+  {answer_id: '675', answer_text: '\\( \\frac{m v \\cos \\theta}{\\Delta t} \\)', question_id: '135', is_correct: false},
 ]
 
 // Option to update database with new questions and answers (maybe do an insert or ignore equivalent)
