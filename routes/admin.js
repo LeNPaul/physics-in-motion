@@ -831,4 +831,11 @@ router.post('/initiate_quizzes', (req, res) => {
   res.json({success: true});
 });
 
+router.get('/admin', (req, res) => {
+    res.render('admin/admin', {
+      user : req.user,
+      title : 'Administrator | Physics in Motion'
+     });
+});
+
 module.exports = router;
