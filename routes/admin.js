@@ -834,7 +834,7 @@ router.post('/initiate_quizzes', (req, res) => {
 router.get('/admin', (req, res) => {
     res.render('admin/admin', {
       user : req.user,
-      title : 'Administrator | Physics in Motion'
+      title : 'Administrator Dashboard | Physics in Motion'
      });
 });
 

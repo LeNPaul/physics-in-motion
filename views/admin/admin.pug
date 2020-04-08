@@ -1,4 +1,5 @@
 doctype html
+//- Template: view-source:https://getbootstrap.com/docs/4.0/examples/sticky-footer/
 html(lang='en')
   head
     meta(charset='utf-8')
@@ -7,5 +8,10 @@ html(lang='en')
     meta(name='author', content='')
     link(rel='icon', href='../../../../favicon.ico')
     title #{ title }
+    //- Bootstrap core CSS
+    link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='/assets/css/style.css', rel='stylesheet')
   body
-    p Administrator dashboard placeholder
+    main(role='main', class='container')
+      h1 Administrator Dashboard
+      p Some placeholder text for this
