@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Account = require('../models/account');
 const Questions = require('../models/questions');
 const Answers = require('../models/answers');
 
@@ -836,6 +837,16 @@ router.get('/admin', (req, res) => {
       user : req.user,
       title : 'Administrator Dashboard | Physics in Motion'
      });
+});
+
+router.get('/user_list', (req, res) => {
+  if (req.user.username == 'me@dmin.com') {
+    Account.find({}, function(err, users) {
+      res.json(users);
+    });
+  } else {
+    res.json({error: 'Please log in as administrator account.'});
+  }
 });
 
 module.exports = router;
