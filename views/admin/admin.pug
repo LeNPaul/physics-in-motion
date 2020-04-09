@@ -13,5 +13,8 @@ html(lang='en')
     link(href='/assets/css/style.css', rel='stylesheet')
   body
     main(role='main', class='container')
-      h1 Administrator Dashboard
-      p Some placeholder text for this
+      if (user && user.username == 'me@dmin.com')
+        h1 Administrator Dashboard
+        p Some placeholder text for this #{ user.username }
+      else
+        p Please log in as administrator account
