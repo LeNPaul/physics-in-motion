@@ -3,6 +3,8 @@ const router = express.Router();
 const Account = require('../models/account');
 const Questions = require('../models/questions');
 const Answers = require('../models/answers');
+const Lessons = require('../models/lessons');
+const Quizzes = require('../models/quizzes');
 
 // References
 // https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/14-5-fluid-dynamics/#ex14.5
@@ -862,14 +864,14 @@ router.get('/user_list', (req, res) => {
 });
 
 router.post('/delete_user', (req, res) => {
-  Account.deleteOne({ username: req.body.user }, function (err) {
-    // Delete at most one user
-    if (err) {
-      res.json({success: false});
-    } else {
-      res.json({success: true});  
-    }
-  });
+  // Delete at most one user
+  Account.deleteOne({ username: req.body.user }, function (err) {res.json({success: false});});
+  // Delete all quiz responses for user
+  Quizzes.deleteMany({ username: req.body.user }, function(err) {res.json({success: false});});
+  // Delete all lesson information for user
+  Lessons.deleteMany({ username: req.body.user }, function(err) {res.json({success: false});});
+  // Return success if all passes
+  res.json({success: true});
 });
 
 module.exports = router;
