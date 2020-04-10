@@ -840,10 +840,22 @@ router.get('/admin', (req, res) => {
 });
 
 router.get('/user_list', (req, res) => {
+  var limit;
+  if (req.query.limit) {
+    limit = Number(req.query.limit);
+  } else {
+    limit = 10;
+  }
+  var page;
+  if (req.query.page) {
+    page = Number(req.query.page);
+  } else {
+    page = 0;
+  }
   if (req.user.username == 'me@dmin.com') {
-    Account.find({}, function(err, users) {
+    Account.find({}).skip(page * limit).limit(limit).exec(function(err, users) {
       res.json(users);
-    });
+    })
   } else {
     res.json({error: 'Please log in as administrator account.'});
   }
