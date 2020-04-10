@@ -812,9 +812,7 @@ router.post('/initiate_quizzes', (req, res) => {
       question_text: questions[i].question_text,
     })
     newQuestion.save(function(err, data) {
-      if (err) {
-        // TODO - add proper error handling here
-      }
+      if (err) {res.json({success: false})};
     })
   };
   Answers.remove({}, function(err) {});
@@ -826,9 +824,7 @@ router.post('/initiate_quizzes', (req, res) => {
       is_correct: answers[i].is_correct,
     })
     newAnswer.save(function(err, data) {
-      if (err) {
-        // TODO - add proper error handling here
-      }
+      if (err) {res.json({success: false})};
     })
   };
   res.json({success: true});
@@ -865,11 +861,17 @@ router.get('/user_list', (req, res) => {
 
 router.post('/delete_user', (req, res) => {
   // Delete at most one user
-  Account.deleteOne({ username: req.body.user }, function (err) {res.json({success: false});});
+  Account.deleteOne({ username: req.body.user }, function (err) {
+    if (err) {res.json({success: false})};
+  });
   // Delete all quiz responses for user
-  Quizzes.deleteMany({ username: req.body.user }, function(err) {res.json({success: false});});
+  Quizzes.deleteMany({ username: req.body.user }, function(err) {
+    if (err) {res.json({success: false})};
+  });
   // Delete all lesson information for user
-  Lessons.deleteMany({ username: req.body.user }, function(err) {res.json({success: false});});
+  Lessons.deleteMany({ username: req.body.user }, function(err) {
+    if (err) {res.json({success: false})};
+  });
   // Return success if all passes
   res.json({success: true});
 });
