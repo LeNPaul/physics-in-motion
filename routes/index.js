@@ -46,6 +46,15 @@ router.get('/notes/:course', (req, res) => {
      });
 });
 
+// User settings
+
+router.get('/settings', (req, res) => {
+    res.render('dashboard/settings', {
+      user : req.user,
+      title : 'Settings'
+    })
+});
+
 // Curriculum
 
 router.get('/courses', (req, res) => {
