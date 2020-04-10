@@ -9,4 +9,8 @@ noteApp.controller('mainController', function($scope) {
     $scope.$digest();
   });
 
+  $scope.deleteUser = function(username) {
+    console.log(username);
+  }
+
 });
