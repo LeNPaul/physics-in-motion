@@ -1,5 +1,5 @@
 doctype html
-html(lang='en',ng-app='noteApp')
+html(lang='en',ng-app='settingsApp')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -41,7 +41,7 @@ html(lang='en',ng-app='noteApp')
                         //- h1.page-header #{ course }
                         div()
                           h3 Settings
-                          p Some placeholder text
+                          p {{ hello }}
 
     //- Footer
     .container
@@ -62,6 +62,6 @@ html(lang='en',ng-app='noteApp')
     //- Chart.js
     script(src='/assets/libs/chart.js/Chart.bundle.js')
     //- ANGULAR CUSTOM
-    script(src='/assets/js/noteApp.js')
+    script(src='/assets/js/settingsApp.js')
     //- Helper functions for creating charts for lesson modules
     script(src='/assets/js/chart.js')
