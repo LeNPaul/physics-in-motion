@@ -861,4 +861,15 @@ router.get('/user_list', (req, res) => {
   }
 });
 
+router.post('/delete_user', (req, res) => {
+  Account.deleteOne({ username: req.body.user }, function (err) {
+    // Delete at most one user
+    if (err) {
+      res.json({success: false});
+    } else {
+      res.json({success: true});  
+    }
+  });
+});
+
 module.exports = router;

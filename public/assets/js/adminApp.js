@@ -10,7 +10,11 @@ noteApp.controller('mainController', function($scope) {
   });
 
   $scope.deleteUser = function(username) {
-    console.log(username);
+    $.post("/delete_user", {user: username}, function(data, status) {
+      // Delete user and reload the page
+      // TODO - add proper error handling here
+      location.reload();
+    });
   }
 
 });
