@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Account = require('../models/account');
 const Questions = require('../models/questions');
 const Answers = require('../models/answers');
 
@@ -829,6 +830,46 @@ router.post('/initiate_quizzes', (req, res) => {
     })
   };
   res.json({success: true});
+});
+
+router.get('/admin', (req, res) => {
+    res.render('admin/admin', {
+      user : req.user,
+      title : 'Administrator Dashboard | Physics in Motion'
+     });
+});
+
+router.get('/user_list', (req, res) => {
+  var limit;
+  if (req.query.limit) {
+    limit = Number(req.query.limit);
+  } else {
+    limit = 10;
+  }
+  var page;
+  if (req.query.page) {
+    page = Number(req.query.page);
+  } else {
+    page = 0;
+  }
+  if (req.user.username == 'me@dmin.com') {
+    Account.find({}).skip(page * limit).limit(limit).exec(function(err, users) {
+      res.json(users);
+    })
+  } else {
+    res.json({error: 'Please log in as administrator account.'});
+  }
+});
+
+router.post('/delete_user', (req, res) => {
+  Account.deleteOne({ username: req.body.user }, function (err) {
+    // Delete at most one user
+    if (err) {
+      res.json({success: false});
+    } else {
+      res.json({success: true});  
+    }
+  });
 });
 
 module.exports = router;

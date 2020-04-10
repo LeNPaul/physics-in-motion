@@ -1,0 +1,32 @@
+doctype html
+//- Template: view-source:https://getbootstrap.com/docs/4.0/examples/sticky-footer/
+html(lang='en', ng-app='adminApp')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../../../favicon.ico')
+    title #{ title }
+    //- Bootstrap core CSS
+    link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='/assets/css/style.css', rel='stylesheet')
+  body(ng-controller='mainController')
+    main(role='main', class='container')
+      if (user && user.username == 'me@dmin.com')
+        h1 Administrator Dashboard
+        p Logged in as #{ user.username }
+        div(class='card')
+          h5(class='card-header') Users
+          div(class='card-body')
+            ul(class='list-group list-group-flush')
+              li(class='list-group-item', ng-repeat='user in Users') {{ user.username }} 
+                button(type="button" class='btn btn-danger', style='float: right;', ng-click='deleteUser(user.username)') Delete
+      else
+        p Please log in as administrator account
+    // - jQuery
+    script(src='/assets/libs/jquery/jquery.min.js')
+    //- AngularJS
+    script(src='/assets/libs/angular/angular.min.js')
+    //- ANGULAR CUSTOM
+    script(src='/assets/js/adminApp.js')
