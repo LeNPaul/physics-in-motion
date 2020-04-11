@@ -43,7 +43,8 @@ html(lang='en',ng-app='settingsApp')
                         h1.page-header #{ title }
                         p Manage your user settings here.
                         h3 Delete Account
-                        button(type="button" class='btn btn-danger', ng-click='deleteUser()') Delete
+                        div(style='margin-top: 18px;')
+                          button(type="button" class='btn btn-danger', ng-click='deleteUser()') Delete
     //- Footer
     .container
       include ../footer/home-footer.pug
