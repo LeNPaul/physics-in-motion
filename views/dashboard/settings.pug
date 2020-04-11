@@ -27,6 +27,8 @@ html(lang='en',ng-app='settingsApp')
       .row
         .col-lg-3
           h5.my-4 #{ title }
+            i.fa.fa-arrow-right(aria-hidden='true')
+            p(id='username') #{ user.username }
           .list-group
             block content
         //- /.col-lg-3
@@ -38,11 +40,10 @@ html(lang='en',ng-app='settingsApp')
                   .row
                       .col-sm-2
                       .col-sm-8
-                        //- h1.page-header #{ course }
-                        div()
-                          h3 Settings
-                          p {{ hello }}
-
+                        h1.page-header #{ title }
+                        p Manage your user settings here.
+                        h3 Delete Account
+                        button(type="button" class='btn btn-danger', ng-click='deleteUser()') Delete
     //- Footer
     .container
       include ../footer/home-footer.pug
