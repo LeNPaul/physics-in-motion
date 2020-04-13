@@ -1,3 +1,7 @@
+// Font stack matches what the default for Bootstrap is
+Chart.defaults.global.defaultFontFamily = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
+Chart.defaults.global.defaultFontSize = '14';
+
 function chartConfig(chartTitle, xLabel, xData, yLabel, yData) {
   return {
     type: 'line',
