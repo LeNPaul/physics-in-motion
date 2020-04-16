@@ -21,6 +21,7 @@ function updateNotes() {
   var notes = document.getElementById("lessonNotes").value;
   $.post("/update_lesson_notes", {lessonPath: lessonPath, notes: notes}, function(data, status) {
   });
+  alert("Notes have been updated!");
 }
 
 function setLessonStatus() {
