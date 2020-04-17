@@ -108,13 +108,13 @@
 		var randomNumber = generateRandomNumber(-10, 10);
 		for (i = 0; i < positionChart.data.datasets[0].data.length; i++) {
 			positionChart.data.datasets[0].data[i] = startPosition + i * randomNumber;
-			positionChart.data.labels[i] = i + randomNumber;
+			positionChart.data.labels[i] = i + Math.abs(randomNumber);
 		}
 		positionChart.update();
 		// Update Velocity chart
 		for (i = 0; i < velocityChart.data.datasets[0].data.length; i++) {
 			velocityChart.data.datasets[0].data[i] = randomNumber;
-			velocityChart.data.labels[i] = i + randomNumber;
+			velocityChart.data.labels[i] = i + Math.abs(randomNumber);
 		}
 		velocityChart.update();
 	}
@@ -126,12 +126,14 @@
 		var randomNumber = generateRandomNumber(-10, 10);
 		for (i = 0; i < positionChart.data.datasets[0].data.length; i++) {
 			positionChart.data.datasets[0].data[i] = startPosition;
+			positionChart.data.labels[i] = i + Math.abs(randomNumber);
 		}
 		positionChart.update();
 
 		// Update Velocity chart
 		for (i = 0; i < velocityChart.data.datasets[0].data.length; i++) {
 			velocityChart.data.datasets[0].data[i] = 0;
+			velocityChart.data.labels[i] = i + Math.abs(randomNumber);
 		}
 		velocityChart.update();
 
