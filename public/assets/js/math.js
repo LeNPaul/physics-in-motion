@@ -10,3 +10,19 @@ function quadraticFunction(time, a, c) {
 function linearFunction(time, a, c) {
   return a * time + c
 }
+
+function sin(a, x) {
+  return Math.sin(a * x)
+}
+
+function superSin(a, b, x) {
+  return 2 * Math.cos((a - b)/2 * x) * Math.sin((a + b)/2 * x)
+}
+
+function drivenHarmonicMotion(x) {
+  return x * Math.sin(x)
+}
+
+function dampedHarmonicMotion(x) {
+  return Math.exp(-x) * Math.cos(x)
+}

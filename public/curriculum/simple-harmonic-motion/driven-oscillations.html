@@ -79,17 +79,13 @@
 </div>
 <script>
 
-  function dhmf(x) {
-    return x * Math.sin(x)
-  }
-
   new Chart(document.getElementById("driven-harmonic-motion"),
     chartConfig(
       'Position as a Function of Time',
       'Time (s)',
       [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
       'Position (m)',
-      [dhmf(0), dhmf(0.5), dhmf(1), dhmf(1.5), dhmf(2), dhmf(2.5), dhmf(3), dhmf(3.5), dhmf(4), dhmf(4.5), dhmf(5), dhmf(5.5), dhmf(6), dhmf(6.5), dhmf(7), dhmf(7.5), dhmf(8), dhmf(8.5), dhmf(9), dhmf(9.5), dhmf(10)]
+      [drivenHarmonicMotion(0), drivenHarmonicMotion(0.5), drivenHarmonicMotion(1), drivenHarmonicMotion(1.5), drivenHarmonicMotion(2), drivenHarmonicMotion(2.5), drivenHarmonicMotion(3), drivenHarmonicMotion(3.5), drivenHarmonicMotion(4), drivenHarmonicMotion(4.5), drivenHarmonicMotion(5), drivenHarmonicMotion(5.5), drivenHarmonicMotion(6), drivenHarmonicMotion(6.5), drivenHarmonicMotion(7), drivenHarmonicMotion(7.5), drivenHarmonicMotion(8), drivenHarmonicMotion(8.5), drivenHarmonicMotion(9), drivenHarmonicMotion(9.5), drivenHarmonicMotion(10)]
     )
   );
 
