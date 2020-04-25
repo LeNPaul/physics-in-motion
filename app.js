@@ -12,6 +12,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 
 var admin = require('./routes/admin');
+var blog = require('./routes/blog');
 var routes = require('./routes/index');
 var authentication = require('./routes/authentication');
 var lessons = require('./routes/lessons');
@@ -50,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // API endpoints and web page routes
 app.use('/', admin);
+app.use('/', blog);
 app.use('/', routes);
 app.use('/', authentication);
 app.use('/', lessons);
