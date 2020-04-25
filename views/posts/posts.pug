@@ -1,5 +1,5 @@
 //- doctype html
-html(lang='en',ng-app='blogApp')
+html(lang='en',ng-app='postApp')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
@@ -25,12 +25,13 @@ html(lang='en',ng-app='blogApp')
         ==================================================
       //- Wrap the rest of the page in another container to center all the content.
       .container
-        
-        h1 News and Updates
-        //- ANGULAR DYNAMIC CONTENT
-        div.ng-view
-        p {{ hello }}
-        
+        .row.featurette
+          .col-md-12
+            h2.featurette-heading
+              
+            //- ANGULAR DYNAMIC CONTENT
+            div.ng-view
+  
         //- /END THE FEATURETTES
         //- /.container
         //- FOOTER        
@@ -49,4 +50,4 @@ html(lang='en',ng-app='blogApp')
     script(src='/assets/libs/angular/angular.min.js')
     script(src='/assets/libs/angular-route/angular-route.min.js')
     //- ANGULAR CUSTOM
-    script(src='/assets/js/blogApp.js')
+    script(src='/assets/js/postApp.js')

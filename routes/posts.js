@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/blog', (req, res) => {
-    res.render('blog/blog', {
+router.get('/page', (req, res) => {
+    res.render('posts/posts', {
       user : req.user,
-      title : 'Physics in Motion | How physics should be taught'
+      title : 'News & Updates | Physics in Motion'
      });
 });
 
