@@ -145,7 +145,14 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res, next) => {
     // Create user in database
-    Account.register(new Account({ username : req.body.username }), req.body.password, (err, account) => {
+    Account.register(new Account({
+      username : req.body.username,
+      email: '',
+      name: '',
+      gender: '',
+      birthdate: '',
+      address: ''
+    }), req.body.password, (err, account) => {
         if (err) {
           return res.render('register', { error : err.message });
         }
