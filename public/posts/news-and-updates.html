@@ -1,0 +1,10 @@
+<h2 class="featurette-heading">News & Updates</h2>
+
+<hr class="featurette-divider"> </hr>
+
+<div ng-repeat='post in posts'>
+  <h3>{{ post.title }}</h3>
+  <p>{{ post.description }}</p>
+  <a href='#!{{ post.link }}'>Read more</a>
+  <hr></hr>
+</div>
