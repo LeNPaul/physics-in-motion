@@ -9,8 +9,12 @@ postApp.config(function($routeProvider) {
     templateUrl: 'posts/news-and-updates.html',
   })
 
-  .when('/2017-09-11-welcome-to-beta-release', {
-    templateUrl: 'posts/2017-09-11-welcome-to-beta-release.html',
+  .when('/2020-01-05-updates-to-terms-and-privacy', {
+    templateUrl: 'posts/2020-01-05-updates-to-terms-and-privacy.html',
+  })
+
+  .when('/2020-04-25-welcome-to-beta-release', {
+    templateUrl: 'posts/2020-04-25-welcome-to-beta-release.html',
   })
 
 });
@@ -19,7 +23,8 @@ postApp.config(function($routeProvider) {
 postApp.controller('mainController', function($scope) {
 
   $scope.posts = [
-    {'title': 'Welcome to the Beta Release of Physics in Motion!', 'description': 'This is only a beta release, with only a few courses created.', 'link': '2017-09-11-welcome-to-beta-release'}
+    {'title': 'Welcome to the Beta Release of Physics in Motion!', 'description': 'This is only a beta release, with only a few courses created.', 'link': '2020-04-25-welcome-to-beta-release'},
+    {'title': 'Updates to our Terms and Privacy', 'description': 'We have recently updated our Terms and Privacy pages.', 'link': '2020-01-05-updates-to-terms-and-privacy'}
   ];
 
 });
