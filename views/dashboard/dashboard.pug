@@ -59,23 +59,15 @@ html(lang='en',ng-app='dashboardApp')
           a(href='/courses') All Courses
       .my-3.p-3.bg-white.rounded.box-shadow
         h6.border-bottom.border-gray.pb-2.mb-0 Updates and News
-        .media.text-muted.pt-3
+        .media.text-muted.pt-3(ng-repeat='post in posts')
           img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
           .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
             .d-flex.justify-content-between.align-items-center.w-100
-              strong.text-gray-dark Welcome to the beta release of Physics in Motion!
-              //- a(href='#') Follow
-            span.d-block This is only a beta release, with only a few courses created.
-        .media.text-muted.pt-3
-          img.mr-2.rounded(data-src='holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1', alt='')
-          .media-body.pb-3.mb-0.small.lh-125.border-bottom.border-gray
-            .d-flex.justify-content-between.align-items-center.w-100
-              strong.text-gray-dark Updates to our Terms and Privacy
-              //- a(href='#') Follow
-            span.d-block We have recently updated our Terms and Privacy pages.
+              strong.text-gray-dark {{ post.title }}
+              a(href='page#!{{ post.link }}') Read more
+            span.d-block {{ post.description }}
         small.d-block.text-right.mt-3
-          a(href='#') See more
-
+          a(href='page#!news-and-updates') See more
     .container
       include ../footer/home-footer.pug
     //-

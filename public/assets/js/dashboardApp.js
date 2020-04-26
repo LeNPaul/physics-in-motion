@@ -9,6 +9,12 @@ dashboardApp.controller('mainController', function($scope) {
     return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
   }
 
+  // Duplicate of postApp.js
+  $scope.posts = [
+    {'title': 'Welcome to the Beta Release of Physics in Motion!', 'description': 'This is only a beta release, with only a few courses created.', 'link': '2020-04-25-welcome-to-beta-release'},
+    {'title': 'Updates to our Terms and Privacy', 'description': 'We have recently updated our Terms and Privacy pages.', 'link': '2020-01-05-updates-to-terms-and-privacy'}
+  ];
+
   // Temporary solution
   function getLessonDescription(lessonName) {
     lessonName = lessonName.toLowerCase();
