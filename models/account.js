@@ -4,7 +4,12 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const Account = new Schema({
     username: String,
-    password: String
+    password: String,
+    email: String,
+    name: String,
+    gender: String,
+    birthdate: String,
+    address: String
 });
 
 Account.plugin(passportLocalMongoose);
