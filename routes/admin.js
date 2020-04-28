@@ -876,4 +876,11 @@ router.post('/delete_user', (req, res) => {
   res.json({success: true});
 });
 
+// User management endpoints
+router.get('/userinfo', (req, res) => {
+  Account.find({username: req.user.username}, function(err, user) {
+    res.json(user[0]);
+  });
+});
+
 module.exports = router;
