@@ -883,12 +883,21 @@ router.get('/userinfo', (req, res) => {
   });
 });
 
-// _ga=GA1.1.1364650936.1584242961;
-// curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/update_userinfo
+// curl --cookie "" --header "Content-Type: application/json" --data '{"gender":"M", "name": "Paul"}' http://localhost:8080/update_userinfo
 router.post('/update_userinfo', (req, res) => {
   Account.find({username: req.user.username}, function(err, user) {
-    console.log(user);
-    res.json(user);
+    Account.findByIdAndUpdate(
+      user[0]._id,
+      req.body,
+      { new: true },
+      function(err, time) {
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
+      }
+    )
   });
 });
 
