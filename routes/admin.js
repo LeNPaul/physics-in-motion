@@ -883,4 +883,13 @@ router.get('/userinfo', (req, res) => {
   });
 });
 
+// _ga=GA1.1.1364650936.1584242961;
+// curl --cookie "" --header "Content-Type: application/json" --data '{}' http://localhost:8080/update_userinfo
+router.post('/update_userinfo', (req, res) => {
+  Account.find({username: req.user.username}, function(err, user) {
+    console.log(user);
+    res.json(user);
+  });
+});
+
 module.exports = router;
