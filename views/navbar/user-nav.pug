@@ -17,9 +17,10 @@ header
             a#navbarDropdownBlog.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               | Profile
             .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownBlog')
-              p.dropdown-item.text-muted
-                | Logged in as #{user.username}
               a.dropdown-item(href='/') Dashboard
               a.dropdown-item(href='/settings') Settings
+              .dropdown-divider
+              p.dropdown-item.text-muted
+                | Logged in as #{user.username}
           li.nav-item
             a.nav-link(href='/logout') Logout
