@@ -4,8 +4,6 @@ var noteApp = angular.module('settingsApp', []);
 // create the controller and inject Angular's $scope
 noteApp.controller('mainController', function($scope, $window) {
 
-  // When pressing update, get form data that has been filled and make request to backend
-
   $scope.getUserInfo = function() {
     $.get("/userinfo", function(data, status) {
       $scope.username = data.username;
@@ -21,6 +19,7 @@ noteApp.controller('mainController', function($scope, $window) {
   // Get user information and update form with placeholder text
   $scope.getUserInfo();
 
+  // When pressing update, get form data that has been filled and make request to backend
   $scope.updateUserInfo = function() {
     var username = document.getElementById("inputUsername").value;
     if (username != "") {
@@ -46,6 +45,8 @@ noteApp.controller('mainController', function($scope, $window) {
     if (address != "") {
       $.post("/update_userinfo", {address: address}, function(data, status) {});
     }
+    alert("Your profile has been updated!");
+    location.reload();
   }
 
   $scope.deleteUser = function() {
