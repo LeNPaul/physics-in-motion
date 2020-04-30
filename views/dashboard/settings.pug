@@ -44,26 +44,26 @@ html(lang='en',ng-app='settingsApp')
                         p Manage your user settings here                    
                         hr
                         h3 Profile
-                        form
+                        form(ng-submit='submit()')
                           .form-group
                             label(for='inputUsername') Username
-                            input#inputUsername.form-control(type='text', placeholder='Update username')
+                            input#inputUsername.form-control(type='text', placeholder='{{ username }}')
                           .form-group
                             label(for='inputEmail') Email
-                            input#inputEmail.form-control(type='text', placeholder='Update email')
+                            input#inputEmail.form-control(type='text', placeholder='{{ email }}')
                           .form-group
                             label(for='inputName') Name
-                            input#inputName.form-control(type='text', placeholder='Update name')
+                            input#inputName.form-control(type='text', placeholder='{{ name }}')
                           .form-group
                             label(for='inputGender') Gender
-                            input#inputGender.form-control(type='text', placeholder='Update gender')
+                            input#inputGender.form-control(type='text', placeholder='{{ gender }}')
                           .form-group
                             label(for='inputBirthdate') Birthdate
-                            input#inputBirthdate.form-control(type='text', placeholder='Update birthdate')
+                            input#inputBirthdate.form-control(type='text', placeholder='{{ birthdate }}')
                           .form-group
                             label(for='inputAddress') Address
-                            input#inputAddress.form-control(type='text', placeholder='Update address')
-                          button(type='button', class='btn btn-primary') Update
+                            input#inputAddress.form-control(type='text', placeholder='{{ address }}')
+                          button(type='button', class='btn btn-primary', ng-click='updateUserInfo()') Update
                         hr
                         h3 Delete Account
                         div(style='margin-top: 18px;')

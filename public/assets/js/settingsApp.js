@@ -4,7 +4,6 @@ var noteApp = angular.module('settingsApp', []);
 // create the controller and inject Angular's $scope
 noteApp.controller('mainController', function($scope, $window) {
 
-  // Populate user information as placeholder text
   // When pressing update, get form data that has been filled and make request to backend
 
   $scope.getUserInfo = function() {
@@ -19,11 +18,34 @@ noteApp.controller('mainController', function($scope, $window) {
     });
   }
 
-  // Get user information and update form
+  // Get user information and update form with placeholder text
   $scope.getUserInfo();
 
   $scope.updateUserInfo = function() {
-    
+    var username = document.getElementById("inputUsername").value;
+    if (username != "") {
+      $.post("/update_userinfo", {username: username}, function(data, status) {});
+    }
+    var email = document.getElementById("inputEmail").value;
+    if (email != "") {
+      $.post("/update_userinfo", {email: email}, function(data, status) {});
+    }
+    var name = document.getElementById("inputName").value;
+    if (name != "") {
+      $.post("/update_userinfo", {name: name}, function(data, status) {});
+    }
+    var gender = document.getElementById("inputGender").value;
+    if (gender != "") {
+      $.post("/update_userinfo", {gender: gender}, function(data, status) {});
+    }
+    var birthdate = document.getElementById("inputBirthdate").value;
+    if (birthdate) {
+      $.post("/update_userinfo", {birthdate: birthdate}, function(data, status) {});
+    }
+    var address = document.getElementById("inputAddress").value;
+    if (address != "") {
+      $.post("/update_userinfo", {address: address}, function(data, status) {});
+    }
   }
 
   $scope.deleteUser = function() {
