@@ -41,7 +41,30 @@ html(lang='en',ng-app='settingsApp')
                       .col-sm-2
                       .col-sm-8
                         h1.page-header #{ title }
-                        p Manage your user settings here.
+                        p Manage your user settings here                    
+                        hr
+                        h3 Profile
+                        form
+                          .form-group
+                            label(for='inputUsername') Username
+                            input#inputUsername.form-control(type='text', placeholder='Update username')
+                          .form-group
+                            label(for='inputEmail') Email
+                            input#inputEmail.form-control(type='text', placeholder='Update email')
+                          .form-group
+                            label(for='inputName') Name
+                            input#inputName.form-control(type='text', placeholder='Update name')
+                          .form-group
+                            label(for='inputGender') Gender
+                            input#inputGender.form-control(type='text', placeholder='Update gender')
+                          .form-group
+                            label(for='inputBirthdate') Birthdate
+                            input#inputBirthdate.form-control(type='text', placeholder='Update birthdate')
+                          .form-group
+                            label(for='inputAddress') Address
+                            input#inputAddress.form-control(type='text', placeholder='Update address')
+                          button(type='button', class='btn btn-primary') Update
+                        hr
                         h3 Delete Account
                         div(style='margin-top: 18px;')
                           button(type="button" class='btn btn-danger', ng-click='deleteUser()') Delete
