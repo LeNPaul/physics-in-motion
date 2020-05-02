@@ -17,4 +17,9 @@ noteApp.controller('mainController', function($scope) {
     });
   }
 
+  $.get('/questions', function(data, status) {
+    $scope.Questions = data;
+    $scope.$digest();
+  });
+
 });
