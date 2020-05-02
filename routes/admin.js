@@ -877,6 +877,7 @@ router.post('/delete_user', (req, res) => {
 });
 
 // User management endpoints
+
 router.get('/userinfo', (req, res) => {
   Account.find({username: req.user.username}, function(err, user) {
     res.json(user[0]);
@@ -898,6 +899,14 @@ router.post('/update_userinfo', (req, res) => {
         }
       }
     )
+  });
+});
+
+// Curriculum management endpoints
+
+router.get('/answers/:question_id', (req, res) => {
+  Answers.find({question_id: req.params.question_id}, function(err, answers) {
+    res.json(answers);
   });
 });
 
