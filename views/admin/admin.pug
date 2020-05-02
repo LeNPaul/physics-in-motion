@@ -13,7 +13,7 @@ html(lang='en', ng-app='adminApp')
     link(href='/assets/css/style.css', rel='stylesheet')
   body(ng-controller='mainController')
     main(role='main', class='container')
-      if (user && user.username == 'me@dmin.com')
+      if (user && user.username == 'administrator')
         h1 Administrator Dashboard
         p Logged in as #{ user.username }
         div(class='card')
