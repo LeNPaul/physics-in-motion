@@ -850,7 +850,7 @@ router.get('/user_list', (req, res) => {
   } else {
     page = 0;
   }
-  if (req.user.username == 'me@dmin.com') {
+  if (req.user.username == 'administrator') {
     Account.find({}).skip(page * limit).limit(limit).exec(function(err, users) {
       res.json(users);
     })
