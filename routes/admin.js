@@ -904,6 +904,12 @@ router.post('/update_userinfo', (req, res) => {
 
 // Curriculum management endpoints
 
+router.get('/questions', (req, res) => {
+  Questions.find({}, function(err, questions) {
+    res.json(questions);
+  });
+});
+
 router.get('/answers/:question_id', (req, res) => {
   Answers.find({question_id: req.params.question_id}, function(err, answers) {
     res.json(answers);
