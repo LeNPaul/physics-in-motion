@@ -27,10 +27,9 @@ html(lang='en', ng-app='adminApp')
           h5(class='card-header') Curriculum
           div(class='card-body')
             ul(class='list-group list-group-flush')
-              li(class='list-group-item', ng-repeat='question in Questions') {{ question.question_text }} 
-                <placeholder>
+              li(class='list-group-item', ng-repeat='question in Questions') {{ question.question_id }} - {{ question.question_text }}
       else
-        p Please log in as administrator account
+        Please log in as administrator account
     // - jQuery
     script(src='/assets/libs/jquery/jquery.min.js')
     //- AngularJS
