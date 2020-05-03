@@ -14,21 +14,14 @@ html(lang='en', ng-app='adminApp')
   body(ng-controller='mainController')
     main(role='main', class='container')
       if (user && user.username == 'administrator')
-        h1 Administrator Dashboard
+        h1 Edit Quiz
         p Logged in as #{ user.username }
         div(class='card')
-          h5(class='card-header') Users
+          h5(class='card-header') Quiz
           div(class='card-body')
             ul(class='list-group list-group-flush')
               li(class='list-group-item', ng-repeat='user in Users') {{ user.username }} 
-                button(type="button" class='btn btn-danger', style='float: right;', ng-click='deleteUser(user.username)') Delete
-        hr
-        div(class='card')
-          h5(class='card-header') Curriculum
-          div(class='card-body')
-            ul(class='list-group list-group-flush')
-              li(class='list-group-item', ng-repeat='question in Questions') {{ question.question_id }} - {{ question.question_text }} - 
-                a(href='') Edit
+                button(type="button" class='btn btn-primary', style='float: right;', ng-click='') Save
       else
         Please log in as administrator account
     // - jQuery

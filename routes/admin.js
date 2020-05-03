@@ -904,6 +904,13 @@ router.post('/update_userinfo', (req, res) => {
 
 // Curriculum management endpoints
 
+router.get('/admin-quiz', (req, res) => {
+    res.render('admin/quiz', {
+      user : req.user,
+      title : 'Administrator Dashboard | Physics in Motion'
+     });
+});
+
 router.get('/questions', (req, res) => {
   Questions.find({}, function(err, questions) {
     res.json(questions);
