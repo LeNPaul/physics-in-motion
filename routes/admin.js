@@ -904,7 +904,7 @@ router.post('/update_userinfo', (req, res) => {
 
 // Curriculum management endpoints
 
-router.get('/admin-quiz', (req, res) => {
+router.get('/admin-quiz/:question_id', (req, res) => {
     res.render('admin/quiz', {
       user : req.user,
       title : 'Administrator Dashboard | Physics in Motion'
