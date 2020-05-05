@@ -1,8 +1,8 @@
 // create the module and name it noteApp
-var noteApp = angular.module('adminApp', []);
+var adminApp = angular.module('adminApp', []);
 
 // create the controller and inject Angular's $scope
-noteApp.controller('mainController', function($scope) {
+adminApp.controller('mainController', function($scope) {
 
   $.get('/user_list?page=0&limit=10', function(data, status) {
     $scope.Users = data;
@@ -21,5 +21,13 @@ noteApp.controller('mainController', function($scope) {
     $scope.Questions = data;
     $scope.$digest();
   });
+
+  $scope.getQuiz = function() {
+    var question_id = document.head.querySelector("[name~=question_id][content]").content;
+    $.get('/question/' + question_id, function(data, status) {
+      $scope.questionText = data.question_text;
+      $scope.$digest();
+    });
+  }
 
 });

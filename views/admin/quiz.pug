@@ -1,11 +1,12 @@
 doctype html
 //- Template: view-source:https://getbootstrap.com/docs/4.0/examples/sticky-footer/
-html(lang='en', ng-app='adminApp')
+html(lang='en', ng-app='adminQuizApp')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
+    meta(name='question_id', content=question_id)
     link(rel='icon', href='../../../../favicon.ico')
     title #{ title }
     //- Bootstrap core CSS
@@ -17,11 +18,12 @@ html(lang='en', ng-app='adminApp')
         h1 Edit Quiz
         p Logged in as #{ user.username }
         div(class='card')
-          h5(class='card-header') Quiz
+          h5(class='card-header', id='question_id') Quiz #{ question_id }
           div(class='card-body')
+            p {{ questionText }}
             ul(class='list-group list-group-flush')
-              li(class='list-group-item', ng-repeat='user in Users') {{ user.username }} 
-                button(type="button" class='btn btn-primary', style='float: right;', ng-click='') Save
+              li(class='list-group-item', ng-repeat='answer in Answers') {{ answer.answer_text }}
+              button(type="button" class='btn btn-primary', style='float: right;', ng-click='getQuiz()') Save
       else
         Please log in as administrator account
     // - jQuery
@@ -29,4 +31,4 @@ html(lang='en', ng-app='adminApp')
     //- AngularJS
     script(src='/assets/libs/angular/angular.min.js')
     //- ANGULAR CUSTOM
-    script(src='/assets/js/adminApp.js')
+    script(src='/assets/js/adminQuizApp.js')
