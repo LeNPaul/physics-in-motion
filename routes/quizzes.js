@@ -14,6 +14,13 @@ router.get('/questions/:lesson_name', (req, res) => {
   });
 });
 
+// Get a list of all of the questions
+router.get('/questions', (req, res) => {
+  Questions.find({}, function(err, questions) {
+    res.json(questions);
+  });
+});
+
 // Accepts a question_id
 // Returns the question text
 router.get('/question/:question_id', (req, res) => {
