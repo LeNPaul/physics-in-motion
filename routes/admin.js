@@ -907,20 +907,9 @@ router.post('/update_userinfo', (req, res) => {
 router.get('/admin-quiz/:question_id', (req, res) => {
     res.render('admin/quiz', {
       user : req.user,
-      title : 'Administrator Dashboard | Physics in Motion'
+      title : 'Edit Quiz | Physics in Motion',
+      question_id: req.params.question_id
      });
-});
-
-router.get('/questions', (req, res) => {
-  Questions.find({}, function(err, questions) {
-    res.json(questions);
-  });
-});
-
-router.get('/answers/:question_id', (req, res) => {
-  Answers.find({question_id: req.params.question_id}, function(err, answers) {
-    res.json(answers);
-  });
 });
 
 module.exports = router;
