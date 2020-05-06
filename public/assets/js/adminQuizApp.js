@@ -16,4 +16,15 @@ adminQuizApp.controller('mainController', function($scope) {
     $scope.$digest();
   });
 
+  $scope.updateQuizAnswers = function() {
+    var quizQuestion = document.getElementById('questionText');
+    console.log(quizQuestion.value);
+
+    var quizAnswers = document.getElementById('answerForm');
+    for (var i=0; i < quizAnswers.length; i++) {
+      console.log(quizAnswers[i].value);
+
+    }
+  }
+
 });
