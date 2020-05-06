@@ -21,9 +21,13 @@ html(lang='en', ng-app='adminQuizApp')
           h5(class='card-header', id='question_id') Quiz #{ question_id }
           div(class='card-body')
             p {{ questionText }}
-            ul(class='list-group list-group-flush')
-              li(class='list-group-item', ng-repeat='answer in Answers') {{ answer.answer_text }}
-              button(type="button" class='btn btn-primary', style='float: right;', ng-click='getQuiz()') Save
+            input#inputEmail.form-control(type='text', placeholder='{{ questionText }}')
+            hr
+            form(ng-submit='submit()', ng-repeat='answer in Answers')
+              .form-group
+                label(for='inputEmail') {{ answer.answer_text }} - {{ answer.is_correct }} 
+                input#inputEmail.form-control(type='text', placeholder='{{ answer.answer_text }}')
+            button(type="button" class='btn btn-primary', style='float: right;', ng-click='getQuiz()') Save
       else
         Please log in as administrator account
     // - jQuery
