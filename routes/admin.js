@@ -914,39 +914,46 @@ router.get('/admin-quiz/:question_id', (req, res) => {
 
 // curl --header "Content-Type: application/json" --data '{"question_id": "1", "question_text": "Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) that is completely submerged under water. Assume the density of water is \\( 997 \\ kg/m^3 \\) and acceleration due to gravity is \\( 9.81 \\ m / s^2 \\)."}' http://localhost:8080/question
 router.post('/question', (req, res) => {
-  Questions.find({question_id: req.body.question_id}, function(err, question) {
-    Questions.findByIdAndUpdate(
-      question[0]._id,
-      {question_text: req.body.question_text},
-      { new: true },
-      function(err, question) {
-        if (err == null) {
-          res.json({Success: true});
-        } else {
-          res.json({Success: false});
+  if (req.user.username == 'administrator') {
+    Questions.find({question_id: req.body.question_id}, function(err, question) {
+      Questions.findByIdAndUpdate(
+        question[0]._id,
+        {question_text: req.body.question_text},
+        { new: true },
+        function(err, question) {
+          if (err == null) {
+            res.json({Success: true});
+          } else {
+            res.json({Success: false});
+          }
         }
-      }
-    )
-  });
+      )
+    });
+  } else {
+    res.json({Error: 'Please log in as administrator.'})
+  }
 });
 
 // curl --header "Content-Type: application/json" --data '{"answer_id": "1", "answer_text": "\\( 29341.71 \\ \\frac{kg \\cdot m}{s^2} \\)"}' http://localhost:8080/answer
 router.post('/answer', (req, res) => {
-  console.log(req.body.answer_text);
-  Answers.find({answer_id: req.body.answer_id}, function(err, answer) {
-    Answers.findByIdAndUpdate(
-      answer[0]._id,
-      {answer_text: req.body.answer_text},
-      { new: true },
-      function(err, answer) {
-        if (err == null) {
-          res.json({Success: true});
-        } else {
-          res.json({Success: false});
+  if (req.user.username == 'administrator') {
+    Answers.find({answer_id: req.body.answer_id}, function(err, answer) {
+      Answers.findByIdAndUpdate(
+        answer[0]._id,
+        {answer_text: req.body.answer_text},
+        { new: true },
+        function(err, answer) {
+          if (err == null) {
+            res.json({Success: true});
+          } else {
+            res.json({Success: false});
+          }
         }
-      }
-    )
-  });
+      )
+    });
+  } else {
+    res.json({Error: 'Please log in as administrator.'})
+  }
 });
 
 module.exports = router;
