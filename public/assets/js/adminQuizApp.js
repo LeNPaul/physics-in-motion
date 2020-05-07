@@ -27,7 +27,9 @@ adminQuizApp.controller('mainController', function($scope) {
     var quizAnswers = document.getElementById('answerForm');
     for (var i=0; i < quizAnswers.length; i++) {
       if (quizAnswers[i].value) {
-        console.log(quizAnswers[i].value);
+        $.post('/answer', {answer_id: quizAnswers[i].placeholder.split(' - ')[1], answer_text: quizAnswers[i].value}, function(data, status) {
+          location.reload();
+        });
       }
     }
   }

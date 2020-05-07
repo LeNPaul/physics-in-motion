@@ -25,8 +25,8 @@ html(lang='en', ng-app='adminQuizApp')
             hr
             form(id='answerForm')
               .form-group(ng-repeat='answer in Answers')
-                label(for='inputEmail', answer_id='{{ answer.answer_id }}') {{ answer.answer_text }} - {{ answer.is_correct }} 
-                input.form-control(type='text', placeholder='{{ answer.answer_text }}')
+                label(for='inputEmail') {{ answer.answer_text }} - {{ answer.is_correct }}
+                input.form-control(type='text', placeholder='{{ answer.answer_text }} - {{ answer.answer_id }}')
             button(type="button" class='btn btn-primary', style='float: right;', ng-click='updateQuizAnswers()') Save
       else
         Please log in as administrator account
