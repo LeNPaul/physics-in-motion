@@ -912,4 +912,14 @@ router.get('/admin-quiz/:question_id', (req, res) => {
      });
 });
 
+// curl --header "Content-Type: application/json" --data '{"question_id": "1", "question_text": "testing"}' http://localhost:8080/question
+router.post('/question', (req, res) => {
+  console.log(req.body.question_text);
+  res.json(req.body.question_text);
+});
+
+router.post('/answer', (req, res) => {
+  res.json('hello');
+});
+
 module.exports = router;
