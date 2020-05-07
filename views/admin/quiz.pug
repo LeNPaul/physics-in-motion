@@ -18,14 +18,14 @@ html(lang='en', ng-app='adminQuizApp')
         h1 Edit Quiz
         p Logged in as #{ user.username }
         div(class='card')
-          h5(class='card-header') Quiz #{ question_id }
+          h5(class='card-header', id='questionId') Quiz #{ question_id }
           div(class='card-body')
             p {{ questionText }}
             input#questionText.form-control(type='text', placeholder='{{ questionText }}')
             hr
             form(id='answerForm')
               .form-group(ng-repeat='answer in Answers')
-                label(for='inputEmail') {{ answer.answer_text }} - {{ answer.is_correct }} 
+                label(for='inputEmail', answer_id='{{ answer.answer_id }}') {{ answer.answer_text }} - {{ answer.is_correct }} 
                 input.form-control(type='text', placeholder='{{ answer.answer_text }}')
             button(type="button" class='btn btn-primary', style='float: right;', ng-click='updateQuizAnswers()') Save
       else

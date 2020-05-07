@@ -18,13 +18,17 @@ adminQuizApp.controller('mainController', function($scope) {
 
   $scope.updateQuizAnswers = function() {
     var quizQuestion = document.getElementById('questionText');
-    console.log(quizQuestion.value);
-
+    if (quizQuestion.value != '') {
+      var questionId = document.getElementById('questionId');
+      $.post('/question', {question_id: questionId.textContent.split(' ')[1], question_text: quizQuestion.value}, function(data, status) {
+        location.reload();
+      });
+    }
     var quizAnswers = document.getElementById('answerForm');
     for (var i=0; i < quizAnswers.length; i++) {
-      console.log(quizAnswers[i].value);
-
+      if (quizAnswers[i].value) {
+        console.log(quizAnswers[i].value);
+      }
     }
   }
-
 });
