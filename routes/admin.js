@@ -912,10 +912,23 @@ router.get('/admin-quiz/:question_id', (req, res) => {
      });
 });
 
-// curl --header "Content-Type: application/json" --data '{"question_id": "1", "question_text": "testing"}' http://localhost:8080/question
+// curl --header "Content-Type: application/json" --data '{"question_id": "1", "question_text": "Calculate the buoyancy of an object with volume of \\( 3 \\ m^3 \\) that is completely submerged under water. Assume the density of water is \\( 997 \\ kg/m^3 \\) and acceleration due to gravity is \\( 9.81 \\ m / s^2 \\)."}' http://localhost:8080/question
 router.post('/question', (req, res) => {
   console.log(req.body.question_text);
-  res.json(req.body.question_text);
+  Questions.find({question_id: req.body.question_id}, function(err, question) {
+    Questions.findByIdAndUpdate(
+      question[0]._id,
+      {question_text: req.body.question_text},
+      { new: true },
+      function(err, question) {
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
+      }
+    )
+  });
 });
 
 router.post('/answer', (req, res) => {
