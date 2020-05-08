@@ -5,14 +5,18 @@ var dashboardApp = angular.module('dashboardApp', []);
 dashboardApp.controller('mainController', function($scope) {
 
   // If user marked account for delete then warn them
-  $scope.alertStyle = {display:'none'}
   $.get("/userinfo", function(data, status) {
-    console.log(data.mark_deleted)
     if (data.mark_deleted != undefined) {
       $scope.mark_deleted = data.mark_deleted;
-      $scope.alertStyle = {display:'block'}
+      document.getElementById('alertDeleted').style.display = 'block'
+      $scope.$digest();
     }
   });
+
+  $scope.undoDelete = function() {
+    $.post("/update_userinfo", {mark_deleted: ""}, function(data, status) {});
+    location.reload();
+  }
 
   // Duplicate of function in noteApp.js
   function capitalizeFirstLetter(string) {
