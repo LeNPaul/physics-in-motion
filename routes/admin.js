@@ -859,6 +859,26 @@ router.get('/user_list', (req, res) => {
   }
 });
 
+// curl --cookie "" --header "Content-Type: application/json" --data '{"user":"lenpaul"}' http://localhost:8080/mark_user_delete
+router.post('/mark_user_delete', (req, res) => {
+  Account.find({username: req.body.user},
+    function(err, account) {
+      Account.findByIdAndUpdate(
+        account[0]._id,
+        {mark_deleted: new Date()},
+        { new: true},
+        function(err, account) {
+          if (err == null) {
+            res.json({Success: true});
+          } else {
+            res.json({Success: false});
+          }
+        }
+      )
+    }
+  )
+});
+
 router.post('/delete_user', (req, res) => {
   // Delete at most one user
   Account.deleteOne({ username: req.body.user }, function (err) {
