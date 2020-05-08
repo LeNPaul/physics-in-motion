@@ -50,13 +50,13 @@ noteApp.controller('mainController', function($scope, $window) {
   }
 
   $scope.deleteUser = function() {
-    let isDelete = confirm("Are you sure you would like to delete your account? This is not reversable.");
+    let isDelete = confirm("Are you sure you would like to delete your account? Your account will be permanently removed after 30 days.");
     if ( isDelete ) {
       var username = $('#username').text();
-      $.post("/delete_user", {user: username}, function(data, status) {
+      $.post("/mark_user_delete", {user: username}, function(data, status) {
         // Delete user and reload the page
         // TODO - add proper error handling here
-        $window.location.href = '/';
+        $window.location.href = '/logout';
       });
     }
   }
