@@ -20,7 +20,7 @@ html(lang='en', ng-app='adminApp')
           h5(class='card-header') Users
           div(class='card-body')
             ul(class='list-group list-group-flush')
-              li(class='list-group-item', ng-repeat='user in Users') {{ user.username }} 
+              li(class='list-group-item', ng-repeat='user in Users') {{ user.username }} {{ user.mark_deleted }}
                 button(type="button" class='btn btn-danger', style='float: right;', ng-click='deleteUser(user.username)') Delete
         hr
         div(class='card')
