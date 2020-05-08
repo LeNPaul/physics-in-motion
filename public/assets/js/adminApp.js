@@ -10,11 +10,14 @@ adminApp.controller('mainController', function($scope) {
   });
 
   $scope.deleteUser = function(username) {
-    $.post("/delete_user", {user: username}, function(data, status) {
-      // Delete user and reload the page
-      // TODO - add proper error handling here
-      location.reload();
-    });
+    let isDelete = confirm("Are you sure you would like to delete this account? This is not reversable.");
+    if ( isDelete ) {
+      $.post("/delete_user", {user: username}, function(data, status) {
+        // Delete user and reload the page
+        // TODO - add proper error handling here
+        location.reload();
+      });
+    }
   }
 
   $.get('/questions', function(data, status) {
