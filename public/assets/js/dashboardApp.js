@@ -4,6 +4,16 @@ var dashboardApp = angular.module('dashboardApp', []);
 // create the controller and inject Angular's $scope
 dashboardApp.controller('mainController', function($scope) {
 
+  // If user marked account for delete then warn them
+  $scope.alertStyle = {display:'none'}
+  $.get("/userinfo", function(data, status) {
+    console.log(data.mark_deleted)
+    if (data.mark_deleted != undefined) {
+      $scope.mark_deleted = data.mark_deleted;
+      $scope.alertStyle = {display:'block'}
+    }
+  });
+
   // Duplicate of function in noteApp.js
   function capitalizeFirstLetter(string) {
     return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });

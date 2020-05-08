@@ -151,7 +151,8 @@ router.post('/register', (req, res, next) => {
       name: '',
       gender: '',
       birthdate: '',
-      address: ''
+      address: '',
+      mark_deleted: ''
     }), req.body.password, (err, account) => {
         if (err) {
           return res.render('register', { error : err.message });

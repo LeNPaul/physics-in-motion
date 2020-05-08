@@ -40,6 +40,9 @@ html(lang='en',ng-app='dashboardApp')
       .my-3.p-3.bg-white.rounded.box-shadow
         h2.border-bottom.border-gray.pb-2.mb-0 Welcome back!
         p.text-muted Logged in as #{user.username}
+      
+        p(class='alert alert-danger', ng-style='alertStyle') Your account has been marked to be deleted 30 days after the following date: {{ mark_deleted }}
+        
         p This is your dashboard, where you can get an overview of the progress that you are making on your modules, or just go straight back to what you were working on previously.
         a.btn.btn-lg.btn-primary(id="latest-lesson" href='/courses', role='button') Continue learning
       .my-3.p-3.bg-white.rounded.box-shadow
