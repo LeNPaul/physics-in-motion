@@ -9,7 +9,8 @@ const Account = new Schema({
     name: String,
     gender: String,
     birthdate: String,
-    address: String
+    address: String,
+    mark_deleted: Date
 });
 
 Account.plugin(passportLocalMongoose);
