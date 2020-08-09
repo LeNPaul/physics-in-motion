@@ -73,12 +73,12 @@ router.get('/introductory-physics', (req, res) => {
     });
 });
 
-router.get('/kinematics', (req, res) => {
-    res.render('lessons/kinematics', {
+router.get('/motion-in-one-dimension', (req, res) => {
+    res.render('lessons/motion-in-one-dimension', {
       user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Kinematics'
+      course : 'Introductory Physics',
+      course_url : 'motion-in-one-dimension',
+      title : 'Motion In One Dimension'
     });
 });
 

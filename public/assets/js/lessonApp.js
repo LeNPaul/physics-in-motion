@@ -5,18 +5,18 @@ var lessonApp = angular.module('lessonApp', ['ngRoute']);
 lessonApp.config(function($routeProvider) {
   $routeProvider
 
-  // Kinematics
+  // Motion In One Dimension
   .when('/motion-in-one-dimension', {
-    templateUrl: 'curriculum/kinematics/motion-in-one-dimension.html',
+    templateUrl: 'curriculum/motion-in-one-dimension/motion-in-one-dimension.html',
   })
   .when('/simple-motion-in-one-dimension', {
-    templateUrl: 'curriculum/kinematics/simple-motion-in-one-dimension.html',
+    templateUrl: 'curriculum/motion-in-one-dimension/simple-motion-in-one-dimension.html',
   })
   .when('/simple-motion-in-two-dimensions', {
-    templateUrl: 'curriculum/kinematics/simple-motion-in-two-dimensions.html',
+    templateUrl: 'curriculum/motion-in-one-dimension/simple-motion-in-two-dimensions.html',
   })
   .when('/motion-in-two-dimensions', {
-    templateUrl: 'curriculum/kinematics/motion-in-two-dimensions.html',
+    templateUrl: 'curriculum/motion-in-one-dimension/motion-in-two-dimensions.html',
   })
 
   //Forces
