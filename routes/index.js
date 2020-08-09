@@ -77,7 +77,7 @@ router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
       user : req.user,
       course : 'Introductory Physics',
-      course_url : 'motion-in-one-dimension',
+      course_url : 'introductory-physics',
       title : 'Motion In One Dimension'
     });
 });
