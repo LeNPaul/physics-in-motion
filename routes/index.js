@@ -66,10 +66,10 @@ router.get('/courses', (req, res) => {
 
 // Classical Mechanics
 
-router.get('/classical-mechanics', (req, res) => {
-    res.render('courses/classical-mechanics', {
+router.get('/introductory-physics', (req, res) => {
+    res.render('courses/introductory-physics', {
       user : req.user,
-      title : 'Classical Mechanics'
+      title : 'Introductory Physics'
     });
 });
 
