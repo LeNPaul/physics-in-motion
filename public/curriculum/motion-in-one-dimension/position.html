@@ -12,10 +12,25 @@
 
       <p>Tying this all together, we can describe the position of a particle in one dimension at a given time using a single function that we will call \( p(t) \), where \( t \) refers to the time, and \( p \) refers to the position of the particle relative to the origin. We call this the position function.</p>
 
-      <p>As the value of time that is inputed into the position function changes, the outputted position of the particle will change as well, to reflect where the particle is at a given time. When we plot the position function of a particle on a line chart, where the x-axis represents time, and the y-axis represents the position of the particle with respect to the origin, we can see how the position of the particle with respect to the origin changes with time.</p>
+      <p>As the value of time that is passed into the position function changes, the outputted position of the particle will change as well, to reflect where the particle is at that given time. When we plot the position function of a particle on a line chart, where the x-axis represents time, and the y-axis represents the position of the particle with respect to the origin, we can see how the position of the particle with respect to the origin changes with time.</p>
+
+			<canvas id="static-position-line-chart" width="800" height="500"></canvas>
 
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+
+	new Chart(document.getElementById("static-position-line-chart"),
+		chartConfig(
+			'Position of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+		)
+	);
+
+</script>
 <script src="/assets/js/lesson.js"></script>
