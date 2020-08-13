@@ -15,6 +15,9 @@ lessonApp.config(function($routeProvider) {
   .when('/velocity', {
     templateUrl: 'curriculum/motion-in-one-dimension/velocity.html',
   })
+  .when('/acceleration', {
+    templateUrl: 'curriculum/motion-in-one-dimension/acceleration.html',
+  })
   .when('/motion-in-one-dimension', {
     templateUrl: 'curriculum/motion-in-one-dimension/motion-in-one-dimension.html',
   })
