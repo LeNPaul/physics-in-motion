@@ -35,6 +35,12 @@ lessonApp.config(function($routeProvider) {
   .when('/two-dimensional-position', {
     templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-position.html',
   })
+  .when('/two-dimensional-velocity', {
+    templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-velocity.html',
+  })
+  .when('/two-dimensional-acceleration', {
+    templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-acceleration.html',
+  })
 
   //Forces
   .when('/newtons-laws', {
