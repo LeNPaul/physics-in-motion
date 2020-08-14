@@ -82,6 +82,15 @@ router.get('/motion-in-one-dimension', (req, res) => {
     });
 });
 
+router.get('/motion-in-two-dimensions', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Motion In Two Dimensions'
+    });
+});
+
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
       user : req.user,

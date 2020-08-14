@@ -32,8 +32,8 @@ lessonApp.config(function($routeProvider) {
   })
 
   // Motion in Two Dimensions
-  .when('/position', {
-    templateUrl: 'curriculum/motion-in-two-dimensions/position.html',
+  .when('/two-dimensional-position', {
+    templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-position.html',
   })
 
   //Forces
