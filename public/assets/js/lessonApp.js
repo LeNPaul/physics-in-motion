@@ -37,6 +37,15 @@ lessonApp.config(function($routeProvider) {
   .when('/the-laws-of-motion', {
     templateUrl: 'curriculum/forces-and-the-laws-of-motion/the-laws-of-motion.html',
   })
+  .when('/first-law-of-motion', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/first-law-of-motion.html',
+  })
+  .when('/second-law-of-motion', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/second-law-of-motion.html',
+  })
+  .when('/third-law-of-motion', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/third-law-of-motion.html',
+  })
 
   //Energy
   .when('/conservative-forces', {
