@@ -91,6 +91,15 @@ router.get('/motion-in-two-dimensions', (req, res) => {
     });
 });
 
+router.get('/forces-and-the-laws-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Forces and the Laws of Motion'
+    });
+});
+
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
       user : req.user,

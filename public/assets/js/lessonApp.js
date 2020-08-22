@@ -18,18 +18,6 @@ lessonApp.config(function($routeProvider) {
   .when('/acceleration', {
     templateUrl: 'curriculum/motion-in-one-dimension/acceleration.html',
   })
-  .when('/motion-in-one-dimension', {
-    templateUrl: 'curriculum/motion-in-one-dimension/motion-in-one-dimension.html',
-  })
-  .when('/simple-motion-in-one-dimension', {
-    templateUrl: 'curriculum/motion-in-one-dimension/simple-motion-in-one-dimension.html',
-  })
-  .when('/simple-motion-in-two-dimensions', {
-    templateUrl: 'curriculum/motion-in-one-dimension/simple-motion-in-two-dimensions.html',
-  })
-  .when('/motion-in-two-dimensions', {
-    templateUrl: 'curriculum/motion-in-one-dimension/motion-in-two-dimensions.html',
-  })
 
   // Motion in Two Dimensions
   .when('/two-dimensional-position', {
@@ -46,14 +34,8 @@ lessonApp.config(function($routeProvider) {
   })
 
   //Forces
-  .when('/newtons-laws', {
-    templateUrl: 'curriculum/forces/newtons-laws.html',
-  })
-  .when('/simple-forces', {
-    templateUrl: 'curriculum/forces/simple-forces.html',
-  })
-  .when('/friction-drag', {
-    templateUrl: 'curriculum/forces/friction-drag.html',
+  .when('/the-laws-of-motion', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/the-laws-of-motion.html',
   })
 
   //Energy
