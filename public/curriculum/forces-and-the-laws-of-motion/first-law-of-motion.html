@@ -1,4 +1,4 @@
-<div ng-init="initiateQuiz()" id="lesson-module" data-topic="kinematics" data-lesson="motion_in_one_dimension" class="container">
+<div ng-init="initiateQuiz()" id="lesson-module" data-topic="forces" data-lesson="newtons_laws" class="container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
@@ -6,10 +6,25 @@
 
       <p>In the absence of any forces, the acceleration of an object is zero. This results in the velocity of an object remaining unchanged. If the velocity of the object was zero, or unmoving, then it will remain so. If the velocity of the object was nonzero, then it will remain traveling in a straight line.</p>
 
+			<canvas id="static-position-line-chart" width="800" height="500"></canvas>
+
 			<p>In the case where \( \vec{F} = 0 \), the system is said to be in equilibrium, and there are two possibilities where this is the case: static and dynamic equilibrium. Static equilibrium refers to a body that is at rest, where the net force on the body is zero. Dynamic equilibrium refers to a body that is moving with a constant velocity, where the acceleration on that body is zero. This distinction will be important later on when dealing with environmental forces that depend on the velocity of the object, such as friction and drag.</p>
 
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+
+	new Chart(document.getElementById("static-position-line-chart"),
+		chartConfig(
+			'Position of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+		)
+	);
+
+</script>
 <script src="/assets/js/lesson.js"></script>
