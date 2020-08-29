@@ -52,6 +52,12 @@ lessonApp.config(function($routeProvider) {
   .when('/third-law-of-motion', {
     templateUrl: 'curriculum/forces-and-the-laws-of-motion/third-law-of-motion.html',
   })
+  .when('/common-forces', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/common-forces.html',
+  })
+  .when('/friction-and-drag', {
+    templateUrl: 'curriculum/forces-and-the-laws-of-motion/friction-and-drag.html',
+  })
 
   //Energy
   .when('/conservative-forces', {
