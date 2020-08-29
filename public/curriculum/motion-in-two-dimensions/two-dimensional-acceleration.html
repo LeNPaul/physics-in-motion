@@ -1,18 +1,26 @@
-<div ng-init="initiateQuiz()" id="lesson-module" data-topic="kinematics" data-lesson="motion_in_one_dimension" class="container">
+<div ng-init="initiateQuiz()" id="lesson-module" data-topic="kinematics" data-lesson="motion_in_two_dimensions" class="container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
 			<h1 class="page-header">Acceleration</h1>
 
-			<p>Once again, similar to how we had extended our understanding of position and velocity in one dimension to two dimensions, when we are studying acceleration in two dimeions, we look at the acceleration of the object along two axes.</p>
+			<p>Once again, similar to how we had extended our understanding of position and velocity in one dimension to two dimensions, when we are studying acceleration in two dimensions, we look at the acceleration of the object along two axes.</p>
 
 			<p>The acceleration of an object in two-dimensions can be described by two acceleration functions. For example, \( a_x(t) \) and \( a_y(t) \), for the x-axis and the y-axis, respectively.</p>
+
+			<p>$$ a_x (t) = \frac{d v_x(t)}{dt}, $$</p>
+
+			<p>and,</p>
+
+			<p>$$ a_y (t) = \frac{d v_y(t)}{dt}. $$</p>
 
 			<p>The acceleration of a point-like object can then be given by the co-ordinate pair,</p>
 
 			<p>$$ ( v_x(t), v_y(t) ), $$</p>
 
 			<p>or as a vector,</p>
+
+			<p>$$ \vec{a} (t) = \frac{d \vec{v} (t)}{dt} = \frac{d^2 \vec{r} (t)}{dt^2}. $$</p>
 
       <p>$$ \vec{a}(t) = a_x(t) \hat{i} + a_y(t) \hat{j}, $$</p>
 
@@ -23,8 +31,27 @@
 
       <p>If the body accelerates, but not along the line of motion, then the direction of that object will change. It will no longer be a straight line, and will instead follow a curve. The result is motion in two-dimensions.</p>
 
+			<canvas id="static-acceleration-line-chart" width="800" height="500"></canvas>
+
+			<p>It is usually more convenient to denote a vector using brackets, as follows:</p>
+
+      <p>$$ \vec{v} = v_x \hat{i} + v_y \hat{j} = (v_x, v_y). $$</p>
+
+      <p>Both notations mean the same thing, and are used as convenient.</p>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+	new Chart(document.getElementById("static-acceleration-line-chart"),
+    chartConfig(
+      'Two-Dimenional Acceleration as a Function of Time',
+      'x(t)',
+      [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      'y(t)',
+      [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    )
+  );
+</script>
 <script src="/assets/js/lesson.js"></script>
