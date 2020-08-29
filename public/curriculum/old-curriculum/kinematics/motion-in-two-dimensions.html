@@ -4,39 +4,6 @@
     <div class="col-sm-8">
       <h1 class="page-header">Motion in Two Dimensions</h1>
 
-      <p>An object moving with constant velocity will always move in a straight line, unless the object is accelerated in a different direction. If this acceleration occurs along the line of motion, then the object will remain moving in a straight line (although
-        its velocity will change).</p>
-
-      <p>If the body accelerates, but not along the line of motion, then the direction of that object will change. It will no longer be a straight line, and will instead follow a curve. The result is motion in two-dimensions.</p>
-
-      <p>The motion of an object in two-dimensions can be described by two position functions. For example, \( x(t) \) and \( y(t) \), for the x-axis and the y-axis on the Cartesian plane, respectively. The position of a point-like object can then be given
-        by the co-ordinate pair, \( ( x(t), y(t) ) \), or as a vector:</p>
-
-      <p>$$ \vec{r}(t) = x(t) \hat{i} + y(t) \hat{j}, $$</p>
-
-      <p>where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively. The two directions are independent of each other, as they are perpendicular axes (moving along the x-axis does not affect movement along the y-axis,
-        for example):</p>
-
-      <canvas id="static-position-line-chart" width="800" height="500"></canvas>
-
-      <p>As with the case of motion in one dimension, the velocity of an object is the rate of change of its position:</p>
-
-      <p>$$ \vec{v} (t) = \frac{d \vec{r} (t)}{dt}. $$</p>
-
-      <p>In Cartesian co-ordinates, that gives us:</p>
-
-      <p>$$ \vec{v} (t) = v(t)_{x} \hat{i} + v(t)_{y} \hat{j}, $$</p>
-
-      <p>where,</p>
-
-      <p>$$ v_x (t) = \frac{d x(t)}{dt}, $$</p>
-
-      <p>and,</p>
-
-      <p>$$ v_y (t) = \frac{d y(t)}{dt}. $$</p>
-
-      <canvas id="static-velocity-line-chart" width="800" height="500"></canvas>
-
       <p>Similarly, we have acceleration as the rate of change of the velocity:</p>
 
       <p>$$ \vec{a} (t) = \frac{d \vec{v} (t)}{dt} = \frac{d^2 \vec{r} (t)}{dt^2}. $$</p>
@@ -66,27 +33,8 @@
   </div>
 </div>
 
-<script>
 
-  new Chart(document.getElementById("static-position-line-chart"),
-    chartConfig(
-      'Two-Dimenional Position as a Function of Time',
-      'x(t)',
-      [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000],
-      'y(t)',
-      [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
-    )
-  );
 
-  new Chart(document.getElementById("static-velocity-line-chart"),
-    chartConfig(
-      'Two-Dimenional Velocity as a Function of Time',
-      'x(t)',
-      [-100, -81, -64, -49, -36, -25, -16, -9, -4, -1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100],
-      'y(t)',
-      [100, 81, 64, 49, 36, 25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-    )
-  );
 
   new Chart(document.getElementById("static-acceleration-line-chart"),
     chartConfig(
