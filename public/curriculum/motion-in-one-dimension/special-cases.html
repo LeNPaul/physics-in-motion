@@ -66,16 +66,20 @@
 
 			<h3>Building Intuition</h3>
 
-			<p>The charts below show how velocity changes depending on how the position looks. For example, particles that are stationary (position does not change as time increases) will have no velocity. These examples only show constant velocity, and so the acceleration will always be zero. Notice that for constant velocity, the position function will always look like a straight line.</p>
+			<p>The charts below show how velocity and acceleration changes depending on how the position looks. For example, particles that are stationary (position does not change as time increases) will have no velocity. Particles with constant velocity have no acceleration, and so the acceleration will always be zero. Notice that for constant velocity, the position function will always look like a straight line.</p>
+
+			<p>For velocity increasing at a constant rate, acceleration will be constant. Notice that for velocity increasing at a constant rate, the position function will always follow parabolic motion indicating that the particle is increasing its velocity.</p>
 
 			<canvas id="position-line-chart" width="800" height="500"></canvas>
 
 			<canvas id="velocity-line-chart" width="800" height="500"></canvas>
 
+			<canvas id="acceleration-line-chart" width="800" height="500"></canvas>
+
 			<button type="button" class="btn btn-secondary" onclick="randomPositionFunction()">Random</button>
 			<button type="button" class="btn btn-secondary" onclick="stationaryPositionFunction()">Stationary</button>
 
-			<p>These examples show velocity increasing at a constant rate, meaning that acceleration is constant. Notice that for velocity increasing at a constant rate, the position function will always follow parabolic motion.</p>
+
 
 		</div>
 		<div class="col-sm-2"></div>
@@ -140,6 +144,16 @@
 			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 			'Velocity (v)',
 			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		)
+	);
+
+	var accelerationChart = new Chart(document.getElementById("acceleration-line-chart"),
+		chartConfig(
+			'Acceleration of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Acceleration (a)',
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 		)
 	);
 
