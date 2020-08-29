@@ -100,6 +100,15 @@ router.get('/forces-and-the-laws-of-motion', (req, res) => {
     });
 });
 
+router.get('/circular-motion', (req, res) => {
+    res.render('lessons/circular-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Circular Motion'
+    });
+});
+
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
       user : req.user,
