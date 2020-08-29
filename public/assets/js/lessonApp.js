@@ -35,6 +35,9 @@ lessonApp.config(function($routeProvider) {
   .when('/projectile-motion', {
     templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-projectile-motion.html',
   })
+  .when('/circular-motion', {
+    templateUrl: 'curriculum/motion-in-two-dimensions/two-dimensional-circular-motion.html',
+  })
 
   //Forces
   .when('/the-laws-of-motion', {
