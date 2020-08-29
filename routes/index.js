@@ -109,6 +109,15 @@ router.get('/circular-motion', (req, res) => {
     });
 });
 
+router.get('/linear-momentum-and-collisions', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Linear Momentum and Collisions'
+    });
+});
+
 router.get('/forces', (req, res) => {
     res.render('lessons/forces', {
       user : req.user,
