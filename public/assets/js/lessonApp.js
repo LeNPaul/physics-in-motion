@@ -18,6 +18,9 @@ lessonApp.config(function($routeProvider) {
   .when('/acceleration', {
     templateUrl: 'curriculum/motion-in-one-dimension/acceleration.html',
   })
+  .when('/special-cases', {
+    templateUrl: 'curriculum/motion-in-one-dimension/special-cases.html',
+  })
 
   // Motion in Two Dimensions
   .when('/two-dimensional-position', {

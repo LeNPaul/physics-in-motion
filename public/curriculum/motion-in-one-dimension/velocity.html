@@ -10,7 +10,6 @@
 
 			<p>Unlike speed, values of velocity can be either positive or negative, which indicates the direction of the object. In one dimension, we consider positive velocities one direction, and negative velocities the opposite direction.</p>
 
-
 			<p>More formally, the velocity of the particle is defined as the derivative of the position function:</p>
 
 			<p>$$ v(t) = \frac{d p(t)}{dt} . $$</p>
@@ -23,4 +22,15 @@
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+	new Chart(document.getElementById("static-velocity-line-chart"),
+		chartConfig(
+			'Velocity of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Velocity (v)',
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		)
+	);
+</script>
 <script src="/assets/js/lesson.js"></script>

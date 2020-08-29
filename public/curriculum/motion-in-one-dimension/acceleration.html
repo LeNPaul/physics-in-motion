@@ -18,8 +18,27 @@
 
 			<p>Similar to velocity, direction is important when defining acceleration. A positive value of acceleration would correspond to an increasing velocity. A negative value of acceleration would correspond to a decreasing velocity.</p>
 
+			<p>We can define the acceleration of the particle as the derivative of the velocity function:</p>
+
+			<p>$$ a(t) = \frac{d v(t)}{dt} = \frac{d^2 p(t)}{dt^2} . $$</p>
+
+			<canvas id="acceleration-line-chart" width="800" height="500"></canvas>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+
+	new Chart(document.getElementById("acceleration-line-chart"),
+		chartConfig(
+			'Acceleration of Particle as a Function of Time',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Acceleration (a)',
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		)
+	);
+
+</script>
 <script src="/assets/js/lesson.js"></script>
