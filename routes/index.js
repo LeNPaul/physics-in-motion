@@ -127,6 +127,15 @@ router.get('/linear-momentum-and-collisions', (req, res) => {
     });
 });
 
+router.get('/oscillations', (req, res) => {
+    res.render('lessons/oscillations', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Oscillations'
+    });
+});
+
 router.get('/waves-and-sounds', (req, res) => {
     res.render('lessons/waves-and-sounds', {
       user : req.user,

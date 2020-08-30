@@ -86,6 +86,20 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/linear-momentum-and-collisions/explosions.html',
   })
 
+  // Oscillations
+  .when('/dynamics-simple-harmonic-motion', {
+    templateUrl: 'curriculum/oscillations/dynamics-simple-harmonic-motion.html',
+  })
+  .when('/the-pendulum', {
+    templateUrl: 'curriculum/oscillations/the-pendulum.html',
+  })
+  .when('/damped-harmonic-motion', {
+    templateUrl: 'curriculum/oscillations/damped-harmonic-motion.html',
+  })
+  .when('/driven-oscillations', {
+    templateUrl: 'curriculum/oscillations/driven-oscillations.html',
+  })
+
   // Waves and Sounds
   .when('/characteristics-of-waves', {
     templateUrl: 'curriculum/waves-and-sounds/characteristics-waves.html',
@@ -112,20 +126,6 @@ lessonApp.config(function($routeProvider) {
   })
   .when('/fluid-dynamics', {
     templateUrl: 'curriculum/fluid-mechanics/fluid-dynamics.html',
-  })
-
-  // Simple Harmonic Motion
-  .when('/dynamics-simple-harmonic-motion', {
-    templateUrl: 'curriculum/simple-harmonic-motion/dynamics-simple-harmonic-motion.html',
-  })
-  .when('/the-pendulum', {
-    templateUrl: 'curriculum/simple-harmonic-motion/the-pendulum.html',
-  })
-  .when('/damped-harmonic-motion', {
-    templateUrl: 'curriculum/simple-harmonic-motion/damped-harmonic-motion.html',
-  })
-  .when('/driven-oscillations', {
-    templateUrl: 'curriculum/simple-harmonic-motion/driven-oscillations.html',
   })
 
   // Algebra
