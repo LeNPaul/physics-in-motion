@@ -113,7 +113,7 @@ router.get('/work-and-energy', (req, res) => {
     res.render('lessons/work-and-energy', {
       user : req.user,
       course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
+      course_url : 'introductory-physics',
       title : 'Work and Energy'
     });
 });
@@ -124,51 +124,6 @@ router.get('/linear-momentum-and-collisions', (req, res) => {
       course : 'Introductory Physics',
       course_url : 'introductory-physics',
       title : 'Linear Momentum and Collisions'
-    });
-});
-
-router.get('/forces', (req, res) => {
-    res.render('lessons/forces', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Forces'
-    });
-});
-
-router.get('/momentum', (req, res) => {
-    res.render('lessons/momentum', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Momentum'
-    });
-});
-
-router.get('/simple-harmonic-motion', (req, res) => {
-    res.render('lessons/simple-harmonic-motion', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Simple Harmonic Motion'
-    });
-});
-
-router.get('/waves', (req, res) => {
-    res.render('lessons/waves', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Waves'
-    });
-});
-
-router.get('/fluids', (req, res) => {
-    res.render('lessons/fluids', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Fluids'
     });
 });
 
