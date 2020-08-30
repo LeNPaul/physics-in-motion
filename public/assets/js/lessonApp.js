@@ -97,6 +97,22 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/waves-and-sounds/interference.html',
   })
 
+  // Fluid Mechanics
+  .when('/pressure', {
+    templateUrl: 'curriculum/fluid-mechanics/pressure.html',
+  })
+  .when('/buoyancy', {
+    templateUrl: 'curriculum/fluid-mechanics/buoyancy.html',
+  })
+  .when('/continuity', {
+    templateUrl: 'curriculum/fluid-mechanics/continuity.html',
+  })
+  .when('/fluid-statics', {
+    templateUrl: 'curriculum/fluid-mechanics/fluid-statics.html',
+  })
+  .when('/fluid-dynamics', {
+    templateUrl: 'curriculum/fluid-mechanics/fluid-dynamics.html',
+  })
 
   // Simple Harmonic Motion
   .when('/dynamics-simple-harmonic-motion', {
@@ -110,23 +126,6 @@ lessonApp.config(function($routeProvider) {
   })
   .when('/driven-oscillations', {
     templateUrl: 'curriculum/simple-harmonic-motion/driven-oscillations.html',
-  })
-
-  // Fluids
-  .when('/pressure', {
-    templateUrl: 'curriculum/fluids/pressure.html',
-  })
-  .when('/buoyancy', {
-    templateUrl: 'curriculum/fluids/buoyancy.html',
-  })
-  .when('/continuity', {
-    templateUrl: 'curriculum/fluids/continuity.html',
-  })
-  .when('/fluid-statics', {
-    templateUrl: 'curriculum/fluids/fluid-statics.html',
-  })
-  .when('/fluid-dynamics', {
-    templateUrl: 'curriculum/fluids/fluid-dynamics.html',
   })
 
   // Algebra

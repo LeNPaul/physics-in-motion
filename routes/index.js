@@ -136,6 +136,15 @@ router.get('/waves-and-sounds', (req, res) => {
     });
 });
 
+router.get('/fluid-mechanics', (req, res) => {
+    res.render('lessons/waves-and-sounds', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Fluid Mechanics'
+    });
+});
+
 // Mathematics
 
 router.get('/mathematics', (req, res) => {
