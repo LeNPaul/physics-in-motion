@@ -109,6 +109,15 @@ router.get('/circular-motion', (req, res) => {
     });
 });
 
+router.get('/work-and-energy', (req, res) => {
+    res.render('lessons/work-and-energy', {
+      user : req.user,
+      course : 'Classical Mechanics',
+      course_url : 'classical-mechanics',
+      title : 'Work and Energy'
+    });
+});
+
 router.get('/linear-momentum-and-collisions', (req, res) => {
     res.render('lessons/linear-momentum-and-collisions', {
       user : req.user,
@@ -124,15 +133,6 @@ router.get('/forces', (req, res) => {
       course : 'Classical Mechanics',
       course_url : 'classical-mechanics',
       title : 'Forces'
-    });
-});
-
-router.get('/energy', (req, res) => {
-    res.render('lessons/energy', {
-      user : req.user,
-      course : 'Classical Mechanics',
-      course_url : 'classical-mechanics',
-      title : 'Energy'
     });
 });
 

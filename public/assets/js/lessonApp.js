@@ -61,6 +61,21 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/circular-motion/circular-motion.html',
   })
 
+  // Work and Energy
+  .when('/conservative-forces', {
+    templateUrl: 'curriculum/work-and-energy/conservative-forces.html',
+  })
+  .when('/energy-conservation-work', {
+    templateUrl: 'curriculum/work-and-energy/energy-conservation-work.html',
+  })
+  .when('/work-potential-energy', {
+    templateUrl: 'curriculum/work-and-energy/work-potential-energy.html',
+  })
+  .when('/power', {
+    templateUrl: 'curriculum/work-and-energy/power.html',
+  })
+
+
   // Linear Momentum and Collisions
   .when('/momentum-conservation', {
     templateUrl: 'curriculum/linear-momentum-and-collisions/momentum-conservation.html',
@@ -70,20 +85,6 @@ lessonApp.config(function($routeProvider) {
   })
   .when('/explosions', {
     templateUrl: 'curriculum/linear-momentum-and-collisions/explosions.html',
-  })
-
-  //Energy
-  .when('/conservative-forces', {
-    templateUrl: 'curriculum/energy/conservative-forces.html',
-  })
-  .when('/energy-conservation-work', {
-    templateUrl: 'curriculum/energy/energy-conservation-work.html',
-  })
-  .when('/work-potential-energy', {
-    templateUrl: 'curriculum/energy/work-potential-energy.html',
-  })
-  .when('/power', {
-    templateUrl: 'curriculum/energy/power.html',
   })
 
   // Simple Harmonic Motion
