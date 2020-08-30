@@ -112,7 +112,7 @@ router.get('/circular-motion', (req, res) => {
 router.get('/work-and-energy', (req, res) => {
     res.render('lessons/work-and-energy', {
       user : req.user,
-      course : 'Classical Mechanics',
+      course : 'Introductory Physics',
       course_url : 'introductory-physics',
       title : 'Work and Energy'
     });
@@ -124,6 +124,15 @@ router.get('/linear-momentum-and-collisions', (req, res) => {
       course : 'Introductory Physics',
       course_url : 'introductory-physics',
       title : 'Linear Momentum and Collisions'
+    });
+});
+
+router.get('/waves-and-sounds', (req, res) => {
+    res.render('lessons/waves-and-sounds', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Waves and Sounds'
     });
 });
 

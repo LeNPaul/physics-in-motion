@@ -75,7 +75,6 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/work-and-energy/power.html',
   })
 
-
   // Linear Momentum and Collisions
   .when('/momentum-conservation', {
     templateUrl: 'curriculum/linear-momentum-and-collisions/momentum-conservation.html',
@@ -86,6 +85,18 @@ lessonApp.config(function($routeProvider) {
   .when('/explosions', {
     templateUrl: 'curriculum/linear-momentum-and-collisions/explosions.html',
   })
+
+  // Waves and Sounds
+  .when('/characteristics-of-waves', {
+    templateUrl: 'curriculum/waves-and-sounds/characteristics-waves.html',
+  })
+ .when('/superposition-of-waves', {
+    templateUrl: 'curriculum/waves-and-sounds/superposition-of-waves.html',
+  })
+  .when('/interference', {
+    templateUrl: 'curriculum/waves-and-sounds/interference.html',
+  })
+
 
   // Simple Harmonic Motion
   .when('/dynamics-simple-harmonic-motion', {
@@ -99,17 +110,6 @@ lessonApp.config(function($routeProvider) {
   })
   .when('/driven-oscillations', {
     templateUrl: 'curriculum/simple-harmonic-motion/driven-oscillations.html',
-  })
-
-  // Waves
-  .when('/characteristics-waves', {
-    templateUrl: 'curriculum/waves/characteristics-waves.html',
-  })
- .when('/superposition-of-waves', {
-    templateUrl: 'curriculum/waves/superposition-of-waves.html',
-  })
-  .when('/interference', {
-    templateUrl: 'curriculum/waves/interference.html',
   })
 
   // Fluids
