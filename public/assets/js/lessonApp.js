@@ -65,6 +65,12 @@ lessonApp.config(function($routeProvider) {
   .when('/momentum-conservation', {
     templateUrl: 'curriculum/linear-momentum-and-collisions/momentum-conservation.html',
   })
+  .when('/elastic-collisions', {
+    templateUrl: 'curriculum/linear-momentum-and-collisions/elastic-collisions.html',
+  })
+  .when('/explosions', {
+    templateUrl: 'curriculum/linear-momentum-and-collisions/explosions.html',
+  })
 
   //Energy
   .when('/conservative-forces', {
@@ -78,14 +84,6 @@ lessonApp.config(function($routeProvider) {
   })
   .when('/power', {
     templateUrl: 'curriculum/energy/power.html',
-  })
-
-  // Momentum
-  .when('/elastic-collisions', {
-    templateUrl: 'curriculum/momentum/elastic-collisions.html',
-  })
-  .when('/explosions', {
-    templateUrl: 'curriculum/momentum/explosions.html',
   })
 
   // Simple Harmonic Motion
