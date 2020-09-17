@@ -145,6 +145,15 @@ router.get('/waves-and-sounds', (req, res) => {
     });
 });
 
+router.get('/electricity-and-magnetism', (req, res) => {
+    res.render('lessons/electricity-and-magnetism', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Electricity and Magnetism'
+    });
+});
+
 router.get('/fluid-mechanics', (req, res) => {
     res.render('lessons/waves-and-sounds', {
       user : req.user,

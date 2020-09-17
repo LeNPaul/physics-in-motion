@@ -128,6 +128,11 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/fluid-mechanics/fluid-dynamics.html',
   })
 
+  // Electricity and Magnetism
+  .when('/electricity-and-magnetism', {
+    templateUrl: 'curriculum/electricity-and-magnetism/electric-charge.html',
+  })
+
   // Algebra
   .when('/symbols', {
     templateUrl: 'curriculum/algebra/symbols.html',
