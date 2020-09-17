@@ -129,7 +129,7 @@ lessonApp.config(function($routeProvider) {
   })
 
   // Electricity and Magnetism
-  .when('/electricity-and-magnetism', {
+  .when('/electric-charge', {
     templateUrl: 'curriculum/electricity-and-magnetism/electric-charge.html',
   })
 
