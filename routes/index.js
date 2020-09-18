@@ -127,6 +127,15 @@ router.get('/linear-momentum-and-collisions', (req, res) => {
     });
 });
 
+router.get('/rotational-motion-and-angular-momentum', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : 'introductory-physics',
+      title : 'Rotational Motion and Angular Momentum'
+    });
+});
+
 router.get('/oscillations', (req, res) => {
     res.render('lessons/oscillations', {
       user : req.user,

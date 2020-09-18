@@ -86,6 +86,11 @@ lessonApp.config(function($routeProvider) {
     templateUrl: 'curriculum/linear-momentum-and-collisions/explosions.html',
   })
 
+  // Rotational Motion and Angular Momentum
+  .when('/angular-variables', {
+    templateUrl: 'curriculum/rotational-motion-and-angular-momentum/angular-variables.html',
+  })
+
   // Oscillations
   .when('/dynamics-simple-harmonic-motion', {
     templateUrl: 'curriculum/oscillations/dynamics-simple-harmonic-motion.html',
