@@ -137,6 +137,9 @@ lessonApp.config(function($routeProvider) {
   .when('/electric-charge', {
     templateUrl: 'curriculum/electricity-and-magnetism/electric-charge.html',
   })
+  .when('/electric-fields', {
+    templateUrl: 'curriculum/electricity-and-magnetism/electric-fields.html',
+  })
 
   // Algebra
   .when('/symbols', {
