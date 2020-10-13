@@ -90,6 +90,9 @@ lessonApp.config(function($routeProvider) {
   .when('/angular-variables', {
     templateUrl: 'curriculum/rotational-motion-and-angular-momentum/angular-variables.html',
   })
+  .when('/equations-of-rotational-motion', {
+    templateUrl: 'curriculum/rotational-motion-and-angular-momentum/equations-of-rotational-motion.html',
+  })
 
   // Oscillations
   .when('/dynamics-simple-harmonic-motion', {
