@@ -93,6 +93,10 @@ lessonApp.config(function($routeProvider) {
   .when('/equations-of-rotational-motion', {
     templateUrl: 'curriculum/rotational-motion-and-angular-momentum/equations-of-rotational-motion.html',
   })
+  .when('/rotational-kinetic-energy', {
+    templateUrl: 'curriculum/rotational-motion-and-angular-momentum/rotational-kinetic-energy.html',
+  })
+
 
   // Oscillations
   .when('/dynamics-simple-harmonic-motion', {
