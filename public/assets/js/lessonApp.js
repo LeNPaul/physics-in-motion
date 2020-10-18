@@ -105,6 +105,9 @@ lessonApp.config(function($routeProvider) {
   .when('/rotational-work-and-power', {
     templateUrl: 'curriculum/rotational-motion-and-angular-momentum/rotational-work-and-power.html',
   })
+  .when('/angular-momentum', {
+    templateUrl: 'curriculum/rotational-motion-and-angular-momentum/angular-momentum.html',
+  })
 
   // Oscillations
   .when('/dynamics-simple-harmonic-motion', {
