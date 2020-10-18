@@ -99,6 +99,9 @@ lessonApp.config(function($routeProvider) {
   .when('/axis-theorems', {
     templateUrl: 'curriculum/rotational-motion-and-angular-momentum/axis-theorems.html',
   })
+  .when('/torque', {
+    templateUrl: 'curriculum/rotational-motion-and-angular-momentum/torque.html',
+  })
 
   // Oscillations
   .when('/dynamics-simple-harmonic-motion', {
