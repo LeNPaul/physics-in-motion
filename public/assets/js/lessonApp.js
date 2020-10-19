@@ -158,6 +158,9 @@ lessonApp.config(function($routeProvider) {
   .when('/electric-fields', {
     templateUrl: 'curriculum/electricity-and-magnetism/electric-fields.html',
   })
+  .when('/electric-potential', {
+    templateUrl: 'curriculum/electricity-and-magnetism/electric-potential.html',
+  })
   .when('/magnetic-fields', {
     templateUrl: 'curriculum/electricity-and-magnetism/magnetic-fields.html',
   })
