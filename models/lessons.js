@@ -11,52 +11,111 @@ const LessonProperties = new Schema({
 const Lessons = new Schema({
     username: String,
     lesson_modules: {
-      kinematics: {
-        motion_in_one_dimension: {
+      motion_in_one_dimension: {
+        position: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        motion_in_two_dimensions: {
+        speed: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        simple_motion_in_one_dimension: {
+        velocity: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        simple_motion_in_two_dimensions: {
+        acceleration: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        special_cases: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         }
       },
-      forces: {
-        friction_drag: {
+      motion_in_two_dimensions: {
+        position: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        newtons_laws: {
+        velocity: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        simple_forces: {
+        acceleration: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        projectile_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        circular_motion: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         }
       },
-      energy: {
+      forces_and_the_laws_of_motion: {
+        the_laws_of_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        the_first_law_of_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        the_second_law_of_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        the_third_law_of_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        common_forces: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        friction_and_drag: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+      },
+      circular_motion: {
+        circular_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        }
+      },
+      work_and_energy: {
         conservative_forces: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        energy_conservation_work: {
+        energy_conservation_and_work: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        work_and_potential_energy: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
@@ -65,14 +124,14 @@ const Lessons = new Schema({
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
-        },
-        work_potential_energy: {
+        }
+      },
+      linear_momentum_and_collisions: {
+        momentum_conservation: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
-        }
-      },
-      momentum: {
+        },
         elastic_collisions: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
@@ -82,24 +141,46 @@ const Lessons = new Schema({
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
+        }
+      },
+      rotational_motion_and_angular_momentum: {
+        angular_variables: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
         },
-        momentum_conservation: {
+        equations_of_angular_motion: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        rotational_kinetic_energy: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        axis_theorems: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        torque: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        rotational_work_and_power: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        angular_momentum: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         }
       },
-      simple_harmonic_motion: {
-        damped_harmonic_motion: {
-          status: { type: Boolean, default: false },
-          updated: { type: Date, default: new Date() },
-          notes: { type: String, default: "" }
-        },
-        driven_oscillations: {
-          status: { type: Boolean, default: false },
-          updated: { type: Date, default: new Date() },
-          notes: { type: String, default: "" }
-        },
+      oscillations: {
         dynamics_simple_harmonic_motion: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
@@ -109,15 +190,20 @@ const Lessons = new Schema({
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
-        }
-      },
-      waves: {
-        characteristics_waves: {
+        },
+        damped_harmonic_motion: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        interference: {
+        driven_oscillations: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        }
+      },
+      waves_and_sounds: {
+        characteristics_of_waves: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
@@ -126,9 +212,46 @@ const Lessons = new Schema({
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
+        },
+        interference: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
         }
       },
-      fluids: {
+      electricity_and_magnetism: {
+        electric_charge: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        electric_fields: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        electric_potential: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        magnetic_fields: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
+        sources_of_magnetic_fields: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        }
+      },
+      fluid_mechanics: {
+        pressure: {
+          status: { type: Boolean, default: false },
+          updated: { type: Date, default: new Date() },
+          notes: { type: String, default: "" }
+        },
         buoyancy: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
@@ -145,16 +268,6 @@ const Lessons = new Schema({
           notes: { type: String, default: "" }
         },
         fluid_dynamics: {
-          status: { type: Boolean, default: false },
-          updated: { type: Date, default: new Date() },
-          notes: { type: String, default: "" }
-        },
-        incompressible_fluids: {
-          status: { type: Boolean, default: false },
-          updated: { type: Date, default: new Date() },
-          notes: { type: String, default: "" }
-        },
-        pressure: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
