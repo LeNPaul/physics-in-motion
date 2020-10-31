@@ -33,26 +33,38 @@ dashboardApp.controller('mainController', function($scope) {
   function getLessonDescription(lessonName) {
     lessonName = lessonName.toLowerCase();
     switch(lessonName) {
-      case "kinematics":
-        return "How things move though space. Learn how point objects move though both one-dimensional space, and two-dimensional space."
+      case "motion_in_one_dimension":
+        return "To learn how objects move through space, we need to start with the simplest case: motion in one dimenion."
         break
-      case "forces":
-        return "What causes things to move through space. Learn about the phenomena that affects the motion of objects through space."
+      case "motion_in_two_dimensions":
+        return "With our understanding of motion in one dimension, we explore motion in two dimensions."
         break
-      case "energy":
-        return "The 'thing' that does work on an object. It makes things move, and is what makes the universe run at all scales, from the quantum to the astronomical."
+      case "forces_and_the_laws_of_motion":
+        return "The phenomena and laws that affect the motion of objects through space, and how to predict motion."
         break
-      case "momentum":
-        return "Momentum is what keeps an avalanche roll once it has been set off - once moving, it takes a large external force to stop!"
+      case "circular_motion":
+        return "A special case of applying the Laws of Motion for a common occurance in real life."
         break
-      case "simple_harmonic_motion":
-        return "Anytime there is something moving back and forth repeatedly in a consisten pattern, you have simple harmonic motion. Think of a pendulum."
+      case "work_and_energy":
+        return "The phenoma that makes things move, and is what makes the universe run at all scales."
         break
-      case "waves":
-        return "What happens when you have a system of objects interacting with each other through simple harmonic motion? You have waves."
+      case "linear_momentum_and_collisions":
+        return "An object in motion will stay in motion unless acted on by an external force - such as a collision."
         break
-      case "fluids":
-        return "Different from point objects - think of so many point objects that they blend into one system known as a fluid. Or, you can just think about water."
+      case "rotational_motion_and_angular_momentum":
+        return "How objects behave when they are rotating on an axis, such as wheels or spinning tops."
+        break
+      case "oscillations":
+        return "How objects behave when they are moving back and forth, such as a person swinging on a swing."
+        break
+      case "waves_and_sounds":
+        return "The phenoma of many objects oscillating at the save time, such as ocean waves and sound waves."
+        break
+      case "electricity_and_magnetism":
+        return "Develop an understanding of a phenoma that allows our society to function that we often take for granted."
+        break
+      case "fluid_mechanics":
+        return "Develop an understanding of how fluids behave and how it allows our society to function."
         break
     }
   }
