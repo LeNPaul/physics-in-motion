@@ -58,11 +58,6 @@ const Lessons = new Schema({
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
-        },
-        circular_motion: {
-          status: { type: Boolean, default: false },
-          updated: { type: Date, default: new Date() },
-          notes: { type: String, default: "" }
         }
       },
       forces_and_the_laws_of_motion: {
@@ -149,7 +144,7 @@ const Lessons = new Schema({
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        equations_of_angular_motion: {
+        equations_of_rotational_motion: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
