@@ -29,8 +29,14 @@ html(lang='en',ng-app='lessonApp')
             |  #{ title }  
           .list-group
             block content
-              
-          //- Place buttons to mark lesson complete here
+          if (user)
+            hr
+            span#lessonStatus.badge.badge-secondary
+            hr
+            .btn-group(role='group', aria-label='Basic example')
+              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Done
+              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
+            
           
         //- /.col-lg-3
         .col-lg-9
