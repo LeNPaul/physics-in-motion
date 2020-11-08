@@ -31,11 +31,13 @@ html(lang='en',ng-app='lessonApp')
             block content
           if (user)
             hr
-            span#lessonStatus.badge.badge-secondary
-            hr
-            .btn-group(role='group', aria-label='Basic example')
-              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Done
-              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
+            span#lessonStatus.alert.alert-primary(style='float: left')
+            p
+            .btn-group(role='group', aria-label='Basic example', style='float: right')
+              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+                i.fa.fa-check-circle(aria-hidden='true')
+              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+                i.fa.fa-times-circle(aria-hidden='true')
             
           
         //- /.col-lg-3
