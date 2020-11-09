@@ -31,8 +31,8 @@ html(lang='en',ng-app='lessonApp')
             block content
           if (user)
             hr
-            span#lessonStatus.alert.alert-primary(style='float: left')
-            p
+            button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+              i.fa.fa-check-circle(aria-hidden='true')
             .btn-group(role='group', aria-label='Basic example', style='float: right')
               button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
                 i.fa.fa-check-circle(aria-hidden='true')

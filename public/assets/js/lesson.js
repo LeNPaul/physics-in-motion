@@ -28,9 +28,9 @@ function setLessonStatus() {
   $.get("/lesson_data", function(data, status) {
     if(status) {
       if(data[0]["lesson_modules"][topic][lesson].status) {
-        document.getElementById("lessonStatus").textContent="Complete!";
+        document.getElementById("lessonStatus").textContent="Complete";
       } else {
-        document.getElementById("lessonStatus").textContent="Incomplete!";
+        document.getElementById("lessonStatus").textContent="Incomplete";
       }
     }
   });
