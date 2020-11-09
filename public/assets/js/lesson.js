@@ -45,5 +45,5 @@ function updateLessonStatus(status) {
 if(document.getElementById("lessonStatus")) {
   updateTime();
   setLessonStatus();
-  setSavedNote();
+  // setSavedNote();
 }
