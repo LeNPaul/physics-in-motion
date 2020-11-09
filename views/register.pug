@@ -22,7 +22,7 @@ html(lang='en')
       if (error && error.length > 0)
         .alert.alert-danger.text-center= error
       .form-label-group
-        input#inputUsername.form-control(type='text', placeholder='Username', name='username', minlength='4', pattern='^[a-zA-Z0-9]*$', required='', autofocus='')
+        input#inputUsername.form-control(type='text', placeholder='Username', name='username', minlength='4', pattern='^[a-zA-Z0-9@.]*$', required='', autofocus='')
         label(for='inputUsername') Choose a Username
       .form-label-group
         input#inputPassword.form-control(type='password', placeholder='Password', name='password', required='')
