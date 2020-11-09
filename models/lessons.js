@@ -39,17 +39,17 @@ const Lessons = new Schema({
         }
       },
       motion_in_two_dimensions: {
-        position: {
+        two_dimensional_position: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        velocity: {
+        two_dimensional_velocity: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
         },
-        acceleration: {
+        two_dimensional_acceleration: {
           status: { type: Boolean, default: false },
           updated: { type: Date, default: new Date() },
           notes: { type: String, default: "" }
