@@ -9,14 +9,14 @@ const LessonProperties = new Schema({
 });
 
 // Placeholder for normalizing database schema
-const Lessons = new Schema({
+/* const Lessons = new Schema({
   username: String,
   module_name: String,
   lesson_name: String,
   status: { type: Boolean, default: false },
   updated: { type: Date, default: new Date() },
   notes: { type: String, default: "" }
-});
+}); */
 
 const Lessons = new Schema({
     username: String,
