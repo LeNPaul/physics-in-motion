@@ -18,6 +18,17 @@ const LessonProperties = new Schema({
   notes: { type: String, default: "" }
 }); */
 
+// Placeholder for normalizing database schema
+const Lessons = new Schema({
+  username: String,
+  module_name: String,
+  lesson_name: String,
+  status: { type: Boolean, default: false },
+  updated: { type: Date, default: new Date() },
+  notes: { type: String, default: "" }
+});
+
+/*
 const Lessons = new Schema({
     username: String,
     lesson_modules: {
@@ -280,5 +291,6 @@ const Lessons = new Schema({
       }
     }
 });
+*/
 
 module.exports = mongoose.model('lessons', Lessons);
