@@ -27,6 +27,11 @@ function updateNotes() {
 function setLessonStatus() {
   $.get("/lesson_data", function(data, status) {
     if(status) {
+
+      console.log(lesson)
+      console.log(topic)
+      console.log(data);
+
       if(data[0]["lesson_modules"][topic][lesson].status) {
         document.getElementById("lessonStatus").textContent="Complete";
       } else {
