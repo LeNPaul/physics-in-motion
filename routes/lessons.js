@@ -5,7 +5,7 @@ const Lessons = require('../models/lessons');
 // Return lessons information for user
 // Sample request: curl --cookie "" http://localhost:8080/lesson_data
 router.get('/lesson_data', (req, res) => {
-  Lessons.find({username: req.user.username}, function(err, lessons) {
+  Lessons.find({/*username: req.user.username*/}, function(err, lessons) {
     res.json(lessons);
   });
 });
