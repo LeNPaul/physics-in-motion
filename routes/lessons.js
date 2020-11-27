@@ -13,6 +13,8 @@ router.get('/lesson_data', (req, res) => {
 // Return the most recently accessed Lessons
 // Sample request: curl --cookie "" http://localhost:8080/recent_lessons
 router.get('/recent_lessons', (req,  res) => {
+
+  /*
   Lessons.find({username: req.user.username}, function(err, lessons) {
     var lastAccessedLessons = [];
     for (const [name, lesson] of Object.entries(lessons[0].lesson_modules)) {
@@ -23,6 +25,12 @@ router.get('/recent_lessons', (req,  res) => {
     modulesSorted = lastAccessedLessons.sort(function(a,b){return b[2].updated - a[2].updated})
     res.json(modulesSorted);
   });
+  */
+
+  Lessons.find({username: req.user.username}, function(err, lessons) {
+    res.json(lessons);
+  });
+
 });
 
 // Return the progress of a lesson
