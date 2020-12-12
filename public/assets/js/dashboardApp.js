@@ -96,23 +96,24 @@ dashboardApp.controller('mainController', function($scope) {
         var lessonData = [];
         for (let i = 0; i < lessons.length; i++) {
           lessonData.push([
-            capitalizeFirstLetter(lessons[i][0].replace(/_/g, ' ')),
-            lessons[i][0].replace(/_/g, '-'),
-            lessons[i][0].replace(/_/g, '-') + "#!/" + lessons[i][1].replace(/_/g, '-'),
-            lessons[i][0],
-            getLessonDescription(lessons[i][0])
+            capitalizeFirstLetter(lessons[i].module_name.replace(/_/g, ' ')),
+            lessons[i].module_name.replace(/_/g, '-'),
+            lessons[i].module_name.replace(/_/g, '-') + "#!/" + lessons[i].lesson_name.replace(/_/g, '-'),
+            lessons[i].module_name,
+            getLessonDescription(lessons[i].module_name)
           ]);
         }
         $scope.records = lessonData;
         $scope.$digest();
         resolve(lessonData);
+        console.log(lessonData);
       });
     })
   }
 
   setLatestLesson();
   getDashboardData().then(function(value){
-    setLessonProgress();
+    //setLessonProgress();
   })
 
 });
