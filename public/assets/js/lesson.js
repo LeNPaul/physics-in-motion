@@ -27,15 +27,14 @@ function updateNotes() {
 function setLessonStatus() {
   $.get("/lesson_data", function(data, status) {
     if(status) {
-
-      console.log(lesson)
-      console.log(topic)
-      console.log(data);
-
-      if(data[0]["lesson_modules"][topic][lesson].status) {
-        document.getElementById("lessonStatus").textContent="Complete";
-      } else {
-        document.getElementById("lessonStatus").textContent="Incomplete";
+      for(i = 0; i < data.length; i++) {
+        if(data[i].lesson_name == lesson && data[i].module_name == topic) {
+          if(data[i].status) {
+            document.getElementById("lessonStatus").textContent="Complete";
+          } else {
+            document.getElementById("lessonStatus").textContent="Incomplete";
+          }
+        }
       }
     }
   });

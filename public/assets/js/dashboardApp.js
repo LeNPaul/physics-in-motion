@@ -106,7 +106,6 @@ dashboardApp.controller('mainController', function($scope) {
         $scope.records = lessonData;
         $scope.$digest();
         resolve(lessonData);
-        console.log(lessonData);
       });
     })
   }
