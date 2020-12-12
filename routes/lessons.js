@@ -86,20 +86,23 @@ router.post('/update_lesson_time', (req, res) => {
 // Sample request: curl --cookie "" --header "Content-Type: application/json" --data '{"lessonPath":"forces.friction_drag", "status": true}' http://localhost:8080/update_lesson_status
 router.post('/update_lesson_status', (req, res) => {
   Lessons.find({username: req.user.username}, function(err, lessons) {
-    var setObject = {};
-    setObject["lesson_modules." + req.body.lessonPath + ".status"] = req.body.status;
-    Lessons.findByIdAndUpdate(
-      lessons[0]._id,
-      setObject,
-      { new: true },
-      function(err, lessons) {
-        if (err == null) {
-          res.json({Success: true});
-        } else {
-          res.json({Success: false});
-        }
+    for(i = 0; i < lessons.length; i++) {
+      var lessonPath = req.body.lessonPath.split('.')
+      if(lessons[i].module_name == lessonPath[0] && lessons[i].lesson_name == lessonPath[1]) {
+        Lessons.findByIdAndUpdate(
+          lessons[i]._id,
+          {status: req.body.status},
+          { new: true },
+          function(err, lessons) {
+            if (err == null) {
+              res.json({Success: true});
+            } else {
+              res.json({Success: false});
+            }
+          }
+        )
       }
-    )
+    }
   });
 });
 

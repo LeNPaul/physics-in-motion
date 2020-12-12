@@ -42,6 +42,7 @@ function setLessonStatus() {
 
 function updateLessonStatus(status) {
   $.post("/update_lesson_status", {lessonPath: lessonPath, status: status}, function(data, status) {
+    console.log(data);
     setLessonStatus()
   });
 }
