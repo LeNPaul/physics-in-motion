@@ -72,8 +72,9 @@ dashboardApp.controller('mainController', function($scope) {
 
   function setLatestLesson() {
     $.get("/recent_lessons", function(data, status) {
-      //var link = document.getElementById("latest-lesson");
-      //link.setAttribute('href', (data[0][0] + "#!/" + data[0][1]).replace(/_/g, "-"));
+      var link = document.getElementById("latest-lesson");
+      console.log(data);
+      link.setAttribute('href', (data[1].module_name + "#!/" + data[0].lesson_name).replace(/_/g, "-"));
     });
   };
 
@@ -106,7 +107,6 @@ dashboardApp.controller('mainController', function($scope) {
         $scope.records = lessonData;
         $scope.$digest();
         resolve(lessonData);
-        console.log(lessonData);
       });
     })
   }
