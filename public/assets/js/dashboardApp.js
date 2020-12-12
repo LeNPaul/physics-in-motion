@@ -72,8 +72,8 @@ dashboardApp.controller('mainController', function($scope) {
 
   function setLatestLesson() {
     $.get("/recent_lessons", function(data, status) {
-      var link = document.getElementById("latest-lesson");
-      link.setAttribute('href', (data[0][0] + "#!/" + data[0][1]).replace(/_/g, "-"));
+      //var link = document.getElementById("latest-lesson");
+      //link.setAttribute('href', (data[0][0] + "#!/" + data[0][1]).replace(/_/g, "-"));
     });
   };
 
@@ -94,7 +94,7 @@ dashboardApp.controller('mainController', function($scope) {
     return new Promise((resolve, reject) => {
       $.get("/recent_lessons", function(lessons, status) {
         var lessonData = [];
-        for (let i = 0; i < lessons.length; i++) {
+        for (let i = 0; i < 5; i++) {
           lessonData.push([
             capitalizeFirstLetter(lessons[i].module_name.replace(/_/g, ' ')),
             lessons[i].module_name.replace(/_/g, '-'),
@@ -106,6 +106,7 @@ dashboardApp.controller('mainController', function($scope) {
         $scope.records = lessonData;
         $scope.$digest();
         resolve(lessonData);
+        console.log(lessonData);
       });
     })
   }

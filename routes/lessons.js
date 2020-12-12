@@ -13,24 +13,20 @@ router.get('/lesson_data', (req, res) => {
 // Return the most recently accessed Lessons
 // Sample request: curl --cookie "" http://localhost:8080/recent_lessons
 router.get('/recent_lessons', (req,  res) => {
-
-  /*
   Lessons.find({username: req.user.username}, function(err, lessons) {
+    var tempLessons = [];
     var lastAccessedLessons = [];
-    for (const [name, lesson] of Object.entries(lessons[0].lesson_modules)) {
-      lessonsSorted = Object.keys(lesson).sort(function(a,b){return lesson[b].updated - lesson[a].updated})
-      lastAccessedLessons.push([name, lessonsSorted[1], lesson[lessonsSorted[1]]]);
+    lessons.sort(function (a, b) {
+      return b.updated - a.updated;
+    });
+    for(i = 0; i< lessons.length; i++) {
+      if(tempLessons.includes(lessons[i].module_name) == false) {
+        lastAccessedLessons.push(lessons[i])
+        tempLessons.push(lessons[i].module_name)
+      }
     }
-    lastAccessedLessons.shift();
-    modulesSorted = lastAccessedLessons.sort(function(a,b){return b[2].updated - a[2].updated})
-    res.json(modulesSorted);
+    res.json(lastAccessedLessons);
   });
-  */
-
-  Lessons.find({username: req.user.username}, function(err, lessons) {
-    res.json(lessons);
-  });
-
 });
 
 // Return the progress of a lesson
