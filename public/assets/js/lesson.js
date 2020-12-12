@@ -50,4 +50,5 @@ if(document.getElementById("lessonStatus")) {
   updateTime();
   setLessonStatus();
   // setSavedNote();
+  // TODO - will need to update endpoints relating to user notes
 }
