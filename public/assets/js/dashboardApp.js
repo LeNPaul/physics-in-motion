@@ -73,7 +73,7 @@ dashboardApp.controller('mainController', function($scope) {
   function setLatestLesson() {
     $.get("/recent_lessons", function(data, status) {
       var link = document.getElementById("latest-lesson");
-      link.setAttribute('href', (data[1].module_name + "#!/" + data[0].lesson_name).replace(/_/g, "-"));
+      link.setAttribute('href', (data[0].module_name + "#!/" + data[0].lesson_name).replace(/_/g, "-"));
     });
   };
 
