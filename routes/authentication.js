@@ -203,6 +203,8 @@ router.post('/register', (req, res, next) => {
       gender: '',
       birthdate: '',
       address: '',
+      last_login: new Date(),
+      date_joined: new Date(),
       mark_deleted: ''
     }), req.body.password, (err, account) => {
         if (err) {
