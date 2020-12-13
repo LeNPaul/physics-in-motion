@@ -10,6 +10,8 @@ const Account = new Schema({
     gender: String,
     birthdate: String,
     address: String,
+    date_joined: Date,
+    last_login: Date,
     mark_deleted: Date
 });
 
