@@ -195,6 +195,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res, next) => {
+    var newDate = new Date();
     // Create user in database
     Account.register(new Account({
       username : req.body.username,
@@ -203,8 +204,8 @@ router.post('/register', (req, res, next) => {
       gender: '',
       birthdate: '',
       address: '',
-      last_login: new Date(),
-      date_joined: new Date(),
+      last_login: newDate,
+      date_joined: newDate,
       mark_deleted: ''
     }), req.body.password, (err, account) => {
         if (err) {
@@ -259,7 +260,19 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
         if (err) {
             return next(err);
         }
-        res.redirect('/');
+        Account.find({username: req.session.passport.user}, function(err, account) {
+          Account.findByIdAndUpdate(
+            account[0]._id,
+            {last_login: new Date()},
+            {new: true},
+            function(err, account) {
+              if (err) {
+                return next(err);
+              }
+              res.redirect('/');
+            }
+          )
+        });
     });
 });
 
