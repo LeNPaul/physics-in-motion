@@ -213,13 +213,16 @@ lessonApp.config(function($routeProvider) {
 });
 
 // create the controller and inject Angular's $scope
-lessonApp.controller('mainController', function($scope, $http) {
+lessonApp.controller('mainController', function($scope, $http, $location) {
 
   // Render LaTex when loading new view
 	$scope.$watch(function(){
 	  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 	  return true;
 	});
+
+  // When loading lesson module page for first time the side bar should highlight the corresponding lesson module
+  $('#lesson' + $location.path().replace('/','-')).addClass('active');
 
   function getAnswers(question_id) {
     return new Promise(function(resolve, reject) {
