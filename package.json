@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/LeNPaul/physics-in-motion-dev.git"
   },
-  "author": "Paul Le <l.nguyen.paul@gmail.com>",
+  "author": "Paul Le <hello@physicsinmotion.ca>",
   "description": "Full stack web application for teaching people physics in an intuitive way",
   "license": "MIT",
   "dependencies": {
