@@ -260,6 +260,24 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
         if (err) {
             return next(err);
         }
+        // Reinitialize lessons collection if the lessons collection is empty for a user when they log in
+        Lessons.find({username: req.session.passport.user}, function(err, currentLessons) {
+          if (currentLessons.length == 0) {
+            for(let i = 0; i < lessons.length; i++) {
+              // Create lessons tracking in database
+              var newLessons = new Lessons({
+                username: req.session.passport.user,
+                module_name: lessons[i].module_name,
+                lesson_name: lessons[i].lesson_name,
+              })
+              newLessons.save(function(err, data) {
+                if (err) {
+                  // TODO - add proper error handling here
+                }
+              })
+            }
+          }
+        });
         Account.find({username: req.session.passport.user}, function(err, account) {
           Account.findByIdAndUpdate(
             account[0]._id,
