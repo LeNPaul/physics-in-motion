@@ -8,5 +8,8 @@ sudo apt install -y git
 sudo apt install -y mongodb
 
 # Install NodeJS
-sudo apt install nodejs
-sudo apt install npm
+cd ~
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install -y nodejs
+sudo apt install -y npm
