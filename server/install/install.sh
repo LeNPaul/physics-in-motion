@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Update and install git
+# Update OS
 sudo apt update
-sudo apt install -y git
 
 # Install MongoDB
 sudo apt install -y mongodb
