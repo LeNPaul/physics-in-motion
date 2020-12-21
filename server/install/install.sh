@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Need to install git on Ubuntu first to clone repository
+sudo apt install -y git
+
 # Update OS
 sudo apt update
 
@@ -19,3 +22,6 @@ sudo apt install -y npm
 # Install nginx and update firewall
 sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP'
+
+# Install PM2
+sudo npm install pm2@latest -g
