@@ -20,7 +20,7 @@ sudo apt install -y nodejs
 sudo apt install -y npm
 
 # Install npm packages
-cd ../../ ; npm install;
+(cd ../../ && npm install)
 
 # Install nginx and update firewall
 sudo apt install -y nginx
