@@ -19,6 +19,10 @@ sudo bash nodesource_setup.sh
 sudo apt install -y nodejs
 sudo apt install -y npm
 
+# Install npm packages
+cd ../../
+npm install
+
 # Install nginx and update firewall
 sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP'
