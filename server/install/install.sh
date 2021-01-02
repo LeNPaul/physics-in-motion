@@ -30,7 +30,7 @@ sudo ufw allow 'Nginx HTTP'
 sudo npm install pm2@latest -g
 
 # Start app using PM2
-pm2 start bin/www --name PhysicsInMotion
+(cd ../../ ; pm2 start bin/www --name PhysicsInMotion)
 
 # Install Let's Encrypt
 sudo snap install core; sudo snap refresh core
