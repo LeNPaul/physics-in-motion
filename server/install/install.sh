@@ -29,6 +29,10 @@ sudo snap install --classic certbot
 
 # Install PM2
 sudo npm install pm2@latest -g
+pm2 startup systemd > temp.txt ; cat temp.txt | grep sudo > pm2.sh
+bash pm2.sh
+rm temp.txt
+rm pm2.sh
 
 # Install packages and start using PM2
 bash initiate.sh
