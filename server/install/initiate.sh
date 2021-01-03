@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Install packages and start application using pm2
+
 # Install npm packages
 (cd ../.. ; npm install)
 
