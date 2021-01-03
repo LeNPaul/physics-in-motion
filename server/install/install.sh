@@ -27,11 +27,8 @@ sudo ufw allow 'Nginx HTTP'
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 
-# Install npm packages
-(cd ../.. ; npm install)
-
 # Install PM2
 sudo npm install pm2@latest -g
 
-# Start app using PM2
-(cd ../.. ; pm2 start bin/www --name PhysicsInMotion)
+# Install packages and start using PM2
+bash initiate.sh
