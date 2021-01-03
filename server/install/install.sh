@@ -19,19 +19,19 @@ sudo bash nodesource_setup.sh
 sudo apt install -y nodejs
 sudo apt install -y npm
 
-# Install npm packages
-(cd ../../ ; npm install)
-
 # Install nginx and update firewall
 sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP'
+
+# Install Let's Encrypt
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+
+# Install npm packages
+(cd ../.. ; npm install)
 
 # Install PM2
 sudo npm install pm2@latest -g
 
 # Start app using PM2
-(cd ../../ ; pm2 start bin/www --name PhysicsInMotion)
-
-# Install Let's Encrypt
-sudo snap install core; sudo snap refresh core
-sudo snap install --classic certbot
+(cd ../.. ; pm2 start bin/www --name PhysicsInMotion)
