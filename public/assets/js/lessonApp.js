@@ -7,8 +7,12 @@ lessonApp.config(function($routeProvider) {
 
   // Motion In One Dimension
   //   Map /position to /position-distance-displacement
+  //   Map /speed and /velocity to /speec-velocity
   .when('/position-distance-displacement', {
     templateUrl: 'curriculum/motion-in-one-dimension/position-distance-displacement.html',
+  })
+  .when('/speed-velocity', {
+    templateUrl: 'curriculum/motion-in-one-dimension/speed-velocity.html',
   })
 
   // Motion in Two Dimensions
