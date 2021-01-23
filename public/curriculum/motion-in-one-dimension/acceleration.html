@@ -4,25 +4,37 @@
 		<div class="col-sm-8">
 			<h1 class="page-header">Acceleration</h1>
 
+			<hr>
+
+			<p>When studying the <a href="/motion-in-one-dimension#!/speed-velocity" target="_blank">velocity</a> of an object, we noted the rate of change of its position as a function of time. We can take this another step further and also study the rate of change of its velocity as a function of time.</p>
+
+			<h3>Average and Constant Acceleration</h3>
+
       <p>An object moving through space that experiences a change in velocity experiences <i>acceleration</i>. For example, a moving object that gradually slows to a stop experiences negative acceleration, or in other words, deceleration.</p>
 
-			<p>In order to calculate the acceleration of an object, we take the total change in velocity of the object, and divide it by the time that it took for the object to make that change in velocity.</p>
+			<p>In order to calculate the average acceleration of an object, we take the total change in velocity of the object, and divide it by the time that it took for the object to make that change in velocity:</p>
 
-			<p>$$ \frac{ \Delta v }{ \Delta t } $$</p>
+			<p>$$ a_{average} = \frac{v_2 - v_1}{t_2 - t_1} = \frac{ \Delta v }{ \Delta t } $$</p>
 
-			<p>The resulting value tells us exactly how much the velocity of an object changes per unit of time. For example, an object with an acceleration of</p>
+			<p>The resulting value tells us the average change in velocity of an object per unit of time. For example, an object with an acceleration of</p>
 
 			<p>$$ 5 \ \frac{m}{s^2} $$</p>
 
-			<p>will increase its velocity by 5 meters per second, every second.</p>
+			<p>will on average increase its velocity by 5 meters per second, every second.</p>
 
-			<p>Similar to velocity, direction is important when defining acceleration. A positive value of acceleration would correspond to an increasing velocity. A negative value of acceleration would correspond to a decreasing velocity.</p>
+			<p>Average acceleration is equivalent to the slope of the velocity function between two points in time. For example, if we had an object where its velocity was increaing at a constant rate, it would look like a straight line, where the slope gives us the average acceleration:</p>
 
-			<p>We can define the acceleration of the particle as the derivative of the velocity function:</p>
+			<canvas id="acceleration-line-chart" width="800" height="500"></canvas>
+
+			<p>With average acceleration, it is possible for the change in velocity to be constant or variable, as we saw with average velocity. Similar to velocity, direction is important when defining acceleration. A positive value of acceleration would correspond to an increasing velocity. A negative value of acceleration would correspond to a decreasing velocity.</p>
+
+			<h3>Instantaneous Acceleration</h3>
+
+			<p>We can define the instantaneous acceleration of an object as the derivative of the velocity function, which will give us a snapshot of the acceleration of an object at a point in time:</p>
 
 			<p>$$ a(t) = \frac{d v(t)}{dt} = \frac{d^2 p(t)}{dt^2} . $$</p>
 
-			<canvas id="acceleration-line-chart" width="800" height="500"></canvas>
+
 
 		</div>
 		<div class="col-sm-2"></div>
@@ -32,11 +44,11 @@
 
 	new Chart(document.getElementById("acceleration-line-chart"),
 		chartConfig(
-			'Acceleration of Particle as a Function of Time',
+			'Velocity of Particle as a Function of Time',
 			'Time (t)',
 			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-			'Acceleration (a)',
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			'Velocity (v)',
+			[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		)
 	);
 
