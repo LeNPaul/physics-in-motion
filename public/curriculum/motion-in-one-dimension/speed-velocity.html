@@ -42,13 +42,21 @@
 
 			<p>When we refer only to the speed of an object, we do not include any information on the direction in which the object is travelling. When we know both the speed and direction of an object, we call this value the <i>velocity</i> of the object.
 
-			<p>Unlike speed, values of velocity can be either positive or negative. In one dimension, this tells us the direction that the object is travelling in, as there are only two directions in which the object may move in. We consider positive velocities one direction, and negative velocities the opposite direction.</p>
+			<p>Unlike speed, values of velocity can be either positive or negative. In one dimension, this tells us the direction that the object is travelling in, as there are only two directions in which the object may move in. We consider positive velocities one direction, and negative velocities the opposite direction. The magnitude of velocity is equal to speed.</p>
 
 			<p>Average velocity is the total dispacement of an object divided by the interval of time that it took for the object to be displaced:</p>
 
 			<p>$$ v_{average} = \frac{p_2 - p_1}{t_2 - t_1} = \frac{\Delta p}{\Delta t} $$</p>
 
 			<p>Similar to average speed, it is possible for the velocity of an object to be either constant, or variable through the time interval that is used to calculate its average velocity.</p>
+
+			<p>When we graph the position function of an object moving with constant velocity, it will appear as a straight line, and the slope will be equal to the average velocity between two points:</p>
+
+			<canvas id="static-velocity-line-chart" width="800" height="500"></canvas>
+
+			<p>When we graph the position function of an object moving with variable velocity, it will appear as a curve on the graph. However, if the starting and ending points are the same as another object moving with constant velocity, then their average velocities will be the same:</p>
+
+			<canvas id="variable-velocity-line-chart" width="800" height="500"></canvas>
 
 			<h3>Instantaneous Velocity</h3>
 
@@ -58,10 +66,30 @@
 
 			<p>$$ v(t) = \lim_{\Delta t \to 0} \frac{\Delta p}{\Delta t} = \frac{d p(t)}{dt} $$</p>
 
-			<p>This describes how fast something moves, and in which direction the it is moving at any point in time. The magnitude of velocity is equal to speed.</p>
+			<p>This describes how fast something moves, and in which direction it is moving at any point in time. On a graph, the instantaneous velocity of an object is equal to the tangent of the position function at a point in time.</p>
 
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
 </div>
+<script>
+	new Chart(document.getElementById("static-velocity-line-chart"),
+		chartConfig(
+			'Position of a Particle',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		)
+	);
+	new Chart(document.getElementById("variable-velocity-line-chart"),
+		chartConfig(
+			'Position of a Particle',
+			'Time (t)',
+			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+			'Position (x)',
+			[0, 1, 1, 3, 4, 4, 7, 7, 8, 9, 10]
+		)
+	);
+</script>
 <script src="/assets/js/lesson.js"></script>
