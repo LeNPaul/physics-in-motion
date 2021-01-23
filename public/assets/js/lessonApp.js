@@ -6,20 +6,16 @@ lessonApp.config(function($routeProvider) {
   $routeProvider
 
   // Motion In One Dimension
-  .when('/position', {
-    templateUrl: 'curriculum/motion-in-one-dimension/position.html',
+  //   Map /position to /position-distance-displacement
+  //   Map /speed and /velocity to /speec-velocity
+  .when('/position-distance-displacement', {
+    templateUrl: 'curriculum/motion-in-one-dimension/position-distance-displacement.html',
   })
-  .when('/speed', {
-    templateUrl: 'curriculum/motion-in-one-dimension/speed.html',
-  })
-  .when('/velocity', {
-    templateUrl: 'curriculum/motion-in-one-dimension/velocity.html',
+  .when('/speed-velocity', {
+    templateUrl: 'curriculum/motion-in-one-dimension/speed-velocity.html',
   })
   .when('/acceleration', {
     templateUrl: 'curriculum/motion-in-one-dimension/acceleration.html',
-  })
-  .when('/special-cases', {
-    templateUrl: 'curriculum/motion-in-one-dimension/special-cases.html',
   })
 
   // Motion in Two Dimensions
