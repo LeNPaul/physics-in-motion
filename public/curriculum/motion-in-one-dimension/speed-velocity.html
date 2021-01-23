@@ -14,7 +14,7 @@
 
       <p>In order to calculate the speed of an object, we take the total distance travelled by that object and divide it by the time that it took for the object to travel that distance:</p>
 
-			<p>$$ \frac{ \Delta p }{ \Delta t } $$</p>
+			<p>$$ speed = \frac{p_2 - p_1}{t_2 - t_1} = \frac{ \Delta p }{ \Delta t } $$</p>
 
 			<p>The resulting value tells us exactly how far an object moves per unit of time. For example, an object that is moving at a speed of</p>
 
@@ -83,7 +83,7 @@
 		)
 	);
 	new Chart(document.getElementById("variable-velocity-line-chart"),
-		chartConfig(
+		curvedChartConfig(
 			'Position of a Particle',
 			'Time (t)',
 			[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
