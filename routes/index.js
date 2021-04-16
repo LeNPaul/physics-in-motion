@@ -79,7 +79,16 @@ router.get('/motion-in-one-dimension/position-distance-displacement', (req, res)
       user : req.user,
       course : 'Introductory Physics',
       course_url : '../introductory-physics',
-      title : 'Motion In One Dimension'
+      title : 'Position, Distance, and Displacement'
+    });
+});
+
+router.get('/motion-in-one-dimension/speed-velocity', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/speed-velocity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Speed and Velocity'
     });
 });
 

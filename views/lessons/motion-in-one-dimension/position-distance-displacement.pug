@@ -10,8 +10,8 @@ block content
           |  #{ title }  
         .list-group
           a.list-group-item.active(href='/motion-in-one-dimension/position-distance-displacement',data-toggle="list",id="lesson-position-distance-displacement") Position, Distance, and Displacement
-          a.list-group-item(href='#!speed-velocity',data-toggle="list",id="lesson-speed-velocity") Speed and Velocity
-          a.list-group-item(href='#!acceleration',data-toggle="list",id="lesson-speed-velocity") Acceleration
+          a.list-group-item(href='/motion-in-one-dimension/speed-velocity',data-toggle="list",id="lesson-speed-velocity") Speed and Velocity
+          a.list-group-item(href='/motion-in-one-dimension/acceleration',data-toggle="list",id="lesson-speed-velocity") Acceleration
         if (user)
           hr
           button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
@@ -87,61 +87,3 @@ block content
                 )
                 );
               script(src='/assets/js/lesson.js')
-
-        //- if (user)
-          //- .card.mt-4#user-exists
-            .card-body
-              p.card-text
-                .container
-                  .row
-                    .col-sm-2
-                    .col-sm-8
-                      h3 Questions
-                      div(ng-repeat='question in questions')
-                        hr
-                        p {{ question.question_text }}
-                        .form-check(ng-repeat='answer in question.content' class="mt-3")
-                          input(class="form-check-input" type="radio" name="question-{{question.question_id}}" id="answer-{{ answer.answer_id }}" value="{{ answer.answer_id }}")
-                          label(class="form-check-label" for="answer-{{ answer.answer_id }}") {{ answer.answer_text }}
-                        hr
-                        button.btn.btn-secondary(type='button', ng-click='submitAnswer(question.question_id)') Submit
-                        div(id="style-{{question.question_id}}" class="alert alert-secondary mt-3" role="alert") Please select an answer
-          //- .card.mt-4
-            .card-body
-              p.card-text
-                .container
-                  .row
-                    .col-sm-2
-                    .col-sm-8 
-                      span#lessonStatus.badge.badge-secondary
-                      hr
-                      .btn-group(role='group', aria-label='Basic example')
-                        button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)') Done
-                        button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)') Unmark
-                      hr
-                      form
-                        .form-group
-                          label(for='lessonNotes') Notes
-                          textarea#lessonNotes.form-control(rows='3')
-                        button.btn.btn-secondary(type='button', onclick='updateNotes()') Save
-        //- /.card
-        //- .card.card-outline-secondary.my-4
-          .card-header
-            | Product Reviews
-          .card-body
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
-            small.text-muted Posted by Anonymous on 3/1/17
-            hr
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
-            small.text-muted Posted by Anonymous on 3/1/17
-            hr
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
-            small.text-muted Posted by Anonymous on 3/1/17
-            hr
-            a.btn.btn-success(href='#') Leave a Review
-        //- /.card
-        //- /.col-lg-9
-        //- /.container
