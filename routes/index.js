@@ -92,6 +92,14 @@ router.get('/motion-in-one-dimension/speed-velocity', (req, res) => {
     });
 });
 
+router.get('/motion-in-one-dimension/acceleration', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/acceleration', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Acceleration'
+    });
+});
 
 
 router.get('/motion-in-one-dimension', (req, res) => {

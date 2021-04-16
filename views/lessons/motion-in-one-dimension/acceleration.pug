@@ -1,0 +1,74 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/motion-in-one-dimension/position-distance-displacement',data-toggle="list",id="lesson-position-distance-displacement") Position, Distance, and Displacement
+          a.list-group-item(href='/motion-in-one-dimension/speed-velocity',data-toggle="list",id="lesson-speed-velocity") Speed and Velocity
+          a.list-group-item.active(href='/motion-in-one-dimension/acceleration',data-toggle="list",id="lesson-speed-velocity") Acceleration
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='motion_in_one_dimension' data-lesson='acceleration')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Acceleration
+                    hr
+                    p
+                      | When studying the 
+                      a(href='/motion-in-one-dimension#!/speed-velocity' target='_blank') velocity
+                      |  of an object, we noted the rate of change of its position as a function of time. We can take this another step further and also study the rate of change of its velocity as a function of time.
+                    h3 Average and Constant Acceleration
+                    p
+                      | An object moving through space that experiences a change in velocity experiences 
+                      i acceleration
+                      | . For example, a moving object that gradually slows to a stop experiences negative acceleration, or in other words, deceleration.
+                    p
+                      | In order to calculate the average acceleration of an object, we take the total change in velocity of the object, and divide it by the time that it took for the object to make that change in velocity:
+                    p $$ a_{average} = \frac{v_2 - v_1}{t_2 - t_1} = \frac{ \Delta v }{ \Delta t } $$
+                    p
+                      | The resulting value tells us the average change in velocity of an object per unit of time. For example, an object with an acceleration of
+                    p $$ 5 \ \frac{m}{s^2} $$
+                    p will on average increase its velocity by 5 meters per second, every second.
+                    p
+                      | Average acceleration is equivalent to the slope of the velocity function between two points in time. For example, if we had an object where its velocity was increaing at a constant rate, it would look like a straight line, where the slope gives us the average acceleration:
+                    canvas#acceleration-line-chart(width='800' height='500')
+                    p
+                      | Notice if the velocity function is constant (i.e. there is no acceleration), then its slope is \( 0 \), and the acceleration is also \( 0 \ m/s^2 \).
+                    p
+                      | With average acceleration, it is possible for the change in velocity to be constant or variable, as we saw with average velocity. Similar to velocity, direction is important when defining acceleration. A positive value of acceleration would correspond to an increasing magnitude of velocity. A negative value of acceleration would correspond to a decreasing magnitude of velocity.
+                    h3 Instantaneous Acceleration
+                    p
+                      | We can define the instantaneous acceleration of an object as the derivative of the velocity function, which will give us a snapshot of the acceleration of an object at a point in time:
+                    p $$ a(t) = \frac{d v(t)}{dt} = \frac{d^2 p(t)}{dt^2} . $$
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("acceleration-line-chart"),
+                chartConfig(
+                'Velocity of Particle as a Function of Time',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Velocity (v)',
+                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                )
+                );
+              script(src='/assets/js/lesson.js')
