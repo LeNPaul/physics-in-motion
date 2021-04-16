@@ -73,6 +73,18 @@ router.get('/introductory-physics', (req, res) => {
     });
 });
 
+
+router.get('/motion-in-one-dimension/position-distance-displacement', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/position-distance-displacement', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Motion In One Dimension'
+    });
+});
+
+
+
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
       user : req.user,
