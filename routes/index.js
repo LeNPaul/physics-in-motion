@@ -454,6 +454,53 @@ router.get('/electricity-and-magnetism/sources-of-magnetic-fields', (req, res) =
     });
 });
 
+// Fluid Mechanics
+
+router.get('/fluid-mechanics/pressure', (req, res) => {
+    res.render('lessons/fluid-mechanics/pressure', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Pressure'
+    });
+});
+
+router.get('/fluid-mechanics/buoyancy', (req, res) => {
+    res.render('lessons/fluid-mechanics/buoyancy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Buoyancy'
+    });
+});
+
+router.get('/fluid-mechanics/continuity', (req, res) => {
+    res.render('lessons/fluid-mechanics/continuity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Continuity'
+    });
+});
+
+router.get('/fluid-mechanics/fluid-statics', (req, res) => {
+    res.render('lessons/fluid-mechanics/fluid-statics', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Fluid Statics'
+    });
+});
+
+router.get('/fluid-mechanics/fluid-dynamics', (req, res) => {
+    res.render('lessons/fluid-mechanics/fluid-dynamics', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Fluid Dynamics'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {

@@ -1,0 +1,74 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='#!pressure',data-toggle="list",id="lesson-pressure") Pressure 
+          a.list-group-item(href='#!buoyancy',data-toggle="list",id="lesson-buoyancy") Buoyancy
+          a.list-group-item(href='#!continuity',data-toggle="list",id="lesson-continuity") Continuity
+          a.list-group-item(href='#!fluid-statics',data-toggle="list",id="lesson-fluid-statics") Fluid Statics
+          a.list-group-item(href='#!fluid-dynamics',data-toggle="list",id="lesson-fluid-dynamics") Fluid Dynamics
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='fluid_mechanics' data-lesson='pressure')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Pressure
+                    p
+                      | Certain types of fluids, known as incompressible fluids, can be analyzed using Newton's laws to determine the behaviour of such fluids.
+                    p
+                      | The pressure applied on an object is the force per unit area perpendicular to the surface,
+                    p
+                      | $$ P = \frac{F}{A} $$
+                    p
+                      | Where \( F \) is the applied force and \( A \) is the area onto which it is applied.
+                    canvas#pressure-force-chart(width='800' height='500')
+                    p The standard unit of pressure is the Pascal and it is defined as,
+                    p
+                      | $$ 1 \ Pa = \frac{N}{m^2} $$
+                    p
+                      | Maybe the most familiar example of pressure is atmospheric pressure caused by the weight of the atmosphere (recall that weight is a fore). Air, albeit very light still has a mass. If we consider a column of air of cross-sectional area of \( 1 \
+                      | cm^2 \), starting at sea level and extending all the way up to the atmosphere, that column weighs \( W = 10.1 \ N \), and hence that entire column has a mass of about \( W / g = 1 \ Kg \). It exerts a pressure of \( 1.01 \times 10^5 \ Pa
+                      | \), also known as 1 atmosphere.
+                    h3 Incompressible Fluids
+                    p
+                      | We call materials that easily deform under stress and easily flow so as to take the shape of a container they are placed in, fluids. Examples of fluids are liquids, gases, and plasmas. Let us consider a typical fluid that completely fills a closed
+                      | container. We can measure the volume of the container by measuring its dimensions. This allows us to compute the density of the fluid,
+                    p
+                      | $$ \rho = \frac{m_{fluid}}{V} $$
+                    p
+                      | The density is the mass of the fluid divided by its volume. We will deal only with fluids whose density does not change under applied pressure. Such fluids are known as incompressible fluids. As a concrete example, think about a balloon filled with
+                      | water. As you press on it, it may deform, but you will not change the density of water inside. As an example ofa fluid that is not incompressible, think about the gas in an engine's piston. As the piston compresses it increases the gas density
+                      | inside it. So to recap, incompressible fluids are fluids whose density does not change under pressure.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("pressure-force-chart"),
+                chartConfig(
+                'Pressure as a Function of Force',
+                'Force (N)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Pressure (Pa)',
+                [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+                )
+                );
+              script(src='/assets/js/lesson.js')

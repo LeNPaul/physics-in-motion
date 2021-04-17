@@ -1,0 +1,64 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!pressure',data-toggle="list",id="lesson-pressure") Pressure 
+          a.list-group-item(href='#!buoyancy',data-toggle="list",id="lesson-buoyancy") Buoyancy
+          a.list-group-item(href='#!continuity',data-toggle="list",id="lesson-continuity") Continuity
+          a.list-group-item.active(href='#!fluid-statics',data-toggle="list",id="lesson-fluid-statics") Fluid Statics
+          a.list-group-item(href='#!fluid-dynamics',data-toggle="list",id="lesson-fluid-dynamics") Fluid Dynamics
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='fluid_mechanics' data-lesson='fluid_statics')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Fluid Statics
+                    p
+                      | Let's consider the forces acting on a small static cube of liquid, and area \( A \) and height \( h \). The forces and hence the pressure from the horizontal sides must all be equal since the cube is in equilibrium. In the vertical, the force must
+                      | include the effect of the weight. At the bottom of the cube the force is,
+                    p
+                      | $$ F_{bottom} = A P_b - m g = A P_b - (A h \rho l)g $$
+                    p
+                      | Where \( P_b \) is the pressure at that height, pointing upwards and into the cube. At the top it is only the pressure pointing downwards,
+                    p
+                      | $$ F_{top} = - A P_l $$
+                    p Since this volume of liquid is in equilibrium, the forces must cancel,
+                    p
+                      | $$ F_{top} + F_{buttom} = 0 \rightarrow P_b = P_t + \rho l g h $$
+                    p
+                      | This is known as Pascal's principle. The pressure of an incompressible fluid in equilibrium is the same at all points of the same depth and increases linearly with depth. The pressure at greater depths must be larger in order to hold the weight
+                      | of the liquid on top. The linear relationship is maintained as long as the liquid is incompressible and the density does not change.
+                    canvas#depth-pressure-chart(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("depth-pressure-chart"),
+                chartConfig(
+                'Pressure as a Function of Depth',
+                'Depth (m)',
+                [0, -10, -20, -30, -40, -50, -60, -70, -80, -90, -100],
+                'Pressure (Pa)',
+                [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+                )
+                );
+              script(src='/assets/js/lesson.js')

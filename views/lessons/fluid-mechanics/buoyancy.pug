@@ -1,0 +1,68 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!pressure',data-toggle="list",id="lesson-pressure") Pressure 
+          a.list-group-item.active(href='#!buoyancy',data-toggle="list",id="lesson-buoyancy") Buoyancy
+          a.list-group-item(href='#!continuity',data-toggle="list",id="lesson-continuity") Continuity
+          a.list-group-item(href='#!fluid-statics',data-toggle="list",id="lesson-fluid-statics") Fluid Statics
+          a.list-group-item(href='#!fluid-dynamics',data-toggle="list",id="lesson-fluid-dynamics") Fluid Dynamics
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='fluid_mechanics' data-lesson='buoyancy')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Buoyancy
+                    p
+                      | Let's consider now the interaction of solids and fluids. When a solid object is placed in a liquid, will it sink or will it float?
+                    p
+                      | Consider the solid at a moment when a part of it, the volume \( V_l \), has been submerged. Now imagine the solid was not present and replace the submerged part of the solid by liquid of the same volume, \( V_l \). The force of gravity on that
+                      | volume of liquid is simply,
+                    p
+                      | $$ F_g^{liquid} = - m_d g = - V_l \rho_l g $$
+                    p
+                      | Where \( \rho_l \) is the density of the liquid. This configuration must be in equilibrium since \( V_l \) is the same liquid and the boundary drawn is entirely fictitious. So the force of gravity must be balanced by an upward force exerted
+                      | on this volume by the rest of the liquid,
+                    p
+                      | $$ F_B^{liquid} = V_l \rho_l g $$
+                    p
+                      | But, the surrounding liquid could not known whether \( V_l \) is liquid or any other material. So, the upward force exerted on the solid by the surrounding liquid is the same,
+                    p
+                      | $$ F_B^{solid} = V_l \rho_l g $$
+                    p
+                      | This force is known as buoyancy. The force acting on the solid are then the buoyancy, \( F_B = V_l \rho_l g \) pushing it upwards, as well as its weight \( F_g = -m_{solid} g \) pulling it downwards. The volume, \( V_l \) is simply the volume
+                      | of liquid displaced by the solid. Therefore, a simple way to state the law of buoyancy is to say that "buoyancy is equal to the weight of the liquid displaced by the solid". This is Archimedes' law.
+                    canvas#buoyancy-force-chart(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("buoyancy-force-chart"),
+                chartConfig(
+                'Buoyancy as a Function of Volume',
+                'Volume (V)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Buoyancy (F)',
+                [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+                )
+                );
+              script(src='/assets/js/lesson.js')
