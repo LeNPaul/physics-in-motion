@@ -275,6 +275,71 @@ router.get('/linear-momentum-and-collisions/explosions', (req, res) => {
     });
 });
 
+// Rotational Motion and Angular Momentum
+
+router.get('/rotational-motion-and-angular-momentum/angular-variables', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/angular-variables', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Angular Variables'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/equations-of-rotational-motion', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/equations-of-rotational-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Equations of Rotational Motion'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/rotational-kinetic-energy', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/rotational-kinetic-energy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Rotational Kinetic Energy'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/axis-theorems', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/axis-theorems', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Axis Theorems'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/torque', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/torque', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Torque'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/rotational-work-and-power', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/rotational-work-and-power', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Rotational Work and Power'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/angular-momentum', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/angular-momentum', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Angular Momentum'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {

@@ -1,0 +1,54 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!angular-variables',data-toggle="list",id="lesson-angular-variables") Angular Variables
+          a.list-group-item(href='#!equations-of-rotational-motion',data-toggle="list",id="lesson-equations-of-rotational-motion") Equations of Rotational Motion
+          a.list-group-item(href='#!rotational-kinetic-energy',data-toggle="list",id="lesson-rotational-kinetic-energy") Rotational Kinetic Energy
+          a.list-group-item(href='#!axis-theorems',data-toggle="list",id="lesson-axis-theorems") Axis Theorems
+          a.list-group-item(href='#!torque',data-toggle="list",id="lesson-torque") Torque
+          a.list-group-item(href='#!rotational-work-and-power',data-toggle="list",id="lesson-rotational-work-and-power") Rotational Work and Power
+          a.list-group-item.active(href='#!angular-momentum',data-toggle="list",id="lesson-angular-momentum") Angular Momentum
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='rotational_motion_and_angular_momentum' data-lesson='angular_momentum')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Angular Momentum
+                    p
+                      | The angular momentum with respect to the origin of a particle with position \( \vec{r} \) and momentum \( \vec{p} = m \vec{v} \) is:
+                    p $$ \vec{L} = \vec{r} \times \vec{p} = \vec{r} \times m \vec{v} $$
+                    p
+                      | If the angle between \( \vec{r} \) and \( \vec{p} \) is \( \theta \), then the magnitude of \( \vec{L} \) is:
+                    p $$ L = r p \sin \theta = m v r \sin \theta $$
+                    p The time rate of change of the angular momentum is:
+                    p $$ \frac{d \vec{L}}{d t} = \vec{r} \times \vec{F_{ext}} $$
+                    p $$ \frac{d \vec{L}}{d t} = \vec{\tau_{ext}} $$
+                    p
+                      | If no external torque acts on a system, then the angular momentum of the system remains constant. This is the law of conservation of angular momentum.
+                    p
+                      | An individual component of the angular momentum can be expressed in terms of the moment of inertia:
+                    p $$ L_z = I \omega $$
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

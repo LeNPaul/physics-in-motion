@@ -1,0 +1,52 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!angular-variables',data-toggle="list",id="lesson-angular-variables") Angular Variables
+          a.list-group-item(href='#!equations-of-rotational-motion',data-toggle="list",id="lesson-equations-of-rotational-motion") Equations of Rotational Motion
+          a.list-group-item(href='#!rotational-kinetic-energy',data-toggle="list",id="lesson-rotational-kinetic-energy") Rotational Kinetic Energy
+          a.list-group-item(href='#!axis-theorems',data-toggle="list",id="lesson-axis-theorems") Axis Theorems
+          a.list-group-item.active(href='#!torque',data-toggle="list",id="lesson-torque") Torque
+          a.list-group-item(href='#!rotational-work-and-power',data-toggle="list",id="lesson-rotational-work-and-power") Rotational Work and Power
+          a.list-group-item(href='#!angular-momentum',data-toggle="list",id="lesson-angular-momentum") Angular Momentum
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='rotational_motion_and_angular_momentum' data-lesson='torque')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Torque
+                    p
+                      | Similar to how a net force applied to an object gives the object a linear acceleration, when a net force is applied to an object that induces rotational acceleration, we call that torque. For an object to acquire an angular acceleration, it must have net torque applied. The torque due to a force \( F \) about a pivot \( P \) is \( \tau \), where the magnitude of the torque is:
+                    p $$ \tau = F r \sin \theta = F_{\tau \perp} $$
+                    p
+                      | The distance from the pivot to the point of application of the force is given by \( r \). The term \( \tau_{\perp} r \sin \theta \) is the perpendicular lever arm - also known as the moment arm.
+                    p
+                      | Since torque is a vector, the torque can be more generally calculated as follows:
+                    p $$ \tau = \vec{r} \times \vec{F} $$
+                    p
+                      | \( \tau \) is perpendicular to the plane of \( \vec{F} \) and \( \vec{r} \). The direction of \( \tau \) is found by placing the fingers of your right hand along \( r \), and curl them toward \( \vec{F} \). The thumb will point up along \( \tau \).
+                    p The net torque acting on a rotating object is given by the following:
+                    p $$ \tau_{net} = I \alpha $$
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

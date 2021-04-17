@@ -1,0 +1,57 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='#!angular-variables',data-toggle="list",id="lesson-angular-variables") Angular Variables
+          a.list-group-item(href='#!equations-of-rotational-motion',data-toggle="list",id="lesson-equations-of-rotational-motion") Equations of Rotational Motion
+          a.list-group-item(href='#!rotational-kinetic-energy',data-toggle="list",id="lesson-rotational-kinetic-energy") Rotational Kinetic Energy
+          a.list-group-item(href='#!axis-theorems',data-toggle="list",id="lesson-axis-theorems") Axis Theorems
+          a.list-group-item(href='#!torque',data-toggle="list",id="lesson-torque") Torque
+          a.list-group-item(href='#!rotational-work-and-power',data-toggle="list",id="lesson-rotational-work-and-power") Rotational Work and Power
+          a.list-group-item(href='#!angular-momentum',data-toggle="list",id="lesson-angular-momentum") Angular Momentum
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='rotational_motion_and_angular_momentum' data-lesson='angular_variables')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Angular Variables
+                    p
+                      | Rotational motion occurs when rigid bodies that do not deform rotate. Consider a flat object rotating around an axis that is perpendicular to its plane. A position of a point on the flat object can be described by the coordinates \( r \) and \( \theta \), where \( r \) is the distance from the origin (i.e. the axis) and \( \theta \) is the angle measured with respect to an arbitrary x-axis. When the object turns an angle of \( \theta \), the point moves a distance \( s \) along the arc. The angle \( \theta \) is defined in radians as the following:
+                    p $$ \theta = \frac{s}{r} $$
+                    p In order to convert from radians to degrees, we use the following ratio:
+                    p $$ \frac{\theta (radians)}{\theta (degrees)} = \frac{2 \pi}{360^{\circ}} $$
+                    p
+                      | The linear velocity in meters per second of a point as it moves around a circle is called the tangential velocity:
+                    p $$ v = \frac{ds}{dt} = r \frac{d \theta}{d t} $$
+                    p
+                      | We define the angular velocity \( \omega \) in radians per second as \( \omega = d \theta / d t \). Therefore,
+                    p $$ v \ r \omega $$
+                    p
+                      | If the point is accelerating along its path with tangential acceleration \( a \), then
+                    p $$ a = \frac{dv}{dt} = r \frac{d \omega}{dt} $$
+                    p
+                      | We define the angular acceleration \( \alpha \) in radians per second, as \( \alpha = d \omega / d t = d^2 \theta / d t^2 \). Therefore,
+                    p $$ a = r \alpha $$
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

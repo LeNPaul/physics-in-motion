@@ -1,0 +1,59 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!angular-variables',data-toggle="list",id="lesson-angular-variables") Angular Variables
+          a.list-group-item.active(href='#!equations-of-rotational-motion',data-toggle="list",id="lesson-equations-of-rotational-motion") Equations of Rotational Motion
+          a.list-group-item(href='#!rotational-kinetic-energy',data-toggle="list",id="lesson-rotational-kinetic-energy") Rotational Kinetic Energy
+          a.list-group-item(href='#!axis-theorems',data-toggle="list",id="lesson-axis-theorems") Axis Theorems
+          a.list-group-item(href='#!torque',data-toggle="list",id="lesson-torque") Torque
+          a.list-group-item(href='#!rotational-work-and-power',data-toggle="list",id="lesson-rotational-work-and-power") Rotational Work and Power
+          a.list-group-item(href='#!angular-momentum',data-toggle="list",id="lesson-angular-momentum") Angular Momentum
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='rotational_motion_and_angular_momentum' data-lesson='equations_of_rotational_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Equations of Rotational Motion
+                    p
+                      | If we divide the equations that we had seen in Angular Variables by \( r \), we obtain the equations that descrive rotaional motion. For example, \( v = v_0 + a t \) becomes:
+                    p $$ \frac{v}{r} = \frac{v_0}{r} + \frac{a t}{r} $$
+                    p or,
+                    p $$ \omega = \omega_0 + \alpha t $$
+                    p
+                      | There are many parallels between linear motion and rotational motion. When compared side-to-side, we can see that the equations follow the same structure, with slightly different varaibles:
+                    p $$ \omega = \omega_0 + \alpha t \quad \quad \quad \quad v = v_0 + a t $$
+                    p
+                      | $$ \theta = \frac{1}{2} ( \omega_0 + \omega) t \quad \quad \quad \quad x = \frac{1}{2} (v_0 + v) t $$
+                    p
+                      | $$ \theta = \omega_0 t + \frac{1}{2} \alpha t^2 \quad \quad \quad \quad x = v_0 t + \frac{1}{2} a t^2 $$
+                    p
+                      | $$ \omega^2 = \omega^{2}_{0} + 2 \alpha \theta \quad \quad \quad \quad v_2 = v^{2}_{0} + 2 a x $$
+                    p
+                      | Here, angular velocity, \( \omega \) and angular acceleration, \( \alpha \) are constants, and are also vector quantities (as long as we keep the axis of rotation fixes, we do not need to account for their vector nature). In general, we consider counterclockwise rotation when viewed from above as positive.
+                    p
+                      | The frequency of revolutions in revolutions per second is often used to describe rotating objects, which is given by the following equation:
+                    p $$ \omega = 2 \pi f $$
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')
