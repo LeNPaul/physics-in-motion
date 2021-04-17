@@ -208,6 +208,44 @@ router.get('/circular-motion/circular-motion', (req, res) => {
     });
 });
 
+// Work and Energy
+
+router.get('/work-and-energy/conservative-forces', (req, res) => {
+    res.render('lessons/work-and-energy/conservative-forces', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Conservative Forces'
+    });
+});
+
+router.get('/work-and-energy/energy-conservation-work', (req, res) => {
+    res.render('lessons/work-and-energy/energy-conservation-work', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Energy Conservation and Work'
+    });
+});
+
+router.get('/work-and-energy/work-potential-energy', (req, res) => {
+    res.render('lessons/work-and-energy/work-potential-energy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Work and Potential Energy'
+    });
+});
+
+router.get('/work-and-energy/power', (req, res) => {
+    res.render('lessons/work-and-energy/power', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Power'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
