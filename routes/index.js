@@ -110,6 +110,16 @@ router.get('/motion-in-two-dimensions/two-dimensional-position', (req, res) => {
     });
 });
 
+router.get('/motion-in-two-dimensions/two-dimensional-velocity', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-velocity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Velocity'
+    });
+});
+
+
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
       user : req.user,

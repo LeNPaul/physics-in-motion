@@ -1,0 +1,62 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!two-dimensional-position',data-toggle="list",id="lesson-two-dimensional-position") Position
+          a.list-group-item.active(href='#!two-dimensional-velocity',data-toggle="list",id="lesson-two-dimensional-velocity") Velocity
+          a.list-group-item(href='#!two-dimensional-acceleration',data-toggle="list",id="lesson-two-dimensional-acceleration") Acceleration
+          a.list-group-item(href='#!projectile-motion',data-toggle="list",id="lesson-projectile-motion") Projectile Motion
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='motion_in_two_dimensions' data-lesson='two_dimensional_velocity')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Velocity
+                    p
+                      | Similar to how we had extended our understanding of position in one dimension to two dimensions, when we are studying velocity in two dimsions, we look at the velocity of the object along two axes.
+                    p
+                      | The velocity of an object in two-dimensions can be described by two veloctiy functions. For example, \( v_x(t) \) and \( v_y(t) \), for the x-axis and the y-axis, respectively.
+                    p $$ v_x (t) = \frac{d x(t)}{dt}, $$
+                    p and,
+                    p $$ v_y (t) = \frac{d y(t)}{dt}. $$
+                    p The velocity of a point-like object can then be given by the co-ordinate pair,
+                    p $$ ( v_x(t), v_y(t) ), $$
+                    p or as a vector,
+                    p $$ \vec{v} (t) = \frac{d \vec{r} (t)}{dt}. $$
+                    p $$ \vec{v}(t) = v_x(t) \hat{i} + v_y(t) \hat{j}, $$
+                    p
+                      | where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively.
+                    canvas#static-velocity-line-chart(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("static-velocity-line-chart"),
+                chartConfig(
+                'Two-Dimenional Velocity as a Function of Time',
+                'x(t)',
+                [-100, -81, -64, -49, -36, -25, -16, -9, -4, -1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100],
+                'y(t)',
+                [100, 81, 64, 49, 36, 25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+                )
+                );
+              script(src='/assets/js/lesson.js')
