@@ -4,13 +4,17 @@ block content
   .container
     .row
       .col-lg-3
-        h5.my-4 
-        a.list-group-item(href='/forces-and-the-laws-of-motion/the-laws-of-motion',id="lesson-the-laws-of-motion") The Laws of Motion
-        a.list-group-item.active(href='/forces-and-the-laws-of-motion/first-law-of-motion',id="lesson-first-law-of-motion") The First Law of Motion
-        a.list-group-item(href='/forces-and-the-laws-of-motion/second-law-of-motion',id="lesson-second-law-of-motion") The Second Law of Motion
-        a.list-group-item(href='/forces-and-the-laws-of-motion/third-law-of-motion',id="lesson-third-law-of-motion") The Third Law of Motion
-        a.list-group-item(href='/forces-and-the-laws-of-motion/common-forces',id="lesson-common-forces") Common Forces
-        a.list-group-item(href='/forces-and-the-laws-of-motion/friction-and-drag',id="lesson-friction-and-drag") Friction and Drag
+        h5.my-4
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/forces-and-the-laws-of-motion/the-laws-of-motion',id="lesson-the-laws-of-motion") The Laws of Motion
+          a.list-group-item.active(href='/forces-and-the-laws-of-motion/first-law-of-motion',id="lesson-first-law-of-motion") The First Law of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/second-law-of-motion',id="lesson-second-law-of-motion") The Second Law of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/third-law-of-motion',id="lesson-third-law-of-motion") The Third Law of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/common-forces',id="lesson-common-forces") Common Forces
+          a.list-group-item(href='/forces-and-the-laws-of-motion/friction-and-drag',id="lesson-friction-and-drag") Friction and Drag
         if (user)
           hr
           button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
