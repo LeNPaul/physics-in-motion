@@ -74,6 +74,8 @@ router.get('/introductory-physics', (req, res) => {
 });
 
 
+// Motion in One Dimension
+
 router.get('/motion-in-one-dimension/position-distance-displacement', (req, res) => {
     res.render('lessons/motion-in-one-dimension/position-distance-displacement', {
       user : req.user,
@@ -100,6 +102,8 @@ router.get('/motion-in-one-dimension/acceleration', (req, res) => {
       title : 'Acceleration'
     });
 });
+
+// Motion in Two Dimensions
 
 router.get('/motion-in-two-dimensions/two-dimensional-position', (req, res) => {
     res.render('lessons/motion-in-two-dimensions/two-dimensional-position', {
@@ -134,6 +138,62 @@ router.get('/motion-in-two-dimensions/two-dimensional-projectile-motion', (req, 
       course : 'Introductory Physics',
       course_url : '../introductory-physics',
       title : 'Projectile Motion'
+    });
+});
+
+// Forces and the Laws of Motion
+
+router.get('/forces-and-the-laws-of-motion/the-laws-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/the-laws-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Laws of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/first-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/first-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The First Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/second-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/second-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Second Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/third-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/third-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Third Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/common-forces', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/common-forces', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Common Forces'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/friction-and-drag', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/friction-and-drag', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Friction and Drag'
     });
 });
 
