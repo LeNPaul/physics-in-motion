@@ -378,6 +378,34 @@ router.get('/oscillations/driven-oscillations', (req, res) => {
     });
 });
 
+// Waves and Sounds
+
+router.get('/waves-and-sounds/characteristics-of-waves', (req, res) => {
+    res.render('lessons/waves-and-sounds/characteristics-of-waves', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Characteristics of Waves '
+    });
+});
+
+router.get('/waves-and-sounds/superposition-of-waves', (req, res) => {
+    res.render('lessons/waves-and-sounds/superposition-of-waves', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Superposition of Waves'
+    });
+});
+
+router.get('/waves-and-sounds/interference', (req, res) => {
+    res.render('lessons/waves-and-sounds/interference', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Interference'
+    });
+});
 
 
 router.get('/motion-in-one-dimension', (req, res) => {
