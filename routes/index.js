@@ -197,6 +197,17 @@ router.get('/forces-and-the-laws-of-motion/friction-and-drag', (req, res) => {
     });
 });
 
+// Circular Motion
+
+router.get('/circular-motion/circular-motion', (req, res) => {
+    res.render('lessons/circular-motion/circular-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Circular Motion'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
