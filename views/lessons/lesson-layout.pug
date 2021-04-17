@@ -20,32 +20,8 @@ html(lang='en',ng-app='lessonApp')
     if (user)
       include ../navbar/user-nav.pug
     //- Page Content
-    .container
-      .row
-        .col-lg-3
-          h5.my-4 
-            a(href=course_url) #{ course }  
-            i.fa.fa-arrow-right(aria-hidden='true')
-            |  #{ title }  
-          .list-group
-            block content
-          if (user)
-            hr
-            button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
-            .btn-group(role='group', aria-label='Basic example', style='float: right')
-              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
-                i.fa.fa-check-circle(aria-hidden='true')
-              button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
-                i.fa.fa-times-circle(aria-hidden='true')
-            
-          
-        //- /.col-lg-3
-        .col-lg-9
-          .card.mt-4
-            .card-body
-              p.card-text
-                //- ANGULAR DYNAMIC CONTENT
-                div.ng-view
+    block content
+    
           //- if (user)
             //- .card.mt-4#user-exists
               .card-body
@@ -103,6 +79,7 @@ html(lang='en',ng-app='lessonApp')
           //- /.card
           //- /.col-lg-9
           //- /.container
+
     //- Footer
     .container
       include ../footer/home-footer.pug       

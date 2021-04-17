@@ -1,0 +1,117 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/motion-in-one-dimension/position-distance-displacement',id="lesson-position-distance-displacement") Position, Distance, and Displacement
+          a.list-group-item.active(href='/motion-in-one-dimension/speed-velocity',id="lesson-speed-velocity") Speed and Velocity
+          a.list-group-item(href='/motion-in-one-dimension/acceleration',id="lesson-speed-velocity") Acceleration
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='motion_in_one_dimension' data-lesson='speed_velocity')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Speed and Velocity
+                    hr
+                    p
+                      | In the previous section on 
+                      a(href='/motion-in-one-dimension#!/position-distance-displacement' target='_blank') Position, Distance, and Displacement
+                      | , we explored how coordinate systems are used to describe the position of an object in space at a given time, and were introduced to the position function. Now, we would like to go beyond that and begin describing the behaviour of that object as it moves through space.
+                    h3 Speed
+                    p
+                      | Naturally, as an object moves through space, we would like to know the distance that the object moves over a period of time. In other words, we would like to know the rate at which its position changes over time. This is known as the 
+                      i speed
+                      |  of the object.
+                    p
+                      | In order to calculate the speed of an object, we take the total distance travelled by that object and divide it by the time that it took for the object to travel that distance:
+                    p $$ speed = \frac{p_2 - p_1}{t_2 - t_1} = \frac{ \Delta p }{ \Delta t } $$
+                    p
+                      | The resulting value tells us exactly how far an object moves per unit of time. For example, an object that is moving at a speed of
+                    p $$ 10 \ \frac{m}{s} $$
+                    p will move 10 metres every second.
+                    p The value of speed will always be a positive number.
+                    h3 Average and Constant Speed
+                    p
+                      | Notice above that we did not capture any information regarding the speed of the object at any specific point in time. As the object moves through space, it is possible for the speed of the object to be faster or slower at certain times within the period of time that the object is moving from the starting position to the final position. It is also possible for the speed of the object to be constant throughout that period of time. What we had captured above was the 
+                      i average speed
+                      |  of the object.
+                    p
+                      | When we talk about average speed, we only know the total distance travelled, and the time that it took to travel that distance. An object may have 
+                      i constant speed
+                      |  throughout that time interval, or variable speed, and it is possible for two different objects to have the same average speed, but different speeds throughout the periods of time that they were travelling.
+                    h3 Instantaneous Speed
+                    p
+                      | In order to capture the full picture of how an object moves from its starting position to its final position within a period of time, we consider what we call 
+                      i instantaneous velocity
+                      | , which is a snapshot of what an object's speed is at any specific point in time.
+                    p
+                      | In the case of constant speed, the object's instantaneous speed will be the same at every point in time. In the case of variable speed, the object's instantaneous speed may be different at different points in time. If both of the above objects travel the same distance at the time same, their average speed will be the same, despite having different instantaneous speeds throughout the periods of time that they were travelling.
+                    p
+                      | Through instantaneous speeds, we are able to capture a more complete picture of an object's displacement in time.
+                    h3 Average and Constant Velocity
+                    p
+                      | When we refer only to the speed of an object, we do not include any information on the direction in which the object is travelling. When we know both the speed and direction of an object, we call this value the 
+                      i velocity
+                      |  of the object.
+                    p
+                      | Unlike speed, values of velocity can be either positive or negative. In one dimension, this tells us the direction that the object is travelling in, as there are only two directions in which the object may move in. We consider positive velocities one direction, and negative velocities the opposite direction. The magnitude of velocity is equal to speed.
+                    p
+                      | Average velocity is the total dispacement of an object divided by the interval of time that it took for the object to be displaced:
+                    p $$ v_{average} = \frac{p_2 - p_1}{t_2 - t_1} = \frac{\Delta p}{\Delta t} $$
+                    p
+                      | Similar to average speed, it is possible for the velocity of an object to be either constant, or variable through the time interval that is used to calculate its average velocity.
+                    p
+                      | When we graph the position function of an object moving with constant velocity, it will appear as a straight line, and the slope will be equal to the average velocity between two points:
+                    canvas#static-velocity-line-chart(width='800' height='500')
+                    p
+                      | When we graph the position function of an object moving with variable velocity, it will appear as a curve on the graph. However, if the starting and ending points are the same as another object moving with constant velocity, then their average velocities will be the same:
+                    canvas#variable-velocity-line-chart(width='800' height='500')
+                    h3 Instantaneous Velocity
+                    p
+                      | Similar to instantaneous speed, instantaneous velocity is a snapshot of what an object's velocity is at a specific point in time.
+                    p
+                      | More formally, the velocity of an object is defined as the derivative of its position function:
+                    p $$ v(t) = \lim_{\Delta t \to 0} \frac{\Delta p}{\Delta t} = \frac{d p(t)}{dt} $$
+                    p
+                      | This describes how fast something moves, and in which direction it is moving at any point in time. On a graph, the instantaneous velocity of an object is equal to the tangent of the position function at a point in time.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("static-velocity-line-chart"),
+                chartConfig(
+                'Position of a Particle',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (x)',
+                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                )
+                );
+                new Chart(document.getElementById("variable-velocity-line-chart"),
+                curvedChartConfig(
+                'Position of a Particle',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (x)',
+                [0, 1, 1, 3, 4, 4, 7, 7, 8, 9, 10]
+                )
+                );
+              script(src='/assets/js/lesson.js')

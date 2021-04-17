@@ -73,6 +73,435 @@ router.get('/introductory-physics', (req, res) => {
     });
 });
 
+
+// Motion in One Dimension
+
+router.get('/motion-in-one-dimension/position-distance-displacement', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/position-distance-displacement', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Position, Distance, and Displacement'
+    });
+});
+
+router.get('/motion-in-one-dimension/speed-velocity', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/speed-velocity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Speed and Velocity'
+    });
+});
+
+router.get('/motion-in-one-dimension/acceleration', (req, res) => {
+    res.render('lessons/motion-in-one-dimension/acceleration', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Acceleration'
+    });
+});
+
+// Motion in Two Dimensions
+
+router.get('/motion-in-two-dimensions/two-dimensional-position', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-position', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Position'
+    });
+});
+
+router.get('/motion-in-two-dimensions/two-dimensional-velocity', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-velocity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Velocity'
+    });
+});
+
+router.get('/motion-in-two-dimensions/two-dimensional-acceleration', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-acceleration', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Acceleration'
+    });
+});
+
+router.get('/motion-in-two-dimensions/two-dimensional-projectile-motion', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-projectile-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Projectile Motion'
+    });
+});
+
+// Forces and the Laws of Motion
+
+router.get('/forces-and-the-laws-of-motion/the-laws-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/the-laws-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Laws of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/first-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/first-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The First Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/second-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/second-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Second Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/third-law-of-motion', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/third-law-of-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Third Law of Motion'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/common-forces', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/common-forces', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Common Forces'
+    });
+});
+
+router.get('/forces-and-the-laws-of-motion/friction-and-drag', (req, res) => {
+    res.render('lessons/forces-and-the-laws-of-motion/friction-and-drag', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Friction and Drag'
+    });
+});
+
+// Circular Motion
+
+router.get('/circular-motion/circular-motion', (req, res) => {
+    res.render('lessons/circular-motion/circular-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Circular Motion'
+    });
+});
+
+// Work and Energy
+
+router.get('/work-and-energy/conservative-forces', (req, res) => {
+    res.render('lessons/work-and-energy/conservative-forces', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Conservative Forces'
+    });
+});
+
+router.get('/work-and-energy/energy-conservation-work', (req, res) => {
+    res.render('lessons/work-and-energy/energy-conservation-work', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Energy Conservation and Work'
+    });
+});
+
+router.get('/work-and-energy/work-potential-energy', (req, res) => {
+    res.render('lessons/work-and-energy/work-potential-energy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Work and Potential Energy'
+    });
+});
+
+router.get('/work-and-energy/power', (req, res) => {
+    res.render('lessons/work-and-energy/power', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Power'
+    });
+});
+
+// Linear Momentum and Collisions
+
+router.get('/linear-momentum-and-collisions/momentum-conservation', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/momentum-conservation', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Momentum Conservation'
+    });
+});
+
+router.get('/linear-momentum-and-collisions/elastic-collisions', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/elastic-collisions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Elastic Collisions'
+    });
+});
+
+router.get('/linear-momentum-and-collisions/explosions', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/explosions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Explosions'
+    });
+});
+
+// Rotational Motion and Angular Momentum
+
+router.get('/rotational-motion-and-angular-momentum/angular-variables', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/angular-variables', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Angular Variables'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/equations-of-rotational-motion', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/equations-of-rotational-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Equations of Rotational Motion'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/rotational-kinetic-energy', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/rotational-kinetic-energy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Rotational Kinetic Energy'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/axis-theorems', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/axis-theorems', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Axis Theorems'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/torque', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/torque', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Torque'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/rotational-work-and-power', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/rotational-work-and-power', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Rotational Work and Power'
+    });
+});
+
+router.get('/rotational-motion-and-angular-momentum/angular-momentum', (req, res) => {
+    res.render('lessons/rotational-motion-and-angular-momentum/angular-momentum', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Angular Momentum'
+    });
+});
+
+// Oscillations
+
+router.get('/oscillations/dynamics-simple-harmonic-motion', (req, res) => {
+    res.render('lessons/oscillations/dynamics-simple-harmonic-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Dynamics'
+    });
+});
+
+router.get('/oscillations/the-pendulum', (req, res) => {
+    res.render('lessons/oscillations/the-pendulum', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Pendulum'
+    });
+});
+
+router.get('/oscillations/damped-harmonic-motion', (req, res) => {
+    res.render('lessons/oscillations/damped-harmonic-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Damped Harmonic Motion'
+    });
+});
+
+router.get('/oscillations/driven-oscillations', (req, res) => {
+    res.render('lessons/oscillations/driven-oscillations', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Driven Oscillations'
+    });
+});
+
+// Waves and Sounds
+
+router.get('/waves-and-sounds/characteristics-of-waves', (req, res) => {
+    res.render('lessons/waves-and-sounds/characteristics-of-waves', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Characteristics of Waves '
+    });
+});
+
+router.get('/waves-and-sounds/superposition-of-waves', (req, res) => {
+    res.render('lessons/waves-and-sounds/superposition-of-waves', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Superposition of Waves'
+    });
+});
+
+router.get('/waves-and-sounds/interference', (req, res) => {
+    res.render('lessons/waves-and-sounds/interference', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Interference'
+    });
+});
+
+// Electricity and Magnetism
+
+router.get('/electricity-and-magnetism/electric-charge', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-charge', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Charge'
+    });
+});
+
+router.get('/electricity-and-magnetism/electric-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Fields'
+    });
+});
+
+router.get('/electricity-and-magnetism/electric-potential', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-potential', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Potential'
+    });
+});
+
+router.get('/electricity-and-magnetism/magnetic-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/magnetic-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Magnetic Fields'
+    });
+});
+
+router.get('/electricity-and-magnetism/sources-of-magnetic-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/sources-of-magnetic-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Sources of Magnetic Fields'
+    });
+});
+
+// Fluid Mechanics
+
+router.get('/fluid-mechanics/pressure', (req, res) => {
+    res.render('lessons/fluid-mechanics/pressure', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Pressure'
+    });
+});
+
+router.get('/fluid-mechanics/buoyancy', (req, res) => {
+    res.render('lessons/fluid-mechanics/buoyancy', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Buoyancy'
+    });
+});
+
+router.get('/fluid-mechanics/continuity', (req, res) => {
+    res.render('lessons/fluid-mechanics/continuity', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Continuity'
+    });
+});
+
+router.get('/fluid-mechanics/fluid-statics', (req, res) => {
+    res.render('lessons/fluid-mechanics/fluid-statics', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Fluid Statics'
+    });
+});
+
+router.get('/fluid-mechanics/fluid-dynamics', (req, res) => {
+    res.render('lessons/fluid-mechanics/fluid-dynamics', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Fluid Dynamics'
+    });
+});
+
+
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
       user : req.user,

@@ -1,0 +1,65 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/oscillations/dynamics-simple-harmonic-motion',id="lesson-dynamics-simple-harmonic-motion") Dynamics 
+          a.list-group-item(href='/oscillations/the-pendulum',id="lesson-the-pendulum") The Pendulum
+          a.list-group-item.active(href='/oscillations/damped-harmonic-motion',id="lesson-damped-harmonic-motion") Damped Harmonic Motion
+          a.list-group-item(href='/oscillations/driven-oscillations',id="lesson-driven-oscillations") Driven Oscillations
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='oscillations' data-lesson='damped_harmonic_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Damped Harmonic Motion
+                    p
+                      | In most cases, simple harmonic motion eventually decays and stops. Forces such as friction and drag work to dampen the motion of an object in simple harmonic motion.
+                    p
+                      | Consider a pendulum, but this time include the effect of the surrounding air and its resistance as well as the mechanical friction of the string. We will model the combined effect of the resistive forces as linear drag,
+                    p
+                      | $$ F_{r} = - b v(t) = -b l \frac{d \theta}{dt} $$
+                    p
+                      | Where \( b \) is some constant of dimensions \( Ns / m \), and the fact that the velocity of the pendulum is \( v = l d \theta / dt \). The equation of motion is then the same as before, with the combined resistive force added to the sum of the
+                      | forces:
+                    p
+                      | $$ \frac{d^2 \theta(t)}{d t^2} = - \frac{g}{l} \theta(t) - \frac{b}{m} \frac{d \theta}{d t} $$
+                    p
+                      | The solution to this equation is not very simple and depends on the exact relation of the different parameters involved. In the limit that the resistance is very weak, it is given by,
+                    p
+                      | $$ \theta (t) = \Theta \exp^{-bt /2m} \cos(\omega t + \phi) $$
+                    p
+                      | Where \( \omega = \sqrt{l/g - b^2/(4m^2)} \). Damped harmonic oscillation oscillates in a periodic fashion as expected from a pendulum, but the amplitude of the oscillations also diminishes over time.
+                    canvas#damped-harmonic-motion(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("damped-harmonic-motion"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+                'Position (m)',
+                [dampedHarmonicMotion(0), dampedHarmonicMotion(0.5), dampedHarmonicMotion(1), dampedHarmonicMotion(1.5), dampedHarmonicMotion(2), dampedHarmonicMotion(2.5), dampedHarmonicMotion(3), dampedHarmonicMotion(3.5), dampedHarmonicMotion(4), dampedHarmonicMotion(4.5), dampedHarmonicMotion(5), dampedHarmonicMotion(5.5), dampedHarmonicMotion(6), dampedHarmonicMotion(6.5), dampedHarmonicMotion(7), dampedHarmonicMotion(7.5), dampedHarmonicMotion(8), dampedHarmonicMotion(8.5), dampedHarmonicMotion(9), dampedHarmonicMotion(9.5), dampedHarmonicMotion(10)]
+                )
+                );
+              script(src='/assets/js/lesson.js')

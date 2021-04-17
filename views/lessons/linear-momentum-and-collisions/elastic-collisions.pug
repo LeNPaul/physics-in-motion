@@ -1,0 +1,95 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/linear-momentum-and-collisions/momentum-conservation',id="lesson-momentum-conservation") Momentum Conservation
+          a.list-group-item.active(href='/linear-momentum-and-collisions/elastic-collisions',id="lesson-elastic-collisions") Elastic Collisions
+          a.list-group-item(href='/linear-momentum-and-collisions/explosions',id="lesson-explosions") Explosions
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='linear_momentum_and_collisions' data-lesson='elastic_collisions')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Elastic Collisions
+                    p
+                      | Bodies, especially microscopic ones, can collide and recoil off each other without losing energy to heat or other internal degrees of freedom. Such collisions are known as elastic collisions. Many collisions are approximately elastic, that is to
+                      | say the energy lost is a small fraction of the kinetic energy and does not affect the dynamics. When no external forces are present we can use conservation of energy and momentum to solve for the motion of the bodies involved.
+                    p
+                      | We begin with one-dimension. Since no forces are present before the collision, Galileo's principle informs us that the two particles move with constant velocities, which we denote with \( v_{1i} \) and \( v_{2i} \). Similarly, since no forces are
+                      | present after the collision the two particles again move with constant velocities, \( v_{1f} \) and \( v_{2f} \). Finding the relation between the initial and final velocities is the solution to the collision problem.
+                    p
+                      | Since no external forces are present at any times, including the collision itself, the total momentum of the system is conserved and so,
+                    p
+                      | $$ m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f} $$
+                    p
+                      | By assumption, this is an elastic collision and so the total kinetic energy is conserved:
+                    p
+                      | $$ \frac{1}{2} m_1 v^2_{1i} + \frac{1}{2} m_2 v^2_{2i} = \frac{1}{2} m_1 v^2_{1f} + \frac{1}{2} m_2 v^2_{2f} $$
+                    p There are two solutions to these equations. The first is not very interesting:
+                    p
+                      | $$ v_{1i} = v_{2i} $$
+                    p
+                      | $$ v_{2i} = v_{2f} $$
+                    p
+                      | This solution just means that no collision occurred. The second solution that is more interesting is given by:
+                    p
+                      | $$ v_{1f} = \left( \frac{m_1 - m_2}{m_1 + m_2} \right) v_{1i} + \left( \frac{2 m_2}{m_1 + m_2} \right) v_{2i} $$
+                    p
+                      | $$ v_{2f} = \left( \frac{2 m_1}{m_1 + m_2} \right) v_{1i} + \left( \frac{m_1 - m_2}{m_1 + m_2} \right) v_{2i} $$
+                    p
+                      | There are several simple cases where this general solution is particularly simple. First, if the two objects have the same mass, \( m_1 = m_2 \), then after the collision they simply exchange their velocities:
+                    p
+                      | $$ v_{1f} = v_{2i} $$
+                    p
+                      | $$ v_{2f} = v_{1i} $$
+                    canvas#elastic-collision-1(width='800' height='500')
+                    canvas#elastic-collision-2(width='800' height='500')
+                    p Second, if one object is much heavier than the second one, then:
+                    p
+                      | $$ v_{1f} = v_{1i} $$
+                    p
+                      | $$ v_{2f} = - v_{2i} + 2 v_{1i} $$
+                    p
+                      | The heavier object does not change its motion, while the lighter one is greatly affect by the collision. In particular, if \( v_{1i} = 0 \), then the lighter object just bounces off the heavier one, \( v_{2f} = - v_{2i} \).
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("elastic-collision-1"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (m)',
+                [0, 10, 20, 30, 40, 50, 40, 30, 20, 10, 0]
+                )
+                );
+                new Chart(document.getElementById("elastic-collision-2"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (m)',
+                [100, 90, 80, 70, 60, 50, 60, 70, 80, 90, 100]
+                )
+                );
+              script(src='/assets/js/lesson.js')

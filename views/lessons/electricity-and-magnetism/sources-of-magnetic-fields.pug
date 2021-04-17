@@ -1,0 +1,45 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/electricity-and-magnetism/electric-charge',id="lesson-electric-charge") Electric Charge
+          a.list-group-item(href='/electricity-and-magnetism/electric-fields',id="lesson-electric-fields") Electric Fields
+          a.list-group-item(href='/electricity-and-magnetism/electric-potential',id="lesson-electric-potential") Electric Potential
+          a.list-group-item(href='/electricity-and-magnetism/magnetic-fields',id="lesson-magnetic-fields") Magnetic Fields
+          a.list-group-item.active(href='/electricity-and-magnetism/sources-of-magnetic-fields',id="lesson-sources-of-magnetic-fields") Sources of Magnetic Fields
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='electricity_and_magnetism' data-lesson='sources_of_magnetic_fields')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Sources of Magnetic Fields
+                    p
+                      | Electricity and magnetism have a fundamental relationship with each other: magnetic fields are created by moving electric charge (such as electricity flowing through a conductive wire). Magnetic fields are also created by electrons or protons, or by some magnetic atoms such as iron.
+                    p
+                      | The magnetic field a distance \( R \) from a long straight wire carrying a current \( I \) is given by the following:
+                    p $$ B = \frac{\mu_0 I}{2 \pi R} $$
+                    p
+                      | To determine the direction of the magnetic field lines, point your right thumb along the direction of the current and curl your fingers. Your fingers will point in the direction of the magnetic field lines.
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

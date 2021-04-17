@@ -1,0 +1,120 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/motion-in-two-dimensions/two-dimensional-position',id="lesson-two-dimensional-position") Position
+          a.list-group-item(href='/motion-in-two-dimensions/two-dimensional-velocity',id="lesson-two-dimensional-velocity") Velocity
+          a.list-group-item(href='/motion-in-two-dimensions/two-dimensional-acceleration',id="lesson-two-dimensional-acceleration") Acceleration
+          a.list-group-item.active(href='/motion-in-two-dimensions/two-dimensional-projectile-motion',id="lesson-projectile-motion") Projectile Motion
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='motion_in_two_dimensions' data-lesson='projectile_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Projectile Motion
+                    p
+                      | A common type of motion that can be modeled by motion in two dimensions is projectile motion. This is the path that an object on Earth travels as it moved through the air after it has been thrown or projected from a starting point.
+                    p
+                      | When first studying projectile motion, we ignore air resistance for simplicity, although in many cases, air resistance does not significantly affect projectile motion.
+                    p
+                      | When imagining how an object moves through space in any scenario, we can choose our coordinate axes however we want. In the case of projectile motion, the simplest way is to imagine that the x-axis is parallel to the ground, and the y-axis is perpendicular to the ground.
+                    p
+                      | On Earth, this means that along the y-axis, the object will be accelerated towards the ground in the negative direction due to the force of gravity (since we usually denote up as being positive, and down as being negative, \( g \) is negative), where \( g \) is the acceleration due to the force of gravity:
+                    p $$ a_y (t) = -g $$
+                    p
+                      | Since we are ignoring air resistance, there will be not acceleration along the x-axis:
+                    p $$ a_x (t) = 0 $$
+                    p
+                      | It turns out that from this initial assumption above, we are able to calculate both the position and velocity function of an object moving under projectile motion.
+                    p
+                      | We can find the velocity functions by integrating the acceleration functions above:
+                    p $$v_x (t) = \int a_x (t) dt = v_{x0},$$
+                    p $$v_y (t) = \int a_y (t) dt = v_{y0} - g t,$$
+                    p
+                      | where \( v_{x0} \) and \( v_{y0} \) are the initial velocities in the x and y-axes, respectively. As there is no acceleration along the x-axis, the velocity remains a constant, as expected. Since the y-axis does experience an acceleration due to
+                      | the earth's gravity, the velocity does not remain constant, and in fact, increases in magnitude as time increases, as expected.
+                    p We can find the position function by integrating the above velocities:
+                    p $$x(t) = \int v_x (t) dt = x_0 + v_{x0} t,$$
+                    p $$y(t) = \int v_y (t) dt = y_0 + v_{y0} t - \frac{1}{2} g t^2,$$
+                    p
+                      | where \( x_0 \) and \( y_0 \) are the initial positions of the object along the x and y axes respectively.
+                    canvas#parabolic-motion-position-line-chart(width='800' height='500')
+                    p The position function for such an object is the following:
+                    p $$x(t) = x_0 + v_{x0} t,$$
+                    p $$y(t) = y_0 + v_{y0} t - \frac{1}{2} g t^2,$$
+                    p
+                      | where \( x_0 \) and \( y_0 \) are the initial positions of the object along the x and y axes respectively.
+                    p The velocity function for such an object is the following:
+                    p $$v_x (t) = v_{x0},$$
+                    p $$v_y (t) = v_{y0} - g t,$$
+                    p
+                      | where \( v_{x0} \) and \( v_{y0} \) are the initial velocities in the x and y-axes, respectively. As there is no acceleration along the x-axis, the velocity remains a constant, as expected. Since the y-axis does experience an acceleration due to the earth's gravity, the velocity does not remain constant, and in fact, increases in magnitude as time increases, as expected.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("parabolic-motion-position-line-chart"), {
+                type: 'line',
+                data: {
+                labels: [0, 0.5, 1, 1.5, 2, 2.5],
+                datasets: [{
+                data: [4, 5.5, 6, 5.5, 4, 1.5],
+                }]
+                },
+                options: {
+                title: {
+                display: true,
+                text: 'Position of Particle as a Function of Time'
+                },
+                scales: {
+                yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Position (m)'
+                }
+                }],
+                xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Time (t)'
+                }
+                }]
+                },
+                legend: {
+                display: false
+                },
+                elements: {
+                line: {
+                tension: 0.4
+                }
+                },
+                layout: {
+                padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 20
+                }
+                }
+                }
+                });
+              script(src='/assets/js/lesson.js')

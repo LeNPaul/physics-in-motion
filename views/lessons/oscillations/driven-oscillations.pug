@@ -1,0 +1,103 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/oscillations/dynamics-simple-harmonic-motion',id="lesson-dynamics-simple-harmonic-motion") Dynamics 
+          a.list-group-item(href='/oscillations/the-pendulum',id="lesson-the-pendulum") The Pendulum
+          a.list-group-item(href='/oscillations/damped-harmonic-motion',id="lesson-damped-harmonic-motion") Damped Harmonic Motion
+          a.list-group-item.active(href='/oscillations/driven-oscillations',id="lesson-driven-oscillations") Driven Oscillations
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='oscillations' data-lesson='driven_oscillations')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Driven Oscillations
+                    p
+                      | Due to drag and friction, simple harmonic motion will generally not persist unless aided by an external force. If we denote such an external force by \( F_{ext} \), then the equations of motion for the spring take the form
+                    p
+                      | $$ F_{tot} = -k x(t) + F_{ext} = m \frac{d^2 x(t)}{d t^2} $$
+                    p
+                      | The solution to this equation depends on the precise form of F_{ext}, and we will now consider a couple of important examples.
+                    h3 Constant External force
+                    p
+                      | Consider a mass \( m \) hanging vertically from the ceiling by a spring with spring constant \( k \). Take the downwards direction to be positive. The equation of motion then takes the form
+                    p
+                      | $$ - k x(t) + m g = m \frac{d^2 x(t)}{d t^2} $$
+                    p
+                      | Recall the \( x(t) \) denotes the displacement form the length of the spring at rest, so a positive value actually implies an extension downwards. To solve the motion, note that we can redefine the displacement function as:
+                    p
+                      | $$ x'(t) = x(t) - x_0 $$
+                    p Where \( x_0 = mg / k \). Then the equation takes the from:
+                    p
+                      | $$ - k x'(t) = m \frac{d^2 x'(t)}{d t^2} $$
+                    p
+                      | The right had side is easy because the derivative of a constant vanishes. But, we already encountered the solution to the equation, it is simply:
+                    p
+                      | $$ x'(t) = A \cos( \omega t + \phi ) $$
+                    p
+                      | Where \( \omega = \sqrt{k / m} \). Therefore, using the relation between \( x'(t) \) and \( x(t) \), the solution for the original displacement function is:
+                    p
+                      | $$ x(t) = x_0 + A \cos( \omega t + \phi ) $$
+                    p
+                      | This is the same behavior as usual as far as the oscillations are concerned, but the displacement suffers a constant elongation, \( x_0 = m g / k \). This is as it should be, the gravitational pull downwards is causing the spring to adopt a new
+                      | equilibrium length, which is longer by and amount \( x_0 \) as compared with the horizontal length of the spring as rest.
+                    h3 Periodic External Forces - Resonance Phenomena
+                    p
+                      | It should be intuitively clear to anyone who as pushed a swing before that one can most efficiently increase the amplitude of oscillations by pushing at the right moment. The periodic push must be done in coordination with the periodic motion of
+                      | the swing. This lends us to the idea of a periodic external force:
+                    p
+                      | $$ F_{ext} = F_0 \cos ( \omega_{ext} t ), $$
+                    p
+                      | where \( F_0 \) is the amplitude of the external force, \( \omega_{ext} \) is the angular frequency, and \( \phi_{ext} \) is the phase. We can again write the equation of motion for the oscillator,
+                    p
+                      | $$ - k x(t) + F_0 \cos( \omega_{ext} t ) = m \frac{d^2 x(t)}{d t^2} $$
+                    p
+                      | As can be seen by direct substitution, there is one particularly simple solution to this equation:
+                    p
+                      | $$ x(t) = \frac{F_0}{m} \left( \frac{1}{\omega^2 - \omega^2_{ext}} \right) \cos ( \omega_{ext} t ) $$
+                    p
+                      | The presence of dissipative force will generally dampen any other motion of the system and the solution above represents the asymptotic motion of the system after a long time. As can be expected intuitively, the system simply follows the periodicity
+                      | of the driving force. But, this solution also exhibits the importance of driving the system at the right frequency. Notice that the amplitude of the oscillations grows as the frequency of the external driving force comes close to the natural frequency
+                      | of the oscillator, \( \omega_{ext} = \rightarrow \omega = \sqrt{k / m} \). Away from the natural frequency the oscillator is driven inefficiently with a reduce amplitude.
+                    p
+                      | This phenomenon of driving a system in its natural frequency is known as resonance. The rapid growth of the amplitude as the driving frequency approaches the natural frequency is the hallmark of resonance. You may be troubled by the divergence of
+                      | the amplitude with \( \omega_{ext} \rightarrow \omega \). This divergence is present because we neglected the important effects of dissipative forces present in physical systems. When those are accounted for, this divergence is softened. Nevertheless,
+                      | it is still true that the amplitude is largest when the frequency of the external driving force is on resonance with the natural frequency of the system, \( \omega_{ext} \rightarrow \omega \).
+                    p
+                      | The phenomenon of resonance is used in many applications. For example, radio receivers can be thought of as an oscillator driven by the periodic force associated with radio waves in the air. Most of the waves are out of resonance with the receiver
+                      | and cannot be heard. When you tune your radio to your favourite radio station you effectively tune the natural frequency of your radio receiver to that station's frequency. Hence, you amplify the receiver's response to the ever-present radio waves
+                      | associated with that station.
+                    canvas#driven-harmonic-motion(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("driven-harmonic-motion"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10],
+                'Position (m)',
+                [drivenHarmonicMotion(0), drivenHarmonicMotion(0.5), drivenHarmonicMotion(1), drivenHarmonicMotion(1.5), drivenHarmonicMotion(2), drivenHarmonicMotion(2.5), drivenHarmonicMotion(3), drivenHarmonicMotion(3.5), drivenHarmonicMotion(4), drivenHarmonicMotion(4.5), drivenHarmonicMotion(5), drivenHarmonicMotion(5.5), drivenHarmonicMotion(6), drivenHarmonicMotion(6.5), drivenHarmonicMotion(7), drivenHarmonicMotion(7.5), drivenHarmonicMotion(8), drivenHarmonicMotion(8.5), drivenHarmonicMotion(9), drivenHarmonicMotion(9.5), drivenHarmonicMotion(10)]
+                )
+                );
+              script(src='/assets/js/lesson.js')

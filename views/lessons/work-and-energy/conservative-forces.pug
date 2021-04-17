@@ -1,0 +1,90 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='/work-and-energy/conservative-forces',id="lesson-conservative-forces") Conservative Forces
+          a.list-group-item(href='/work-and-energy/energy-conservation-work',id="lesson-energy-conservation-work") Energy Conservation and Work
+          a.list-group-item(href='/work-and-energy/work-potential-energy',id="lesson-work-potential-energy") Work and Potential Energy
+          a.list-group-item(href='/work-and-energy/power',id="lesson-power") Power
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='work_and_energy' data-lesson='conservative_forces')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Conservative Forces
+                    p
+                      | The idea of energy permeates much of physics and allows us to understand both qualitatively and quantitatively a diverge range of phenomena. Through the consideration of mechanical systems, we will explore the notion of energy, and what it is. The
+                      | concept of energy shows up in many physical systems, and you will no doubt develop of understand and appreciation of how useful energy is.
+                    p
+                      | The dynamics of many systems is governed by forces that result in a constant of motion known as the energy. Such forces are called conservative forces, and they are defined through a function referred to as the potential energy.
+                    h3 Energy in One-Dimension
+                    p
+                      | Consider a force acting on a single body, where the force takes the following form:
+                    p $$ F = - \frac{d U(x)}{d x} $$
+                    p Where \( U(x) \) is the potential energy. From Newton's second law, we have:
+                    p $$ F = m \frac{d v}{d t} = \frac{d U}{d x} $$
+                    p By multiplying both sides by \( v = dx/dt \) we obtain:
+                    p $$ m v \frac{dv}{dt} = - \frac{dx}{dt} \frac{dU}{dx} $$
+                    p
+                      | If \( U(x) \) is not an explicit function of time, and only depend son time through the coordinate \( x(t) \), then the chain rule of calculus allows us to simplify the right hand side:
+                    p $$ m v \frac{dv}{dt} = - \frac{dU}{dt} $$
+                    p
+                      | Moving the potential energy to the left hand side and nothing that \( vdv / \frac{1}{2} d v^2 \ dt \), we find,
+                    p $$ \frac{d}{dt} \left( \frac{1}{2} m v^2 + U(x) \right) = 0 $$
+                    p Therefore, the energy,
+                    p $$ E = \frac{1}{2} m v^2 + U(x), $$
+                    p
+                      | is a constant of the motion. The part of the energy which is not he potential energy is known as the kinetic energy is typically labeled \( K \),
+                    p $$ K = \frac{1}{2} m v^2 $$
+                    p
+                      | Kinetic energy is the part of the energy that is assoicated with the motion of the object. Together, the kinetic and potential energies form the total energy. The total energy is the part that is conserved.
+                    canvas#kinetic-energy-chart(width='800' height='500')
+                    p The standard unit of energy is known as the joule, and is defined as:
+                    p $$ Joule = \frac{Kg \times m^2}{s^2} $$
+                    h3 Energy in Three-Dimensions
+                    p
+                      | In two or three dimensions, the potential energy function \( U(\vec{r}) \) defines the force:
+                    p
+                      | $$ \vec{F} = \left( \frac{d U(\vec{r})}{dx} , \frac{d U(\vec{r})}{dy} , \frac{d U(\vec{r})}{dz} \right) $$
+                    p Following the same steps as we did above, we find that the energy is given by:
+                    p $$ E = \frac{1}{2} m ( v^2_x + v^2_y + v^2_z ) + U( \vec{r} )$$
+                    p
+                      | Which is also conserved. The part that involves the velocity is again the kinetic energy of the system:
+                    p $$ K = \frac{1}{2} m ( v^2_x + v^2_y + v^2_z ) $$
+                    h3 The Zero of the Potential Energy
+                    p
+                      | The equations of motion, which determine the dynamics of the system, are insensitive to any constant shift of the potential energy since the force is the derivative of the potential. Therefore, the zero of the potential can be chosen at our convenience.
+                      | However, once a choice is made, it must be respected throughout the analysis of the motion.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("kinetic-energy-chart"),
+                chartConfig(
+                'Kinetic Energy as a Function of Velocity',
+                'Velocity (m/s)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Kinetic Energy (J)',
+                [0, 50, 200, 450, 800, 1250, 1800, 2450, 3200, 4050, 5000]
+                )
+                );
+              script(src='/assets/js/lesson.js')

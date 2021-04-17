@@ -1,0 +1,74 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/work-and-energy/conservative-forces',id="lesson-conservative-forces") Conservative Forces
+          a.list-group-item(href='/work-and-energy/energy-conservation-work',id="lesson-energy-conservation-work") Energy Conservation and Work
+          a.list-group-item(href='/work-and-energy/work-potential-energy',id="lesson-work-potential-energy") Work and Potential Energy
+          a.list-group-item.active(href='/work-and-energy/power',id="lesson-power") Power
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='work_and_energy' data-lesson='power')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Power
+                    p
+                      | The amount of work done by a body or on a body is related to the change in the body's motion (more precisely to its kinetic energy). The notion of work is important in understanding how much we could potentially change a body's motion. However,
+                      | it makes a big difference whether the work done on an object was over a year vs. if we the work done on an object was in 6 seconds, even if the amount of work involved in both cases is the same.
+                    p
+                      | What distinguishes these two situations is the amount of work that was done in a given amount of time. This is known as power, the rate of change of work with time:
+                    p
+                      | $$ P = \frac{dW}{dt} $$
+                    canvas#work-time-line-chart(width='800' height='500')
+                    canvas#power-time-line-chart(width='800' height='500')
+                    p
+                      | In the case where the power delivered over some time \( T \) is a constant, \( P_c \), we get:
+                    p
+                      | $$ P_c T = W \rightarrow P_c = \frac{W}{T} $$
+                    p
+                      | The difference between a lot of power and little power, given the same amount of work done, is the time.
+                    p The standard dimension by which power is measured is the watt, which is:
+                    p
+                      | $$ 1 watt = joule / s $$
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("work-time-line-chart"),
+                chartConfig(
+                'Work as a Function of Time',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Work (J)',
+                [0, 100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000]
+                )
+                );
+                new Chart(document.getElementById("power-time-line-chart"),
+                chartConfig(
+                'Power as a Function of Time',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Power (W)',
+                [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+                )
+                );
+              script(src='/assets/js/lesson.js')

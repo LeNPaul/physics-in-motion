@@ -1,0 +1,72 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/angular-variables',id="lesson-angular-variables") Angular Variables
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/equations-of-rotational-motion',id="lesson-equations-of-rotational-motion") Equations of Rotational Motion
+          a.list-group-item.active(href='/rotational-motion-and-angular-momentum/rotational-kinetic-energy',id="lesson-rotational-kinetic-energy") Rotational Kinetic Energy
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/axis-theorems',id="lesson-axis-theorems") Axis Theorems
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/torque',id="lesson-torque") Torque
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/rotational-work-and-power',id="lesson-rotational-work-and-power") Rotational Work and Power
+          a.list-group-item(href='/rotational-motion-and-angular-momentum/angular-momentum',id="lesson-angular-momentum") Angular Momentum
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='rotational_motion_and_angular_momentum' data-lesson='rotational_kinetic_energy')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Rotational Kinetic Energy
+                    p
+                      | When we consider a rotating object, we are able to calculate the total kinetic energy associated with the rotational mass of all of the particles within the rotating object:
+                    p
+                      | $$ K_R = \sum K_i = \sum \frac{1}{2} m_i v^{2}_{i} = \frac{1}{2} \sum m_i r^{2}_{i} \omega^{2} $$
+                    p $$ = \frac{1}{2} \left( \sum m_i r^{2}_{i} \right) \omega^2 $$
+                    p where the variables in the brackets are called the moment of inertia:
+                    p $$ I = \sum m_i r^{2}_{i} $$
+                    p
+                      | This can be though of as rotational mass, since it palys the same role for rotation that mass does in non-rotational motion.
+                    p In terms of moment of intertia, the rotational kinetic energy can be expressed:
+                    p $$ K_R = \frac{1}{2} I \omega^2 $$
+                    p which is analogous to translational kinetic energy.
+                    p
+                      | One important observation is that the moment of intertia depends both on the amount of mass and on how far from the axis the mass is located.
+                    p Common equations for various common moments of intertia can be found follow.
+                    p Hoop or cylindrical sheel around axis:
+                    p $$ M R^2 $$
+                    p Solid cylinder or disk:
+                    p $$ \frac{1}{2} M R^2 $$
+                    p Rod about perpendicular axis through centre:
+                    p $$ \frac{1}{12} M R^2 $$
+                    p Rod about perpendicular axis through end:
+                    p $$ \frac{1}{3} M R^2 $$
+                    p Rectangular plate \( a \times b \) about perpendicular axis through center:
+                    p $$ \frac{1}{2} M ( a^2 + b^2 ) $$
+                    p Solid sphere:
+                    p $$ \frac{2}{5} M R^2 $$
+                    p Spherical shell:
+                    p $$ \frac{2}{3} M R^2 $$
+                    p
+                      | The total kinetic energy of a rolling object is equal to the kinetic energy of translation of the center of mass, plus the kinetic energy of rotation about the center of mass:
+                    p $$ KE = \frac{1}{2} I_{CM} \omega^2 +\frac{1}{2} M v^2 $$
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

@@ -1,0 +1,54 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='/forces-and-the-laws-of-motion/the-laws-of-motion',id="lesson-the-laws-of-motion") The Laws of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/first-law-of-motion',id="lesson-first-law-of-motion") The First Law of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/second-law-of-motion',id="lesson-second-law-of-motion") The Second Law of Motion
+          a.list-group-item.active(href='/forces-and-the-laws-of-motion/third-law-of-motion',id="lesson-third-law-of-motion") The Third Law of Motion
+          a.list-group-item(href='/forces-and-the-laws-of-motion/common-forces',id="lesson-common-forces") Common Forces
+          a.list-group-item(href='/forces-and-the-laws-of-motion/friction-and-drag',id="lesson-friction-and-drag") Friction and Drag
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='forces_and_the_laws_of_motion' data-lesson='the_third_law_of_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header The Third Law of Motion
+                    p
+                      | Consider two separate bodies that exert forces on each other. The force exerted by the first body on the second is going to be equal in magnitude, but opposite in direction to the force exerted by the second body on the first. This can be written down as follows:
+                    p $$\vec{F}_{12} = - \vec{F}_{21}$$
+                    p
+                      | Where the subscripts \( 12 \) refers to the first body acting the second, and \( 21 \) refers to the second body acting on the first. It is important to understand that these forces are not acting on the same body, but rather it is the force exerted by one body on the other.
+                    h3 Force Diagrams
+                    p
+                      | When dealing with the dynamics, or forces, on a system, it is often useful to identify all of the different bodies involved, and to draw a separate diagram for each body, indicating the forces on that body alone. Such diagrams are known as force
+                      | diagrams.
+                    p
+                      | Things to consider when drawing such diagrams are Newton's third law of motion when dealing with interacting bodies. In addition, Newton's second law applies to each body separately, where the total force acting of a particular body is easily visualized
+                      | through the force diagram. The dynamics of the system are then obtained by looking at Newton's second law for the total force:
+                    p $$\vec{F}_{tot} = \vec{F}_1 + \vec{F}_2 + ... = m \vec{a}$$
+                    p
+                      | This is known as the equation of motion, and by analyzing this equation, we can obtain the equations of motion associated with all the bodies in the system through the use of kinematics.
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')
