@@ -9,11 +9,11 @@ block content
           i.fa.fa-arrow-right(aria-hidden='true')
           |  #{ title }  
         .list-group
-          a.list-group-item(href='#!pressure',data-toggle="list",id="lesson-pressure") Pressure 
-          a.list-group-item(href='#!buoyancy',data-toggle="list",id="lesson-buoyancy") Buoyancy
-          a.list-group-item(href='#!continuity',data-toggle="list",id="lesson-continuity") Continuity
-          a.list-group-item(href='#!fluid-statics',data-toggle="list",id="lesson-fluid-statics") Fluid Statics
-          a.list-group-item.active(href='#!fluid-dynamics',data-toggle="list",id="lesson-fluid-dynamics") Fluid Dynamics
+          a.list-group-item(href='#!pressure',id="lesson-pressure") Pressure 
+          a.list-group-item(href='#!buoyancy',id="lesson-buoyancy") Buoyancy
+          a.list-group-item(href='#!continuity',id="lesson-continuity") Continuity
+          a.list-group-item(href='#!fluid-statics',id="lesson-fluid-statics") Fluid Statics
+          a.list-group-item.active(href='#!fluid-dynamics',id="lesson-fluid-dynamics") Fluid Dynamics
         if (user)
           hr
           button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
