@@ -407,6 +407,53 @@ router.get('/waves-and-sounds/interference', (req, res) => {
     });
 });
 
+// Electricity and Magnetism
+
+router.get('/electricity-and-magnetism/electric-charge', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-charge', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Charge'
+    });
+});
+
+router.get('/electricity-and-magnetism/electric-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Fields'
+    });
+});
+
+router.get('/electricity-and-magnetism/electric-potential', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/electric-potential', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Electric Potential'
+    });
+});
+
+router.get('/electricity-and-magnetism/magnetic-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/magnetic-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Magnetic Fields'
+    });
+});
+
+router.get('/electricity-and-magnetism/sources-of-magnetic-fields', (req, res) => {
+    res.render('lessons/electricity-and-magnetism/sources-of-magnetic-fields', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Sources of Magnetic Fields'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {

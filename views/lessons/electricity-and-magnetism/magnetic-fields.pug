@@ -1,0 +1,52 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!electric-charge',data-toggle="list",id="lesson-electric-charge") Electric Charge
+          a.list-group-item(href='#!electric-fields',data-toggle="list",id="lesson-electric-fields") Electric Fields
+          a.list-group-item(href='#!electric-potential',data-toggle="list",id="lesson-electric-potential") Electric Potential
+          a.list-group-item.active(href='#!magnetic-fields',data-toggle="list",id="lesson-magnetic-fields") Magnetic Fields
+          a.list-group-item(href='#!sources-of-magnetic-fields',data-toggle="list",id="lesson-sources-of-magnetic-fields") Sources of Magnetic Fields
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='electricity_and_magnetism' data-lesson='magnetic_fields')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Magnetic Fields
+                    p
+                      | Similar to how we had described the electric field as an invisible field that exists around every charge, the magnetic field is an invisible field that exists around magnetic particles, such as electrons and protons, and by moving electric charges.
+                    p
+                      | Magnetic fields are strong where the magnetic field lines are closest together. Magnetic field lines originate from the north pole of the magnet and end at the south pole of the magnet.
+                    p
+                      | Magnetic fieds exert a force on moving electric charges, with a force given by the following:
+                    p $$ \vec{F} = q ( \vec{v} \times \vec{B} ) $$
+                    p
+                      | where \( q \) is the charge of the particle, \( \vec{v} \) is the velocity of the particle, and \( \vec{B} \) is the magnetic field measured in units of teslas.
+                    p The magnitude of the magnetic force can be found by the following:
+                    p $$ F = qvB \sin \theta $$
+                    p where \( \theta \) is the smaller angle between \( \vec{v} \) and \( \vec{B} \).
+                    p
+                      | In order to determine the direction of the magnetic force, we use the right-hand rule: point your right fingers along the diretion of \( v \), curl your fingers toward \( B \), and the right thumb will point along \( F \). When determining the direction of the magnetic forces, treat every particle as a positive charge.
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

@@ -1,0 +1,63 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='#!electric-charge',data-toggle="list",id="lesson-electric-charge") Electric Charge
+          a.list-group-item(href='#!electric-fields',data-toggle="list",id="lesson-electric-fields") Electric Fields
+          a.list-group-item(href='#!electric-potential',data-toggle="list",id="lesson-electric-potential") Electric Potential
+          a.list-group-item(href='#!magnetic-fields',data-toggle="list",id="lesson-magnetic-fields") Magnetic Fields
+          a.list-group-item(href='#!sources-of-magnetic-fields',data-toggle="list",id="lesson-sources-of-magnetic-fields") Sources of Magnetic Fields
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='electricity_and_magnetism' data-lesson='electric_charge')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Electric Charge
+                    p
+                      | Electric charge is a fundamental physical property of matter that governs the behaviour of many particles in the universe, such as electrons and protons. Electric charge has the following properties:
+                    ol
+                      li
+                        | An electric charge has a polarity - it is either positive or negative. Opposite charges attract, and like charges repel each other.
+                      li
+                        | The force between charges is proportional to their magnitudes and varies as the inverse square of the distance between the charges.
+                      li
+                        | Electric charge is conserved - it cannot be created or destroyed. A neutral object is charged by separating the negative and positive components.
+                      li
+                        | Electric charge is quantized. It is always observed to occur as an integer multiple of \( e \), the fundamental quantity of charge. The units of electric charge is known as the coulomb, where \( e = 1.60 \times 10^{-19} \).
+                    p
+                      | Conductors are materials in which charge can move relatively freely, and in which there are some free charges. Metals are good examples of conductors.
+                    p
+                      | Insulators are materials that do not readily transport charge. Examples are a vacuum, glass, distilled water, paper, and rubber.
+                    p
+                      | There is no sharp dividing live between insulators and conductors, and some materials are considered semi-conductors when they have properties intermediate between a conductor and an insulator, such as silicon.
+                    p
+                      | The force between two charges of magnitudes \( q_1 \) and \( q_2 \) separated by a distance \( r \) is given by Coulomb's law:
+                    p
+                      | $$ F = k \frac{q_1 q_2}{r^2} = \frac{1}{4 \pi \epsilon_0} \frac{q_1 q_2}{r^2}, $$
+                    p
+                      | where \( \epsilon_0 = 8.85 \times 10^{-11} C^2 / N \cdot m^2\) is the permittivity of free space.
+                    p
+                      | The force between two point charges can be represented as a straight betweem both point charges. When there are more than charges present in the system, the force on any one of them is the vector sum of the forces due to each of the others, as dictated by the principle of superposition.
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')
