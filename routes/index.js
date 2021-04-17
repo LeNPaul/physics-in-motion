@@ -128,6 +128,15 @@ router.get('/motion-in-two-dimensions/two-dimensional-acceleration', (req, res) 
     });
 });
 
+router.get('/motion-in-two-dimensions/two-dimensional-projectile-motion', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-projectile-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Projectile Motion'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
