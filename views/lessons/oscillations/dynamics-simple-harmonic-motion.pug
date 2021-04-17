@@ -1,0 +1,120 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='#!dynamics-simple-harmonic-motion',data-toggle="list",id="lesson-dynamics-simple-harmonic-motion") Dynamics 
+          a.list-group-item(href='#!the-pendulum',data-toggle="list",id="lesson-the-pendulum") The Pendulum
+          a.list-group-item(href='#!damped-harmonic-motion',data-toggle="list",id="lesson-damped-harmonic-motion") Damped Harmonic Motion
+          a.list-group-item(href='#!driven-oscillations',data-toggle="list",id="lesson-driven-oscillations") Driven Oscillations
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='oscillations' data-lesson='dynamics_simple_harmonic_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Dynamics
+                    p
+                      | Conservative forces can be described through a potential function. In one-dimension, the relation between the force and kinetic energy is given by,
+                    p
+                      | $$ F = - \frac{d U(x)}{dx} $$
+                    p The simplest function is \( U(x) = constant \), which results in no force.
+                    p
+                      | The next simplest function is a linear function, \( U(x) = F_c x \), with \( F_c \) some constant with dimensions of Newton. This potential results in a constant force \( F = -F_c \), and a constant acceleration \( a = - F_c / m \). We have encountered
+                      | such a potential in the case of gravity near the surface of the earth where \( F_c = m g \), and \( x \) was a measure of the height from the surface, \( h \). In that case the potential energy is simply \( U(h) = mgh \).
+                    p
+                      | At the next order of complexity is a quadratic function, \( U(x) = \frac{1}{2} k x^2 \), where \( k \) is some constant with units of \( Newton/m \). This is a very important potential that appears in a wide variety of phenomena. The force associated
+                      | with such a potential is,
+                    p
+                      | $$ F = - \frac{d U(x)}{d x} = - k x(t) $$
+                    canvas#potential-function(width='800' height='500')
+                    canvas#conservative-forces(width='800' height='500')
+                    p
+                      | You might recognize this force as that of a simple spring with spring constant \( k \), namely Hooke's law. This is indeed the case, but it turns out that this force also serves as a good model for many other physical systems. The equation of motion
+                      | associated with such a force is,
+                    p
+                      | $$ \frac{d^2 x(t)}{d t^2} = - \frac{k}{m} x(t) $$
+                    p
+                      | As usual, this is a differential equation whose solution is the position as a function of time, \( x(t) \). The general solution to the equation of motion is given by,
+                    p
+                      | $$ x(t) = A \cos (\omega t + \phi) $$
+                    p where
+                    p
+                      | $$ \omega = \sqrt{k/m} $$
+                    p
+                      | is called the angular frequency. It is an intrinsic quantity of the system. \( A \) is the amplitude of the oscillations of \( \phi \) is the phase, which defines the initial position. Both \( A \) and \( \phi \) are extrinsic quantities, which
+                      | vary depending on the initial conditions.
+                    p
+                      | Such a motion is known as simple harmonic motion. It is an extremely important system, not just because of its simplicity, but because it shows up in a countless number of situations in all fields of science.
+                    p
+                      | The motion is periodic with a period of \( T = 2 \pi / \omega \). To see this we notes that,
+                    p
+                      | $$ x(t + T) = A \cos (\omega (t + T) + \phi) $$
+                    p
+                      | $$ x(t + T) = A ( \cos(\omega T) \cos(\omega t + \phi) - \sin(\omega T) \sin(\omega T + \phi) ) $$
+                    p
+                      | $$ x(t + T) = A \cos(\omega t + \phi) $$
+                    p
+                      | $$ x(t + T) = x(t) $$
+                    p
+                      | The frequency is the inverse of the period \( f = 1 / T \) and hence we have a relation between the frequency and the angular frequency,
+                    p
+                      | $$ \omega = 2 \pi f = \frac{2 \pi}{T} $$
+                    p
+                      | Since we have the full solution for the position as a function of time, we can obtain all the other kinematical functions such as velocity and acceleration through differentiation,
+                    p
+                      | $$ v(t) = \frac{d x(t)}{d t} = - A \omega \sin(\omega t + \phi) $$
+                    p
+                      | $$ a(t) = \frac{d v(t)}{d t} = - A \omega^2 \cos(\omega t + \phi) $$
+                    p
+                      | Since the force is derived from a potential, it is a conservative force and thus the total energy is a conserved quantity. As usually, it is composed of kinetic energy and a potential energy,
+                    p
+                      | $$ K(t) = \frac{1}{2} m v(t)^2 = \frac{1}{2} m A^2 \omega^2 \sin^2 (\omega t + \phi) $$
+                    p
+                      | $$ U(t) = \frac{1}{2} k x(t)^2 = \frac{1}{2} k A^2 \cos^2 (\omega t + \phi) $$
+                    p
+                      | Each of these quantities varies with time, but their sum, which is the total energy, is a constant of the motion:
+                    p
+                      | $$ E_{tot} = K(t) + U(t) = \frac{1}{2} k A^2 = \frac{1}{2} m \omega^2 A^2 $$
+                    p
+                      | This last equation is proved using the relation \( \omega = \sqrt{k / m} \) and the basic identity of trigonometry.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("potential-function"),
+                chartConfig(
+                'Potential Energy as a Function of Position',
+                'Position (m)',
+                [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5],
+                'Potential Energy (J)',
+                [25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25]
+                )
+                );
+                new Chart(document.getElementById("conservative-forces"),
+                chartConfig(
+                'Conservative Force as a Function of Position',
+                'Position (m)',
+                [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5],
+                'Force (N)',
+                [50, 40, 30, 20, 10, 0, 10, 20, 30, 40, 50]
+                )
+                );
+              script(src='/assets/js/lesson.js')

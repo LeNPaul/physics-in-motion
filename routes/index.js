@@ -340,6 +340,45 @@ router.get('/rotational-motion-and-angular-momentum/angular-momentum', (req, res
     });
 });
 
+// Oscillations
+
+router.get('/oscillations/dynamics-simple-harmonic-motion', (req, res) => {
+    res.render('lessons/oscillations/dynamics-simple-harmonic-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Dynamics'
+    });
+});
+
+router.get('/oscillations/the-pendulum', (req, res) => {
+    res.render('lessons/oscillations/the-pendulum', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'The Pendulum'
+    });
+});
+
+router.get('/oscillations/damped-harmonic-motion', (req, res) => {
+    res.render('lessons/oscillations/damped-harmonic-motion', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Damped Harmonic Motion'
+    });
+});
+
+router.get('/oscillations/driven-oscillations', (req, res) => {
+    res.render('lessons/oscillations/driven-oscillations', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Driven Oscillations'
+    });
+});
+
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
