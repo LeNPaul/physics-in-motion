@@ -1,0 +1,96 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!momentum-conservation',data-toggle="list",id="lesson-momentum-conservation") Momentum Conservation
+          a.list-group-item(href='#!elastic-collisions',data-toggle="list",id="lesson-elastic-collisions") Elastic Collisions
+          a.list-group-item.active(href='#!explosions',data-toggle="list",id="lesson-explosions") Explosions
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='linear_momentum_and_collisions' data-lesson='explosions')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Explosions
+                    p
+                      | There are many natural as well as human-made phenomena where a body at rest disintegrates into its components due to some internal release of energy. In the case of explosions, for example, the internal energy (be it chemical, nuclear, or otherwise)
+                      | results in heat transfer to the component's kinetic energy, which causes them to fly apart, namely to explode. How fast do the pieces move outwards? How much energy was released in the explosion?
+                    p
+                      | Let's begin with the simplest system involving a single body disintegrating into two components of mass \( m_1 \) and \( m_2 \). The disintegration process involves the release of heat \( Q \), which is transferred to the kinetic energy of the outgoing
+                      | pieces, so conservation of energy dictates,
+                    p
+                      | $$ Q = \frac{1}{2} m_1 v^2_1 + \frac{1}{2} m_2 v^2_2 $$
+                    p
+                      | Where \( v_1 \) and \( v_2 \) are the velocities of the two pieces. Since there are no external forces acting on the system, momentum is also conserved during the process,
+                    p
+                      | $$ 0 = m_1 v_1 + m_2 v_2 $$
+                    p
+                      | Where the left hand side is zero because the initial body is at rest so its momentum vanishes. Momentum conservation, and the positivity of the inertial mass make it immediately evident that the outgoing pieces must fly apart from each other in
+                      | opposite directions:
+                    p
+                      | $$ m_1 v_1 = - m_2 v_2 $$
+                    canvas#elastic-collision-1(width='800' height='500')
+                    canvas#elastic-collision-2(width='800' height='500')
+                    p Using the conservation of energy, we can solve for the outgoing velocities,
+                    p
+                      | $$ v_1 = \pm \sqrt{\frac{m_2}{m_1}} \sqrt{\frac{2 Q}{m_1 + m_2}} $$
+                    p
+                      | $$ v_2 = \mp \sqrt{\frac{m_1}{m_2}} \sqrt{\frac{2 Q}{m_1 + m_2}} $$
+                    p
+                      | The signs represent the physical point we made above, namely that if one of the pieces is flying out in the positive direction, then the other must be flying out in the negative direction and vice-versa. The problem as posed does not provide enough
+                      | information to further determine which piece goes in what direction.
+                    p
+                      | Let's consider a couple of simple cases. If the masses are equal, then the velocities are equal in magnitude and opposite in direction:
+                    p
+                      | $$ v_1 = - v_2 $$
+                    p
+                      | $$ |v_1| = |v_2| = \sqrt{Q/m} $$
+                    p
+                      | On the other hand, if the first piece is much heavier than the second one, then we have:
+                    p
+                      | $$ v_1 \rightarrow \pm \frac{m_2}{m_1} \sqrt{\frac{2 Q}{m_2}} $$
+                    p
+                      | $$ v_2 \rightarrow \mp \sqrt{\frac{2 Q}{m_2}} $$
+                    p
+                      | Therefore, the heavier object moves out much slower than the lighter one by a factor of \( m_2 / m_1 \).
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("elastic-collision-1"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (m)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+                )
+                );
+                new Chart(document.getElementById("elastic-collision-2"),
+                chartConfig(
+                'Position as a Function of Time',
+                'Time (s)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (m)',
+                [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
+                )
+                );
+              script(src='/assets/js/lesson.js')

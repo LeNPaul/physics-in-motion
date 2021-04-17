@@ -246,6 +246,35 @@ router.get('/work-and-energy/power', (req, res) => {
     });
 });
 
+// Linear Momentum and Collisions
+
+router.get('/linear-momentum-and-collisions/momentum-conservation', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/momentum-conservation', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Momentum Conservation'
+    });
+});
+
+router.get('/linear-momentum-and-collisions/elastic-collisions', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/elastic-collisions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Elastic Collisions'
+    });
+});
+
+router.get('/linear-momentum-and-collisions/explosions', (req, res) => {
+    res.render('lessons/linear-momentum-and-collisions/explosions', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Explosions'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
