@@ -1,0 +1,54 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!the-laws-of-motion',data-toggle="list",id="lesson-the-laws-of-motion") The Laws of Motion
+          a.list-group-item.active(href='#!first-law-of-motion',data-toggle="list",id="lesson-first-law-of-motion") The First Law of Motion
+          a.list-group-item(href='#!second-law-of-motion',data-toggle="list",id="lesson-second-law-of-motion") The Second Law of Motion
+          a.list-group-item(href='#!third-law-of-motion',data-toggle="list",id="lesson-third-law-of-motion") The Third Law of Motion
+          a.list-group-item(href='#!common-forces',data-toggle="list",id="lesson-common-forces") Common Forces
+          a.list-group-item(href='#!friction-and-drag',data-toggle="list",id="lesson-friction-and-drag") Friction and Drag
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='forces_and_the_laws_of_motion' data-lesson='the_first_law_of_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header The First Law of Motion
+                    p
+                      | In the absence of any forces, the acceleration of an object is zero. This results in the velocity of an object remaining unchanged. If the velocity of the object was zero, or unmoving, then it will remain so. If the velocity of the object was nonzero, then it will remain traveling in a straight line.
+                    canvas#static-position-line-chart(width='800' height='500')
+                    p
+                      | In the case where \( \vec{F} = 0 \), the system is said to be in equilibrium, and there are two possibilities where this is the case: static and dynamic equilibrium. Static equilibrium refers to a body that is at rest, where the net force on the body is zero. Dynamic equilibrium refers to a body that is moving with a constant velocity, where the acceleration on that body is zero. This distinction will be important later on when dealing with environmental forces that depend on the velocity of the object, such as friction and drag.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("static-position-line-chart"),
+                chartConfig(
+                'Position of Particle as a Function of Time',
+                'Time (t)',
+                [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                'Position (x)',
+                [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+                )
+                );
+              script(src='/assets/js/lesson.js')

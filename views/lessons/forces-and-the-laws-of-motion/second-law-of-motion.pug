@@ -1,0 +1,51 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!the-laws-of-motion',data-toggle="list",id="lesson-the-laws-of-motion") The Laws of Motion
+          a.list-group-item(href='#!first-law-of-motion',data-toggle="list",id="lesson-first-law-of-motion") The First Law of Motion
+          a.list-group-item.active(href='#!second-law-of-motion',data-toggle="list",id="lesson-second-law-of-motion") The Second Law of Motion
+          a.list-group-item(href='#!third-law-of-motion',data-toggle="list",id="lesson-third-law-of-motion") The Third Law of Motion
+          a.list-group-item(href='#!common-forces',data-toggle="list",id="lesson-common-forces") Common Forces
+          a.list-group-item(href='#!friction-and-drag',data-toggle="list",id="lesson-friction-and-drag") Friction and Drag
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='forces_and_the_laws_of_motion' data-lesson='the_second_law_of_motion')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header The Second Law of Motion
+                    p
+                      | The effect of forces on the motion of an object are described by Newton's Second Law of Motion:
+                    p $$\vec{F}_{tot} = m \vec{a},$$
+                    p
+                      | where \( \vec{a} \) is the acceleration of the object, \( m \) is the inertial mass, and \( \vec{F}_{tot} \) is the total force acting on the object (as there are often multiple forces acting on a system), given by the following:
+                    p $$\vec{F}_{tot} = \vec{F}_1 + \vec{F}_2 + ... = m \vec{a}.$$
+                    p The standard unit for measuring forces is called a Newton, where
+                    p $$1 N = kg \times m/s^2.$$
+                    p
+                      | By knowing the total force, \( \vec{F}_{tot} \), as a general force function, we know everything about the motion of the system as a function of time.
+                    p
+                      | By itself, the second law does not provide us with that the general function of force is. This has to be determined based on the context of the system, primarily through experimentation. Over many centuries, this has resulted in comprehensive understanding of the forces present in different physical situations, some of which we will later explore.
+                  .col-sm-2
+              script(src='/assets/js/lesson.js')

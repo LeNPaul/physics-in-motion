@@ -1,0 +1,139 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item(href='#!the-laws-of-motion',data-toggle="list",id="lesson-the-laws-of-motion") The Laws of Motion
+          a.list-group-item(href='#!first-law-of-motion',data-toggle="list",id="lesson-first-law-of-motion") The First Law of Motion
+          a.list-group-item(href='#!second-law-of-motion',data-toggle="list",id="lesson-second-law-of-motion") The Second Law of Motion
+          a.list-group-item(href='#!third-law-of-motion',data-toggle="list",id="lesson-third-law-of-motion") The Third Law of Motion
+          a.list-group-item.active(href='#!common-forces',data-toggle="list",id="lesson-common-forces") Common Forces
+          a.list-group-item(href='#!friction-and-drag',data-toggle="list",id="lesson-friction-and-drag") Friction and Drag
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='forces_and_the_laws_of_motion' data-lesson='common_forces')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Common Forces
+                    h3 Near Earth Gravity
+                    p
+                      | Near the surface of the earth, all objects are attracted to the earth with a constant force given by:
+                    p $$F = -mg$$
+                    p
+                      | Where \( m \) is the gravitational mass, and \( g \) is the acceleration due to the earth's gravity, which for most cases can be approximated by \( g = 9.8 m/s^2 \), where the negative sign exists as a result of choosing the upwards direction
+                      | as being positive. The force an object feels due to the local gravitational force is known as the object's weight.
+                    p
+                      | It is important to understand that there is a difference between the gravitational mass of an object, which is an intrinsic quantity of that object, and the weight of that same object, which depends on the local gravitational field, which is an extrinsic
+                      | quantity. That is why a person would weigh less on the moon, for example, since the moon is much smaller than the earth. In both cases though, the person's mass remains the same.
+                    p
+                      | When analyzing the force diagrams of an object near the surface of the earth, we can conclude that:
+                    p $$F = ma = - m g \rightarrow a = - g$$
+                    p
+                      | In other words, the acceleration of that object is therefore constant, and pointing downwards, which we would expect. For most applications, taking \( g \) to be a constant is a good approximations, although do realize that the value of \( g \)
+                      | in fact varies on the earth's surface, and depending on how far from the surface you are. A more accurate description of the force of gravity can be described by Newton's law of universal gravitation, which we will cover later.
+                    h3 Hooke's Law
+                    p
+                      | When you pull on an elastic material, such as a spring, you will feel a force pulling back on you, in an attempt to restore the material back to its equilibrium position. You might also notice that the further away from the equilibrium position that
+                      | you pull, the stronger the force is. One of the best ways to model this force dependence on position is known as Hooke's law:
+                    p $$F = - k x$$
+                    p
+                      | Where \( x \) is the position away from equilibrium, and \( k \) is a constant known as the spring constant, with units \( N / m \). The negative sign in front of the spring constant denotes the fact that the restoring force opposes the displacing
+                      | force. If you pull a spring right, it will pull left, with the inverse being true.
+                    canvas#hookes-law-force-position-line-chart(width='800' height='500')
+                    h3 Normal Forces
+                    p
+                      | When one object interacts with another object with a force, the other object will apply an equal but opposite force on the first. The direction of these interacting forces will be perpendicularly away from each object, as both objects are opposing
+                      | each other with equal but opposite force.
+                    p
+                      | As an example, consider a book laying on top of a table. The book is being pulled downwards towards the ground by the earth's gravity, while the table is exerting an equal and opposite force perpendicular to the table on the book, the normal force.
+                    p The total force on the book in the vertical direction is therefore:
+                    p
+                      | $$F_{tot} = -m_{b} g + N = 0$$
+                    p
+                      | The book is not accelerating in the vertical direction, since the net force is zero.
+                    h3 Tension
+                    p
+                      | Consider a lamp of mass \( m \) hanging from the ceiling by a massless rope. Gravity is pulling the lamp downwards with a force equal to the lamp's weight:
+                    p $$W = - m g$$
+                    p
+                      | Since the lamp is stationary, we know that the net force on the lamp must be zero, and that the rope must be pulling the lamp upwards with a force opposing the weight of the lamp:
+                    p $$F_{rope} = -W$$
+                    p
+                      | Here, we are taking the upwards direction, or the direction towards the ceiling, to be the negative direction. By Newton's third law, the lamp should be applying an equal but opposite force on the rope, and so the rope is being pulled downwards by:
+                    p $$F_{lamp} = W$$
+                    p
+                      | This force is the tension in the rope, and since we assumed that the rope is stiff and massless, the tension must be the same throughout:
+                    p $$T = F_{lamp} = W$$
+                    p
+                      | Since the ceiling is also pulling the rope upwards, and the pull of the ceiling must exactly equal the tension in the rope, since the total net force is zero. Again, by Newton's third law, the rope must there be applying an equal but opposite force
+                      | on the ceiling, pulling the ceiling downwards with a force equal to the tension \( T \). Since \( T = W \), then the ceiling is experiencing a pull downwards equal to the weight of the lamp.
+                    p
+                      | More generally, ropes and strings provide a connection between two separate objects, and the tension on them is uniform through and applies to both objects on the two ends.
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("hookes-law-force-position-line-chart"), {
+                type: 'line',
+                data: {
+                labels: [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                datasets: [{
+                data: [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                }]
+                },
+                options: {
+                title: {
+                display: true,
+                text: 'Force on Particle as a Function of Time'
+                },
+                scales: {
+                yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Force (N)'
+                }
+                }],
+                xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Position (x)'
+                }
+                }]
+                },
+                legend: {
+                display: false
+                },
+                elements: {
+                line: {
+                tension: 0.4
+                }
+                },
+                layout: {
+                padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 20
+                }
+                }
+                }
+                });
+              script(src='/assets/js/lesson.js')
