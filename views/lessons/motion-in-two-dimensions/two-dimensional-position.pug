@@ -1,0 +1,58 @@
+extends ../lesson-layout.pug
+
+block content
+  .container
+    .row
+      .col-lg-3
+        h5.my-4 
+          a(href=course_url) #{ course }  
+          i.fa.fa-arrow-right(aria-hidden='true')
+          |  #{ title }  
+        .list-group
+          a.list-group-item.active(href='#!two-dimensional-position',data-toggle="list",id="lesson-two-dimensional-position") Position
+          a.list-group-item(href='#!two-dimensional-velocity',data-toggle="list",id="lesson-two-dimensional-velocity") Velocity
+          a.list-group-item(href='#!two-dimensional-acceleration',data-toggle="list",id="lesson-two-dimensional-acceleration") Acceleration
+          a.list-group-item(href='#!projectile-motion',data-toggle="list",id="lesson-projectile-motion") Projectile Motion
+        if (user)
+          hr
+          button#lessonStatus.btn.btn-outline-secondary(type='button', style='float: left' disabled)
+          .btn-group(role='group', aria-label='Basic example', style='float: right')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(true)')
+              i.fa.fa-check-circle(aria-hidden='true')
+            button.btn.btn-secondary(type='button', onclick='updateLessonStatus(false)')
+              i.fa.fa-times-circle(aria-hidden='true')
+          
+      //- /.col-lg-3
+      .col-lg-9
+        .card.mt-4
+          .card-body
+            p.card-text
+              //- ANGULAR DYNAMIC CONTENT
+              #lesson-module.container(ng-init='initiateQuiz()' data-topic='motion_in_two_dimensions' data-lesson='two_dimensional_position')
+                .row
+                  .col-sm-2
+                  .col-sm-8
+                    h1.page-header Position
+                    p
+                      | When we were studying position in one-dimension, we used the position function to describe the position of a particle at a given time along a single axis. When studying the position of a particle in two dimensions, we apply the same logic, except now we are looking at position along two axes.
+                    p
+                      | Therefore, the motion of an object in two-dimensions can be described by two position functions. For example, \( x(t) \) and \( y(t) \), for the x-axis and the y-axis, respectively. We call this the Cartesian coordinate system, where the position of a particle is defined on the Cartesian plane.
+                    p The position of a point-like object can then be given by the co-ordinate pair,
+                    p $$ ( x(t), y(t) ), $$
+                    p or as a vector,
+                    p $$ \vec{r}(t) = x(t) \hat{i} + y(t) \hat{j}, $$
+                    p
+                      | where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively. The two directions are independent of each other, as they are perpendicular axes (i.e. moving along the x-axis does not affect movement along the y-axis).
+                    canvas#static-position-line-chart(width='800' height='500')
+                  .col-sm-2
+              script.
+                new Chart(document.getElementById("static-position-line-chart"),
+                chartConfig(
+                'Two-Dimenional Position as a Function of Time',
+                'x(t)',
+                [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000],
+                'y(t)',
+                [-1000, -729, -512, -343, -216, -125, -64, -27, -8, -1, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+                )
+                );
+              script(src='/assets/js/lesson.js')

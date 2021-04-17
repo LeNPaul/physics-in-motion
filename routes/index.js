@@ -101,6 +101,14 @@ router.get('/motion-in-one-dimension/acceleration', (req, res) => {
     });
 });
 
+router.get('/motion-in-two-dimensions/two-dimensional-position', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-position', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Position'
+    });
+});
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
