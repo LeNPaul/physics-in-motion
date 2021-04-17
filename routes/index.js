@@ -119,6 +119,15 @@ router.get('/motion-in-two-dimensions/two-dimensional-velocity', (req, res) => {
     });
 });
 
+router.get('/motion-in-two-dimensions/two-dimensional-acceleration', (req, res) => {
+    res.render('lessons/motion-in-two-dimensions/two-dimensional-acceleration', {
+      user : req.user,
+      course : 'Introductory Physics',
+      course_url : '../introductory-physics',
+      title : 'Acceleration'
+    });
+});
+
 
 router.get('/motion-in-one-dimension', (req, res) => {
     res.render('lessons/motion-in-one-dimension', {
