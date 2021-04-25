@@ -12,6 +12,10 @@ html(lang='en',ng-app='lessonApp')
     link(href='/assets/libs/bootstrap/bootstrap.min.css', rel='stylesheet')
     //- Custom styles for this template
     link(href='/assets/css/lessons/shop-item.css', rel='stylesheet')
+    //- Chart.js
+    script(src='/assets/libs/chart.js/Chart.bundle.js')
+    //- Helper functions for creating charts for lesson modules
+    script(src='/assets/js/chart.js')
     //- Google Analytics
     include ../google-analytics.pug     
   body(ng-controller='mainController')
@@ -96,11 +100,7 @@ html(lang='en',ng-app='lessonApp')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML')
     //- Font Awesome
     script(src='/assets/libs/font-awesome/fontawesome-all.min.js')
-    //- Chart.js
-    script(src='/assets/libs/chart.js/Chart.bundle.js')
     //- Math custom module
     script(src='/assets/js/math.js')
-    //- Helper functions for creating charts for lesson modules
-    script(src='/assets/js/chart.js')
     //- ANGULAR CUSTOM
     script(src='/assets/js/lessonApp.js')
