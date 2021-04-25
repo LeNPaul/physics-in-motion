@@ -50,12 +50,12 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API endpoints and web page routes
-app.use('/', admin);
+// app.use('/', admin);
 app.use('/', posts);
 app.use('/', routes);
-app.use('/', authentication);
-app.use('/', lessons);
-app.use('/', quizzes);
+// app.use('/', authentication);
+// app.use('/', lessons);
+// app.use('/', quizzes);
 
 // passport config
 var Account = require('./models/account');
