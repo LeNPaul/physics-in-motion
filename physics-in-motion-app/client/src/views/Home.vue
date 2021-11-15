@@ -20,27 +20,14 @@
         <a href="/" class="btn btn-dark btn-lg px-4">Get Started</a>
       </div>
 
-      <hr class="col-3 col-md-2 mb-5">
-
       <div class="row g-5">
         <div class="col-md-6">
-          <h2>Starter projects</h2>
+          <h2>Solar System</h2>
           <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
-          <ul class="icon-list">
-            <li><a href="https://github.com/twbs/bootstrap-npm-starter" rel="noopener" target="_blank">Bootstrap npm starter</a></li>
-            <li class="text-muted">Bootstrap Parcel starter (coming soon!)</li>
-          </ul>
         </div>
 
         <div class="col-md-6">
-          <h2>Guides</h2>
-          <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
-          <ul class="icon-list">
-            <li><a href="/docs/5.1/getting-started/introduction/">Bootstrap quick start guide</a></li>
-            <li><a href="/docs/5.1/getting-started/webpack/">Bootstrap Webpack guide</a></li>
-            <li><a href="/docs/5.1/getting-started/parcel/">Bootstrap Parcel guide</a></li>
-            <li><a href="/docs/5.1/getting-started/contribute/">Contributing to Bootstrap</a></li>
-          </ul>
+          <div class="d-flex justify-content-center" id="p5Canvas"></div>
         </div>
       </div>
     </main>
@@ -51,8 +38,38 @@
 </template>
 
 <script>
+import P5 from 'p5' // Package from npm
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  mounted() {
+    const script = function (p5) {
+      var speed = 2;
+      var posX = 0;
+      // NOTE: Set up is here
+      p5.setup = _ => {
+        p5.createCanvas(500, 500).parent("p5Canvas");
+        p5.ellipse(p5.width / 2, p5.height / 2, 500, 500);
+      }
+      // NOTE: Draw is here
+      p5.draw = _ => {
+        p5.background(0);
+        const degree = p5.frameCount * 3;
+        const y = p5.sin(p5.radians(degree)) * 50;
+        p5.push();
+        p5.translate(0, p5.height / 2);
+        p5.ellipse(posX, y, 50, 50);
+        p5.pop();
+        posX += speed;
+
+        if (posX > p5.width || posX < 0) {
+          speed *= -1;
+        }
+      }
+    }
+    // NOTE: Use p5 as an instance mode
+    const P5 = require('p5');
+    new P5(script)
+  }
 }
 </script>
