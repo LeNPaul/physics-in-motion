@@ -1,39 +1,20 @@
 <template>
-  <div class="col-lg-8 mx-auto p-3 py-md-5">
+  <h1>How physics should be taught.</h1>
+  <p class="fs-5 col-md-8">Not through static diagrams and long blocks of meaningless text, but through dynamic physical simulations that allow you to build an intuition for how physical systems actually work.</p>
 
-    <div class="container">
-      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <span class="fs-4">Physics in Motion</span>
-        </a>
-        <ul class="nav nav-pills">
-          <router-link to="/about" class="text-decoration-none"><li class="nav-item"><a href="#" class="nav-link text-dark">About</a></li></router-link>
-        </ul>
-      </header>
+  <div class="mb-5">
+    <a href="/" class="btn btn-dark btn-lg px-4">Get Started</a>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-6">
+      <h2>Solar System</h2>
+      <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
     </div>
 
-    <main>
-      <h1>How physics should be taught.</h1>
-      <p class="fs-5 col-md-8">Not through static diagrams and long blocks of meaningless text, but through dynamic physical simulations that allow you to build an intuition for how physical systems actually work.</p>
-
-      <div class="mb-5">
-        <a href="/" class="btn btn-dark btn-lg px-4">Get Started</a>
-      </div>
-
-      <div class="row g-5">
-        <div class="col-md-6">
-          <h2>Solar System</h2>
-          <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
-        </div>
-
-        <div class="col-md-6">
-          <div class="d-flex justify-content-center" id="p5Canvas"></div>
-        </div>
-      </div>
-    </main>
-    <footer class="pt-5 my-5 text-muted border-top">
-      Physics in Motion &middot; &copy; 2021
-    </footer>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-center" id="p5Canvas"></div>
+    </div>
   </div>
 </template>
 
