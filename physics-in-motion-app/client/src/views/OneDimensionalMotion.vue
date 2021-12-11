@@ -2,7 +2,8 @@
   <div class="row g-5">
     <div class="col-md-6">
       <h2>Motion in One Dimension</h2>
-      <p></p>
+      <p>In order to begin our study of motion, we must first consider the tools that we will be using to describe the objects that we are studying.</p>
+      <p>In physics, the Cartesian coordinate system is used to specify the position of objects in space.</p>
     </div>
     <div class="col-md-6">
       <div class="d-flex justify-content-center" id="p5Canvas"></div>
