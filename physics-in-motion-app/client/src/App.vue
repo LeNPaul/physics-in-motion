@@ -3,11 +3,11 @@
 
     <div class="container">
       <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <router-link to="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
           <span class="fs-4">Physics in Motion</span>
-        </a>
+        </router-link>
         <ul class="nav nav-pills">
-          <router-link to="/about" class="text-decoration-none"><li class="nav-item"><a href="#" class="nav-link text-dark">About</a></li></router-link>
+          <router-link to="/about" class="text-decoration-none nav-link text-dark"><li class="nav-item">About</li></router-link>
         </ul>
       </header>
     </div>
@@ -20,6 +20,3 @@
     </footer>
   </div>
 </template>
-
-<style>
-</style>
