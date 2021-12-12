@@ -1,15 +1,15 @@
 <template>
 
-  <h1>Motion in One Dimension</h1>
+  <h1>Position in One Dimension</h1>
   <hr/>
 
   <div class="row g-5">
     <div class="col-md-6">
-      <h3>Describing Objects in Motion</h3>
       <p>In order to begin our study of motion, we must first consider the tools that we will be using to describe the objects that we are studying.</p>
+      <h3>Describing Objects on an Axes</h3>
       <p>To more easily describe the motion of objects that we are studying, we simplfiy the object by imagining that the object - regardless of its size or shape - is a tiny particle that we treat as a single point.</p>
       <p>For describing the position of a particle in one dimension, we imagine that the particle is sitting in a coordinate system, where the position of the particle can be anywhere along a line that we call an axis, with respect to an arbitrary point that we call the origin.</p>
-      <p>The origin is considered the zero point, and the number of units from the origin to the point on the axis is used to represent the position of that point on the coordinate system.</p>
+      <p>The origin is considered the zero point, and the number of units from the origin to the object on the axis is used to represent the position of that point on the coordinate system.</p>
     </div>
     <div class="col-md-6">
       <div class="d-flex justify-content-center" id="p5Canvas1"></div>
@@ -19,7 +19,8 @@
   <div class="row g-5">
     <div class="col-md-6">
       <h3>Coordinate Systems</h3>
-      <p>In physics, the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system" class="text-dark">Cartesian coordinate system</a> is used to specify the position of objects in space at a given time. The x-axis typically represents time, while the y-axis represents position with respect to the origin. The following graph represents an object moving away from the origin as time increases.</p>
+      <p>In physics, the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system" class="text-dark">Cartesian coordinate system</a> is used to specify the position of objects in space at a given time. The x-axis typically represents time, while the y-axis represents position with respect to the origin. At any point in time along the x-axis, there is a corresponding point on the y-axis that represents the distance of that object from the origin.</p>
+      <p>The following graph represents an object moving away from the origin as time increases. At time 5, we see that position from the origin is 5, and at time 10, the position from the origin is 10.</p>
     </div>
   </div>
   <div class="row g-5">
@@ -30,11 +31,10 @@
 
   <div class="row g-5">
     <div class="col-md-6">
-      <h3>Position</h3>
-      <p>Tying this all together, we can describe the position of a particle in one dimension at a given time using a single function that we will call \( p(t) \), where \( t \) refers to the time, and \( p \) refers to the position of the particle relative to the origin at the given time. We call this the position function.</p>
+      <h3>Graphing the Position of an Object</h3>
+      <p>The following chart on the left describes the motion of the object on the right. Between 0 - 4 time units, the object is moving away from the origin until it reaches a posiiton of 4 units to the right. Between 4 - 8 time units, the object moves towards the origin, and we see the graph slopes downwards until it reaches position 0.</p>
     </div>
   </div>
-
 
   <div class="row g-5">
     <div class="col-md-6">
@@ -45,9 +45,22 @@
     </div>
   </div>
 
+  <div class="row g-5">
+    <div class="col-md-6">
+      <h3>The Position Function</h3>
+      <p>Tying this all together, we can describe the position of a particle in one dimension at a given time using a single function - called the position function - that we represent with the symbol \( p(t) \), where \( t \) refers to the time, and \( p \) refers to the position of the particle relative to the origin at the given time.</p>
+      <p>$$ p(t) = position $$</p>
+      <p>Looking at the above chart, we can come up with an equation that can be used to describe the motion of the object.</p>
+      <p>Between time 0 - 4, we can use the following equation:</p>
+      <p>$$ p(t) = t $$</p>
+      <p>Between time 4 - 8, we can use the following equation:</p>
+      <p>$$ p(t) = 8 - t $$</p>
+      <p>We can validate this ourselves by substituting \( t \) into any of the above equations, using the correct function for a given time, and see that we get the correct position on the graph.</p>
+    </div>
+  </div>
 
 
-
+<!--
 
   <h3>Distance</h3>
   <p>As the value of time that is passed into the position function changes, the outputted position of the particle will change as well, to reflect where the particle is at that given time.</p>
@@ -66,7 +79,7 @@
   <p>If we know what \( p(t) \) is as a function, then we know everything we need to know about the motion of the particle, as we will see in later sections.</p>
   <div class="col-sm-2"></div>
 
-
+-->
 
 </template>
 
