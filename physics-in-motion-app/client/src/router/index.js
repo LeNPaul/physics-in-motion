@@ -15,22 +15,28 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  {
-    path: '/hookes-law',
-    name: `Hooke's Law`,
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/HookesLaw.vue')
-  },
+
   {
     path: '/one-dimensional-motion',
     name: 'Motion in One Dimension',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/OneDimensionalMotion.vue')
-  }
+    component: () => import('../views/OneDimensionalMotion.vue')
+  },
+  {
+    path: '/one-dimensional-position',
+    name: 'Position in One Dimension',
+    component: () => import('../views/OneDimensionalPosition.vue')
+  },
+  {
+    path: '/one-dimensional-distance-displacement',
+    name: 'Distance and Displacement in One Dimension',
+    component: () => import('../views/OneDimensionalDistanceDisplacement.vue')
+  },
+
+  {
+    path: '/hookes-law',
+    name: `Hooke's Law`,
+    component: () => import('../views/HookesLaw.vue')
+  },
 ]
 
 const router = createRouter({
