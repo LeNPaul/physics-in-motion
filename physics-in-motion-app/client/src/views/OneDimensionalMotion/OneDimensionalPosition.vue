@@ -56,6 +56,7 @@
       <p>Between time 4 - 8, we can use the following equation:</p>
       <p>$$ p(t) = 8 - t $$</p>
       <p>We can validate this ourselves by substituting \( t \) into any of the above equations, using the correct function for a given time, and see that we get the correct position on the graph.</p>
+      <p>If we know what \( p(t) \) is as a function, then we know everything we need to know about the motion of the particle, as we will see in later sections.</p>
     </div>
   </div>
 
@@ -170,8 +171,18 @@ export default {
       // setting the particle in motion.
         moveParticle() {
 
-          p5.textSize(32);
-          p5.text( this.x / 100, 0, 275);
+          if(this.x >= 100 ) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(2), 0, 275);
+          }
+          if(this.x < 100 && this.x > 10) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(1), 0, 275);
+          }
+          if(this.x <= 10) {
+            p5.textSize(32);
+            p5.text( '0.0', 0, 275);
+          }
 
           if(this.x < 0 || this.x > p5.width)
             this.xSpeed*=-1;
@@ -243,8 +254,18 @@ export default {
       // setting the particle in motion.
         moveParticle() {
 
-          p5.textSize(32);
-          p5.text( this.x / 100, 0, 275);
+          if(this.x >= 100 ) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(2), 0, 275);
+          }
+          if(this.x < 100 && this.x > 10) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(1), 0, 275);
+          }
+          if(this.x <= 10) {
+            p5.textSize(32);
+            p5.text( '0.0', 0, 275);
+          }
 
           if(this.x < 0 || this.x > p5.width)
             this.xSpeed*=-1;

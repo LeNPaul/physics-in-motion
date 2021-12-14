@@ -13,7 +13,6 @@
       <p>$$ d_2 = p_3 - p_2 $$</p>
       <p>If we add the two distances travelled by the particle together from \( t_1 \) to \( t_2 \) and \( t_2 \) to \( t_3 \), we will get the total distance travelled by the particle between \( t_1 \) and \( t_3 \).</p>
       <p>$$ d_3 = d_1 + d_2 $$</p>
-
     </div>
     <div class="col-md-6">
       <div class="d-flex justify-content-center" id="p5Canvas1"></div>
@@ -22,28 +21,15 @@
 
   <div class="row g-5">
     <div class="col-md-6">
-
       <h3>Displacement</h3>
       <p>Displacement is defined by the distance from the initial position of the particle to the final position. In many cases, this is not the same as the total distance travelled by the particle.</p>
       <p>Consider the case where the particle were to travel from the origin to position \( p_2 \), and then travel back to the origin. Although the total distance travelled was double the distance from the origin to position \( p_2 \) - as the particle had to travel to \( p_2 \) and back from the origin - the total displacement was actually zero, since the particle ended up where it started at the end.</p>
       <p>For example, the object on the right starts at \( p_1 = 0 \) and begins moving away from the origin. When it reaches \( p_2 = 3 \), the distance and displacement is 3. However, when it starts moving back towards the origin, the distance continue to increase, while the displacement decreases, until the object reaches the origin again. At that point in time, the distance travelled would be 6 units, while the displacement would be 0 units, since the object is back at the starting position.</p>
-
-
-
-      <h3>Position-Time Graph</h3>
-      <p>When we plot the position function of a particle on a line chart, where the x-axis represents time, and the y-axis represents the position of the particle with respect to the origin, we can see how the position of the particle with respect to the origin changes with time.</p>
-      <p>The following chart shows the position of a particle with respect to the origin at a given time. As time increases, we see that the position of the particle changes at each point in time.</p>
-
-      <p>Notice that at 10 seconds, the position of the particle is back at the origin. The total displacement of the particle is considered zero, even though the particle had travelled some distance before arriving there.</p>
-      <p>If we know what \( p(t) \) is as a function, then we know everything we need to know about the motion of the particle, as we will see in later sections.</p>
       <div class="col-sm-2"></div>
-
     </div>
-
     <div class="col-md-6">
       <div class="d-flex justify-content-center" id="p5Canvas2"></div>
     </div>
-
   </div>
 
 </template>
@@ -191,7 +177,7 @@ export default {
           }
 
           p5.textSize(24);
-          p5.text( 'Displacement ' + parseInt(this.x / 100), 0, 90);
+          p5.text( 'Displacement ' + parseInt(this.x / 100), 0, 80);
 
 
           if(this.x > p5.width - 100) {
