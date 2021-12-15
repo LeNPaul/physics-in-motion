@@ -24,12 +24,17 @@ const routes = [
   {
     path: '/one-dimensional-position',
     name: 'Position in One Dimension',
-    component: () => import('../views/OneDimensionalMotion/OneDimensionalPosition.vue')
+    component: () => import('../views/OneDimensionalMotion/Position.vue')
   },
   {
     path: '/one-dimensional-distance-displacement',
     name: 'Distance and Displacement in One Dimension',
-    component: () => import('../views/OneDimensionalMotion/OneDimensionalDistanceDisplacement.vue')
+    component: () => import('../views/OneDimensionalMotion/DistanceDisplacement.vue')
+  },
+  {
+    path: '/one-dimensional-speed-velocity',
+    name: 'Speed and Velocity in One Dimension',
+    component: () => import('../views/OneDimensionalMotion/SpeedVelocity.vue')
   },
 
   {
