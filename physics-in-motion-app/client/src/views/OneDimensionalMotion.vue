@@ -19,7 +19,7 @@
   <div class="row g-5 mb-3">
     <div class="col-md-6">
       <h2>Speed and Velocity</h2>
-      <p>How do we describe an object that has moved? Learn about distance, displacement, and the difference between the two. <router-link to="/one-dimensional-speed-velocity" class="text-dark"><i class="fas fa-arrow-right"></i></router-link></p>
+      <p>Not all distance and displacement is the same. Learn about speed, velocity, and the difference between the two. <router-link to="/one-dimensional-speed-velocity" class="text-dark"><i class="fas fa-arrow-right"></i></router-link></p>
     </div>
   </div>
 
