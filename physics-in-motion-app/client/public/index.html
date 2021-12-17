@@ -15,7 +15,20 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--<title><%= htmlWebpackPlugin.options.title %></title>-->
+    <title>Physics in Motion</title>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-112016064-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-112016064-1');
+    </script>
+
   </head>
   <body>
     <noscript>
