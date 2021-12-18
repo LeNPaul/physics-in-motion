@@ -15,10 +15,21 @@
       <p>$$ speed = \frac{p_2 - p_1}{t_2 - t_1} = \frac{ \Delta p }{ \Delta t } $$</p>
       <p>The resulting value tells us exactly how far an object moves per unit of time.</p>
 
+    </div>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-6">
       <h3>Average and Constant Speed</h3>
       <p>Notice above that we did not capture any information regarding the speed of the object at any specific point in time. As the object moves through space, it is possible for the speed of the object to change. It is also possible for the speed of the object to be constant. What we had captured above was the <i>average speed</i> of the object.</p>
       <p>When we talk about average speed, we only know the total distance travelled, and the time that it took to travel that distance. An object may have <i>constant speed</i> throughout that time interval, or variable speed, and it is possible for two different objects to have the same average speed, but different speeds throughout the periods of time that they were travelling.</p>
 
+    </div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-center" id="p5Canvas1"></div>
+    </div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-center" id="p5Canvas2"></div>
     </div>
   </div>
 
@@ -167,10 +178,105 @@ export default {
             p5.text( '0.0', 0, 275);
           }
 
-          if(this.x < 0 || this.x > p5.width)
-            this.xSpeed*=-1;
-          if(this.y < 0 || this.y > p5.height)
-            this.ySpeed*=-1;
+
+
+          if(this.x >= p5.width) {
+            this.x = 0
+          }
+          if(this.x >= 100 && this.x < 200) {
+            this.xSpeed = 2
+          }
+          if(this.x >= 200 && this.x < 300) {
+            this.xSpeed = 0.5
+          }
+          if(this.x >= 300) {
+            this.xSpeed = 1
+          }
+
+          this.x+=this.xSpeed;
+          this.y+=this.ySpeed;
+
+
+
+        }
+
+      }
+
+      // an array to add multiple particles
+      let particles = [];
+
+      p5.setup = () => {
+        p5.createCanvas(400, 400);
+
+        particles.push(new Particle());
+      }
+
+      p5.draw = () => {
+        p5.background('0');
+        for(let i = 0;i<particles.length;i++) {
+          particles[i].createParticle();
+          particles[i].moveParticle();
+        }
+
+        p5.stroke(0, 0, 0);
+        p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+        p5.stroke(0, 0, 0);
+        p5.line(1, 175, 1, 225);
+
+        p5.stroke(0, 0, 0);
+        p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+        p5.stroke(0, 0, 0);
+        p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+        p5.stroke(0, 0, 0);
+        p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+        p5.stroke(0, 0, 0);
+        p5.line(p5.height - 1, 175, p5.height - 1, 225);
+      }
+    }
+    const p5canvas1 = new P5(script1, 'p5Canvas1');
+
+    const script2 = p5 => {
+      // this class describes the properties of a single particle.
+      class Particle {
+      // setting the co-ordinates, radius and the
+      // speed of a particle in both the co-ordinates axes.
+        constructor(){
+          this.x = 0;
+          this.y = p5.height / 2;
+          this.r = 20;
+          this.xSpeed = 1;
+          this.ySpeed = 0;
+        }
+
+      // creation of a particle.
+        createParticle() {
+          p5.noStroke();
+          p5.fill('black');
+          p5.circle(this.x,this.y,this.r);
+        }
+
+      // setting the particle in motion.
+        moveParticle() {
+
+          if(this.x >= 100 ) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(2), 0, 275);
+          }
+          if(this.x < 100 && this.x > 10) {
+            p5.textSize(32);
+            p5.text( (this.x / 100).toPrecision(1), 0, 275);
+          }
+          if(this.x <= 10) {
+            p5.textSize(32);
+            p5.text( '0.0', 0, 275);
+          }
+
+          if( this.x > p5.width)
+            this.x = 0
           this.x+=this.xSpeed;
           this.y+=this.ySpeed;
         }
@@ -212,7 +318,7 @@ export default {
         p5.line(p5.height - 1, 175, p5.height - 1, 225);
       }
     }
-    const p5canvas1 = new P5(script1, 'p5Canvas1');
+    const p5canvas2 = new P5(script2, 'p5Canvas2');
 
   }
 }
