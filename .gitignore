@@ -3,3 +3,6 @@ node_modules
 bower_components
 package-lock.json
 dist
+
+_site
+.jekyll-cache
