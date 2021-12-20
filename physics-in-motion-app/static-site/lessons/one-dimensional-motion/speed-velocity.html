@@ -10,7 +10,7 @@ permalink: /one-dimensional-motion/speed-velocity
 <div class="row g-5">
   <div class="col-md-6">
 
-    <p>In the previous sections on <router-link to="/one-dimensional-position" class="text-dark">Position</router-link>, <router-link to="/one-dimensional-distance-displacement" class="text-dark">Distance, and Displacement</router-link>, we explored how coordinate systems are used to describe the position of an object in space at a given time, and were introduced to the position function. Now, we would like to go beyond that and begin describing the behaviour of that object as it moves through space and time.</p>
+    <p>In the previous sections on <a href="/one-dimensional-motion/position" class="text-dark">Position</a>, <a href="/one-dimensional-motion/distance-displacement" class="text-dark">Distance, and Displacement</a>, we explored how coordinate systems are used to describe the position of an object in space at a given time, and were introduced to the position function. Now, we would like to go beyond that and begin describing the behaviour of that object as it moves through space and time.</p>
 
     <h3>Speed</h3>
     <p>Naturally, as an object moves through space, we would like to know the distance that the object moves over a period of time. In other words, we would like to know the rate at which its position changes over time. This is known as the <i>speed</i> of the object.</p>
@@ -31,9 +31,6 @@ permalink: /one-dimensional-motion/speed-velocity
   </div>
   <div class="col-md-6">
     <div class="d-flex justify-content-center" id="p5Canvas1"></div>
-  </div>
-  <div class="col-md-6">
-    <div class="d-flex justify-content-center" id="p5Canvas2"></div>
   </div>
 </div>
 
@@ -155,13 +152,36 @@ In the graph below, the initial position at time 0 is 0. If we take the final po
     // creation of a particle.
       createParticle() {
         p5.noStroke();
+        p5.fill('grey');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+      createParticleDiff() {
+        p5.noStroke();
         p5.fill('black');
         p5.circle(this.x,this.y,this.r);
       }
 
+
     // setting the particle in motion.
       moveParticle() {
+        if(this.x >= p5.width) {
+          this.x = 0
+        }
+        if(this.x >= 100 && this.x < 230) {
+          this.xSpeed = 2
+        }
+        if(this.x >= 230 && this.x < 295) {
+          this.xSpeed = 0.5
+        }
+        if(this.x >= 295) {
+          this.xSpeed = 1
+        }
+        this.x+=this.xSpeed;
+        this.y+=this.ySpeed;
+      }
 
+      moveParticleDiff() {
         if(this.x >= 100 ) {
           p5.textSize(32);
           p5.text( (this.x / 100).toPrecision(2), 0, 275);
@@ -174,27 +194,11 @@ In the graph below, the initial position at time 0 is 0. If we take the final po
           p5.textSize(32);
           p5.text( '0.0', 0, 275);
         }
-
-
-
         if(this.x >= p5.width) {
           this.x = 0
         }
-        if(this.x >= 100 && this.x < 200) {
-          this.xSpeed = 2
-        }
-        if(this.x >= 200 && this.x < 300) {
-          this.xSpeed = 0.5
-        }
-        if(this.x >= 300) {
-          this.xSpeed = 1
-        }
-
         this.x+=this.xSpeed;
         this.y+=this.ySpeed;
-
-
-
       }
 
     }
@@ -204,16 +208,18 @@ In the graph below, the initial position at time 0 is 0. If we take the final po
 
     p5.setup = () => {
       p5.createCanvas(400, 400);
-
+      particles.push(new Particle());
       particles.push(new Particle());
     }
 
     p5.draw = () => {
       p5.background('0');
-      for(let i = 0;i<particles.length;i++) {
-        particles[i].createParticle();
-        particles[i].moveParticle();
-      }
+
+      particles[0].createParticle();
+      particles[0].moveParticle();
+
+      particles[1].createParticleDiff();
+      particles[1].moveParticleDiff();
 
       p5.stroke(0, 0, 0);
       p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
@@ -236,84 +242,4 @@ In the graph below, the initial position at time 0 is 0. If we take the final po
   }
   const p5canvas1 = new p5(script1, 'p5Canvas1');
 
-  const script2 = p5 => {
-    // this class describes the properties of a single particle.
-    class Particle {
-    // setting the co-ordinates, radius and the
-    // speed of a particle in both the co-ordinates axes.
-      constructor(){
-        this.x = 0;
-        this.y = p5.height / 2;
-        this.r = 20;
-        this.xSpeed = 1;
-        this.ySpeed = 0;
-      }
-
-    // creation of a particle.
-      createParticle() {
-        p5.noStroke();
-        p5.fill('black');
-        p5.circle(this.x,this.y,this.r);
-      }
-
-    // setting the particle in motion.
-      moveParticle() {
-
-        if(this.x >= 100 ) {
-          p5.textSize(32);
-          p5.text( (this.x / 100).toPrecision(2), 0, 275);
-        }
-        if(this.x < 100 && this.x > 10) {
-          p5.textSize(32);
-          p5.text( (this.x / 100).toPrecision(1), 0, 275);
-        }
-        if(this.x <= 10) {
-          p5.textSize(32);
-          p5.text( '0.0', 0, 275);
-        }
-
-        if( this.x > p5.width)
-          this.x = 0
-        this.x+=this.xSpeed;
-        this.y+=this.ySpeed;
-      }
-
-    }
-
-    // an array to add multiple particles
-    let particles = [];
-
-    p5.setup = () => {
-      p5.createCanvas(400, 400);
-
-      particles.push(new Particle());
-    }
-
-    p5.draw = () => {
-      p5.background('0');
-      for(let i = 0;i<particles.length;i++) {
-        particles[i].createParticle();
-        particles[i].moveParticle();
-      }
-
-      p5.stroke(0, 0, 0);
-      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
-
-      p5.stroke(0, 0, 0);
-      p5.line(1, 175, 1, 225);
-
-      p5.stroke(0, 0, 0);
-      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
-
-      p5.stroke(0, 0, 0);
-      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
-
-      p5.stroke(0, 0, 0);
-      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
-
-      p5.stroke(0, 0, 0);
-      p5.line(p5.height - 1, 175, p5.height - 1, 225);
-    }
-  }
-  const p5canvas2 = new p5(script2, 'p5Canvas2');
 </script>
