@@ -9,24 +9,23 @@ permalink: /one-dimensional-motion/speed-velocity
 
 <div class="row g-5">
   <div class="col-md-6">
-
     <p>In the previous sections on <a href="/one-dimensional-motion/position" class="text-dark">Position</a>, <a href="/one-dimensional-motion/distance-displacement" class="text-dark">Distance, and Displacement</a>, we explored how coordinate systems are used to describe the position of an object in space at a given time, and were introduced to the position function. Now, we would like to go beyond that and begin describing the behaviour of that object as it moves through space and time.</p>
-
     <h3>Speed</h3>
-    <p>Naturally, as an object moves through space, we would like to know the distance that the object moves over a period of time. In other words, we would like to know the rate at which its position changes over time. This is known as the <i>speed</i> of the object.</p>
-
-    <p>In order to calculate the speed of an object, we take the total distance travelled by that object and divide it by the time that it took for the object to travel that distance:</p>
-    <p>$$ speed = \frac{p_2 - p_1}{t_2 - t_1} = \frac{ \Delta p }{ \Delta t } $$</p>
-    <p>The resulting value tells us exactly how far an object moves per unit of time.</p>
-
+    <p>Naturally, as an object moves through space, we would like to know what distance an object would move over a given period of time. In other words, we would like to know the rate at which its position changes over time. This is known as the <i>speed</i> of the object.</p>
   </div>
 </div>
 
 <div class="row g-5">
   <div class="col-md-6">
     <h3>Average and Constant Speed</h3>
-    <p>Notice above that we did not capture any information regarding the speed of the object at any specific point in time. As the object moves through space, it is possible for the speed of the object to change. It is also possible for the speed of the object to be constant. What we had captured above was the <i>average speed</i> of the object.</p>
-    <p>When we talk about average speed, we only know the total distance travelled, and the time that it took to travel that distance. An object may have <i>constant speed</i> throughout that time interval, or variable speed, and it is possible for two different objects to have the same average speed, but different speeds throughout the periods of time that they were travelling.</p>
+    <p>If we take the total distance travelled by an object and divide it by the time that it took for the object to travel that distance, we would get the <i>average speed</i> of that object:</p>
+    <p>$$ average \ speed = \frac{p_2 - p_1}{t_2 - t_1} = \frac{ \Delta p }{ \Delta t } $$</p>
+    <p>With average speed, we only know the total distance travelled, and the time that it took to travel that distance. We do not know any information about the speed of the object at any specific point in time. An object may have <i>constant speed</i> throughout that time interval, or variable speed, and it is possible for two different objects to have the same average speed, but different speeds throughout the periods of time that they were travelling.</p>
+    <p>On the left, we can see two particles travelling to the left. Initially, they travel at the same speed. At around a distance of 1 from the origin, the grey particle beings moving faster, before slowing down to match the speed of the black particle. They both reach a distance of 4 units from the origin at the same time. Although their speeds are different between units 0 - 4, they both reach unit 4 at the same time.</p>
+
+
+
+
 
   </div>
   <div class="col-md-6">
@@ -40,6 +39,9 @@ permalink: /one-dimensional-motion/speed-velocity
   <div class="col-md-6">
 
 <!--
+
+
+    <p>The resulting value tells us exactly how far an object moves per unit of time.</p>
 
 Show two lines, one with faster velocity and show that one reaches 20 units faster
 Why we need to know speed - to know how fast an object is moving - let's us compare how fast two objects are moving
@@ -153,13 +155,13 @@ In the graph below, the initial position at time 0 is 0. If we take the final po
       createParticle() {
         p5.noStroke();
         p5.fill('grey');
-        p5.circle(this.x,this.y,this.r);
+        p5.circle(this.x,this.y - 15,this.r);
       }
 
       createParticleDiff() {
         p5.noStroke();
         p5.fill('black');
-        p5.circle(this.x,this.y,this.r);
+        p5.circle(this.x,this.y + 15,this.r);
       }
 
 
