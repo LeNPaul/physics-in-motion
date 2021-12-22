@@ -1,0 +1,114 @@
+---
+layout: default
+title: "Velocity in Two Dimensions"
+permalink: /two-dimensional-motion/velocity
+---
+
+<h1>{{ page.title }}</h1>
+<hr/>
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <p>Similar to how we had extended our understanding of position in one dimension to two dimensions, when we are studying velocity in two dimsions, we look at the velocity of the object along two axes.</p>
+    <p>On the right, we see a particle moving in two dimensions. On the x-axis, the velocity is actually constant. On the y-axis, the velocity is initially in the positive direction, but then it slows until it begins to move in the negative direction.</p>
+    <p>The velocity of an object in two-dimensions can be described by two veloctiy functions. For example, \( v_x(t) \) and \( v_y(t) \), for the x-axis and the y-axis, respectively.</p>
+    <p>$$ v_x (t) = \frac{d x(t)}{dt}, $$</p>
+    <p>and,</p>
+    <p>$$ v_y (t) = \frac{d y(t)}{dt}. $$</p>
+    <p>The velocity of a point-like object can then be given by the co-ordinate pair,</p>
+    <p>$$ ( v_x(t), v_y(t) ), $$</p>
+    <p>or as a vector,</p>
+    <p>$$ \vec{v} (t) = \frac{d \vec{r} (t)}{dt}. $$</p>
+    <p>$$ \vec{v}(t) = v_x(t) \hat{i} + v_y(t) \hat{j}, $$</p>
+    <p>where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively.</p>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center" id="p5Canvas1"></div>
+  </div>
+</div>
+
+<script>
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  const script1 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 1;
+        this.ySpeed = -1;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+        if(this.x >= 100 ) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(2), 0, 275);
+        }
+        if(this.x < 100 && this.x > 10) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(1), 0, 275);
+        }
+        if(this.x <= 10) {
+          p5.textSize(32);
+          p5.text( '0.0', 0, 275);
+        }
+        if(this.y < 0 || this.y > 200) {
+          this.xSpeed = 1;
+          this.ySpeed = -1;
+          this.x = 0
+        }
+        this.x+=this.xSpeed;
+        this.y+=this.ySpeed + this.x * this.x * 0.00002;
+      }
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas1 = new p5(script1, 'p5Canvas1');
+
+</script>
