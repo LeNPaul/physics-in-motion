@@ -9,19 +9,198 @@ permalink: /one-dimensional-motion/acceleration
 
 <div class="row g-5">
   <div class="col-md-6">
+
     <p>When studying the <a href="/one-dimensional-motion/speed-velocity" class="text-dark">velocity</a> of an object, we noted the rate of change of its position as a function of time. We can take this another step further and also study the rate of change of its velocity as a function of time.</p>
+
     <h3>Average and Constant Acceleration</h3>
     <p>An object moving through space that experiences a change in velocity experiences <i>acceleration</i>. For example, a moving object that gradually slows to a stop experiences negative acceleration, or in other words, deceleration.</p>
     <p>In order to calculate the average acceleration of an object, we take the total change in velocity of the object, and divide it by the time that it took for the object to make that change in velocity:</p>
     <p>$$ a_{average} = \frac{v_2 - v_1}{t_2 - t_1} = \frac{ \Delta v }{ \Delta t } $$</p>
-    <p>The resulting value tells us the average change in velocity of an object per unit of time. For example, an object with an acceleration of</p>
-    <p>$$ 5 \ \frac{m}{s^2} $$</p>
-    <p>will on average increase its velocity by 5 meters per second, every second.</p>
-    <p>Average acceleration is equivalent to the slope of the velocity function between two points in time. For example, if we had an object where its velocity was increaing at a constant rate, it would look like a straight line, where the slope gives us the average acceleration:</p>
+
+    <p>The resulting value tells us the average change in velocity of an object per unit of time.</p>
+
+    <p>On the right, we see a particle starting at position 0 with an initial velocity of 0. As time increases, the velocity continuously increases, and the particle moves right at a continuously faster rate.</p>
+
+    <p>Average acceleration is equivalent to the slope of the velocity function between two points in time. For example, if we had an object where its velocity was increasing at a constant rate, it would look like a straight line, where the slope gives us the average acceleration:</p>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center" id="p5Canvas1"></div>
+  </div>
+</div>
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center"><canvas id="myChart1" width="400" height="400"></canvas></div>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center"><canvas id="myChart2" width="400" height="400"></canvas></div>
+  </div>
+</div>
+
+<div class="row g-5">
+  <div class="col-md-6">
+
     <p>Notice if the velocity function is constant (i.e. there is no acceleration), then its slope is \( 0 \), and the acceleration is also \( 0 \ m/s^2 \).</p>
     <p>With average acceleration, it is possible for the change in velocity to be constant or variable, as we saw with average velocity. Similar to velocity, direction is important when defining acceleration. A positive value of acceleration would correspond to an increasing magnitude of velocity. A negative value of acceleration would correspond to a decreasing magnitude of velocity.</p>
     <h3>Instantaneous Acceleration</h3>
     <p>We can define the instantaneous acceleration of an object as the derivative of the velocity function, which will give us a snapshot of the acceleration of an object at a point in time:</p>
     <p>$$ a(t) = \frac{d v(t)}{dt} = \frac{d^2 p(t)}{dt^2} . $$</p>
   </div>
+
+
+
 </div>
+
+<script>
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  const myChart1 = new Chart(document.getElementById('myChart1'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      datasets: [{
+        label: 'Cartesian Coordinate System',
+        data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      }]
+    },
+    options: {
+      layout: {
+        padding: 30
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Time'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Velocity'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Velocity as a Function of Time'
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  const myChart2 = new Chart(document.getElementById('myChart2'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      datasets: [{
+        label: 'Cartesian Coordinate System',
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      }]
+    },
+    options: {
+      layout: {
+        padding: 30
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Time'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Position'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Acceleration as a Function of Time'
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  const script1 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 0.01;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+
+        if(this.x < 0 || this.x > p5.width) {
+          this.x = 0;
+          this.xSpeed = 0.01
+        }
+
+        this.xSpeed+=this.xSpeed*0.08;
+
+        this.x+=this.xSpeed;
+      }
+
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas1 = new p5(script1, 'p5Canvas1');
+
+</script>
