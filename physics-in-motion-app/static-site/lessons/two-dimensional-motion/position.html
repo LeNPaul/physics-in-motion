@@ -1,30 +1,156 @@
 ---
 layout: default
-title: "Position in One Dimension"
+title: "Position in Two Dimensions"
 permalink: /two-dimensional-motion/position
 ---
 
-<h1>Position in One Dimension</h1>
+<h1>Position in Two Dimensions</h1>
 <hr/>
 
 <div class="row g-5">
   <div class="col-md-6">
-    <h1 class="page-header">Position</h1>
     <p>When we were studying position in one-dimension, we used the position function to describe the position of a particle at a given time along a single axis. When studying the position of a particle in two dimensions, we apply the same logic, except now we are looking at position along two axes.</p>
     <p>Therefore, the motion of an object in two-dimensions can be described by two position functions. For example, \( x(t) \) and \( y(t) \), for the x-axis and the y-axis, respectively. We call this the Cartesian coordinate system, where the position of a particle is defined on the Cartesian plane.</p>
     <p>The position of a point-like object can then be given by the co-ordinate pair,</p>
     <p>$$ ( x(t), y(t) ), $$</p>
     <p>or as a vector,</p>
     <p>$$ \vec{r}(t) = x(t) \hat{i} + y(t) \hat{j}, $$</p>
-    <p>where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively. The two directions are independent of each other, as they are perpendicular axes (i.e. moving along the x-axis does not affect movement along the y-axis).</p><canvas id="static-position-line-chart" width="800" height="500"></canvas>
-    <div class="col-sm-2"></div>
+    <p>where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively. The two directions are independent of each other, as they are perpendicular axes (i.e. moving along the x-axis does not affect movement along the y-axis).</p>
+    <p>When we graph a particle on the Cartesian plane, we see the path that the particle takes over time in two dimensions. Notice that time is not represented on the graph, and it is implied that time increases as you move from the starting position to the final position.</p>
   </div>
   <div class="col-md-6">
     <div class="d-flex justify-content-center" id="p5Canvas1"></div>
   </div>
 </div>
 
+<div class="row g-5">
+  <div class="col-md-6 mx-auto">
+    <div class="d-flex justify-content-center"><canvas id="myChart1" width="400" height="400"></canvas></div>
+  </div>
+</div>
+
 <script>
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  const myChart1 = new Chart(document.getElementById('myChart1'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      datasets: [{
+        label: 'Cartesian Coordinate System',
+        data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        tension: 0.5
+      }]
+    },
+    options: {
+      layout: {
+        padding: 30
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'x(t)'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'y(t)'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Cartesian Coordinate System'
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  const script1 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 1;
+        this.ySpeed = -1;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+        if(this.x >= 100 ) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(2), 0, 275);
+        }
+        if(this.x < 100 && this.x > 10) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(1), 0, 275);
+        }
+        if(this.x <= 10) {
+          p5.textSize(32);
+          p5.text( '0.0', 0, 275);
+        }
+        if(this.y < 0 || this.y > 200) {
+          this.xSpeed = 1;
+          this.ySpeed = -1;
+          this.x = 0
+        }
+        this.x+=this.xSpeed;
+        this.y+=this.ySpeed + this.x * this.x * 0.00002;
+      }
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas1 = new p5(script1, 'p5Canvas1');
 
 </script>
