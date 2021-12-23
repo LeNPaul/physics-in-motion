@@ -185,7 +185,7 @@ permalink: /two-dimensional-motion/acceleration
         this.x = 0;
         this.y = p5.height / 2;
         this.r = 20;
-        this.xSpeed = 0.01;
+        this.xSpeed = 1;
         this.ySpeed = 0.01;
       }
 
@@ -202,16 +202,15 @@ permalink: /two-dimensional-motion/acceleration
           this.y = p5.height / 2;
           this.ySpeed = 0.01
           this.x = 0;
-          this.xSpeed = 0.01
+          this.xSpeed = 1;
         }
         if(this.y < 0 || this.y > p5.height) {
           this.y = p5.height / 2;
           this.ySpeed = 0.01
           this.x = 0;
-          this.xSpeed = 0.01
+          this.xSpeed = 1
         }
-        this.xSpeed+=this.xSpeed*0.08;
-        this.ySpeed+=this.ySpeed*0.073;
+        this.ySpeed+=this.ySpeed*0.02;
         this.x+=this.xSpeed;
         this.y+=this.ySpeed;
       }
