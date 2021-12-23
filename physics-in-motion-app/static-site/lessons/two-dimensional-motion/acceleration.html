@@ -1,0 +1,257 @@
+---
+layout: default
+title: "Acceleration in Two Dimensions"
+permalink: /two-dimensional-motion/acceleration
+---
+
+<h1>{{ page.title }}</h1>
+<hr/>
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <p>Once again, similar to how we had extended our understanding of position and velocity in one dimension to two dimensions, when we are studying acceleration in two dimensions, we look at the acceleration of the object along two axes.</p>
+    <p>On the right, we see a particle moving in two dimensions. Along the x-axis, we see that as time increases, the particle's velocity continuously increases. Along the y-axis, we see that the velocity is initially in the positive direction, but begins to slow until it moves in the negative direction.</p>
+    <p>The acceleration of an object in two-dimensions can be described by two acceleration functions. For example, \( a_x(t) \) and \( a_y(t) \), for the x-axis and the y-axis, respectively.</p>
+    <p>$$ a_x (t) = \frac{d v_x(t)}{dt}, $$</p>
+    <p>and,</p>
+    <p>$$ a_y (t) = \frac{d v_y(t)}{dt}. $$</p>
+    <p>The acceleration of a point-like object can then be given by the co-ordinate pair,</p>
+    <p>$$ ( v_x(t), v_y(t) ), $$</p>
+    <p>or as a vector,</p>
+    <p>$$ \vec{a} (t) = \frac{d \vec{v} (t)}{dt} = \frac{d^2 \vec{r} (t)}{dt^2}. $$</p>
+    <p>$$ \vec{a}(t) = a_x(t) \hat{i} + a_y(t) \hat{j}, $$</p>
+    <p>where \( \hat{i} \) and \( \hat{j} \) are unit vectors pointing in the x and y-axes, respectively. It is usually more convenient to denote a vector using brackets, as follows:</p>
+    <p>$$ \vec{v} = v_x \hat{i} + v_y \hat{j} = (v_x, v_y). $$</p>
+    <p>Both notations mean the same thing, and are used as convenient.</p>
+    <p>An object moving with constant velocity will always move in a straight line, unless the object is accelerated in a different direction. If this acceleration occurs along the line of motion, then the object will remain moving in a straight line (although its velocity will change).</p>
+    <div class="d-flex justify-content-center" id="p5Canvas2"></div>
+    <p>If the body accelerates, but not along the line of motion, then the direction of that object will change. It will no longer be a straight line, and will instead follow a curve. The result is acceleration in two-dimensions.</p>
+    <div class="d-flex justify-content-center" id="p5Canvas3"></div>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center" id="p5Canvas1"></div>
+  </div>
+</div>
+
+<script>
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  const script1 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 1;
+        this.ySpeed = -1;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+        if(this.y < 0 || this.y > 200) {
+          this.xSpeed = 1;
+          this.ySpeed = -1;
+          this.x = 0
+        }
+        this.x+=this.xSpeed + this.x * this.x * 0.0001;
+        this.y+=this.ySpeed + this.x * this.x * 0.00002;
+      }
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas1 = new p5(script1, 'p5Canvas1');
+
+  const script2 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 0.01;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+
+        if(this.x < 0 || this.x > p5.width) {
+          this.x = 0;
+          this.xSpeed = 0.01
+        }
+
+        this.xSpeed+=this.xSpeed*0.08;
+
+        this.x+=this.xSpeed;
+      }
+
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas2 = new p5(script2, 'p5Canvas2');
+
+  const script3 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 0.01;
+        this.ySpeed = 0.01;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+        if(this.x < 0 || this.x > p5.width) {
+          this.y = p5.height / 2;
+          this.ySpeed = 0.01
+          this.x = 0;
+          this.xSpeed = 0.01
+        }
+        if(this.y < 0 || this.y > p5.height) {
+          this.y = p5.height / 2;
+          this.ySpeed = 0.01
+          this.x = 0;
+          this.xSpeed = 0.01
+        }
+        this.xSpeed+=this.xSpeed*0.08;
+        this.ySpeed+=this.ySpeed*0.073;
+        this.x+=this.xSpeed;
+        this.y+=this.ySpeed;
+      }
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas3 = new p5(script3, 'p5Canvas3');
+
+</script>
