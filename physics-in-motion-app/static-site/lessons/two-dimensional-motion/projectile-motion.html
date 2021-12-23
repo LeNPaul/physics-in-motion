@@ -14,7 +14,7 @@ permalink: /two-dimensional-motion/projectile-motion
     <p>When imagining how an object moves through space in any scenario, we can choose our coordinate axes however we want. In the case of projectile motion, the simplest way is to imagine that the x-axis is parallel to the ground, and the y-axis is perpendicular to the ground.</p>
     <p>On Earth, this means that along the y-axis, the object will be accelerated towards the ground in the negative direction due to the force of gravity (since we usually denote up as being positive, and down as being negative, \( g \) is negative), where \( g \) is the acceleration due to the force of gravity:</p>
     <p>$$ a_y (t) = -g $$</p>
-    <p>Since we are ignoring air resistance, there will be not acceleration along the x-axis:</p>
+    <p>Since we are ignoring air resistance, there will be no acceleration along the x-axis:</p>
     <p>$$ a_x (t) = 0 $$</p>
     <p>It turns out that from this initial assumption above, we are able to calculate both the position and velocity function of an object moving under projectile motion.</p>
     <p>We can find the velocity functions by integrating the acceleration functions above:</p>
@@ -25,7 +25,8 @@ permalink: /two-dimensional-motion/projectile-motion
     <p>We can find the position function by integrating the above velocities:</p>
     <p>$$x(t) = \int v_x (t) dt = x_0 + v_{x0} t,$$</p>
     <p>$$y(t) = \int v_y (t) dt = y_0 + v_{y0} t - \frac{1}{2} g t^2,$$</p>
-    <p>where \( x_0 \) and \( y_0 \) are the initial positions of the object along the x and y axes respectively.</p><canvas id="parabolic-motion-position-line-chart" width="800" height="500"></canvas>
+    <p>where \( x_0 \) and \( y_0 \) are the initial positions of the object along the x and y axes respectively.</p>
+    <div class="d-flex justify-content-center"><canvas id="myChart1" width="400" height="400"></canvas></div>
     <p>The position function for such an object is the following:</p>
     <p>$$x(t) = x_0 + v_{x0} t,$$</p>
     <p>$$y(t) = y_0 + v_{y0} t - \frac{1}{2} g t^2,$$</p>
@@ -35,10 +36,134 @@ permalink: /two-dimensional-motion/projectile-motion
     <p>$$v_y (t) = v_{y0} - g t,$$</p>
     <p>where \( v_{x0} \) and \( v_{y0} \) are the initial velocities in the x and y-axes, respectively. As there is no acceleration along the x-axis, the velocity remains a constant, as expected. Since the y-axis does experience an acceleration due to the earth's gravity, the velocity does not remain constant, and in fact, increases in magnitude as time increases, as expected.</p>
   </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center" id="p5Canvas1"></div>
+  </div>
 </div>
 
 <script>
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  const myChart1 = new Chart(document.getElementById('myChart1'), {
+    type: 'line',
+    data: {
+      labels: [0, 0.5, 1, 1.5, 2, 2.5],
+      datasets: [{
+        label: 'Cartesian Coordinate System',
+        data: [4, 5.5, 6, 5.5, 4, 1.5],
+        tension: 0.4
+      }]
+    },
+    options: {
+      layout: {
+        padding: 30
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'x(t)'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'y(t)'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Cartesian Coordinate System'
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  const script1 = p5 => {
+    // this class describes the properties of a single particle.
+    class Particle {
+    // setting the co-ordinates, radius and the
+    // speed of a particle in both the co-ordinates axes.
+      constructor(){
+        this.x = 0;
+        this.y = p5.height / 2;
+        this.r = 20;
+        this.xSpeed = 1;
+        this.ySpeed = -1;
+      }
+
+    // creation of a particle.
+      createParticle() {
+        p5.noStroke();
+        p5.fill('black');
+        p5.circle(this.x,this.y,this.r);
+      }
+
+    // setting the particle in motion.
+      moveParticle() {
+        if(this.x >= 100 ) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(2), 0, 275);
+        }
+        if(this.x < 100 && this.x > 10) {
+          p5.textSize(32);
+          p5.text( (this.x / 100).toPrecision(1), 0, 275);
+        }
+        if(this.x <= 10) {
+          p5.textSize(32);
+          p5.text( '0.0', 0, 275);
+        }
+        if(this.y < 0 || this.y > 200) {
+          this.xSpeed = 1;
+          this.ySpeed = -1;
+          this.x = 0
+        }
+        this.x+=this.xSpeed;
+        this.y+=this.ySpeed + this.x * this.x * 0.00002;
+      }
+    }
+
+    // an array to add multiple particles
+    let particles = [];
+
+    p5.setup = () => {
+      p5.createCanvas(400, 400);
+
+      particles.push(new Particle());
+    }
+
+    p5.draw = () => {
+      p5.background('0');
+      for(let i = 0;i<particles.length;i++) {
+        particles[i].createParticle();
+        particles[i].moveParticle();
+      }
+
+      p5.stroke(0, 0, 0);
+      p5.line(0, p5.height * 0.5, p5.width, p5.height * 0.5);
+
+      p5.stroke(0, 0, 0);
+      p5.line(1, 175, 1, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.25, 175, p5.height * 0.25, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.5, 175, p5.height * 0.5, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height * 0.75, 175, p5.height * 0.75, 225);
+
+      p5.stroke(0, 0, 0);
+      p5.line(p5.height - 1, 175, p5.height - 1, 225);
+    }
+  }
+  const p5canvas1 = new p5(script1, 'p5Canvas1');
 
 
 </script>
