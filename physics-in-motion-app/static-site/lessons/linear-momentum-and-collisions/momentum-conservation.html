@@ -1,0 +1,42 @@
+---
+layout: default
+title: "Momentum Conservation"
+permalink: /linear-momentum-and-collisions/momentum-conservation
+---
+
+<h1>{{ page.title }}</h1>
+<hr/>
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <p>If we know the position as a function of time, \( \vec{r} (t) \), for all the bodies in the system, then we have solved the dynamics of the system completely, and we know all of its past, present, and future motion.</p>
+    <p>If all of the forces in the problem are specified, it is possible to find this solution through a careful analysis of the equations of motion. However, in many cases, we can easily identify certain quantities which remain constant through the motion,
+        and are independent of time. These quantities are known as constants of motions, and they are useful since knowing their value at any moment, we know their values at all times, irrespective of their motion. One such example was work conservation,
+        where conservative forces are involved.</p>
+    <p>Another constant of motion is known as momentum. Newton's second law applies to a single body states that,</p>
+    <p>$$ \vec{F} = m \vec{a} = \frac{d \vec{p}}{dt} $$</p>
+    <p>where in the last step, \( \vec{p} = m \vec{v} \). This is a vector quantity known as the momentum. In general, it is a function of time.</p>
+    <p>However, if any of the components of the force vanishes, then the corresponding component of the momentum is
+        conserved:</p>
+    <p>$$ 0 = \frac{d p_i}{dt} \rightarrow p_i = constant $$</p>
+    <p>If there are no external force son the system altogether, then all the components of the momentum are conserved, which is simply Newton's first law of motion. Thus, momentum changes only when a force is applied. The in momentum is known as the impulse:</p>
+    <p>$$ \vec{J} = \int^{t_f}_{t_i} \vec{F} dt = \int^{t_f}_{t_i} \frac{d \vec{p}}{dt} dt = \vec{p}_f - \vec{p}_i $$</p>
+    <p>In the last step, the fundamental theorem of calculus was used. The impulse, or the change in momentum, depends on the time integral of the force over some duration. Therefore, the same impulse may results from applying a lot of force over a short
+        period of time as when applying a little bit of force over a long period of time.</p>
+    <p>The situation becomes more interesting when we consider more than a single body. Consider when two bodies, with masses \( m_1 \) and \( m_2 \), that exert the some force on each other, but otherwise have no forces applies to them. Writing Newton's
+        second law we have:</p>
+    <p>$$ \vec{F}_1 = \frac{d \vec{p}_1}{dt} $$</p>
+    <p>$$ \vec{F}_2 = \frac{d \vec{p}_2}{dt} $$</p>
+    <p>Where \( \vec{p}_1 = m_1 \vec{v}_1 \) is the momentum associated with the first particle, and \( \vec{p}_2 = m_2 \vec{v}_2 \) is the momentum associated with the second particle. Since we assumed that no external forces are present, then from Newton's
+        third law we have that \( \vec{F}_1 = - \vec{F}_2 \). Adding the two equations we then find:</p>
+    <p>$$ 0 = \frac{d}{dt} ( \vec{p}_1 + \vec{p}_2 ) \rightarrow \vec{P}_{tot} = \vec{p}_1 + \vec{p}_2 $$</p>
+    <p>The total momentum of the system, which is the sum of the individual momenta, is conserved.</p>
+    <p>This powerful conclusion can be extended to systems with arbitrary number of interacting bodies and no external forces, simply by repeating the above arguments with an arbitrary number of particles, \( N \).</p>
+  </div>
+</div>
+
+<script>
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+
+</script>
