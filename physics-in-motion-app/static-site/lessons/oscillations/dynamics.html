@@ -1,0 +1,52 @@
+---
+layout: default
+title: "Dynamics"
+permalink: /oscillations/dynamics
+---
+
+<h1>{{ page.title }}</h1>
+<hr/>
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <p>Conservative forces can be described through a potential function. In one-dimension, the relation between the force and kinetic energy is given by,</p>
+    <p>$$ F = - \frac{d U(x)}{dx} $$</p>
+    <p>The simplest function is \( U(x) = constant \), which results in no force.</p>
+    <p>The next simplest function is a linear function, \( U(x) = F_c x \), with \( F_c \) some constant with dimensions of Newton. This potential results in a constant force \( F = -F_c \), and a constant acceleration \( a = - F_c / m \). We have encountered
+        such a potential in the case of gravity near the surface of the earth where \( F_c = m g \), and \( x \) was a measure of the height from the surface, \( h \). In that case the potential energy is simply \( U(h) = mgh \).</p>
+    <p>At the next order of complexity is a quadratic function, \( U(x) = \frac{1}{2} k x^2 \), where \( k \) is some constant with units of \( Newton/m \). This is a very important potential that appears in a wide variety of phenomena. The force associated
+        with such a potential is,</p>
+    <p>$$ F = - \frac{d U(x)}{d x} = - k x(t) $$</p>
+    <p>You might recognize this force as that of a simple spring with spring constant \( k \), namely Hooke's law. This is indeed the case, but it turns out that this force also serves as a good model for many other physical systems. The equation of motion
+        associated with such a force is,</p>
+    <p>$$ \frac{d^2 x(t)}{d t^2} = - \frac{k}{m} x(t) $$</p>
+    <p>As usual, this is a differential equation whose solution is the position as a function of time, \( x(t) \). The general solution to the equation of motion is given by,</p>
+    <p>$$ x(t) = A \cos (\omega t + \phi) $$</p>
+    <p>where</p>
+    <p>$$ \omega = \sqrt{k/m} $$</p>
+    <p>is called the angular frequency. It is an intrinsic quantity of the system. \( A \) is the amplitude of the oscillations of \( \phi \) is the phase, which defines the initial position. Both \( A \) and \( \phi \) are extrinsic quantities, which
+        vary depending on the initial conditions.</p>
+    <p>Such a motion is known as simple harmonic motion. It is an extremely important system, not just because of its simplicity, but because it shows up in a countless number of situations in all fields of science.</p>
+    <p>The motion is periodic with a period of \( T = 2 \pi / \omega \). To see this we notes that,</p>
+    <p>$$ x(t + T) = A \cos (\omega (t + T) + \phi) $$</p>
+    <p>$$ x(t + T) = A ( \cos(\omega T) \cos(\omega t + \phi) - \sin(\omega T) \sin(\omega T + \phi) ) $$</p>
+    <p>$$ x(t + T) = A \cos(\omega t + \phi) $$</p>
+    <p>$$ x(t + T) = x(t) $$</p>
+    <p>The frequency is the inverse of the period \( f = 1 / T \) and hence we have a relation between the frequency and the angular frequency,</p>
+    <p>$$ \omega = 2 \pi f = \frac{2 \pi}{T} $$</p>
+    <p>Since we have the full solution for the position as a function of time, we can obtain all the other kinematical functions such as velocity and acceleration through differentiation,</p>
+    <p>$$ v(t) = \frac{d x(t)}{d t} = - A \omega \sin(\omega t + \phi) $$</p>
+    <p>$$ a(t) = \frac{d v(t)}{d t} = - A \omega^2 \cos(\omega t + \phi) $$</p>
+    <p>Since the force is derived from a potential, it is a conservative force and thus the total energy is a conserved quantity. As usually, it is composed of kinetic energy and a potential energy,</p>
+    <p>$$ K(t) = \frac{1}{2} m v(t)^2 = \frac{1}{2} m A^2 \omega^2 \sin^2 (\omega t + \phi) $$</p>
+    <p>$$ U(t) = \frac{1}{2} k x(t)^2 = \frac{1}{2} k A^2 \cos^2 (\omega t + \phi) $$</p>
+    <p>Each of these quantities varies with time, but their sum, which is the total energy, is a constant of the motion:</p>
+    <p>$$ E_{tot} = K(t) + U(t) = \frac{1}{2} k A^2 = \frac{1}{2} m \omega^2 A^2 $$</p>
+    <p>This last equation is proved using the relation \( \omega = \sqrt{k / m} \) and the basic identity of trigonometry.</p>
+  </div>
+</div>
+
+<script>
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+</script>
